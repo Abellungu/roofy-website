@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Property</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff7a00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e66a00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Add New Property</h2>
+
+    <form method="POST">
+        <input type="text" name="title" placeholder="Property Title" required>
+        <input type="text" name="price" placeholder="Price (e.g. K1,200,000)" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="text" name="details" placeholder="Details (beds, baths...)" required>
+        <input type="text" name="image" placeholder="Image filename (e.g. house.jpg)" required>
+
+        <select name="listing_type" required>
+            <option value="">Select Type</option>
+            <option value="Sale">For Sale</option>
+            <option value="Rent">For Rent</option>
+            <option value="For Lease">For Lease</option>
+        </select>
+
+        <button type="submit">Add Property</button>
+    </form>
+</div>
+
+</body>
+</html>

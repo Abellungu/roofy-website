@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roofy</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME (ADD THIS) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <img src="/static/images/logo.jpg" class="logo">
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Build, Brand, Grow with Roofy</h1>
+        <p>Real estate, LED billboard advertising and marketing solutions.</p>
+        <a href="#services" class="hero-btn">Explore Services</a>
+    </div>
+</section>
+</section>  <!-- HERO ends -->
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h2>About Roofy</h2>
+
+    <div class="about-container">
+        <div class="about-box">
+            <h3>Our Mission</h3>
+            <p>To help brands grow through strategic marketing and real estate solutions.</p>
+        </div>
+
+        <div class="about-box">
+            <h3>Our Vision</h3>
+            <p>To become a leading advertising and property brand in Zambia.</p>
+        </div>
+    </div>
+</section
+
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <h2>Our Services</h2>
+
+  <div class="services-container">
+
+    <!-- Real Estate -->
+    <div class="service-box">
+      <h3>Real Estate</h3>
+      <p>
+        Property development, sales and investment opportunities tailored
+        for individuals, families and businesses.
+      </p>
+    </div>
+
+    <!-- LED Billboards -->
+<a href="/led" style="text-decoration:none; color:inherit;">
+  <div class="service-box">
+    <h3>LED Billboard Advertising</h3>
+    <p>
+      We are expanding into LED billboard advertising to help businesses
+      reach wider audiences through high-visibility digital displays.
+    </p>
+    <p style="margin-top:10px; font-style:italic; color:gray;">
+      Available for upcoming projects and partnerships.
+    </p>
+  </div>
+</a>
+
+    <!-- Branding -->
+    <div class="service-box">
+      <h3>Branding & Marketing</h3>
+      <p>
+        Strategic branding and marketing solutions designed to grow your
+        business and increase visibility.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="team">
+    <h2>Our Leadership Team</h2>
+
+    <div class="team-container">
+
+        <!-- Huang Aibing -->
+        <div class="team-card">
+            <img src="/static/images/ceo.jpg" alt="">
+            <h3>Huang Aibing</h3>
+            <p>Chief Executive Officer (CEO)</p>
+
+            <a href="tel:0964813737" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+        <!-- Abel Lungu -->
+        <div class="team-card">
+            <img src="/static/images/coo.jpg" alt="">
+            <h3>Abel Lungu</h3>
+            <p>Chief Operating Officer (COO)</p>
+
+            <a href="tel:0973206306" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+        <!-- Naomi -->
+        <div class="team-card">
+            <img src="/static/images/naomi.jpg" alt="">
+            <h3>Naomi Chanda</h3>
+            <p>Administration Supervisor</p>
+
+            <a href="tel:0977486563" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+        <!-- Chisa Kabaso -->
+        <div class="team-card">
+            <img src="/static/images/chisha.jpg" alt="">
+            <h3>Chisa Kabaso</h3>
+            <p>Sales Supervisor</p>
+
+            <a href="tel:0972254873" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+        <!-- Cosmas Chungu -->
+        <div class="team-card">
+            <img src="/static/images/cosmas.jpg" alt="">
+            <h3>Cosmas Chungu</h3>
+            <p>Head of Advertising</p>
+
+            <a href="tel:0975456385" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+        <!-- Kachinga Jnr -->
+        <div class="team-card">
+            <img src="/static/images/kachinga.jpg" alt="">
+            <h3>Kachinga Jnr</h3>
+            <p>Marketing Assistant</p>
+
+            <a href="tel:0979335758" class="team-btn">Call</a>
+            <a href="mailto:roofy@mingyangrt.com" class="team-btn">Email</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+    <h2>Contact Us</h2>
+
+    {% if success %}
+        <p class="success-message">✅ Message sent successfully!</p>
+    {% endif %}
+
+    <div class="contact-container">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info">
+            <p>Email: <a href="mailto:roofy@mingyangrt.com">roofy@mingyangrt.com</a></p>
+            <p>Phone: <a href="tel:+260964813736">+260 964 813 736</a></p>
+            <p>Location: 📍2742/M Second Street Ibex Hill, Lusaka., Zambia</p>
+
+            <a href="https://wa.me/260964813736" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsaApp
+            </a>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <form action="/contact" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+    </div>
+
+</section>
+
+<h2>Featured Properties</h2>
+
+<div class="property-container">
+    {% for property in properties %}
+        <div class="card">
+
+            {% set images = property[5].split(',') %}
+            <img src="/static/images/{{ images[0] }}" class="property-img">
+
+            <h3>{{ property[1] }}</h3>
+            <p>💰 {{ property[2] }}</p>
+            <p>📍 {{ property[3] }}</p>
+
+            <a href="/property/{{ property[0] }}">View Details</a>
+
+        </div>
+    {% endfor %}
+</div>
+
+<a href="/listings" style="padding:10px 20px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">
+    View All Properties
+  </a>
+</div>
+
+<footer>
+  <div class="footer-container">
+
+    <h2>Roofy Investments LTD</h2>
+    <p>Real Estate. LED branding. Results that matter.</p>
+
+    <p>Email: <a href="mailto:roofy@mingyangrt.com">roofy@mingyangrt.com</a></p>
+    <p>Phone: <a href="tel:+260964813737">+260 964 813 737</a></p>
+
+    <p class="copyright">© 2026 Roofy. All rights reserved.</p>
+
+  </div>
+</footer>

@@ -1,0 +1,54 @@
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div style="
+        background:#d4edda;
+        color:#155724;
+        padding:12px;
+        border-radius:6px;
+        margin-bottom:15px;
+        font-weight:500;
+      ">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<h2>Property Management</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Action</th>
+    </tr>
+
+    {% for property in properties %}
+    <tr>
+        <td>{{ property[0] }}</td>
+        <td>{{ property[1] }}</td>
+        <td>{{ property[2] }}</td>
+        <td>{{ property[3] }}</td>
+        <td>{{ property[6] }}</td>
+        <td>
+          <a href="/edit/{{ property[0] }}"
+          style="background:blue; color:white; padding:5px 1opx; text-decoration:none; border-radius:5px;">
+          Edit
+        </a>
+
+
+          <a href="/delete/{{ property[0] }}"
+         style="background:red; color:white; padding:5px 10px; text-decoration:none; border-radius:5px;">
+         Delete
+      </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+

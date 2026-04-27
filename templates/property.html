@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ property[1] }}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .thumb {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Get images from DB -->
+
+
+    <!-- Main Image -->
+    <img id="mainImage"
+         src="{{ url_for('static', filename='images/' + images[0]) }}"
+         class="main-image">
+    <!-- Main Image -->
+
+    <!-- Property Info -->
+    <h2>{{ property[1] }}</h2>
+
+    <p><strong>Price:</strong> {{ property[2] }}</p>
+    <p><strong>Location:</strong> {{ property[3] }}</p>
+    <p><strong>Details:</strong> {{ property[4] }}</p>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        {% for img in images %}
+            <img src="{{ url_for('static', filename='images/' + img) }}"
+                 class="thumb"
+                 onclick="changeImage(this)">
+        {% endfor %}
+    </div>
+
+</div>
+
+<!-- JS for switching images -->
+<script>
+function changeImage(element) {
+    document.getElementById("mainImage").src = element.src;
+}
+</script>
+
+</body>
+</html>

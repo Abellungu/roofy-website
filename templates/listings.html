@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listings</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        .listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <img src="/static/images/logo.jpg" class="logo">
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/listings">Listings</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+    <form method="GET" action="/listings" style="text-align:center; margin:20px;">
+    <input type="text" name="search" placeholder="Search location..."
+           style="padding:10px; width:250px;">
+
+    <button type="submit" style="padding:10px;">Search</button>
+</form>
+
+<h2 style="text-align:center; margin-top: 30px;">Available Properties</h2>
+
+    <div class="properties-container">
+
+{% for property in properties %}
+<div class="property-card">
+
+    <img src="{{ url_for('static', filename='images/' + property[5].split(',')[0]) }}" alt="Property">
+
+    <div class="property-info">
+        <h3>{{ property[1] }}</h3>
+
+        <p class="price">💰 {{ property[2] }}</p>
+        <p class="location">📍 {{ property[3] }}</p>
+        <p class="details">{{ property[4] }}</p>
+
+        <a href="/property/{{ property[0] }}" class="btn">View Details</a>
+    </div>
+
+</div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

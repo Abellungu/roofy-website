@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Messages</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Admin - Messages</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Reply</th>
+        </tr>
+
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg["name"] }}</td>
+            <td>{{ msg["email"] }}</td>
+            <td>{{ msg["message"] }}</td>
+            <td>
+                <a href="mailto:{{ msg['email'] }}">Reply</a>
+                <form action="{{ url_for('delete_message', id=msg['id']) }}" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('Delete this message?');">
+                Delete
+            </button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+
+
+
+</body>
+</htms
