@@ -1,0 +1,28 @@
+{
+    "include": [
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        ".sanity"
+    ],
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "jsx": "preserve",
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "allowJs": true,
+        "noEmit": true
+    }
+}

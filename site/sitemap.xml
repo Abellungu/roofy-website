@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://www.roofyinvestments.com/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/about.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/about.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/about.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/contact.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/contact.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/services/real-estate.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/services/real-estate.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/services/real-estate.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/services/advertising.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/services/advertising.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/services/advertising.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/services/branding.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/services/branding.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/services/branding.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/properties/index.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/properties/index.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/properties/index.html"/>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/cookies.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.roofyinvestments.com/terms.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <!--
+        Phase 3: per-listing URLs.
+        Property detail pages are currently served from /properties/detail.html?id=<slug>.
+        Query-string URLs are intentionally omitted from this sitemap.
+        A future build step will emit /properties/<slug>.html and add them as proper <url> entries here.
+    -->
+</urlset>

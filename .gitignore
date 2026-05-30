@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Secrets / env
+.env
+.env.local
+.env.*.local
+**/.env.local
+
+# Sanity build artifacts
+studio/dist/
+studio/.sanity/
+
+# Large binary attachments (exceed GitHub 100MB limit — client product zips)
+*.zip
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Internal AI guidance — not part of the product
+CLAUDE.md
+
+# Visual-direction reference prototypes — not part of the deliverable
+风格模板/

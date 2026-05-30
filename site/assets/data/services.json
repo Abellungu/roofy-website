@@ -1,0 +1,101 @@
+{
+    "_note": "Three service pillars per Roofy_Zambia_Website_Brief(1).docx. Extended in Phase 2 with `narrative*`, `deliverableDesc*`, `heroImg`, `caseStudies`. The `advertising.empty` block reflects the live site's positioning of LED as an emerging business.",
+    "pillars": [
+        {
+            "id": "real-estate",
+            "icon": "home",
+            "title": "Real Estate Solutions",
+            "titleZh": "房地产解决方案",
+            "summary": "Property development, sales, investment opportunities and consultation for individuals, families and businesses.",
+            "summaryZh": "物业开发、房产买卖、投资咨询与置业陪伴。",
+            "heroImg": "/assets/img/properties/kalundu1.jpg",
+            "narrative": [
+                "ROOFY's real-estate practice is the original engine of the company. Since 2024 we have walked clients through Lusaka's residential, retail and land markets — from a Kalundu villa to a Lusaka-West development plot — with the same level of care, regardless of ticket size.",
+                "Buyers get a hand-curated shortlist, transparent due diligence and an advisor who shows up to every viewing. Sellers get listings that are properly photographed, indexed and put in front of the right kind of buyer — Zambian and Chinese alike."
+            ],
+            "narrativeZh": [
+                "房地产是 ROOFY 的起家业务。自 2024 年起，我们陪伴客户走过卢萨卡的住宅、商业与土地市场——从 Kalundu 的别墅到 Lusaka West 的开发用地——无论项目大小，标准始终如一。",
+                "对买方，我们提供精心筛选的候选房源、透明的尽调流程，以及全程陪同的顾问。对卖方，我们认真拍摄、清晰登记，把房源送到合适的赞比亚与中国买家面前。"
+            ],
+            "deliverables": ["Property Development", "Property Sales & Rentals", "Land Agency", "Investment Advisory"],
+            "deliverablesZh": ["物业开发", "房产买卖与租赁", "土地代理", "投资顾问"],
+            "deliverableDescEn": [
+                "Identifying sites, advising on design briefs and managing build-out for residential and commercial projects.",
+                "End-to-end agency for new-build and resale homes, plus long-term and serviced rentals.",
+                "Buying, selling and packaging agricultural, industrial and development land across Zambia.",
+                "Helping investors model returns, structure deals and steward assets after handover."
+            ],
+            "deliverableDescZh": [
+                "选址、设计简报与建造管理 —— 住宅与商业项目皆可。",
+                "新房与二手房的完整代理，外加长租与服务式公寓。",
+                "在赞比亚全境代理农业、工业与开发用地的买卖与打包。",
+                "为投资者构建收益模型、设计交易结构，并在交付后提供资产托管。"
+            ],
+            "caseStudies": []
+        },
+        {
+            "id": "advertising",
+            "icon": "tv-minimal-play",
+            "title": "LED Billboard Advertising",
+            "titleZh": "LED 户外广告",
+            "summary": "Digital outdoor advertising powered by modern LED screens — visibility for brands across Lusaka and key Zambian cities.",
+            "summaryZh": "以现代化 LED 屏幕为核心的数字户外广告。",
+            "heroImg": "/assets/img/properties/mainstreet1.jpg",
+            "narrative": [
+                "LED billboard advertising is the new chapter of ROOFY's practice. We are building a digital out-of-home network across Lusaka's commercial cores and high-traffic gateways — modern LED screens designed to give brands daylight-readable, video-capable presence on the streets that matter.",
+                "Because this practice is launching, our inventory is being assembled rather than catalogued. That is also the opportunity: founding partners get prime placements, custom terms and a real seat at the table as ROOFY's media network comes online."
+            ],
+            "narrativeZh": [
+                "LED 户外广告是 ROOFY 的下一程。我们正在卢萨卡核心商圈与高流量节点搭建数字户外网络——现代 LED 屏幕，白天清晰可读、支持视频，让品牌出现在最该出现的街道上。",
+                "因为这条业务线刚启动，我们的媒介库存还在搭建而非陈列。这反而是机会：首批合作伙伴可以拿到最佳点位、定制条款，并在 ROOFY 媒介网络上线的过程中真正参与决策。"
+            ],
+            "deliverables": ["Digital LED Billboards", "Outdoor Advertising Strategy", "Media Planning & Buying", "Campaign Reporting"],
+            "deliverablesZh": ["数字 LED 广告屏", "户外广告策略", "媒介规划与投放", "投放效果报告"],
+            "deliverableDescEn": [
+                "Building and operating modern LED billboards in core Lusaka districts and high-traffic gateways.",
+                "Helping brands pick the right surfaces, timings and creative formats for their objectives.",
+                "Coordinating with our partner network to assemble media buys that go beyond what we own.",
+                "Post-campaign metrics — impressions, foot-traffic context and learnings — back to the brand."
+            ],
+            "deliverableDescZh": [
+                "在卢萨卡核心商圈与高流量节点搭建并运营现代 LED 广告屏。",
+                "帮品牌选择合适的版位、时段与创意形式，对齐营销目标。",
+                "联动合作媒介网络，构建超出自有库存范围的完整投放方案。",
+                "投放结束后的数据复盘 —— 曝光、人流上下文与可学习的洞察。"
+            ],
+            "caseStudies": []
+        },
+        {
+            "id": "branding",
+            "icon": "sparkles",
+            "title": "Branding & Marketing",
+            "titleZh": "品牌与营销",
+            "summary": "Strategic brand positioning and marketing execution that strengthens presence and customer engagement.",
+            "summaryZh": "战略品牌定位与营销执行。",
+            "heroImg": "/assets/img/properties/kingsland1.jpg",
+            "narrative": [
+                "ROOFY's branding practice helps businesses earn a seat at the table — a position in the market that is clear, credible and memorable. We combine the strategic work (positioning, naming, identity) with the operational work (campaign rollout, content, social) so brands don't just look polished, they actually move.",
+                "Most of our brand work runs in tandem with our real-estate and advertising practices — turning a new property project into a brand, or letting an LED campaign work as a beat in a larger story."
+            ],
+            "narrativeZh": [
+                "ROOFY 的品牌团队帮助企业拿到一席之地——在市场中获得清晰、可信、可被记忆的位置。我们既做战略动作（定位、命名、视觉），也做执行动作（活动落地、内容、社媒），让品牌不只是看上去精致，更能真正推动业务。",
+                "我们大部分品牌项目会与房地产、广告两条业务线联动——把一个新地产项目做成一个品牌，或者让一次 LED 投放成为更大叙事的一拍。"
+            ],
+            "deliverables": ["Brand Strategy & Positioning", "Visual & Verbal Identity", "Marketing Campaigns", "Content & Social Media"],
+            "deliverablesZh": ["品牌战略与定位", "视觉与语言系统", "营销活动落地", "内容与社媒运营"],
+            "deliverableDescEn": [
+                "Defining who the brand is, who it's for, and the difference it makes in the market.",
+                "The logo, type system, palette, voice and rules that make a brand recognisable.",
+                "Campaign concepts, rollout plans and the execution to put them on streets, screens and feeds.",
+                "Long-term content programmes for owned channels and bilingual community management."
+            ],
+            "deliverableDescZh": [
+                "明确品牌是谁、为谁存在、在市场中创造怎样的差异。",
+                "Logo、字体系统、色彩、语言风格与使用规范——让品牌一眼可认。",
+                "活动概念、落地计划，以及把它真正推向街头、屏幕与信息流的执行能力。",
+                "长期的自媒体内容计划，配套中赞双语社群运营。"
+            ],
+            "caseStudies": []
+        }
+    ]
+}

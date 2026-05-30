@@ -1,0 +1,240 @@
+/* Roofy Investments Zambia — site stylesheet
+ * Direction: international-gray minimalism (Linear / Notion / Stripe register).
+ * Body sits on zinc-50, text on zinc-800; single zinc-900 accent for CTAs.
+ * Type family: Inter (Latin) + Noto Sans SC (Chinese fallback).
+ * Locked rules: see project memory `project_roofy_brief.md` (2026-05-14 pivot). */
+
+html,
+body {
+    background: #F8FAFC;
+    color: #334155;
+    font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Moderate display scale. Hero max ~3rem (48px), then proportional steps down. */
+.display-xl {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    color: #09090B;
+}
+
+.display-lg {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    line-height: 1.15;
+    font-size: clamp(1.625rem, 3vw, 2.25rem);
+    color: #09090B;
+}
+
+.display-md {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: #09090B;
+}
+
+.eyebrow {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-size: .75rem;
+    color: #D97706;
+}
+
+/* Two-mode navbar: 'hero' = transparent over a dark hero image (light text),
+ * 'solid' = solid white bg + slate text + subtle bottom border (default).
+ * The scroll watcher in roofy-core.js toggles data-mode on home. */
+
+#site-nav { transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+
+#site-nav[data-mode="hero"] {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+}
+#site-nav[data-mode="hero"] .nav-wordmark { color: #FFFFFF; }
+#site-nav[data-mode="hero"] .nav-link { color: rgba(241, 245, 249, 0.85); }
+#site-nav[data-mode="hero"] .nav-link:hover,
+#site-nav[data-mode="hero"] .nav-link.is-active { color: #FBBF24; }
+#site-nav[data-mode="hero"] .nav-lang { color: rgba(241, 245, 249, 0.85); }
+#site-nav[data-mode="hero"] .nav-lang:hover { color: #FBBF24; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="hero"] .nav-mobile-toggle { color: #FFFFFF; }
+
+#site-nav[data-mode="solid"] {
+    background: #0F172A;
+    border-bottom: 1px solid #0F172A;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+#site-nav[data-mode="solid"] .nav-wordmark { color: #FFFFFF; }
+#site-nav[data-mode="solid"] .nav-link { color: rgba(226, 232, 240, 0.85); }
+#site-nav[data-mode="solid"] .nav-link:hover,
+#site-nav[data-mode="solid"] .nav-link.is-active { color: #FBBF24; }
+#site-nav[data-mode="solid"] .nav-lang { color: rgba(226, 232, 240, 0.85); }
+#site-nav[data-mode="solid"] .nav-lang:hover { color: #FBBF24; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="solid"] .nav-mobile-toggle { color: #FFFFFF; }
+
+p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+}
+
+.reveal-mask {
+    overflow: hidden;
+}
+
+.reveal-line {
+    display: inline-block;
+    transform: translateY(110%);
+    will-change: transform;
+}
+
+.marquee {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    mask-image: linear-gradient(90deg, transparent, #FFFFFF 8%, #FFFFFF 92%, transparent);
+}
+
+.marquee__track {
+    display: flex;
+    gap: 4rem;
+    padding-right: 4rem;
+    animation: marquee 40s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.img-zoom > img {
+    transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+}
+
+.img-zoom:hover > img {
+    transform: scale(1.04);
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* Article body — paragraphs in news detail page. Generous line-height and
+ * room between paragraphs, so long reads stay comfortable. */
+.prose-article p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #334155;
+    margin-bottom: 1.25rem;
+}
+.prose-article p:last-child { margin-bottom: 0; }
+.prose-article p:first-of-type {
+    font-size: 1.0625rem;
+    color: #1E293B;
+}
+
+#whatsapp-fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 60;
+}
+
+#whatsapp-fab a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, .25);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#whatsapp-fab a:hover {
+    transform: scale(1.06);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, .35);
+}
+
+#cookie-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 6rem;
+    max-width: 32rem;
+    z-index: 55;
+    transform: translateY(120%);
+    transition: transform .6s cubic-bezier(.2, .8, .2, 1);
+}
+
+#cookie-banner.is-visible {
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+    .marquee__track {
+        animation: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 5px;
+    border: 2px solid #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+::selection {
+    background: #F59E0B;
+    color: #0F172A;
+}

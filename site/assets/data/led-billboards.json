@@ -1,0 +1,65 @@
+{
+    "_note": "PLACEHOLDER seed for ROOFY-operated outdoor LED billboard locations. All placeholder:true and monthlyRate BLANK on purpose — LED outdoor advertising is an EMERGING business (brand-voice rule). Framing is 招商中 / now booking founding partners. Replace via Sanity Studio (LED 户外点位) with real locations + rate card as inventory comes online.",
+    "billboards": [
+        {
+            "id": "lsk-01",
+            "code": "LSK-01",
+            "placeholder": true,
+            "nameZh": "Cairo Road 商业中心大屏",
+            "nameEn": "Cairo Road Commercial Core",
+            "addressZh": "卢萨卡 Cairo Road 与 Church Road 交汇处",
+            "addressEn": "Cairo Road × Church Road junction, Lusaka",
+            "screenSize": "12m × 6m",
+            "dailyTraffic": "60,000+ /day",
+            "availability": "coming",
+            "monthlyRate": "",
+            "img": "https://images.unsplash.com/photo-1567598508481-65985588e295?auto=format&fit=crop&q=80&w=1200",
+            "mapUrl": ""
+        },
+        {
+            "id": "lsk-02",
+            "code": "LSK-02",
+            "placeholder": true,
+            "nameZh": "Great East Road · Manda Hill 路段",
+            "nameEn": "Great East Road · Manda Hill",
+            "addressZh": "卢萨卡 Great East Road，近 Manda Hill 购物中心",
+            "addressEn": "Great East Road, near Manda Hill Mall, Lusaka",
+            "screenSize": "10m × 5m",
+            "dailyTraffic": "45,000+ /day",
+            "availability": "booking",
+            "monthlyRate": "",
+            "img": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200",
+            "mapUrl": ""
+        },
+        {
+            "id": "lsk-03",
+            "code": "LSK-03",
+            "placeholder": true,
+            "nameZh": "Kafue Road 出城枢纽",
+            "nameEn": "Kafue Road Gateway",
+            "addressZh": "卢萨卡 Kafue Road 主干道出城方向",
+            "addressEn": "Kafue Road arterial, outbound, Lusaka",
+            "screenSize": "14m × 7m",
+            "dailyTraffic": "52,000+ /day",
+            "availability": "coming",
+            "monthlyRate": "",
+            "img": "https://images.unsplash.com/photo-1517999144091-3d9dca6d1e43?auto=format&fit=crop&q=80&w=1200",
+            "mapUrl": ""
+        },
+        {
+            "id": "lsk-04",
+            "code": "LSK-04",
+            "placeholder": true,
+            "nameZh": "Independence Avenue 政务区",
+            "nameEn": "Independence Avenue Civic Belt",
+            "addressZh": "卢萨卡 Independence Avenue 政府办公区",
+            "addressEn": "Independence Avenue, government district, Lusaka",
+            "screenSize": "8m × 4m",
+            "dailyTraffic": "30,000+ /day",
+            "availability": "coming",
+            "monthlyRate": "",
+            "img": "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=1200",
+            "mapUrl": ""
+        }
+    ]
+}

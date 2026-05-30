@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofy Investments Zambia — Build, Brand, Grow with Roofy.</title>
+    <meta name="description" content="Roofy Investments Zambia is a Lusaka-based, multi-service company specialising in real estate solutions, LED billboard advertising and brand marketing.">
+    <meta name="keywords" content="Real Estate Zambia, Billboard Advertising Zambia, LED Advertising Lusaka, Branding Company Zambia, Marketing Agency Zambia, Roofy Investments Zambia">
+    <meta name="author" content="Roofy Investments Zambia">
+    <link rel="canonical" href="https://www.roofyinvestments.com/">
+    <link rel="alternate" hreflang="en" href="https://www.roofyinvestments.com/">
+    <link rel="alternate" hreflang="zh" href="https://www.roofyinvestments.com/">
+    <link rel="alternate" hreflang="x-default" href="https://www.roofyinvestments.com/">
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.roofyinvestments.com/">
+    <meta property="og:title" content="Roofy Investments Zambia — Build, Brand, Grow with Roofy.">
+    <meta property="og:description" content="Real estate, LED outdoor advertising and brand marketing in Lusaka, Zambia.">
+    <meta property="og:image" content="https://www.roofyinvestments.com/assets/img/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/assets/img/logo.jpg">
+    <link rel="apple-touch-icon" href="/assets/img/logo.jpg">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="/assets/css/roofy.css">
+
+    <!-- JSON-LD Organization schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Roofy Investments Zambia",
+        "alternateName": "ROOFY",
+        "url": "https://www.roofyinvestments.com/",
+        "logo": "https://www.roofyinvestments.com/assets/img/logo.jpg",
+        "image": "https://www.roofyinvestments.com/assets/img/logo.jpg",
+        "description": "Roofy Investments Zambia is a multi-service company specialising in real estate solutions, LED billboard advertising and brand marketing across Zambia.",
+        "telephone": "+260 964 813 736",
+        "email": "roofy@mingyangrt.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2742/M Second Street, Ibex Hill",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+        },
+        "openingHours": ["Mo-Fr 08:00-17:00", "Sa 09:00-13:00"],
+        "areaServed": "Zambia",
+        "slogan": "Build, Brand, Grow with Roofy."
+    }
+    </script>
+
+    <script src="/assets/js/analytics.js" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased">    <!-- App root (JS-rendered) -->
+    <div id="root"></div>
+
+    <!-- Floating UI -->
+    <div id="whatsapp-fab"></div>
+    <div id="cookie-banner"></div>
+
+    <!-- App scripts -->
+    <script src="/assets/js/i18n.js"></script>
+    <script src="/assets/js/roofy-core.js"></script>
+    <script src="/assets/js/partials.js"></script>
+    <script src="/assets/js/property-card.js"></script>
+    <script src="/assets/js/page-home.js"></script>
+</body>
+
+</html>

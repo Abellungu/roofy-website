@@ -1,0 +1,335 @@
+{
+    "_note": "Draft legal copy for /privacy.html, /cookies.html, /terms.html. All pages display the `(Draft — pending legal review)` flag in the lastUpdated stripe. Client to engage Zambian counsel before production launch.",
+    "zh": {
+        "privacy": {
+            "title": "隐私政策",
+            "lastUpdated": "最近更新：2026-05-12 · （草案 · 待法律审阅）",
+            "intro": "Roofy Investments Zambia Limited（下称「ROOFY」「我们」「本公司」）尊重您的隐私。本政策说明我们在 www.roofyinvestments.com 及相关渠道收集、使用与保护个人信息的方式。本政策为草案，正式版本将在法律审阅完成后发布。",
+            "sections": [
+                {
+                    "heading": "01 · 我们收集的信息",
+                    "body": [
+                        "**您主动提供的信息**：包括姓名、邮箱、电话、感兴趣的业务方向以及您通过表单、邮件或 WhatsApp 与我们沟通时所发送的内容。",
+                        "**自动收集的信息**：包括浏览器类型、设备类型、IP 地址、访问时间、来源链接，以及您在网站上的浏览路径。此类信息通过 Cookie 与同类技术收集，详见我们的 Cookie 政策。"
+                    ]
+                },
+                {
+                    "heading": "02 · 我们如何使用信息",
+                    "body": [
+                        "我们会将上述信息用于：（i）回复您的咨询并提供您所请求的服务；（ii）持续改善网站与服务体验；（iii）在您同意的前提下，向您发送相关业务信息；（iv）满足法律、监管或合同要求；（v）防范欺诈与维护网站安全。"
+                    ]
+                },
+                {
+                    "heading": "03 · 第三方服务",
+                    "body": [
+                        "在网站运营过程中，我们使用若干第三方服务，您的部分信息可能因此被传输至这些服务的提供方：",
+                        "**Google Analytics（GA4）**：用于了解网站访问情况。该服务由 Google LLC 提供，可能涉及向境外（含美国）的数据传输。",
+                        "**Meta Pixel**：用于衡量在 Meta（Facebook、Instagram）平台投放广告的效果。该服务由 Meta Platforms, Inc. 提供。",
+                        "**WhatsApp**：网站提供与 +260 964 813 736 的 WhatsApp 直链；当您通过该链接发起对话，您与 WhatsApp 的交互将受 WhatsApp 自身的隐私政策约束。",
+                        "**Google Maps**：本网站若干页面嵌入 Google Maps 地图。加载地图时，您的 IP 地址、浏览器信息可能被发送至 Google。",
+                        "我们对上述第三方的隐私实践不承担直接责任，但已尽合理努力选择具备成熟数据保护实践的服务方。"
+                    ]
+                },
+                {
+                    "heading": "04 · Cookie",
+                    "body": [
+                        "我们使用 Cookie 与同类技术保存您的语言偏好、记录您的 Cookie 同意状态，并在您同意的前提下进行匿名的访问统计。详细的 Cookie 列表与控制方式见 [Cookie 政策](/cookies.html)。"
+                    ]
+                },
+                {
+                    "heading": "05 · 国际数据传输",
+                    "body": [
+                        "由于我们使用境外的 GA4、Meta Pixel 与 Google Maps 等服务，您的部分信息可能被传输至赞比亚境外（含美国与欧盟）。我们仅在第三方提供合理保护措施的前提下进行此类传输。"
+                    ]
+                },
+                {
+                    "heading": "06 · 信息保存",
+                    "body": [
+                        "我们仅在合理必要的时间内保留个人信息。咨询表单数据在我们最后一次与您沟通后保留至多 24 个月；分析数据按第三方服务的默认期限保存（GA4 默认 14 个月）。"
+                    ]
+                },
+                {
+                    "heading": "07 · 您的权利",
+                    "body": [
+                        "根据《赞比亚 2021 年数据保护法》（Data Protection Act, 2021），您有权查询、更正、删除我们持有的关于您的个人信息，撤回您先前给出的同意，以及在认为我们的处理不当时向数据保护监管机构投诉。如需行使上述权利，请通过下文「联系我们」的方式联系。"
+                    ]
+                },
+                {
+                    "heading": "08 · 联系我们",
+                    "body": [
+                        "如对本政策有任何疑问或希望行使您的数据权利，请通过以下方式联系：",
+                        "邮箱：roofy@mingyangrt.com · 电话：+260 964 813 736 · 地址：2742/M Second Street, Ibex Hill, Lusaka, Zambia。"
+                    ]
+                }
+            ]
+        },
+        "cookies": {
+            "title": "Cookie 政策",
+            "lastUpdated": "最近更新：2026-05-12 · （草案 · 待法律审阅）",
+            "intro": "本页说明 ROOFY 在 www.roofyinvestments.com 上使用 Cookie 的方式。如需了解我们收集与处理个人信息的完整方式，请参阅 [隐私政策](/privacy.html)。",
+            "sections": [
+                {
+                    "heading": "01 · 什么是 Cookie",
+                    "body": [
+                        "Cookie 是网站存储在您设备上的小型文本文件，用于记住您的偏好、识别会话并支持网站基础功能。Cookie 本身不会主动收集您的姓名或邮箱，但可与您的其他信息关联。"
+                    ]
+                },
+                {
+                    "heading": "02 · 我们使用的 Cookie",
+                    "body": [
+                        "我们将 Cookie 大致分为两类——「必要 Cookie」与「分析与广告 Cookie」。下表列出当前在我们网站上设置的具体 Cookie。"
+                    ]
+                },
+                {
+                    "heading": "03 · 如何控制 Cookie",
+                    "body": [
+                        "您首次访问时会看到 Cookie 横幅，可选择「同意」（允许全部 Cookie）或「仅必要」（仅启用网站运行所需的 Cookie）。",
+                        "您也可以通过浏览器设置删除已存在的 Cookie 或阻止新的 Cookie。具体方法因浏览器而异——请参阅您所用浏览器的帮助文档。",
+                        "请注意：禁用必要 Cookie 可能导致部分功能（如语言切换记忆、Cookie 横幅记忆）无法正常工作。"
+                    ]
+                },
+                {
+                    "heading": "04 · 管理您的 Cookie 设置",
+                    "body": [
+                        "如果您改变了主意，可使用下方按钮清除已保存的 Cookie 同意选择。横幅将在页面刷新后重新出现，您可以重新选择。"
+                    ]
+                }
+            ],
+            "cookieTable": {
+                "title": "我们设置的 Cookie",
+                "rows": [
+                    { "name": "roofy_consent", "purpose": "保存您的 Cookie 同意选择（all / essential）", "duration": "12 个月", "category": "必要" },
+                    { "name": "roofy_lang",    "purpose": "保存您选择的网站语言（zh / en）",            "duration": "12 个月", "category": "必要" },
+                    { "name": "_ga",           "purpose": "Google Analytics 4 区分访客身份的标识符",     "duration": "13 个月", "category": "分析" },
+                    { "name": "_ga_<ID>",      "purpose": "Google Analytics 4 维持会话状态",            "duration": "13 个月", "category": "分析" },
+                    { "name": "_fbp",          "purpose": "Meta Pixel 转化跟踪标识符",                  "duration": "3 个月",  "category": "广告" },
+                    { "name": "NID",           "purpose": "Google Maps 在嵌入地图时设置的偏好/安全 Cookie", "duration": "6 个月",  "category": "第三方" }
+                ],
+                "columns": { "name": "名称", "purpose": "用途", "duration": "有效期", "category": "类别" }
+            }
+        },
+        "terms": {
+            "title": "服务条款",
+            "lastUpdated": "最近更新：2026-05-12 · （草案 · 待法律审阅）",
+            "intro": "本条款约束您使用 www.roofyinvestments.com 及 Roofy Investments Zambia Limited（下称「ROOFY」）提供的相关服务。访问或使用本网站即表示您同意本条款。",
+            "sections": [
+                {
+                    "heading": "01 · 服务范围",
+                    "body": [
+                        "ROOFY 提供房地产代理、LED 户外广告及品牌营销等服务。本网站作为对外展示与初步沟通的渠道，最终服务条款以与客户单独签署的合同为准。"
+                    ]
+                },
+                {
+                    "heading": "02 · 网站使用",
+                    "body": [
+                        "您应以合法、合理的方式使用本网站，不得：（i）通过自动化程序大量抓取或干扰网站；（ii）尝试访问非公开内容；（iii）以欺骗、骚扰或诋毁他人为目的提交内容。",
+                        "我们保留在不另行通知的情况下随时修改、暂停或终止网站全部或部分功能的权利。"
+                    ]
+                },
+                {
+                    "heading": "03 · 房源信息",
+                    "body": [
+                        "网站上展示的房源信息为指示性内容，并非合同要约。价格、面积、产权状态及其他关键参数以现场尽调与正式签约文件为准。我们将持续努力保持信息准确，但不保证完全无误。"
+                    ]
+                },
+                {
+                    "heading": "04 · 知识产权",
+                    "body": [
+                        "本网站的设计、文字、图片、Logo、视频与代码归 ROOFY 或其许可方所有，并受适用法律保护。未经书面许可，不得复制、分发、修改或以商业目的使用。"
+                    ]
+                },
+                {
+                    "heading": "05 · 无担保声明",
+                    "body": [
+                        "本网站及其所有内容按「现状」提供。除非法律另有强制性规定，ROOFY 不就网站或其内容的适销性、特定用途适用性或不侵权作出任何明示或暗示担保。"
+                    ]
+                },
+                {
+                    "heading": "06 · 责任限制",
+                    "body": [
+                        "在适用法律允许的最大范围内，ROOFY 对因使用或无法使用本网站、或依赖网站信息而导致的任何间接、偶然、特殊或后果性损害不承担责任。"
+                    ]
+                },
+                {
+                    "heading": "07 · 适用法律与管辖",
+                    "body": [
+                        "本条款受赞比亚共和国法律管辖。任何与本条款或您使用本网站有关的争议，应提交至卢萨卡的有管辖权法院解决。"
+                    ]
+                },
+                {
+                    "heading": "08 · 联系我们",
+                    "body": [
+                        "如对本条款有任何疑问，请联系：",
+                        "邮箱：roofy@mingyangrt.com · 电话：+260 964 813 736 · 地址：2742/M Second Street, Ibex Hill, Lusaka, Zambia。"
+                    ]
+                }
+            ]
+        }
+    },
+    "en": {
+        "privacy": {
+            "title": "Privacy Policy",
+            "lastUpdated": "Last updated: 2026-05-12 · (Draft — pending legal review)",
+            "intro": "Roofy Investments Zambia Limited (\"ROOFY\", \"we\", \"us\") respects your privacy. This policy describes how we collect, use and protect personal information on www.roofyinvestments.com and through related channels. This is a draft; the final version will be published after legal review.",
+            "sections": [
+                {
+                    "heading": "01 · Information we collect",
+                    "body": [
+                        "**Information you provide.** Your name, email address, phone number, the service line you're interested in, and the contents of any message you send us through a form, by email or via WhatsApp.",
+                        "**Information collected automatically.** Browser type, device type, IP address, visit timestamps, referring URLs and the pages you view on our site. This information is gathered through cookies and similar technologies — see the Cookies Policy for details."
+                    ]
+                },
+                {
+                    "heading": "02 · How we use information",
+                    "body": [
+                        "We use the information above to (i) respond to your enquiries and deliver the services you request; (ii) improve our site and services over time; (iii) send you, with your consent, business communications you have asked for; (iv) comply with legal, regulatory or contractual obligations; and (v) prevent fraud and keep the site secure."
+                    ]
+                },
+                {
+                    "heading": "03 · Third-party services",
+                    "body": [
+                        "We use a number of third-party services to run this site. Some of your information may be transferred to those providers:",
+                        "**Google Analytics 4** — site usage analytics provided by Google LLC. May involve cross-border transfers, including to the United States.",
+                        "**Meta Pixel** — campaign measurement provided by Meta Platforms, Inc. when we run advertising on Meta (Facebook, Instagram).",
+                        "**WhatsApp** — we expose a WhatsApp deep-link to +260 964 813 736; once you reach WhatsApp, that interaction is governed by WhatsApp's own privacy policy.",
+                        "**Google Maps** — several pages embed Google Maps. Loading the map may share your IP address and browser info with Google.",
+                        "We do not directly control these third parties' privacy practices, but choose providers with mature data protection programmes."
+                    ]
+                },
+                {
+                    "heading": "04 · Cookies",
+                    "body": [
+                        "We use cookies and similar technologies to remember your language preference, persist your cookie consent choice and — with your consent — gather anonymous usage statistics. See our [Cookies Policy](/cookies.html) for the full list and how to control them."
+                    ]
+                },
+                {
+                    "heading": "05 · International data transfers",
+                    "body": [
+                        "Because we use overseas services (GA4, Meta Pixel, Google Maps), your information may be transferred outside Zambia, including to the United States and the European Union. We only use providers that offer reasonable data-protection safeguards."
+                    ]
+                },
+                {
+                    "heading": "06 · Data retention",
+                    "body": [
+                        "We keep personal information only as long as reasonably necessary. Inquiry-form data is retained for up to 24 months after our last contact with you. Analytics data is retained per the third-party defaults (e.g. GA4 default is 14 months)."
+                    ]
+                },
+                {
+                    "heading": "07 · Your rights",
+                    "body": [
+                        "Under the Zambia Data Protection Act, 2021, you have the right to access, correct or delete the personal information we hold about you, to withdraw consent you previously gave, and to lodge a complaint with the data-protection authority if you believe our processing is unlawful. To exercise these rights, contact us using the details below."
+                    ]
+                },
+                {
+                    "heading": "08 · Contact us",
+                    "body": [
+                        "For questions about this policy or to exercise your data-protection rights:",
+                        "Email roofy@mingyangrt.com · Phone +260 964 813 736 · Address 2742/M Second Street, Ibex Hill, Lusaka, Zambia."
+                    ]
+                }
+            ]
+        },
+        "cookies": {
+            "title": "Cookies Policy",
+            "lastUpdated": "Last updated: 2026-05-12 · (Draft — pending legal review)",
+            "intro": "This page explains how ROOFY uses cookies on www.roofyinvestments.com. For the full picture of how we collect and use personal information, please read the [Privacy Policy](/privacy.html).",
+            "sections": [
+                {
+                    "heading": "01 · What are cookies",
+                    "body": [
+                        "Cookies are small text files stored on your device by websites you visit. They are used to remember preferences, identify sessions and support basic site functionality. A cookie does not by itself collect your name or email, but can be associated with other information you provide."
+                    ]
+                },
+                {
+                    "heading": "02 · Cookies we set",
+                    "body": [
+                        "We group cookies into two categories — **essential** (needed for the site to function) and **analytics & advertising** (set only with your consent). The table below lists the specific cookies currently in use on our site."
+                    ]
+                },
+                {
+                    "heading": "03 · How to control cookies",
+                    "body": [
+                        "On your first visit, a cookie banner appears. You can choose **Accept** (all cookies) or **Essential only** (just the cookies the site needs to run).",
+                        "You can also delete existing cookies or block new ones via your browser settings. The exact steps differ between browsers — refer to your browser's help documentation.",
+                        "Note: disabling essential cookies may prevent some functionality from working (e.g. remembering your language choice or that you have dismissed the cookie banner)."
+                    ]
+                },
+                {
+                    "heading": "04 · Manage your cookie settings",
+                    "body": [
+                        "If you change your mind, use the button below to clear your saved cookie choice. The banner will reappear after the page reloads, so you can choose again."
+                    ]
+                }
+            ],
+            "cookieTable": {
+                "title": "Cookies we set",
+                "rows": [
+                    { "name": "roofy_consent", "purpose": "Stores your cookie consent choice (all / essential)",  "duration": "12 months", "category": "Essential" },
+                    { "name": "roofy_lang",    "purpose": "Stores your selected site language (zh / en)",        "duration": "12 months", "category": "Essential" },
+                    { "name": "_ga",           "purpose": "Google Analytics 4 — distinguishes visitors",         "duration": "13 months", "category": "Analytics" },
+                    { "name": "_ga_<ID>",      "purpose": "Google Analytics 4 — maintains session state",        "duration": "13 months", "category": "Analytics" },
+                    { "name": "_fbp",          "purpose": "Meta Pixel — conversion tracking identifier",         "duration": "3 months",  "category": "Advertising" },
+                    { "name": "NID",           "purpose": "Google Maps — preference & security cookie on embedded maps", "duration": "6 months",  "category": "Third-party" }
+                ],
+                "columns": { "name": "Name", "purpose": "Purpose", "duration": "Duration", "category": "Category" }
+            }
+        },
+        "terms": {
+            "title": "Terms of Service",
+            "lastUpdated": "Last updated: 2026-05-12 · (Draft — pending legal review)",
+            "intro": "These Terms govern your use of www.roofyinvestments.com and the related services provided by Roofy Investments Zambia Limited (\"ROOFY\"). By accessing or using the site, you agree to these Terms.",
+            "sections": [
+                {
+                    "heading": "01 · Services",
+                    "body": [
+                        "ROOFY provides real-estate agency, LED outdoor advertising and brand marketing services. This site is an information and initial-contact channel; the final commercial terms of any engagement are governed by separate written agreements between ROOFY and the client."
+                    ]
+                },
+                {
+                    "heading": "02 · Use of the site",
+                    "body": [
+                        "You agree to use the site lawfully and reasonably. You will not (i) use automated tools to scrape, overload or interfere with the site; (ii) attempt to access non-public areas; or (iii) submit content intended to deceive, harass or defame others.",
+                        "We reserve the right to modify, suspend or discontinue any part of the site at any time, without notice."
+                    ]
+                },
+                {
+                    "heading": "03 · Property listings",
+                    "body": [
+                        "Property information displayed on this site is indicative and does not constitute a contractual offer. Price, area, title status and other key parameters are subject to on-site due diligence and formal signed documents. We work to keep listings accurate but make no warranty that all details are error-free."
+                    ]
+                },
+                {
+                    "heading": "04 · Intellectual property",
+                    "body": [
+                        "The design, text, images, logos, video and code on this site are owned by ROOFY or its licensors and are protected by applicable law. No copying, distribution, modification or commercial use is permitted without our prior written consent."
+                    ]
+                },
+                {
+                    "heading": "05 · No warranties",
+                    "body": [
+                        "The site and its content are provided on an \"as is\" basis. Except where mandated by law, ROOFY makes no express or implied warranty as to the site's or content's merchantability, fitness for a particular purpose, or non-infringement."
+                    ]
+                },
+                {
+                    "heading": "06 · Limitation of liability",
+                    "body": [
+                        "To the maximum extent permitted by applicable law, ROOFY shall not be liable for any indirect, incidental, special or consequential damages arising out of your use of, or inability to use, the site or any reliance on its content."
+                    ]
+                },
+                {
+                    "heading": "07 · Governing law & jurisdiction",
+                    "body": [
+                        "These Terms are governed by the laws of the Republic of Zambia. Any dispute related to these Terms or to your use of the site shall be submitted to the competent courts of Lusaka."
+                    ]
+                },
+                {
+                    "heading": "08 · Contact us",
+                    "body": [
+                        "For questions about these Terms, please contact us:",
+                        "Email roofy@mingyangrt.com · Phone +260 964 813 736 · Address 2742/M Second Street, Ibex Hill, Lusaka, Zambia."
+                    ]
+                }
+            ]
+        }
+    }
+}

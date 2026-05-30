@@ -1,0 +1,212 @@
+{
+    "_note": "PLACEHOLDER DATA — replace via Sanity Studio before production launch. All `placeholder:true` items must be reviewed by Roofy editorial team. Generator will overwrite this file from studio/migrate/pull-data.ts once articles are in Sanity.",
+    "articles": [
+        {
+            "id": "china-zambia-bit-2026",
+            "category": "international",
+            "placeholder": true,
+            "publishedAt": "2026-05-12",
+            "coverImg": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "中赞签署新版双边投资协定 · 能源与基建为重点领域",
+            "titleEn": "China-Zambia sign updated bilateral investment treaty · energy and infrastructure highlighted",
+            "excerptZh": "新版 BIT 协定显著扩展了对能源、矿产开发与跨境基础设施的双向投资保护范围，预计将进一步加速中国资本在赞比亚的落地。",
+            "excerptEn": "The updated BIT meaningfully widens two-way investment protection across energy, mining and cross-border infrastructure — likely to accelerate Chinese capital deployment in Zambia.",
+            "bodyZh": [
+                "据外交部官方通报，中赞两国近期完成了新版双边投资协定的签署仪式，标志着两国经贸合作进入新的阶段。",
+                "协定的扩展重点集中在能源（包括清洁能源与矿产开采）、跨境基础设施以及金融服务三大领域。对于已经在赞比亚布局的中国企业，新协定提供了更明确的投资仲裁与本地化纠纷处理机制。",
+                "对 ROOFY 这类立足卢萨卡、连接中赞双边市场的本地服务商而言，这是一个值得关注的政策信号——它意味着未来 12-24 个月内可能出现更多需要本地化承接的中资项目机会。"
+            ],
+            "bodyEn": [
+                "China's Foreign Ministry announced the formal signing of an updated bilateral investment treaty (BIT) with Zambia, opening a new phase of bilateral commercial cooperation.",
+                "The treaty's expanded scope focuses on three areas: energy (including clean energy and mineral extraction), cross-border infrastructure, and financial services. For Chinese firms already operating in Zambia, the new treaty offers clearer arbitration procedures and localised dispute resolution paths.",
+                "For a Lusaka-based service firm like ROOFY that bridges China and Zambia, this is a policy signal worth tracking — it likely surfaces more locally-anchored project opportunities in the coming 12-24 months."
+            ],
+            "source": "新华社 · Xinhua",
+            "sourceUrl": ""
+        },
+        {
+            "id": "lobito-corridor-opens",
+            "category": "international",
+            "placeholder": true,
+            "publishedAt": "2026-04-28",
+            "coverImg": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "Lobito 走廊正式通车 · 赞比亚铜出口路径再缩短",
+            "titleEn": "Lobito Corridor opens · Zambia's copper-export route gets dramatically shorter",
+            "excerptZh": "横跨安哥拉、刚果（金）与赞比亚的 Lobito 铁路走廊正式贯通，为赞比亚铜带省的出口提供了通往大西洋的最短路径。",
+            "excerptEn": "The Lobito rail corridor across Angola, DRC and Zambia is now fully operational — giving Zambia's Copperbelt the shortest possible route to the Atlantic.",
+            "bodyZh": [
+                "经过多年的多边谈判与工程建设，连接安哥拉 Lobito 港、刚果（金）Kolwezi 与赞比亚 Copperbelt 的 Lobito 走廊在本月完成全段通车测试。",
+                "这条走廊对赞比亚最直接的意义在于：铜出口不再必须南下经过坦桑尼亚 Dar es Salaam 港或纳米比亚 Walvis Bay，而可以直接向西出海，时间从 30+ 天压缩到 7-10 天。",
+                "对地产与广告行业的连锁影响：物流提速意味着 Copperbelt 工业重心可能进一步北移，住宅与商业地产需求随之外溢。卢萨卡作为枢纽城市仍会受益。"
+            ],
+            "bodyEn": [
+                "After years of multilateral negotiation and construction, the Lobito Corridor — linking Angola's Lobito port, DRC's Kolwezi and Zambia's Copperbelt — completed its full-line operational test this month.",
+                "The most immediate implication for Zambia: copper exports no longer have to travel south to Dar es Salaam (Tanzania) or Walvis Bay (Namibia). They can go directly west to the Atlantic, cutting transit from 30+ days to 7-10 days.",
+                "Knock-on effects on real-estate and advertising: faster logistics may shift Copperbelt's industrial centre of gravity further north, and pull residential and commercial demand with it. Lusaka, as the central hub, remains a beneficiary."
+            ],
+            "source": "Bloomberg",
+            "sourceUrl": ""
+        },
+        {
+            "id": "g20-debt-restructuring",
+            "category": "international",
+            "placeholder": true,
+            "publishedAt": "2026-04-15",
+            "coverImg": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "G20 通过非洲债务重组路线图 · 赞比亚位列受益国",
+            "titleEn": "G20 adopts Africa debt restructuring roadmap · Zambia among beneficiaries",
+            "excerptZh": "G20 财长会议正式通过新一轮非洲主权债务重组路线图，赞比亚作为前期受益国，预计将在 18 个月内完成全部债权方谈判。",
+            "excerptEn": "The G20 finance ministers' meeting formally adopted a new wave of African sovereign-debt restructuring framework. Zambia, an early beneficiary, is expected to close all creditor negotiations within 18 months.",
+            "bodyZh": [
+                "G20 财长峰会发布最新一轮非洲债务重组路线图，建立统一的多边债权人协调机制。",
+                "对赞比亚而言，这意味着此前停滞的部分双边债务谈判将获得加速通道，预计 18 个月内可完成全部主要债权方的协议签署。",
+                "完成债务重组后，赞比亚的主权评级与外资流入预期都将得到改善——对地产、广告与品牌行业都是利好。"
+            ],
+            "bodyEn": [
+                "The G20 finance ministers' summit released its latest African debt restructuring roadmap, establishing a unified multilateral creditor coordination mechanism.",
+                "For Zambia, this means previously stalled bilateral debt negotiations now get a fast-track. Most major creditor agreements are expected to close within 18 months.",
+                "Once restructuring completes, Zambia's sovereign rating and foreign capital inflow expectations both improve — a tailwind for real estate, advertising and brand industries alike."
+            ],
+            "source": "Reuters",
+            "sourceUrl": ""
+        },
+        {
+            "id": "ibex-hill-roma-arterial",
+            "category": "lusaka",
+            "placeholder": true,
+            "publishedAt": "2026-05-10",
+            "coverImg": "https://images.unsplash.com/photo-1567683860620-fe2541cf52f8?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "卢萨卡市政厅 · Ibex Hill 至 Roma 主干道升级方案获批",
+            "titleEn": "Lusaka City Council approves Ibex Hill ↔ Roma arterial upgrade",
+            "excerptZh": "覆盖 Ibex Hill 至 Roma 全线的主干道扩建工程获批，含 4 车道扩容、新增照明与排水系统升级，预计 2027 年中完工。",
+            "excerptEn": "The arterial upgrade between Ibex Hill and Roma has been approved — including 4-lane widening, new lighting and drainage improvements, with completion targeted for mid-2027.",
+            "bodyZh": [
+                "卢萨卡市政厅本周发布公告，确认 Ibex Hill 至 Roma 主干道升级工程已经获得正式批复并进入采购招标阶段。",
+                "工程内容包括：现有 2 车道扩容至 4 车道、全线 LED 路灯安装、雨季排水系统升级，以及在 Olympia 路口新建立交。预算约为 ZMW 320 million，预计 2027 年中完工。",
+                "对沿线房产——尤其是 Ibex Hill、Roma 与 Olympia 三个高端居住区——的可达性、出行体验与租金水平均有正向影响。"
+            ],
+            "bodyEn": [
+                "Lusaka City Council confirmed this week that the Ibex Hill ↔ Roma arterial upgrade has received formal approval and is now in the procurement-tender phase.",
+                "The project includes widening the existing 2-lane road to 4 lanes, full LED street lighting installation, rainy-season drainage upgrades, and a new flyover at the Olympia intersection. Budget is around ZMW 320 million, with completion targeted for mid-2027.",
+                "For properties along the route — especially the high-end residential nodes of Ibex Hill, Roma and Olympia — accessibility, commute experience and rental levels should all see meaningful uplift."
+            ],
+            "source": "Lusaka Times",
+            "sourceUrl": ""
+        },
+        {
+            "id": "lusaka-property-expo-2026",
+            "category": "lusaka",
+            "placeholder": true,
+            "publishedAt": "2026-05-02",
+            "coverImg": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "首届卢萨卡国际地产投资博览会 · 2026 年 9 月开幕",
+            "titleEn": "First Lusaka International Real Estate Investment Expo · opens September 2026",
+            "excerptZh": "首届卢萨卡国际地产投资博览会确认于 2026 年 9 月 18-20 日在 Mulungushi 国际会议中心举办，预计吸引 80 余家本地与海外开发商参与。",
+            "excerptEn": "The first Lusaka International Real Estate Investment Expo is confirmed for 18-20 September 2026 at the Mulungushi International Conference Centre, expected to draw 80+ local and overseas developers.",
+            "bodyZh": [
+                "卢萨卡市政府、赞比亚投资促进局与本地房地产协会三方联合宣布，首届「卢萨卡国际地产投资博览会」将于 2026 年 9 月 18-20 日在 Mulungushi 国际会议中心举办。",
+                "博览会规划展位 200 个，重点邀请中国、南非、阿联酋、印度等地的开发商、投资基金与中介机构参展。",
+                "对 ROOFY 这类立足卢萨卡的多业务公司而言，这是一次集中展示项目、对接资金方与建立长期合作的窗口。"
+            ],
+            "bodyEn": [
+                "The Lusaka City Council, Zambia Development Agency and the local real-estate association jointly announced that the first Lusaka International Real Estate Investment Expo will take place at the Mulungushi International Conference Centre on 18-20 September 2026.",
+                "The expo plans 200 booths, prioritising developers, investment funds and intermediaries from China, South Africa, the UAE and India.",
+                "For a Lusaka-based multi-service firm like ROOFY, this is a focused window to showcase projects, connect with capital and build long-term partnerships."
+            ],
+            "source": "Zambia Development Agency",
+            "sourceUrl": ""
+        },
+        {
+            "id": "kk-airport-phase-2",
+            "category": "lusaka",
+            "placeholder": true,
+            "publishedAt": "2026-03-22",
+            "coverImg": "https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "KK 国际机场二期扩建动土 · 2027 年投运",
+            "titleEn": "Kenneth Kaunda International Airport phase-2 expansion breaks ground · operational 2027",
+            "excerptZh": "Kenneth Kaunda 国际机场二期扩建工程于本月正式动土，新增 1 条跑道与 1 座国际航站楼，年吞吐能力将翻倍至 800 万人次。",
+            "excerptEn": "Phase-2 expansion of Kenneth Kaunda International Airport broke ground this month, adding one runway and one international terminal — doubling annual throughput capacity to 8 million passengers.",
+            "bodyZh": [
+                "KK 国际机场二期扩建工程在 3 月正式动土。工程包括新建第二跑道、新增一座 6 万平米国际航站楼、以及配套货运区与停车场升级。",
+                "完工后，机场年吞吐能力将从目前的 400 万人次提升至 800 万人次，国际货运能力翻 3 倍。",
+                "机场所在的 Chongwe 区域与连接的 Great East Road 沿线，预计将成为下一个商业地产与物流仓储热点。"
+            ],
+            "bodyEn": [
+                "Kenneth Kaunda International Airport's phase-2 expansion officially broke ground in March. The works include a new second runway, a 60,000 sqm international terminal, plus upgraded cargo apron and parking.",
+                "Once complete, annual capacity will double from today's 4 million to 8 million passengers, and international cargo capacity will triple.",
+                "The Chongwe district around the airport and the corridor along Great East Road are expected to become Lusaka's next commercial-property and logistics-warehousing hotspots."
+            ],
+            "source": "Zambia Airports Corporation",
+            "sourceUrl": ""
+        },
+        {
+            "id": "q1-2026-high-end-residential",
+            "category": "lusaka-real-estate",
+            "placeholder": true,
+            "publishedAt": "2026-05-08",
+            "coverImg": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "卢萨卡 Q1 高端住宅成交量 · 同比上升 18%",
+            "titleEn": "Lusaka Q1 high-end residential transactions · up 18% year over year",
+            "excerptZh": "据本地经纪行业协会数据，2026 年第一季度卢萨卡 USD 250,000 以上高端住宅成交量同比上升 18%，其中 Ibex Hill 与 Kabulonga 增幅最为显著。",
+            "excerptEn": "Per the local brokers' association, Q1 2026 transactions for high-end residential (≥ USD 250,000) in Lusaka rose 18% year-on-year, with Ibex Hill and Kabulonga leading the upticks.",
+            "bodyZh": [
+                "本地经纪行业协会发布 2026 年第一季度数据：卢萨卡 USD 250,000 以上的高端住宅成交量达到 196 套，同比上升 18%。",
+                "细分来看：Ibex Hill 区成交量同比上升 26%，Kabulonga 区上升 22%，Roma 区上升 14%；Olympia 与 Kalundu 持平。",
+                "买家结构上：本地企业家与海外回流家庭占比从去年的 58% 上升至 67%，纯外籍买家（含中国与印度）占比从 28% 下降至 21%。"
+            ],
+            "bodyEn": [
+                "The local brokers' association released Q1 2026 figures: 196 transactions closed at the USD 250,000+ tier, up 18% year-on-year.",
+                "By zone: Ibex Hill +26% YoY, Kabulonga +22%, Roma +14%; Olympia and Kalundu flat.",
+                "Buyer mix: local entrepreneurs and returning families rose from 58% to 67%; pure foreign buyers (including Chinese and Indian) declined from 28% to 21%."
+            ],
+            "source": "Zambia Real Estate Brokers Association",
+            "sourceUrl": ""
+        },
+        {
+            "id": "kalundu-ibex-rent-median",
+            "category": "lusaka-real-estate",
+            "placeholder": true,
+            "publishedAt": "2026-04-30",
+            "coverImg": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "Kalundu / Ibex Hill 独栋别墅租金中位数 · 突破 K30,000/月",
+            "titleEn": "Kalundu / Ibex Hill standalone-villa median rent · crosses K30,000/month",
+            "excerptZh": "本月最新租赁数据显示，Kalundu 与 Ibex Hill 区独栋别墅租金中位数首次突破 ZMW 30,000/月，反映高端外派家庭与本地高净值人群对优质租赁房源的持续需求。",
+            "excerptEn": "Latest rental data shows median rent for standalone villas in Kalundu and Ibex Hill crossed ZMW 30,000/month for the first time — reflecting sustained demand from expat households and local high-net-worth families.",
+            "bodyZh": [
+                "本月 Kalundu 与 Ibex Hill 区独栋别墅租金中位数达到 ZMW 31,500/月，首次突破 30,000 关口。",
+                "驱动因素：中资项目继续注入卢萨卡，外派家庭住房需求增加；本地高净值人群对短期租赁（6-12 个月）作为新购前的过渡居住方案接受度上升。",
+                "短期租赁（6-12 个月）市场尤其活跃，部分 4 室别墅短租日均询盘量同比上升 40%。"
+            ],
+            "bodyEn": [
+                "Median rent for standalone villas in Kalundu and Ibex Hill reached ZMW 31,500/month this month — crossing the 30,000 threshold for the first time.",
+                "Drivers: continued Chinese capital flowing into Lusaka pulls expat housing demand; local HNW households are increasingly accepting short-term lease (6-12 months) as a stepping-stone before purchasing.",
+                "The short-stay segment (6-12 months) is especially active — daily enquiry volume on some 4-bed villas is up 40% YoY."
+            ],
+            "source": "ROOFY Properties Desk",
+            "sourceUrl": ""
+        },
+        {
+            "id": "foreign-investor-leasehold-clarified",
+            "category": "lusaka-real-estate",
+            "placeholder": true,
+            "publishedAt": "2026-04-12",
+            "coverImg": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+            "titleZh": "外籍投资人持有 99 年长期租约方案 · 政策细则明确",
+            "titleEn": "99-year leasehold for foreign investors · regulations finalised",
+            "excerptZh": "土地与自然资源部发布细则，明确外籍自然人与法人持有赞比亚不动产可申请最长 99 年长期租约，且支持续期与转让。",
+            "excerptEn": "The Ministry of Lands and Natural Resources issued implementation rules confirming foreign individuals and entities may apply for up to 99-year leaseholds on Zambian property, with renewal and transferability supported.",
+            "bodyZh": [
+                "土地与自然资源部正式发布外籍投资人持有不动产的细则文件，对早前法案做了关键澄清。",
+                "核心要点：外籍自然人与法人均可申请最长 99 年的长期租约；租约期间可在 ZRA 登记后转让；到期可申请续期 50 年；商业、住宅、工业用地均适用。",
+                "对中国与海外华人投资人而言，这是一个重要的政策落地——此前对租约期限的不确定性是阻止部分长期投资进入赞比亚地产市场的主要因素之一。"
+            ],
+            "bodyEn": [
+                "The Ministry of Lands and Natural Resources released the implementation rulebook for foreign investor property holdings, clarifying ambiguities left in the earlier act.",
+                "Headline points: both foreign individuals and entities may apply for leaseholds up to 99 years; transfers are permitted during the lease (via ZRA registration); a 50-year renewal can be applied for at expiry; the rules cover commercial, residential and industrial land.",
+                "For Chinese and overseas-Chinese investors, this is a meaningful policy unlock — prior uncertainty around lease tenure was one of the main reasons longer-term capital stayed on the sidelines of Zambia's property market."
+            ],
+            "source": "Ministry of Lands and Natural Resources, Zambia",
+            "sourceUrl": ""
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "_note": "Leadership per Roofy_Zambia_Website_Brief(1).docx. Photos pulled from roofyinvestments.com/static/images/ on 2026-05-12. The CEO photo is landscape 640x358 (object-fit:cover will crop to portrait); the other five are portrait. Bios are still placeholders until client provides — see I18N.team.members.",
+    "members": [
+        { "id": "huang-aibing", "name": "Huang Aibing", "nameZh": "黄爱兵", "role": "CEO", "roleZh": "首席执行官", "initials": "HA", "photo": "/assets/img/team/ceo.jpg" },
+        { "id": "abel-lungu",   "name": "Abel Lungu",   "nameZh": "",       "role": "COO",                       "roleZh": "首席运营官",     "initials": "AL", "photo": "/assets/img/team/coo.jpg" },
+        { "id": "naomi-chanda", "name": "Naomi Chanda", "nameZh": "",       "role": "Administration Supervisor", "roleZh": "行政主管",       "initials": "NC", "photo": "/assets/img/team/naomi.jpg" },
+        { "id": "chisa-kabaso", "name": "Chisa Kabaso", "nameZh": "",       "role": "Sales Supervisor",          "roleZh": "销售主管",       "initials": "CK", "photo": "/assets/img/team/chisha.jpg" },
+        { "id": "cosmas-chungu","name": "Cosmas Chungu","nameZh": "",       "role": "Head of Advertising",       "roleZh": "广告业务负责人", "initials": "CC", "photo": "/assets/img/team/cosmas.jpg" },
+        { "id": "kachinga-jnr", "name": "Kachinga Jnr", "nameZh": "",       "role": "Marketing Assistant",       "roleZh": "市场助理",       "initials": "KJ", "photo": "/assets/img/team/kachinga.jpg" }
+    ]
+}
