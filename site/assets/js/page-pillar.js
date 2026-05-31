@@ -162,65 +162,55 @@ function ledProductsBlock(T) {
     const products = window.ROOFY_DATA.ledProducts || [];
     if (!products.length) return '';
 
-    /* Desktop table rows */
-    const rows = products.map(function (p) {
-        const name = lang === 'zh' ? p.nameZh : p.nameEn;
-        const usage = ti.usageLabels[p.usage] || p.usage;
-        const note = lang === 'zh' ? p.noteZh : p.noteEn;
-        return '<tr class="border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">' +
-            '<td class="py-4 px-4">' +
-            '<div class="font-semibold text-slate-900">' + p.model + '</div>' +
-            '<div class="text-xs text-slate-500">' + name + '</div>' +
-            (note ? '<div class="text-xs text-slate-400 mt-0.5">' + note + '</div>' : '') +
-            '</td>' +
-            '<td class="py-4 px-4"><span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">' + usage + '</span></td>' +
-            '<td class="py-4 px-4 text-sm text-slate-700">' + (p.pixelPitch || '—') + '</td>' +
-            '<td class="py-4 px-4 text-sm text-slate-700">' + (p.brightness || '—') + '</td>' +
-            '<td class="py-4 px-4 text-sm text-slate-700">' + (p.cabinetSize || '—') + '</td>' +
-            '<td class="py-4 px-4 text-sm font-semibold ' + (p.salePrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.salePrice || ti.onRequest) + '</td>' +
-            '<td class="py-4 px-4 text-sm font-semibold ' + (p.rentalPrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.rentalPrice || ti.onRequest) + '</td>' +
-            '</tr>';
-    }).join('');
+    function specRow(label, val) {
+        if (!val) return '';
+        return '<div class="flex items-center justify-between py-1.5 border-b border-slate-100 last:border-b-0">' +
+            '<span class="text-slate-400">' + label + '</span>' +
+            '<span class="text-slate-700 font-medium text-right">' + val + '</span></div>';
+    }
 
-    /* Mobile cards (table is hidden < lg) */
+    /* Image-forward product cards (real Absen catalogue) */
     const cards = products.map(function (p) {
         const name = lang === 'zh' ? p.nameZh : p.nameEn;
+        const note = lang === 'zh' ? p.noteZh : p.noteEn;
         const usage = ti.usageLabels[p.usage] || p.usage;
-        return '<div class="p-5 bg-white border border-slate-100 rounded-xl shadow-sm">' +
-            '<div class="flex items-center justify-between mb-3">' +
-            '<div><div class="font-bold text-slate-900">' + p.model + '</div><div class="text-xs text-slate-500">' + name + '</div></div>' +
-            '<span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">' + usage + '</span></div>' +
-            '<div class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs">' +
-            '<div><span class="text-slate-400">' + ti.cols.pitch + '</span><div class="text-slate-700 font-medium">' + (p.pixelPitch || '—') + '</div></div>' +
-            '<div><span class="text-slate-400">' + ti.cols.brightness + '</span><div class="text-slate-700 font-medium">' + (p.brightness || '—') + '</div></div>' +
-            '<div><span class="text-slate-400">' + ti.cols.sale + '</span><div class="font-semibold ' + (p.salePrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.salePrice || ti.onRequest) + '</div></div>' +
-            '<div><span class="text-slate-400">' + ti.cols.rental + '</span><div class="font-semibold ' + (p.rentalPrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.rentalPrice || ti.onRequest) + '</div></div>' +
-            '</div></div>';
+        const mode = (ti.modeLabels && ti.modeLabels[p.mode]) || '';
+        return '<div data-reveal-up class="group flex flex-col bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+            '<div class="relative aspect-[16/10] bg-slate-50 flex items-center justify-center overflow-hidden">' +
+            '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + p.model + ' ' + name + '" loading="lazy" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105" />' +
+            (p.series ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-slate-900/85 backdrop-blur text-white px-2 py-0.5 rounded-md">' + p.series + '</span>' : '') +
+            '<span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + usage + '</span>' +
+            '</div>' +
+            '<div class="flex flex-col flex-1 p-6">' +
+            '<div class="flex items-baseline justify-between gap-3 mb-1">' +
+            '<div class="text-lg font-bold text-slate-900">' + p.model + '</div>' +
+            (mode ? '<span class="text-[11px] font-semibold text-amber-600 whitespace-nowrap">' + mode + '</span>' : '') +
+            '</div>' +
+            '<div class="text-sm text-slate-500 mb-4">' + name + '</div>' +
+            '<div class="text-xs mb-4">' +
+            specRow(ti.cols.pitch, p.pixelPitch) +
+            specRow(ti.cols.brightness, p.brightness) +
+            specRow(ti.cols.cabinet, p.cabinetSize) +
+            specRow(ti.cols.ip, p.ip) +
+            specRow(ti.cols.refresh, p.refresh) +
+            '</div>' +
+            (note ? '<p class="text-xs text-slate-500 leading-relaxed mb-4">' + note + '</p>' : '') +
+            '<div class="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">' +
+            '<div><div class="text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">' + ti.cols.sale + '</div>' +
+            '<div class="text-sm font-bold ' + (p.salePrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.salePrice || ti.onRequest) + '</div></div>' +
+            '<div><div class="text-[10px] uppercase tracking-wider text-slate-400 mb-0.5">' + ti.cols.rental + '</div>' +
+            '<div class="text-sm font-bold ' + (p.rentalPrice ? 'text-amber-600' : 'text-slate-400') + '">' + (p.rentalPrice || ti.onRequest) + '</div></div>' +
+            '</div></div></div>';
     }).join('');
 
     return '<section class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-8">' +
+        '<div class="max-w-2xl mb-10">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-reveal-up>' + ti.title + '</h2>' +
         '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + ti.desc + '</p></div>' +
-        /* desktop table */
-        '<div class="hidden lg:block overflow-hidden rounded-xl border border-slate-200 shadow-sm" data-reveal-up>' +
-        '<table class="w-full text-left">' +
-        '<thead class="bg-slate-900 text-white text-xs uppercase tracking-wider">' +
-        '<tr>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.product + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.usage + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.pitch + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.brightness + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.cabinet + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.sale + '</th>' +
-        '<th class="py-3 px-4 font-semibold">' + ti.cols.rental + '</th>' +
-        '</tr></thead>' +
-        '<tbody class="bg-white">' + rows + '</tbody></table></div>' +
-        /* mobile cards */
-        '<div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4" data-reveal-up>' + cards + '</div>' +
-        '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-8" data-reveal-up>' +
+        '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">' + cards + '</div>' +
+        '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-10" data-reveal-up>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
         ti.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<p class="text-xs text-slate-500">' + ti.note + '</p>' +

@@ -204,13 +204,14 @@ window.I18N = {
         },
         ledProducts: {
             eyebrow: '中国高端 LED · 销售与租赁',
-            title: '直采中国一线屏厂 · 销售与租赁两种模式。',
-            desc: '从室内高清屏到户外高亮大屏，再到舞台租赁屏——我们直接对接中国一线制造资源，按需提供销售或租赁方案。下方为产品示例，具体型号与报价以正式清单为准。',
-            usageLabels: { indoor: '室内', outdoor: '室外', rental: '租赁' },
-            cols: { product: '产品 / 型号', usage: '用途', pitch: '点间距', brightness: '亮度', cabinet: '箱体尺寸', sale: '销售价', rental: '租赁价' },
+            title: '源自艾比森 Absen · A25 户外固装与 NT V2 租赁系列。',
+            desc: '我们直采中国一线屏厂艾比森（Absen）：A25 系列户外固装大屏用于销售与户外广告投放，NT V2 系列压铸铝租赁屏用于活动与舞台。以下为在售型号与核心规格，销售价与租赁价以正式清单为准。',
+            usageLabels: { indoor: '室内', outdoor: '户外固装', rental: '租赁' },
+            modeLabels: { sale: '销售', rental: '租赁' },
+            cols: { product: '产品 / 型号', usage: '用途', pitch: '点间距', brightness: '亮度', cabinet: '箱体尺寸', ip: '防护等级', refresh: '刷新率', sale: '销售价', rental: '租赁价' },
             onRequest: '面议',
             inquire: '索取完整产品与报价清单',
-            note: '注：产品规格与价格以 ROOFY 提供的正式清单为准，欢迎咨询。'
+            note: '注：产品规格源自艾比森官方规格书；价格以 ROOFY 正式清单为准，欢迎咨询。'
         },
         ledBillboards: {
             eyebrow: 'LED 户外广告发布 · 点位招商',
@@ -574,13 +575,14 @@ window.I18N = {
         },
         ledProducts: {
             eyebrow: 'Premium China LED · Sale & Rental',
-            title: 'Sourced direct from China\'s top screen makers — for sale or rent.',
-            desc: 'From indoor HD panels to high-brightness outdoor displays to stage rental panels — sourced directly from tier-one Chinese manufacturers, offered for sale or rental. Examples below; final models and pricing per the official quotation.',
-            usageLabels: { indoor: 'Indoor', outdoor: 'Outdoor', rental: 'Rental' },
-            cols: { product: 'Product / Model', usage: 'Usage', pitch: 'Pitch', brightness: 'Brightness', cabinet: 'Cabinet', sale: 'Sale', rental: 'Rental' },
+            title: 'Powered by Absen — A25 outdoor fixed & NT V2 rental series.',
+            desc: 'Sourced direct from tier-one Chinese maker Absen: the A25 Series outdoor fixed displays for sale and outdoor advertising, and the NT V2 die-cast rental panels for events and stages. Live models and core specs below; sale and rental pricing per the official quotation.',
+            usageLabels: { indoor: 'Indoor', outdoor: 'Outdoor fixed', rental: 'Rental' },
+            modeLabels: { sale: 'For sale', rental: 'For rental' },
+            cols: { product: 'Product / Model', usage: 'Type', pitch: 'Pitch', brightness: 'Brightness', cabinet: 'Cabinet', ip: 'IP rating', refresh: 'Refresh', sale: 'Sale', rental: 'Rental' },
             onRequest: 'On request',
             inquire: 'Request full product & price list',
-            note: 'Note: specs and pricing per the official ROOFY quotation. Get in touch for details.'
+            note: 'Note: specs from official Absen datasheets; pricing per the official ROOFY quotation. Get in touch for details.'
         },
         ledBillboards: {
             eyebrow: 'LED Outdoor Advertising · Now booking',
