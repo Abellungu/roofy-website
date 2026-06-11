@@ -23,6 +23,7 @@ studio/.sanity/
 
 # Internal AI guidance — not part of the product
 CLAUDE.md
+.claude/settings.local.json
 
 # Visual-direction reference prototypes — not part of the deliverable
 风格模板/
