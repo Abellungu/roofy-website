@@ -67,19 +67,20 @@ function pillarDeliverables() {
     const names = (lang === 'zh' ? p.deliverablesZh : p.deliverables) || [];
     const descs = (lang === 'zh' ? p.deliverableDescZh : p.deliverableDescEn) || [];
     if (!names.length) return '';
+    /* Editorial treatment: rule-on-top list items instead of floating cards. */
     const tiles = names.map(function (n, i) {
-        return '<div data-reveal-up class="p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
-            '<div class="text-xs text-amber-600 font-semibold mb-3">' + String(i + 1).padStart(2, '0') + '</div>' +
-            '<h3 class="text-base font-bold text-slate-900 mb-2">' + n + '</h3>' +
+        return '<div data-reveal-up class="border-t-2 border-slate-900 pt-6">' +
+            '<div class="text-xs text-amber-600 font-bold tracking-widest mb-4">' + String(i + 1).padStart(2, '0') + '</div>' +
+            '<h3 class="text-lg font-bold text-slate-900 mb-2.5">' + n + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed">' + (descs[i] || '') + '</p>' +
             '</div>';
     }).join('');
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
+        '<div class="max-w-2xl mb-12">' +
+        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
         '</div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + tiles + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + tiles + '</div>' +
         '</div></section>';
 }
 
@@ -108,6 +109,10 @@ function spotlightRealEstate(T) {
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
+        '<div class="mt-12 flex justify-center" data-reveal-up>' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20">' +
+        T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '</div>' +
         '</div></section>';
 }
 

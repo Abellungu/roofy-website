@@ -111,6 +111,28 @@ function foundingStory() {
         '</div></div></section>';
 }
 
+function officeGallery() {
+    const lang = ROOFY.state.lang;
+    const eyebrow = lang === 'zh' ? '办公环境' : 'Our workspace';
+    const title = lang === 'zh' ? '欢迎来 Ibex Hill 坐一坐。' : 'Come sit with us at Ibex Hill.';
+    const imgs = [
+        ['/assets/img/office/office-values-wall.jpg', 'Mission and values wall'],
+        ['/assets/img/office/office-boardroom.jpg', 'Boardroom'],
+        ['/assets/img/office/office-terrace.jpg', 'Garden terrace']
+    ];
+    const cells = imgs.map(function (im) {
+        return '<div data-reveal-up class="img-zoom overflow-hidden rounded-xl aspect-[4/3] bg-slate-200">' +
+            '<img src="' + im[0] + '" alt="' + im[1] + '" loading="lazy" class="w-full h-full object-cover" /></div>';
+    }).join('');
+    return '<section class="py-20 lg:py-28 bg-white">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="max-w-2xl mb-10">' +
+        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
+        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + title + '</h2></div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">' + cells + '</div>' +
+        '</div></section>';
+}
+
 function teamSection() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
@@ -166,6 +188,7 @@ window.renderPage = function () {
         valuesGrid() +
         businessScopeSection() +
         foundingStory() +
+        officeGallery() +
         teamSection() +
         aboutCtaBanner() +
         '</main>' +

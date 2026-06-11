@@ -170,8 +170,8 @@ function featuredPropertiesSection() {
         '<p class="text-slate-600" data-reveal-up>' + T.featured.subtitle + '</p></div>' +
         '<div class="flex flex-wrap gap-2">' + filterButtons + '</div></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
-        '<div class="mt-12 flex justify-center">' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors">' +
+        '<div class="mt-12 flex justify-center" data-reveal-up>' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20">' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
 }

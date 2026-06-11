@@ -72,7 +72,12 @@
 
     function footerHtml() {
         const T = window.ROOFY.tr();
-        const nav = topLinks(T).filter(function (l) { return l[0] !== 'home'; }).map(function (l) {
+        /* Footer also lists the properties index — it lives under the
+         * real-estate pillar in the top nav (client direction) but stays
+         * one click away down here. */
+        const nav = topLinks(T).filter(function (l) { return l[0] !== 'home'; }).concat([
+            ['properties', '/properties/index.html', T.nav.properties]
+        ]).map(function (l) {
             return '<li><a href="' + l[1] + '" class="text-slate-400 hover:text-amber-500 transition-colors text-sm">' + l[2] + '</a></li>';
         }).join('');
         const services = T.services.items.map(function (s) {
