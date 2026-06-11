@@ -31,3 +31,6 @@ CLAUDE.md
 # Client-supplied product material (unzipped from the zips above; >100MB binaries)
 户外广告牌产品/
 舞台租赁产品/
+
+# Client working documents — not part of the codebase
+*.pptx
