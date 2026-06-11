@@ -1,5 +1,5 @@
 {
-    "_note": "Crown/Miracle/Serenity are REAL projects sourced from 'Our Gated Communities – Lusaka Overview.pptx' (Festus Kachinga, 2026-06-11) with real photos/renders under /assets/img/projects/. 'rongyao' (Honor) remains a placeholder per client direction — keep until a real fourth project lands.",
+    "_note": "Crown/Miracle/Serenity are REAL projects sourced from 'Our Gated Communities – Lusaka Overview.pptx' (Festus Kachinga, 2026-06-11) with real photos/renders under /assets/img/projects/. The 'rongyao' (Honor) placeholder was removed 2026-06-11 per client direction.",
     "projects": [
         {
             "id": "huangguan",
@@ -95,20 +95,20 @@
             "priceRange": "面议 / On request",
             "propertyTypeZh": "独栋专属大宅",
             "propertyTypeEn": "Exclusive detached estates",
-            "developmentAreaZh": "单户 1,000–3,000㎡",
-            "developmentAreaEn": "1,000–3,000 sqm per home",
+            "developmentAreaZh": "单户建筑面积 1,000–3,000㎡",
+            "developmentAreaEn": "1,000–3,000 sqm built-up area per home",
             "expectedDeliveryZh": "即将推出",
             "expectedDeliveryEn": "Upcoming",
-            "descriptionZh": "坐落于卢萨卡久负盛名的 State Lodge 区域,距 CBD 22.8 公里:仅 19 席专属宅邸,单户居住空间 1,000–3,000 平方米,为追求极致私密与空间的人而设计。专属、宽绰、毫不妥协的隐私。",
-            "descriptionEn": "In Lusaka’s prestigious State Lodge area, 22.8 km from the CBD: just 19 exclusive homes with 1,000–3,000 sqm of living space each — designed for those who demand the finest. Exclusive, spacious, uncompromising privacy. Your private estate awaits.",
+            "descriptionZh": "坐落于卢萨卡久负盛名的 State Lodge 区域,距 CBD 22.8 公里:仅 19 席专属宅邸,单户建筑面积 1,000–3,000 平方米,为追求极致私密与空间的人而设计。专属、宽绰、毫不妥协的隐私。",
+            "descriptionEn": "In Lusaka’s prestigious State Lodge area, 22.8 km from the CBD: just 19 exclusive homes with 1,000–3,000 sqm of built-up area each — designed for those who demand the finest. Exclusive, spacious, uncompromising privacy. Your private estate awaits.",
             "keyFeatures": [
                 {
                     "zh": "全社区仅 19 席,极致稀缺",
                     "en": "Only 19 homes in the entire estate"
                 },
                 {
-                    "zh": "单户 1,000–3,000㎡ 居住空间",
-                    "en": "1,000–3,000 sqm of living space per home"
+                    "zh": "单户建筑面积 1,000–3,000㎡",
+                    "en": "1,000–3,000 sqm built-up area per home"
                 },
                 {
                     "zh": "毫不妥协的私密性与空间感",
@@ -120,56 +120,6 @@
                 "/assets/img/projects/serenity-villa-a.jpg",
                 "/assets/img/projects/serenity-villa-b.jpg",
                 "/assets/img/projects/estate-gate.jpg"
-            ]
-        },
-        {
-            "id": "rongyao",
-            "placeholder": true,
-            "nameZh": "荣耀",
-            "nameEn": "Honor",
-            "status": "under-construction",
-            "taglineZh": "卢萨卡 CBD 旁的天际线公寓 · 建设中，2028 年开盘。",
-            "taglineEn": "Skyline apartments next to Lusaka CBD · under construction, opening 2028.",
-            "location": "Cathedral Hill, Lusaka",
-            "propertyTypeZh": "高层精装公寓 · 1 卧 / 2 卧 / 3 卧",
-            "propertyTypeEn": "High-rise furnished apartments · 1-bed / 2-bed / 3-bed",
-            "priceRange": "US$ 95,000+",
-            "totalUnits": 240,
-            "developmentAreaZh": "约 1.8 公顷",
-            "developmentAreaEn": "approx. 1.8 hectares",
-            "launchYear": 2025,
-            "expectedDeliveryZh": "2028 全期",
-            "expectedDeliveryEn": "2028 full delivery",
-            "heroImg": "/assets/img/stock/u1545324418-cc.jpg",
-            "gallery": [
-                "/assets/img/stock/u1486325212027.jpg",
-                "/assets/img/stock/u1497366216548.jpg",
-                "/assets/img/stock/u1502672260266.jpg",
-                "/assets/img/stock/u1505693416388.jpg"
-            ],
-            "descriptionZh": "「荣耀」是集团首次进入卢萨卡 CBD 周边高层住宅市场的代表项目，240 套精装公寓覆盖 1 / 2 / 3 卧多户型，主力面向年轻专业人士、外派员工与短期投资人。\n\n项目在 Cathedral Hill 拔地而起，景观视野直接覆盖 Independence Avenue、Lusaka Showgrounds 与机场方向。预计 2028 年全期交付，2026 年开放预约。",
-            "descriptionEn": "Honor is the group's first move into Lusaka's CBD-fringe high-rise residential market — 240 furnished apartments across 1/2/3-bed layouts, designed for young professionals, expat employees and short-stay investors.\n\nRising on Cathedral Hill with sightlines across Independence Avenue, the Lusaka Showgrounds and the airport corridor. Full delivery 2028; reservations open 2026.",
-            "keyFeatures": [
-                {
-                    "zh": "240 套精装公寓 · 1/2/3 卧多户型",
-                    "en": "240 furnished apartments · 1/2/3-bed mix"
-                },
-                {
-                    "zh": "高层视野直达 CBD 与机场方向",
-                    "en": "Skyline views across CBD and airport corridor"
-                },
-                {
-                    "zh": "面向年轻专业人士与短租投资人",
-                    "en": "Targeted at young professionals and short-stay investors"
-                },
-                {
-                    "zh": "底商配套：餐饮、便利店、共享办公",
-                    "en": "Ground-floor retail: F&B, convenience, co-working"
-                },
-                {
-                    "zh": "2026 开放预约 · 2028 全期交付",
-                    "en": "Reservations open 2026 · full delivery 2028"
-                }
             ]
         }
     ]

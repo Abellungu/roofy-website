@@ -290,7 +290,7 @@ window.I18N = {
             properties: '你好 ROOFY，我想浏览贵公司当前在售/在租的房源。',
             'property-detail': '你好 ROOFY，我想咨询贵公司一个具体房源（详情见网站）。',
             news: '你好 ROOFY，我对贵网站的一则新闻有进一步问题，想咨询一下。',
-            projects: '你好 ROOFY，我想了解贵集团目前开发的项目（皇冠/奇迹/静居/荣耀）。',
+            projects: '你好 ROOFY，我想了解贵集团目前开发的项目（皇冠/奇迹/静居）。',
             'project-detail': '你好 ROOFY，我想详细咨询贵公司开发的一个项目（详情见网站）。',
             legal: '你好 ROOFY，我希望就网站条款或隐私政策做一些咨询。'
         },
@@ -325,8 +325,8 @@ window.I18N = {
             title: '由本集团母公司开发的旗舰住区。',
             desc: '从「热销中」到「建设中」，每一个项目都是 ROOFY 集团为卢萨卡城市升级写下的一行注脚。',
             sectionEyebrow: '本集团母公司开发',
-            sectionTitle: '4 个项目 · 一组城市级承诺。',
-            sectionDesc: '皇冠、奇迹、静居、荣耀——覆盖独栋、联排、低密与高层四种产品形态。',
+            sectionTitle: '3 个项目 · 一组城市级承诺。',
+            sectionDesc: '皇冠、奇迹、静居——从一年售罄的标杆社区,到在建的商住新城与待推的专属大宅。',
             statusLabels: {
                 selling: '热销中',
                 delivered: '已交付',
@@ -667,7 +667,7 @@ window.I18N = {
             properties: 'Hi ROOFY, I\'d like to browse your current property listings.',
             'property-detail': 'Hi ROOFY, I\'d like to enquire about a specific property on your site.',
             news: 'Hi ROOFY, I have a follow-up question about an article on your news section.',
-            projects: 'Hi ROOFY, I\'d like to learn more about your group developments (Crown / Miracle / Serene / Honor).',
+            projects: 'Hi ROOFY, I\'d like to learn more about your group developments (Oasis Crown / Oasis Miracle / Serenity).',
             'project-detail': 'Hi ROOFY, I\'d like to enquire about a specific project on your site.',
             legal: 'Hi ROOFY, I have a question about your terms or privacy policy.'
         },
@@ -702,8 +702,8 @@ window.I18N = {
             title: 'Flagship residential projects, developed by the parent group.',
             desc: 'From selling to under construction — every project is a line ROOFY writes in Lusaka\'s urban upgrade.',
             sectionEyebrow: 'Developed by parent group',
-            sectionTitle: 'Four projects · one city-scale commitment.',
-            sectionDesc: 'Crown, Miracle, Serene, Honor — spanning detached villas, townhouses, low-density estates and high-rise apartments.',
+            sectionTitle: 'Three projects · one city-scale commitment.',
+            sectionDesc: 'Oasis Crown, Oasis Miracle, Serenity — from a sold-out benchmark community to a rising mixed-use hub and an upcoming private estate.',
             statusLabels: {
                 selling: 'Selling',
                 delivered: 'Delivered',
