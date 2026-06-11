@@ -32,15 +32,25 @@ app.use(function (req, res, next) {
     next();
 });
 
-/* same-origin check for mutating requests (belt to the SameSite=Strict braces) */
+/* Same-origin check for mutating requests — a belt on top of the
+ * SameSite=Strict session cookie (the primary CSRF guard: cross-site
+ * requests never carry the cookie, so authenticated APIs 401 anyway).
+ * `Origin: null` is treated as absent: privacy extensions and sandboxed
+ * contexts send it for legitimate same-site form posts (seen in the wild
+ * with crypto-wallet extensions). */
+const ALLOWED_HOSTS = new Set(['roofyinvestments.com', 'www.roofyinvestments.com', '127.0.0.1:' + PORT, 'localhost:' + PORT]);
 app.use(function (req, res, next) {
     if (req.method === 'GET' || req.method === 'HEAD') return next();
     const origin = req.headers.origin;
-    if (origin) {
-        const host = req.headers['x-forwarded-host'] || req.headers.host;
-        try {
-            if (new URL(origin).host !== host) return res.status(403).json({ ok: false, error: 'cross-origin blocked' });
-        } catch (e) { return res.status(403).json({ ok: false, error: 'bad origin' }); }
+    if (!origin || origin === 'null') return next();
+    let originHost = null;
+    try { originHost = new URL(origin).host; } catch (e) { /* falls through to block */ }
+    const ok = originHost && (ALLOWED_HOSTS.has(originHost) ||
+        originHost === req.headers['x-forwarded-host'] || originHost === req.headers.host);
+    if (!ok) {
+        console.error('[origin-block]', req.method, req.path,
+            'origin=' + origin, 'host=' + req.headers.host, 'xfh=' + (req.headers['x-forwarded-host'] || ''));
+        return res.status(403).json({ ok: false, error: 'cross-origin blocked' });
     }
     next();
 });
