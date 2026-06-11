@@ -414,7 +414,10 @@ function validateItem(desc, data, opts) {
         });
         for (const text of lintTargets) {
             for (const rule of BRAND_LINT) {
-                if (rule.re.test(text)) { warnings.push(`「${f.zh}」: ${rule.msg}`); break; }
+                if (rule.re.test(text)) {
+                    const w = `「${f.zh}」: ${rule.msg}`;
+                    if (!warnings.includes(w)) warnings.push(w);
+                }
             }
         }
     }
