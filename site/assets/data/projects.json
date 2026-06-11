@@ -1,109 +1,125 @@
 {
-    "_note": "PLACEHOLDER seed for the four group-developed flagship projects (皇冠 / 奇迹 / 静居 / 荣耀). All items have placeholder:true — replace via Sanity Studio with real project copy, photos and price ranges before production launch.",
+    "_note": "Crown/Miracle/Serenity are REAL projects sourced from 'Our Gated Communities – Lusaka Overview.pptx' (Festus Kachinga, 2026-06-11) with real photos/renders under /assets/img/projects/. 'rongyao' (Honor) remains a placeholder per client direction — keep until a real fourth project lands.",
     "projects": [
         {
             "id": "huangguan",
-            "placeholder": true,
+            "placeholder": false,
             "nameZh": "皇冠",
-            "nameEn": "Crown",
-            "status": "selling",
-            "taglineZh": "卢萨卡地标级独栋住区 · 现房热销中。",
-            "taglineEn": "Lusaka's landmark detached-villa community · selling now.",
-            "location": "Kabulonga, Lusaka",
-            "propertyTypeZh": "高端独栋别墅 · 4 卧 / 5 卧",
-            "propertyTypeEn": "High-end detached villas · 4-bed / 5-bed",
-            "priceRange": "US$ 280,000+",
-            "totalUnits": 48,
-            "developmentAreaZh": "约 3.2 公顷",
-            "developmentAreaEn": "approx. 3.2 hectares",
-            "launchYear": 2024,
-            "expectedDeliveryZh": "现房交付",
-            "expectedDeliveryEn": "Move-in ready",
-            "heroImg": "/assets/img/stock/u1564013799919.jpg",
-            "gallery": [
-                "/assets/img/stock/u1600585154340.jpg",
-                "/assets/img/stock/u1600596542815.jpg",
-                "/assets/img/stock/u1600607687939.jpg",
-                "/assets/img/stock/u1600566753190.jpg"
-            ],
-            "descriptionZh": "「皇冠」是 ROOFY 集团母公司在 Kabulonga 核心地段打造的旗舰住宅项目，48 套独栋别墅围合而立，以现代殖民地风格的立面、超大客厅采光与全装修标准，重新定义卢萨卡高端住宅的体验上限。\n\n项目自 2024 年开盘以来持续保持高去化率，现房热销中。同区内罕见地配置了独立会所、围合泳池与 24 小时安保闭环，满足 expat 家庭与本地高净值人群的全部使用场景。",
-            "descriptionEn": "Crown is ROOFY parent group's flagship residential development in the heart of Kabulonga: 48 detached villas with modern colonial facades, oversized day-lit living rooms and full-fit-out standards — resetting the ceiling for high-end residential living in Lusaka.\n\nLaunched in 2024 and selling at a strong absorption rate; units are move-in ready. The development includes a private clubhouse, an enclosed pool and a 24-hour secured perimeter — covering the full demand profile from expat families to local HNW households.",
+            "nameEn": "Oasis Crown",
+            "status": "under-construction",
+            "taglineZh": "Leopard’s Hill 路 84 户商住一体封闭社区 · 建设中。",
+            "taglineEn": "A mixed-use gated community rising on Leopard’s Hill Road.",
+            "location": "Leopard’s Hill Road, opposite Mukamunya Estate, Lusaka",
+            "launchYear": null,
+            "totalUnits": 84,
+            "priceRange": "面议 / On request",
+            "propertyTypeZh": "住宅 + 39 间临街商铺",
+            "propertyTypeEn": "Premium homes + 39 retail shops",
+            "developmentAreaZh": "16 英亩",
+            "developmentAreaEn": "16 acres",
+            "expectedDeliveryZh": "建设中",
+            "expectedDeliveryEn": "Under construction",
+            "descriptionZh": "位于 Mukamunya Estate 对面、卢萨卡增长最快的 Leopard’s Hill 走廊,占地 16 英亩:84 栋优质住宅与 39 间临街商铺组成自足型社区,生活、购物、社交在一个大门之内完成。周边有 Monkey Pools、Glynview Events 与 Cross Park。",
+            "descriptionEn": "Opposite Mukamunya Estate on Leopard’s Hill Road — Lusaka’s fastest-growing corridor — Oasis Crown spans 16 acres with 84 premium homes and 39 retail shops: a self-sufficient neighbourhood where you live, shop and connect without leaving the gate. Monkey Pools, Glynview Events and Cross Park are all nearby.",
             "keyFeatures": [
-                { "zh": "全屋精装交付（含中央空调与品牌厨房）", "en": "Full fit-out delivery (central AC, branded kitchen)" },
-                { "zh": "围合式社区 · 闭环 24 小时安保", "en": "Gated community with 24-hour secured perimeter" },
-                { "zh": "独立会所 + 室外泳池 + 健身室", "en": "Private clubhouse, outdoor pool and gym" },
-                { "zh": "Kabulonga 核心地段 · 学区与商业圈零距离", "en": "Heart of Kabulonga · adjacent schools and retail" },
-                { "zh": "面向中赞两地买家 · 提供长期租约方案", "en": "Open to Chinese and Zambian buyers · long-term leasehold available" }
+                {
+                    "zh": "84 栋优质住宅 + 39 间临街商铺,商住一体",
+                    "en": "84 premium homes + 39 retail shops, mixed-use"
+                },
+                {
+                    "zh": "Mukamunya Estate 对面,高速成长走廊",
+                    "en": "Opposite Mukamunya Estate on a fast-growing corridor"
+                },
+                {
+                    "zh": "自足型社区:生活、购物、社交一门之内",
+                    "en": "Self-sufficient: live, shop and connect inside the gate"
+                }
+            ],
+            "heroImg": "/assets/img/projects/oasis-crown-render.jpg",
+            "gallery": [
+                "/assets/img/projects/oasis-crown-render.jpg",
+                "/assets/img/projects/oasis-crown-masterplan.jpg"
             ]
         },
         {
             "id": "qiji",
-            "placeholder": true,
+            "placeholder": false,
             "nameZh": "奇迹",
-            "nameEn": "Miracle",
-            "status": "delivered",
-            "taglineZh": "首期已交付 · 卢萨卡新生代家庭的优选。",
-            "taglineEn": "First phase delivered · the rising-family residence of choice in Lusaka.",
-            "location": "Ibex Hill, Lusaka",
-            "propertyTypeZh": "联排别墅 · 3 卧 / 4 卧",
-            "propertyTypeEn": "Townhouses · 3-bed / 4-bed",
-            "priceRange": "US$ 165,000+",
-            "totalUnits": 96,
-            "developmentAreaZh": "约 4.6 公顷",
-            "developmentAreaEn": "approx. 4.6 hectares",
-            "launchYear": 2022,
-            "expectedDeliveryZh": "全部已交付",
-            "expectedDeliveryEn": "Fully delivered",
-            "heroImg": "/assets/img/stock/u1600607687939.jpg",
-            "gallery": [
-                "/assets/img/stock/u1600585154526.jpg",
-                "/assets/img/stock/u1512917774080.jpg",
-                "/assets/img/stock/u1600573472556.jpg",
-                "/assets/img/stock/u1605276374104.jpg"
-            ],
-            "descriptionZh": "「奇迹」位于 Ibex Hill 边缘，是集团交付完成度最高的代表作之一。96 套联排别墅以紧凑而高效的户型设计，承接卢萨卡新生代家庭的「第一套自置住宅」需求——首批购房者中超过 60% 为本地中产家庭，剩余为 expat 与海外华人投资人。\n\n项目自 2022 年开盘到 2025 年全部交付，期间维持了零延期记录，是赞比亚本土少有的「兑现承诺」型住宅项目。",
-            "descriptionEn": "Miracle sits at the edge of Ibex Hill — the group's most delivery-complete project to date. 96 townhouses with efficient, compact floorplans, sized for Lusaka's emerging family demographic looking for their first owned home. Over 60% of first-phase buyers were local middle-class families; the remainder split between expats and overseas Chinese investors.\n\nLaunched 2022, fully delivered by 2025 with a zero-delay record — a rare commitment-kept residential project in the Zambian market.",
+            "nameEn": "Oasis Miracle",
+            "status": "sold-out",
+            "taglineZh": "Ibex Hill 二街 78 户封闭社区 · 一年售罄。",
+            "taglineEn": "78-home gated community on 2nd Street, Ibex Hill — sold out in one year.",
+            "location": "2nd Street, Ibex Hill, Lusaka",
+            "launchYear": null,
+            "totalUnits": 78,
+            "priceRange": "已售罄 / Sold out",
+            "propertyTypeZh": "住宅 + 商业配套",
+            "propertyTypeEn": "Homes + retail complex",
+            "developmentAreaZh": "10.3 英亩",
+            "developmentAreaEn": "10.3 acres",
+            "expectedDeliveryZh": "已建成,全部售罄",
+            "expectedDeliveryEn": "Built & fully sold out",
+            "descriptionZh": "位于卢萨卡最炙手可热的 Ibex Hill 二街,占地 10.3 英亩:78 栋住宅,配套商业中心、酒吧与泳池区,一个完整而有活力的社区。距前总统官邸 800 米、美国大使馆 4.2 公里、Ibex Mall 1.2 公里、Legacy Resort 6 公里。项目建成并在一年内全部售罄。",
+            "descriptionEn": "Set on 10.3 acres along 2nd Street in Ibex Hill — one of Lusaka’s most sought-after addresses — Oasis Miracle delivers 78 homes with a shopping complex, bar and swimming area: a complete, vibrant community. The former President’s House is 800 m away, the American Embassy 4.2 km, Ibex Mall 1.2 km and Legacy Resort 6 km. Built and fully sold out within one year.",
             "keyFeatures": [
-                { "zh": "全部 96 套已交付 · 入住率 ≥ 85%", "en": "All 96 units delivered · 85%+ occupancy" },
-                { "zh": "高性价比户型（紧凑而完整的三/四卧设计）", "en": "Compact, complete 3/4-bed floorplans" },
-                { "zh": "邻近 Ibex Hill 学区与生活配套", "en": "Adjacent to Ibex Hill schools and amenities" },
-                { "zh": "首批本地家庭客户超 60%", "en": "60%+ first-phase buyers are local families" },
-                { "zh": "现房可买可租 · 投资人租赁回报率 7-9%", "en": "Available for purchase or rental · investor rental yield 7-9%" }
+                {
+                    "zh": "78 栋住宅 + 商业中心 + 酒吧 + 泳池区",
+                    "en": "78 houses + shopping complex + bar + swimming area"
+                },
+                {
+                    "zh": "距前总统官邸 800 米,美国大使馆 4.2 公里",
+                    "en": "800 m from the former President’s House, 4.2 km from the American Embassy"
+                },
+                {
+                    "zh": "建成并于一年内全部售罄",
+                    "en": "Built and sold out in just one year"
+                }
+            ],
+            "heroImg": "/assets/img/projects/oasis-miracle-aerial.jpg",
+            "gallery": [
+                "/assets/img/projects/oasis-miracle-aerial.jpg",
+                "/assets/img/projects/oasis-miracle-pool.jpg"
             ]
         },
         {
             "id": "jingju",
-            "placeholder": true,
+            "placeholder": false,
             "nameZh": "静居",
-            "nameEn": "Serene",
-            "status": "under-construction",
-            "taglineZh": "新一代「慢生活」社区 · 建设中，2027 年 Q2 交付。",
-            "taglineEn": "A new-generation slow-living community · under construction, delivering 2027 Q2.",
-            "location": "Roma, Lusaka",
-            "propertyTypeZh": "低密度独栋别墅 · 4 卧 / 5 卧",
-            "propertyTypeEn": "Low-density detached villas · 4-bed / 5-bed",
-            "priceRange": "US$ 320,000+",
-            "totalUnits": 32,
-            "developmentAreaZh": "约 5.4 公顷",
-            "developmentAreaEn": "approx. 5.4 hectares",
-            "launchYear": 2025,
-            "expectedDeliveryZh": "2027 Q2",
-            "expectedDeliveryEn": "2027 Q2",
-            "heroImg": "/assets/img/stock/u1600573472550.jpg",
-            "gallery": [
-                "/assets/img/stock/u1487958449943.jpg",
-                "/assets/img/stock/u1416331108676.jpg",
-                "/assets/img/stock/u1545324418-cc.jpg",
-                "/assets/img/stock/u1600566753086.jpg"
-            ],
-            "descriptionZh": "「静居」是集团对「慢生活」理念的一次完整诠释——位于 Roma 区低密度地块上的 32 套独栋别墅，单户占地面积超 1500 平方米，强调建筑与原生植被的共生关系。\n\n项目目前处于建设期，2027 年 Q2 交付。首期开盘的 12 套面向预约客户，剩余 20 套将于 2026 年下半年公开发售。",
-            "descriptionEn": "Serene is the group's full expression of the slow-living concept — 32 detached villas on a low-density parcel in Roma, with single-plot footprints exceeding 1,500 sqm. The design emphasises the symbiosis of architecture and existing vegetation.\n\nProject is currently under construction, delivering 2027 Q2. The first 12 units are reserved for waitlist clients; the remaining 20 release publicly in H2 2026.",
+            "nameEn": "Serenity Project",
+            "status": "upcoming",
+            "taglineZh": "State Lodge 区 19 席专属大宅 · 即将推出。",
+            "taglineEn": "19 exclusive estates in the State Lodge area — coming soon.",
+            "location": "State Lodge Area, Lusaka (22.8 km from CBD)",
+            "launchYear": null,
+            "totalUnits": 19,
+            "priceRange": "面议 / On request",
+            "propertyTypeZh": "独栋专属大宅",
+            "propertyTypeEn": "Exclusive detached estates",
+            "developmentAreaZh": "单户 1,000–3,000㎡",
+            "developmentAreaEn": "1,000–3,000 sqm per home",
+            "expectedDeliveryZh": "即将推出",
+            "expectedDeliveryEn": "Upcoming",
+            "descriptionZh": "坐落于卢萨卡久负盛名的 State Lodge 区域,距 CBD 22.8 公里:仅 19 席专属宅邸,单户居住空间 1,000–3,000 平方米,为追求极致私密与空间的人而设计。专属、宽绰、毫不妥协的隐私。",
+            "descriptionEn": "In Lusaka’s prestigious State Lodge area, 22.8 km from the CBD: just 19 exclusive homes with 1,000–3,000 sqm of living space each — designed for those who demand the finest. Exclusive, spacious, uncompromising privacy. Your private estate awaits.",
             "keyFeatures": [
-                { "zh": "低密度 · 单户占地 1,500+ 平米", "en": "Low density · 1,500+ sqm per plot" },
-                { "zh": "原生植被保护率 ≥ 60%", "en": "60%+ native vegetation preservation" },
-                { "zh": "智能家居全屋集成（小米 / Aqara）", "en": "Whole-house smart home (Xiaomi / Aqara)" },
-                { "zh": "首期 12 套预约客户优先 · 剩余 20 套 H2 2026 公开发售", "en": "First 12 units waitlist-priority; 20 more public sale H2 2026" },
-                { "zh": "Roma 区核心 · 安静而通达", "en": "Heart of Roma · quiet yet connected" }
+                {
+                    "zh": "全社区仅 19 席,极致稀缺",
+                    "en": "Only 19 homes in the entire estate"
+                },
+                {
+                    "zh": "单户 1,000–3,000㎡ 居住空间",
+                    "en": "1,000–3,000 sqm of living space per home"
+                },
+                {
+                    "zh": "毫不妥协的私密性与空间感",
+                    "en": "Uncompromising privacy and space"
+                }
+            ],
+            "heroImg": "/assets/img/projects/serenity-villa-b.jpg",
+            "gallery": [
+                "/assets/img/projects/serenity-villa-a.jpg",
+                "/assets/img/projects/serenity-villa-b.jpg",
+                "/assets/img/projects/estate-gate.jpg"
             ]
         },
         {
@@ -134,11 +150,26 @@
             "descriptionZh": "「荣耀」是集团首次进入卢萨卡 CBD 周边高层住宅市场的代表项目，240 套精装公寓覆盖 1 / 2 / 3 卧多户型，主力面向年轻专业人士、外派员工与短期投资人。\n\n项目在 Cathedral Hill 拔地而起，景观视野直接覆盖 Independence Avenue、Lusaka Showgrounds 与机场方向。预计 2028 年全期交付，2026 年开放预约。",
             "descriptionEn": "Honor is the group's first move into Lusaka's CBD-fringe high-rise residential market — 240 furnished apartments across 1/2/3-bed layouts, designed for young professionals, expat employees and short-stay investors.\n\nRising on Cathedral Hill with sightlines across Independence Avenue, the Lusaka Showgrounds and the airport corridor. Full delivery 2028; reservations open 2026.",
             "keyFeatures": [
-                { "zh": "240 套精装公寓 · 1/2/3 卧多户型", "en": "240 furnished apartments · 1/2/3-bed mix" },
-                { "zh": "高层视野直达 CBD 与机场方向", "en": "Skyline views across CBD and airport corridor" },
-                { "zh": "面向年轻专业人士与短租投资人", "en": "Targeted at young professionals and short-stay investors" },
-                { "zh": "底商配套：餐饮、便利店、共享办公", "en": "Ground-floor retail: F&B, convenience, co-working" },
-                { "zh": "2026 开放预约 · 2028 全期交付", "en": "Reservations open 2026 · full delivery 2028" }
+                {
+                    "zh": "240 套精装公寓 · 1/2/3 卧多户型",
+                    "en": "240 furnished apartments · 1/2/3-bed mix"
+                },
+                {
+                    "zh": "高层视野直达 CBD 与机场方向",
+                    "en": "Skyline views across CBD and airport corridor"
+                },
+                {
+                    "zh": "面向年轻专业人士与短租投资人",
+                    "en": "Targeted at young professionals and short-stay investors"
+                },
+                {
+                    "zh": "底商配套：餐饮、便利店、共享办公",
+                    "en": "Ground-floor retail: F&B, convenience, co-working"
+                },
+                {
+                    "zh": "2026 开放预约 · 2028 全期交付",
+                    "en": "Reservations open 2026 · full delivery 2028"
+                }
             ]
         }
     ]

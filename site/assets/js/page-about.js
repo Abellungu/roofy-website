@@ -101,7 +101,7 @@ function foundingStory() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-5">' +
         '<div class="aspect-[4/5] overflow-hidden rounded-xl bg-slate-200 shadow-lg" data-reveal-up>' +
-        '<img src="/assets/img/stock/u1517502884422.jpg" data-placeholder="true" alt="Lusaka skyline" class="w-full h-full object-cover" />' +
+        '<img src="/assets/img/office/office-lobby.jpg" alt="ROOFY × African Perfect office lobby" class="w-full h-full object-cover" />' +
         '</div></div>' +
         '<div class="lg:col-span-7 lg:pt-4">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +

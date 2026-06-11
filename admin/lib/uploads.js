@@ -8,7 +8,7 @@ const sharp = require('sharp');
 const store = require('./store');
 
 const IMG_ROOT = path.join(store.SITE, 'assets', 'img');
-const FOLDERS = ['properties', 'news', 'projects', 'team', 'led', 'stock', 'misc'];
+const FOLDERS = ['properties', 'news', 'projects', 'team', 'led', 'office', 'stock', 'misc'];
 
 const upload = multer({
     storage: multer.memoryStorage(),

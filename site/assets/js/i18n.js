@@ -330,6 +330,7 @@ window.I18N = {
             statusLabels: {
                 selling: '热销中',
                 delivered: '已交付',
+                'sold-out': '已售罄',
                 'under-construction': '建设中',
                 upcoming: '即将开盘'
             },
@@ -706,6 +707,7 @@ window.I18N = {
             statusLabels: {
                 selling: 'Selling',
                 delivered: 'Delivered',
+                'sold-out': 'Sold out',
                 'under-construction': 'Under construction',
                 upcoming: 'Upcoming'
             },

@@ -98,7 +98,7 @@ const T = {
             { name: 'nameEn', type: 'text', zh: '名称(英文)', en: 'Name (en)', required: true, half: true },
             { name: 'taglineZh', type: 'text', zh: '一句话标语(中文)', en: 'Tagline (zh)', half: true },
             { name: 'taglineEn', type: 'text', zh: '一句话标语(英文)', en: 'Tagline (en)', half: true },
-            { name: 'status', type: 'select', zh: '状态', en: 'Status', required: true, half: true, options: [['selling', '热销中 Selling'], ['under-construction', '建设中 Under construction'], ['delivered', '已交付 Delivered'], ['upcoming', '即将开盘 Upcoming']] },
+            { name: 'status', type: 'select', zh: '状态', en: 'Status', required: true, half: true, options: [['selling', '热销中 Selling'], ['under-construction', '建设中 Under construction'], ['sold-out', '已售罄 Sold out'], ['delivered', '已交付 Delivered'], ['upcoming', '即将开盘 Upcoming']] },
             { name: 'location', type: 'text', zh: '位置', en: 'Location', half: true },
             { name: 'launchYear', type: 'number', zh: '启动年份', en: 'Launch year', half: true },
             { name: 'totalUnits', type: 'number', zh: '总套数', en: 'Total units', half: true },

@@ -20,6 +20,7 @@ function statusBadge(status, T) {
     const tone = {
         selling: 'bg-amber-500 text-slate-900',
         delivered: 'bg-emerald-500 text-white',
+        'sold-out': 'bg-rose-600 text-white',
         'under-construction': 'bg-slate-200 text-slate-900',
         upcoming: 'bg-slate-700 text-white'
     }[status] || 'bg-slate-200 text-slate-900';
