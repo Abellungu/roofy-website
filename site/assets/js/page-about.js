@@ -9,8 +9,8 @@ function aboutHero() {
     const lang = ROOFY.state.lang;
     const eyebrow = lang === 'zh' ? '关于我们' : 'About';
     const title = lang === 'zh'
-        ? '一家立足卢萨卡，连接中赞两地的多业务公司。'
-        : 'A multi-service company rooted in Lusaka, bridging China and Zambia.';
+        ? '一家立足赞比亚、连接中赞两地的综合性服务集团。'
+        : 'A comprehensive services group rooted in Zambia, bridging China and Zambia.';
     const desc = lang === 'zh'
         ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立。我们以房地产、LED 户外广告与品牌营销为根基，通过资源整合与系统化运营，参与卢萨卡城市升级的每一个关键节点。'
         : 'Roofy Investments Zambia was founded in 2024 at Ibex Hill, Lusaka. Anchored in real estate, LED outdoor advertising and brand marketing, we integrate fragmented resources and run them as a single system — at every key node of Lusaka\'s urban upgrade.';
@@ -95,8 +95,8 @@ function foundingStory() {
         ? '我们诞生于赞比亚房地产与媒介行业飞速变化的时刻。中赞之间的资金、商业与文化往来日益密切，而真正能够同时理解两边语境、并以专业标准服务客户的本地公司却屈指可数——这是 ROOFY 选择出发的理由。'
         : 'We were born at a moment when Zambia\'s real-estate and media markets were changing fast. Capital, business and culture flow between China and Zambia like never before — but very few local firms can speak both contexts fluently and serve them with a uniform standard. That is the gap ROOFY chose to step into.';
     const p2 = lang === 'zh'
-        ? '今天，我们的团队覆盖房地产、广告与品牌三个方向，办公室坐落在卢萨卡 Ibex Hill 的 Second Street。我们相信：少而美的项目、对客户的承诺，以及对工艺的尊重，是一家公司能走得更远的真正原因。'
-        : 'Today, our team spans real estate, advertising and brand — headquartered on Second Street, Ibex Hill, Lusaka. We believe in fewer but better projects, deep commitments to clients, and a respect for craft. Those, more than anything, are what carry a company through time.';
+        ? '今天，我们的团队覆盖房地产、广告与品牌三个方向，办公室坐落在卢萨卡 Ibex Hill 的 Second Street。我们相信：对客户的承诺，以及对工艺的尊重，是一家公司能走得更远的真正原因。'
+        : 'Today, our team spans real estate, advertising and brand — headquartered on Second Street, Ibex Hill, Lusaka. We believe in deep commitments to clients and a respect for craft. Those, more than anything, are what carry a company through time.';
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-5">' +

@@ -34,7 +34,7 @@ window.I18N = {
             eyebrow: 'BUILD · BRAND · GROW WITH ROOFY',
             title1: '光影之间',
             title2: '铸造传世',
-            desc: 'Roofy Investments Zambia 是一家立足卢萨卡的多元化企业，以房地产、LED 户外广告与品牌营销三大业务为根基，与中赞客户共同书写城市与品牌的下一页。',
+            desc: 'Roofy Investments Zambia，立足赞比亚、连接中赞两地的综合性服务集团：以房地产、LED 户外广告与品牌营销三大业务，与中赞客户共同书写城市与品牌的下一页。',
             primary: '浏览房源',
             secondary: '了解我们'
         },
@@ -42,7 +42,7 @@ window.I18N = {
         about: {
             eyebrow: '关于 ROOFY',
             title: '在赞比亚，以匠心建造价值。',
-            body: 'Roofy Investments Zambia 是一家成长迅速的多业务公司，专注于赞比亚的地产、广告与品牌行业。我们以创新的房地产投资方案、现代化的 LED 户外广告解决方案，以及富有影响力的品牌策略，服务企业与个人。',
+            body: 'Roofy Investments Zambia 是一家成长迅速的综合性服务集团，立足赞比亚、连接中赞两地，专注于地产、广告与品牌行业。我们以创新的房地产投资方案、现代化的 LED 户外广告解决方案，以及富有影响力的品牌策略，服务企业与个人。',
             body2: '从卢萨卡 Ibex Hill 的总部出发，我们与中赞客户并肩前行，把土地、影像与故事打磨为可以传承的资产。',
             cta: '查看完整介绍'
         },
@@ -84,8 +84,8 @@ window.I18N = {
             eyebrow: '业务版图',
             title: '三大业务，一种匠心标准。',
             items: [
-                { tag: '01', icon: 'home', title: '房地产解决方案', desc: '物业开发、房产买卖、投资咨询与置业陪伴——为个人、家庭与企业提供完整的房产服务链路。', href: 'services/real-estate.html', cta: '了解房地产业务' },
-                { tag: '02', icon: 'tv-minimal-play', title: 'LED 户外广告', desc: '我们正在拓展的全新业务 —— 以现代 LED 屏幕为载体的数字户外广告，让品牌出现在赞比亚最具能见度的城市核心。当前正接洽首批合作客户与项目。', href: 'services/advertising.html', cta: '了解广告业务' },
+                { tag: '01', icon: 'home', title: '房地产解决方案', desc: '代建、房产买卖、投资咨询与置业陪伴——为个人、家庭与企业提供完整的房产服务链路。', href: 'services/real-estate.html', cta: '了解房地产业务' },
+                { tag: '02', icon: 'tv-minimal-play', title: 'LED 户外广告', desc: '以现代 LED 屏幕为载体的数字户外广告，让品牌出现在赞比亚最具能见度的城市核心。现正招募首批合作品牌与项目。', href: 'services/advertising.html', cta: '了解广告业务' },
                 { tag: '03', icon: 'sparkles', title: '品牌与营销', desc: '战略层面的品牌定位，与执行层面的营销活动——让品牌在市场中获得清晰、可信、可被记忆的位置。', href: 'services/branding.html', cta: '了解品牌业务' }
             ]
         },
@@ -157,21 +157,21 @@ window.I18N = {
                 tag: '01',
                 eyebrow: '业务一 · Real Estate',
                 title: '从一张地契，到一个家。',
-                summary: '我们为个人、家庭与企业提供完整的房地产服务链路：物业开发、新房与二手交易、租赁托管、土地买卖与投资咨询。每一处房源由顾问亲自走访、拍摄与核验。',
+                summary: '我们为个人、家庭与企业提供完整的房地产服务链路：代建、新房与二手交易、租赁托管、土地买卖与投资咨询。每一处房源由顾问亲自走访、拍摄与核验。',
                 inquire: '咨询房产业务'
             },
             advertising: {
                 tag: '02',
                 eyebrow: '业务二 · LED Advertising',
                 title: '让品牌在城市的地标上发光。',
-                summary: 'ROOFY 正在拓展中的 LED 户外广告业务，以现代 LED 屏幕为载体，把品牌带到赞比亚最具能见度的城市核心。目前正接洽首批合作客户。',
+                summary: 'ROOFY 的 LED 户外广告业务，以现代 LED 屏幕为载体，把品牌带到赞比亚最具能见度的城市核心。现正招募首批合作品牌。',
                 inquire: '加入首批合作伙伴',
                 capabilitiesTitle: '能力预览',
-                capabilitiesDesc: '四类点位 · 一张正在搭建中的网络。',
+                capabilitiesDesc: '四类点位 · 一张持续扩张的网络。',
                 empty: {
                     badge: '即将上线 · Coming online',
-                    title: '媒介库存正在搭建中。',
-                    desc: '我们正在为首批合作客户筹备 LED 屏幕、户外广告位与场馆媒介资源。如果您希望成为这条业务线最初的同行者，欢迎现在就和我们对话。',
+                    title: '首批黄金点位，正在虚位以待。',
+                    desc: '我们正在为首批合作客户布局 LED 屏幕、户外广告位与场馆媒介资源。现在加入，即可优先锁定核心点位与定制条款。',
                     cta: '与广告团队对话'
                 }
             },
@@ -294,6 +294,11 @@ window.I18N = {
             'project-detail': '你好 ROOFY，我想详细咨询贵公司开发的一个项目（详情见网站）。',
             legal: '你好 ROOFY，我希望就网站条款或隐私政策做一些咨询。'
         },
+        homeNews: {
+            eyebrow: '新闻动态 · Newsroom',
+            title: '最新动态',
+            viewAll: '查看全部新闻'
+        },
         news: {
             eyebrow: '新闻 · News',
             title: '一线动态 · 速读 ROOFY 视角下的城市与市场。',
@@ -405,7 +410,7 @@ window.I18N = {
             eyebrow: 'BUILD · BRAND · GROW WITH ROOFY',
             title1: 'Built on Light',
             title2: 'Crafted for Legacy',
-            desc: 'Roofy Investments Zambia is a Lusaka-based, multi-service company building the next chapter of real estate, LED outdoor advertising and brand strategy — for individuals, SMEs and corporates across Zambia.',
+            desc: 'Roofy Investments Zambia is a comprehensive services group rooted in Zambia, connecting China and Zambia through three practices — real estate, LED outdoor advertising and brand marketing — for individuals, SMEs and corporates.',
             primary: 'View Properties',
             secondary: 'About Us'
         },
@@ -413,7 +418,7 @@ window.I18N = {
         about: {
             eyebrow: 'About ROOFY',
             title: 'Crafting value in Zambia, with the patience of a craftsman.',
-            body: 'Roofy Investments Zambia is a fast-growing multi-service company focused on transforming the property, advertising, and branding sectors in Zambia. We offer innovative real-estate investment opportunities, modern LED outdoor advertising and impactful brand strategies — tailored for both businesses and individuals.',
+            body: 'Roofy Investments Zambia is a fast-growing comprehensive services group rooted in Zambia and connecting China and Zambia, focused on the property, advertising, and branding sectors. We offer innovative real-estate investment opportunities, modern LED outdoor advertising and impactful brand strategies — tailored for both businesses and individuals.',
             body2: 'From our headquarters in Ibex Hill, Lusaka, we walk alongside clients across China and Zambia, turning land, image and story into assets worth inheriting.',
             cta: 'Read the full story'
         },
@@ -455,8 +460,8 @@ window.I18N = {
             eyebrow: 'What we do',
             title: 'Three practices, one standard of craft.',
             items: [
-                { tag: '01', icon: 'home', title: 'Real Estate Solutions', desc: 'Property development, sales, investment opportunities and advisory — for individuals, families and businesses.', href: 'services/real-estate.html', cta: 'Real Estate' },
-                { tag: '02', icon: 'tv-minimal-play', title: 'LED Billboard Advertising', desc: 'A new chapter of our practice — digital outdoor advertising powered by modern LED billboards, designed to put brands on Zambia\'s most visible streets. Now booking founding partners and inaugural campaigns.', href: 'services/advertising.html', cta: 'Advertising' },
+                { tag: '01', icon: 'home', title: 'Real Estate Solutions', desc: 'Turnkey development, property sales, investment opportunities and advisory — for individuals, families and businesses.', href: 'services/real-estate.html', cta: 'Real Estate' },
+                { tag: '02', icon: 'tv-minimal-play', title: 'LED Billboard Advertising', desc: 'Digital outdoor advertising powered by modern LED billboards, designed to put brands on Zambia\'s most visible streets. Now booking founding partners and inaugural campaigns.', href: 'services/advertising.html', cta: 'Advertising' },
                 { tag: '03', icon: 'sparkles', title: 'Branding & Marketing', desc: 'Strategic brand positioning and marketing execution that gives brands a clear, credible, memorable seat in the market.', href: 'services/branding.html', cta: 'Branding' }
             ]
         },
@@ -528,21 +533,21 @@ window.I18N = {
                 tag: '01',
                 eyebrow: 'Practice 01 · Real Estate',
                 title: 'From a title deed to a home.',
-                summary: 'End-to-end real-estate services for individuals, families and businesses — development, new-build and resale transactions, rentals and management, land agency, and investment advisory. Every listing is visited, photographed and verified by a ROOFY advisor.',
+                summary: 'End-to-end real-estate services for individuals, families and businesses — turnkey development, new-build and resale transactions, rentals and management, land agency, and investment advisory. Every listing is visited, photographed and verified by a ROOFY advisor.',
                 inquire: 'Talk to property team'
             },
             advertising: {
                 tag: '02',
                 eyebrow: 'Practice 02 · LED Advertising',
                 title: 'Let your brand shine on the city\'s landmarks.',
-                summary: 'A new chapter of ROOFY — digital outdoor advertising powered by modern LED billboards, designed to put brands on Zambia\'s most visible streets. We are currently briefing founding partners.',
+                summary: 'Digital outdoor advertising powered by modern LED billboards, designed to put brands on Zambia\'s most visible streets. We are currently briefing founding partners.',
                 inquire: 'Become a founding partner',
                 capabilitiesTitle: 'Capabilities preview',
-                capabilitiesDesc: 'Four surface types · one network in the making.',
+                capabilitiesDesc: 'Four surface types · one growing network.',
                 empty: {
                     badge: 'Coming online',
-                    title: 'Media inventory is being built.',
-                    desc: 'We are assembling LED screens, outdoor billboards and venue media for our founding partners. If you want to be among the first to deploy on our network, let\'s talk now.',
+                    title: 'Prime placements, reserved for founding partners.',
+                    desc: 'We are lining up LED screens, outdoor billboards and venue media for our founding partners. Join now to lock in core placements and custom terms first.',
                     cta: 'Talk to the advertising team'
                 }
             },
@@ -664,6 +669,11 @@ window.I18N = {
             projects: 'Hi ROOFY, I\'d like to learn more about your group developments (Crown / Miracle / Serene / Honor).',
             'project-detail': 'Hi ROOFY, I\'d like to enquire about a specific project on your site.',
             legal: 'Hi ROOFY, I have a question about your terms or privacy policy.'
+        },
+        homeNews: {
+            eyebrow: 'Newsroom',
+            title: 'Latest news',
+            viewAll: 'All news'
         },
         news: {
             eyebrow: 'News · 新闻',

@@ -6,27 +6,27 @@
             "icon": "home",
             "title": "Real Estate Solutions",
             "titleZh": "房地产解决方案",
-            "summary": "Property development, sales, investment opportunities and consultation for individuals, families and businesses.",
-            "summaryZh": "物业开发、房产买卖、投资咨询与置业陪伴。",
+            "summary": "Turnkey development, property sales, investment opportunities and consultation for individuals, families and businesses.",
+            "summaryZh": "代建、房产买卖、投资咨询与置业陪伴。",
             "heroImg": "/assets/img/properties/kalundu1.jpg",
             "narrative": [
-                "ROOFY's real-estate practice is the original engine of the company. Since 2024 we have walked clients through Lusaka's residential, retail and land markets — from a Kalundu villa to a Lusaka-West development plot — with the same level of care, regardless of ticket size.",
-                "Buyers get a hand-curated shortlist, transparent due diligence and an advisor who shows up to every viewing. Sellers get listings that are properly photographed, indexed and put in front of the right kind of buyer — Zambian and Chinese alike."
+                "Real estate is one of ROOFY's core businesses. On every street and in every community of Lusaka, you will find ROOFY people hard at work.",
+                "We never forget what our clients entrust to us — and we close every mandate with a result that speaks for itself."
             ],
             "narrativeZh": [
-                "房地产是 ROOFY 的起家业务。自 2024 年起，我们陪伴客户走过卢萨卡的住宅、商业与土地市场——从 Kalundu 的别墅到 Lusaka West 的开发用地——无论项目大小，标准始终如一。",
-                "对买方，我们提供精心筛选的候选房源、透明的尽调流程，以及全程陪同的顾问。对卖方，我们认真拍摄、清晰登记，把房源送到合适的赞比亚与中国买家面前。"
+                "房地产是 ROOFY 的核心业务之一。在卢萨卡的每一条街道、每一个社区，都有 ROOFY 人辛劳的身影。",
+                "我们谨记客户的托付，把每一次委托都做成一份完美的答卷。"
             ],
-            "deliverables": ["Property Development", "Property Sales & Rentals", "Land Agency", "Investment Advisory"],
-            "deliverablesZh": ["物业开发", "房产买卖与租赁", "土地代理", "投资顾问"],
+            "deliverables": ["Turnkey Development", "Property Sales & Rentals", "Land Agency", "Investment Advisory"],
+            "deliverablesZh": ["代建", "房产买卖与租赁", "土地代理", "投资顾问"],
             "deliverableDescEn": [
-                "Identifying sites, advising on design briefs and managing build-out for residential and commercial projects.",
+                "Build-on-behalf development: site selection, design briefs and managed build-out for residential and commercial projects.",
                 "End-to-end agency for new-build and resale homes, plus long-term and serviced rentals.",
                 "Buying, selling and packaging agricultural, industrial and development land across Zambia.",
                 "Helping investors model returns, structure deals and steward assets after handover."
             ],
             "deliverableDescZh": [
-                "选址、设计简报与建造管理 —— 住宅与商业项目皆可。",
+                "受托代建：从选址、设计简报到建造管理，住宅与商业项目皆可。",
                 "新房与二手房的完整代理，外加长租与服务式公寓。",
                 "在赞比亚全境代理农业、工业与开发用地的买卖与打包。",
                 "为投资者构建收益模型、设计交易结构，并在交付后提供资产托管。"
@@ -42,12 +42,12 @@
             "summaryZh": "以现代化 LED 屏幕为核心的数字户外广告。",
             "heroImg": "/assets/img/properties/mainstreet1.jpg",
             "narrative": [
-                "LED billboard advertising is the new chapter of ROOFY's practice. We are building a digital out-of-home network across Lusaka's commercial cores and high-traffic gateways — modern LED screens designed to give brands daylight-readable, video-capable presence on the streets that matter.",
-                "Because this practice is launching, our inventory is being assembled rather than catalogued. That is also the opportunity: founding partners get prime placements, custom terms and a real seat at the table as ROOFY's media network comes online."
+                "We are building a digital out-of-home network across Lusaka's commercial cores and high-traffic gateways — modern LED screens designed to give brands daylight-readable, video-capable presence on the streets that matter.",
+                "Founding partners get prime placements, custom terms and first call on every new site as the ROOFY media network expands."
             ],
             "narrativeZh": [
-                "LED 户外广告是 ROOFY 的下一程。我们正在卢萨卡核心商圈与高流量节点搭建数字户外网络——现代 LED 屏幕，白天清晰可读、支持视频，让品牌出现在最该出现的街道上。",
-                "因为这条业务线刚启动，我们的媒介库存还在搭建而非陈列。这反而是机会：首批合作伙伴可以拿到最佳点位、定制条款，并在 ROOFY 媒介网络上线的过程中真正参与决策。"
+                "我们正在卢萨卡核心商圈与高流量节点搭建数字户外网络——现代 LED 屏幕，白天清晰可读、支持视频，让品牌出现在最该出现的街道上。",
+                "对首批合作伙伴，我们开放最佳点位与定制条款，并在 ROOFY 媒介网络扩张的全程保持优先权。"
             ],
             "deliverables": ["Digital LED Billboards", "Outdoor Advertising Strategy", "Media Planning & Buying", "Campaign Reporting"],
             "deliverablesZh": ["数字 LED 广告屏", "户外广告策略", "媒介规划与投放", "投放效果报告"],

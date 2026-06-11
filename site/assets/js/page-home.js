@@ -1,10 +1,10 @@
 /* Home page — clean long-scroll layout in slate + amber register (references 模板1.html).
- * Section rhythm: dark hero → marquee → light about → slate-50 mission/vision →
- *                 light values → slate-50 services → light featured →
- *                 slate-50 process → dark CTA → light contact teaser → dark footer.
- * Data: properties from /assets/data/properties.json (fetched at boot).
+ * Section rhythm: dark hero → marquee → light news → slate-50 about → light mission/vision →
+ *                 slate-50 values → light services → slate-50 featured →
+ *                 light process → dark CTA → light contact teaser → dark footer.
+ * Data: properties + news fetched at boot (news shown first per client direction 2026-06-11).
  */
-window.ROOFY_DATA = window.ROOFY_DATA || { properties: [] };
+window.ROOFY_DATA = window.ROOFY_DATA || { properties: [], news: [] };
 window.ROOFY_PAGE = { id: 'home', whatsapp: 'home' };
 
 function heroSection() {
@@ -35,6 +35,37 @@ function marqueeSection() {
     return '<section class="py-5 border-b border-slate-200 bg-white">' +
         '<div class="marquee"><div class="marquee__track">' + set + '</div><div class="marquee__track" aria-hidden="true">' + set + '</div></div>' +
         '</section>';
+}
+
+function newsSection() {
+    const T = ROOFY.tr();
+    const lang = ROOFY.state.lang;
+    const list = (window.ROOFY_DATA.news || []).slice(0, 3);
+    if (!list.length) return '';
+    const cards = list.map(function (a) {
+        const title = lang === 'zh' ? a.titleZh : a.titleEn;
+        const cat = (T.news.categories && T.news.categories[a.category]) || '';
+        return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" data-reveal-up class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+            '<div class="img-zoom relative aspect-[16/9] overflow-hidden bg-slate-100">' +
+            '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
+            (cat ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + cat + '</span>' : '') +
+            '</div>' +
+            '<div class="p-5">' +
+            '<div class="text-xs text-slate-400 mb-2">' + (a.publishedAt || '') + '</div>' +
+            '<h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
+            '</div></a>';
+    }).join('');
+    return '<section class="py-20 lg:py-24 bg-white">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
+        '<div class="max-w-2xl">' +
+        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.homeNews.eyebrow + '</div>' +
+        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.homeNews.title + '</h2></div>' +
+        '<a href="/news/index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
+        T.homeNews.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
+        '</div></section>';
 }
 
 function aboutSection() {
@@ -219,6 +250,7 @@ window.renderPage = function () {
         '<main>' +
         heroSection() +
         marqueeSection() +
+        newsSection() +
         aboutSection() +
         missionVisionSection() +
         valuesSection() +
@@ -232,12 +264,16 @@ window.renderPage = function () {
 };
 
 function loadHomeData() {
-    return fetch('/assets/data/properties.json')
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-            window.ROOFY_DATA.properties = (d && d.items) || [];
-        })
-        .catch(function () { });
+    return Promise.all([
+        fetch('/assets/data/properties.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+        fetch('/assets/data/news.json').then(function (r) { return r.json(); }).catch(function () { return null; })
+    ]).then(function (res) {
+        window.ROOFY_DATA.properties = (res[0] && res[0].items) || [];
+        const articles = (res[1] && res[1].articles) || [];
+        window.ROOFY_DATA.news = articles.slice().sort(function (a, b) {
+            return (b.publishedAt || '').localeCompare(a.publishedAt || '');
+        });
+    });
 }
 
 window.addEventListener('DOMContentLoaded', function () {

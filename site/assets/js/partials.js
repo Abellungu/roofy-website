@@ -11,12 +11,11 @@
     function topLinks(T) {
         return [
             ['home', '/index.html', T.nav.home],
+            ['news', '/news/index.html', T.nav.news],
             ['about', '/about.html', T.nav.about],
             ['real-estate', '/services/real-estate.html', T.nav.realEstate],
             ['advertising', '/services/advertising.html', T.nav.advertising],
             ['branding', '/services/branding.html', T.nav.branding],
-            ['properties', '/properties/index.html', T.nav.properties],
-            ['news', '/news/index.html', T.nav.news],
             ['contact', '/contact.html', T.nav.contact]
         ];
     }
