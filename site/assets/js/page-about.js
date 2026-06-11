@@ -18,7 +18,7 @@ function aboutHero() {
         '<div class="absolute inset-0"><img src="/assets/img/stock/u1497366216548.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + eyebrow + '</span></span>' +
         '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + desc + '</p></div>' +
         '</div></section>';
@@ -28,7 +28,7 @@ function missionVisionRow() {
     const T = ROOFY.tr();
     function tile(eyebrow, title, desc) {
         return '<div class="border-t-2 border-slate-900 pt-8 hover:border-amber-500 transition-colors duration-300" data-reveal-up>' +
-            '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
+            '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
             '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 leading-snug">' + title + '</h3>' +
             '<p class="text-slate-600 leading-relaxed">' + desc + '</p>' +
             '</div>';
@@ -56,7 +56,7 @@ function valuesGrid() {
     return '<section id="values" class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + items + '</div>' +
         '</div></section>';
@@ -78,7 +78,7 @@ function businessScopeSection() {
     return '<section id="business-scope" class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.businessScope.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.businessScope.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-reveal-up>' + T.businessScope.title + '</h2>' +
         '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + T.businessScope.desc + '</p></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">' + items + '</div>' +
@@ -98,11 +98,11 @@ function foundingStory() {
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-5">' +
-        '<div class="aspect-[4/5] overflow-hidden rounded-xl bg-slate-200 shadow-lg" data-reveal-up>' +
+        '<div class="aspect-[4/5] overflow-hidden rounded-lg bg-slate-200 shadow-lg" data-reveal-up>' +
         '<img src="/assets/img/office/office-lobby.jpg" alt="ROOFY × African Perfect office lobby" class="w-full h-full object-cover" />' +
         '</div></div>' +
         '<div class="lg:col-span-7 lg:pt-4">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6" data-reveal-up>' + title + '</h2>' +
         '<p class="text-slate-700 leading-relaxed mb-5 max-w-xl" data-reveal-up>' + p1 + '</p>' +
         '<p class="text-slate-500 leading-relaxed max-w-xl" data-reveal-up>' + p2 + '</p>' +
@@ -119,13 +119,13 @@ function officeGallery() {
         ['/assets/img/office/office-terrace.jpg', 'Garden terrace']
     ];
     const cells = imgs.map(function (im) {
-        return '<div data-reveal-up class="img-zoom overflow-hidden rounded-xl aspect-[4/3] bg-slate-200">' +
+        return '<div data-reveal-up class="img-zoom overflow-hidden rounded-lg aspect-[4/3] bg-slate-200">' +
             '<img src="' + im[0] + '" alt="' + im[1] + '" loading="lazy" class="w-full h-full object-cover" /></div>';
     }).join('');
     return '<section class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + title + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">' + cells + '</div>' +
         '</div></section>';
@@ -143,7 +143,7 @@ function teamSection() {
             const photo = m.photo
                 ? '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy" class="w-full h-full object-cover" />'
                 : '<div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-500 font-semibold">' + (m.initials || '·') + '</div>';
-            return '<div data-reveal-up class="group flex items-center gap-4 p-4 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">' +
+            return '<div data-reveal-up class="group flex items-center gap-4 p-4 bg-white border border-slate-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">' +
                 '<div class="shrink-0 w-16 h-16 rounded-full overflow-hidden bg-slate-100 ring-2 ring-amber-500/20">' + photo + '</div>' +
                 '<div class="flex-1 min-w-0">' +
                 '<div class="text-sm font-bold text-slate-900 truncate">' + name + '</div>' +
@@ -155,7 +155,7 @@ function teamSection() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">' +
         '<div class="max-w-2xl">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.team.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.team.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.team.title + '</h2></div>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         (lang === 'zh' ? '与团队对话' : 'Talk to the team') +
@@ -171,9 +171,9 @@ function aboutCtaBanner() {
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
         '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

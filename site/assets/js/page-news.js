@@ -18,7 +18,7 @@ function newsHero() {
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + T.news.eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.news.eyebrow + '</span></span>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-300 leading-relaxed">' + T.news.desc + '</p></div>' +
         '</div></section>';
@@ -43,12 +43,12 @@ function articleCard(a, T) {
     const excerpt = lang === 'zh' ? a.excerptZh : a.excerptEn;
     const catLabel = T.news.categories[a.category] || a.category;
     return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" ' +
-        'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+        'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
         '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
         '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
         '<div class="absolute top-3 left-3 flex items-center gap-2">' +
-        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-md shadow-sm">' + catLabel + '</span>' +
-        (a.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-md">' + T.news.sample + '</span>' : '') +
+        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm shadow-sm">' + catLabel + '</span>' +
+        (a.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.news.sample + '</span>' : '') +
         '</div></div>' +
         '<div class="p-5">' +
         '<div class="text-xs text-slate-500 mb-2">' + formatDate(a.publishedAt, lang) + '</div>' +
@@ -106,13 +106,13 @@ function newsCtaBanner() {
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">' +
         '<div class="lg:col-span-8">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' +
         (lang === 'zh' ? '想第一时间收到更新？' : 'Want updates first?') + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">' +
         (lang === 'zh' ? '订阅 ROOFY 邮件简报 · 每周一封，仅看本地市场最关键的几条。' : 'Subscribe to the ROOFY brief · one email a week with the local market moves that matter.') +
         '</h2></div>' +
         '<div class="lg:col-span-4 lg:text-right">' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         (lang === 'zh' ? '联系我们订阅' : 'Get in touch') + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
 }

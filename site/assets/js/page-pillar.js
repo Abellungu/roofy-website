@@ -34,13 +34,13 @@ function pillarHero() {
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + ti18n.eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + ti18n.eyebrow + '</span></span>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl mb-8"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + summary + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors shadow-lg shadow-amber-500/20">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
         ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-md transition-colors">' +
+        '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-sm transition-colors">' +
         T.pillars.adjacent + '</a>' +
         '</div></div></div></section>';
 }
@@ -78,7 +78,7 @@ function pillarDeliverables() {
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
         '</div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + tiles + '</div>' +
         '</div></section>';
@@ -103,14 +103,14 @@ function spotlightRealEstate(T) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
         '<div class="max-w-2xl">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
         '<div class="mt-12 flex justify-center" data-reveal-up>' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20">' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
         '</div></section>';
@@ -128,7 +128,7 @@ function spotlightBranding(T) {
     return '<section class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.approachTitle + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.approachTitle + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + ti18n.approachDesc + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">' + items + '</div>' +
         '</div></section>';
@@ -156,7 +156,7 @@ function capabilitiesBlock(T) {
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.capabilitiesTitle + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.capabilitiesTitle + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + ti18n.capabilitiesDesc + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + capTiles + '</div>' +
         '</div></section>';
@@ -182,11 +182,11 @@ function ledProductsBlock(T) {
         const note = lang === 'zh' ? p.noteZh : p.noteEn;
         const usage = ti.usageLabels[p.usage] || p.usage;
         const mode = (ti.modeLabels && ti.modeLabels[p.mode]) || '';
-        return '<div data-reveal-up class="group flex flex-col bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
+        return '<div data-reveal-up class="group flex flex-col bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="relative aspect-[16/10] bg-slate-50 flex items-center justify-center overflow-hidden">' +
             '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + p.model + ' ' + name + '" loading="lazy" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105" />' +
-            (p.series ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-slate-900/85 backdrop-blur text-white px-2 py-0.5 rounded-md">' + p.series + '</span>' : '') +
-            '<span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + usage + '</span>' +
+            (p.series ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-slate-900/85 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + p.series + '</span>' : '') +
+            '<span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + usage + '</span>' +
             '</div>' +
             '<div class="flex flex-col flex-1 p-6">' +
             '<div class="flex items-baseline justify-between gap-3 mb-1">' +
@@ -213,12 +213,12 @@ function ledProductsBlock(T) {
     return '<section class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-reveal-up>' + ti.title + '</h2>' +
         '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + ti.desc + '</p></div>' +
         '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">' + cards + '</div>' +
         '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-10" data-reveal-up>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         ti.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<p class="text-xs text-slate-500">' + ti.note + '</p>' +
         '</div></div></section>';
@@ -238,17 +238,17 @@ function ledBillboardsBlock(T) {
             coming: 'bg-slate-200 text-slate-700',
             booked: 'bg-slate-700 text-white'
         }[a] || 'bg-slate-200 text-slate-700';
-        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ' + tone + '">' + label + '</span>';
+        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm ' + tone + '">' + label + '</span>';
     }
 
     const cards = boards.map(function (b) {
         const name = lang === 'zh' ? b.nameZh : b.nameEn;
         const addr = lang === 'zh' ? b.addressZh : b.addressEn;
-        return '<div data-reveal-up class="group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
+        return '<div data-reveal-up class="group bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + b.img + '" data-placeholder="' + (b.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex items-center gap-2">' +
-            '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2 py-0.5 rounded-md">' + b.code + '</span>' +
+            '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + b.code + '</span>' +
             availBadge(b.availability) + '</div></div>' +
             '<div class="p-5">' +
             '<h3 class="text-base font-bold text-slate-900 mb-1">' + name + '</h3>' +
@@ -263,12 +263,12 @@ function ledBillboardsBlock(T) {
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4" data-reveal-up>' + ti.title + '</h2>' +
         '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + ti.desc + '</p></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + cards + '</div>' +
         '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-8" data-reveal-up>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         ti.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<p class="text-xs text-slate-500">' + ti.note + '</p>' +
         '</div></div></section>';
@@ -279,13 +279,13 @@ function emergingCallout(T) {
     if (!ti18n || !ti18n.empty) return '';
     return '<section class="py-16 lg:py-20 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="relative rounded-2xl bg-slate-900 text-white p-10 lg:p-14 overflow-hidden" data-reveal-up>' +
+        '<div class="relative rounded-lg_TMP bg-slate-900 text-white p-10 lg:p-14 overflow-hidden" data-reveal-up>' +
         '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-2xl">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">' + ti18n.empty.badge + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">' + ti18n.empty.badge + '</div>' +
         '<h3 class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">' + ti18n.empty.title + '</h3>' +
         '<p class="text-slate-300 leading-relaxed mb-8">' + ti18n.empty.desc + '</p>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         ti18n.empty.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></div></section>';
 }
@@ -295,9 +295,9 @@ function pillarCta() {
     return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
         '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.pillars.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
         T.pillars.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
@@ -320,7 +320,7 @@ function pillarAdjacent() {
     }).join('');
     return '<section id="adjacent" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.pillars.adjacent + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.pillars.adjacent + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-10 max-w-3xl" data-reveal-up>' + (lang === 'zh' ? '另外两条业务线，可能也对您有用。' : 'Two adjacent practices you may also find useful.') + '</h2>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">' + cards + '</div>' +
         '</div></section>';

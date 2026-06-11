@@ -231,3 +231,67 @@ p {
 @media (prefers-reduced-motion: reduce) {
     .transition-shadow:hover { transform: none; }
 }
+
+/* ───────────────── Design system layer (2026-06-12) ─────────────────
+   Editorial-estate language: display serif headings, drafting-paper grid
+   texture, square eyebrow anchors with auto section indexes, brand stripe. */
+
+/* Display serif for the heading tier. Fraunces covers latin; Chinese
+   glyphs fall back to the bold sans stack, which pairs cleanly. */
+#root h1,
+#root h2 {
+    font-family: 'Fraunces', Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
+    font-weight: 580;
+    letter-spacing: -0.01em;
+}
+#root h1 { font-weight: 620; }
+footer h2 {
+    font-family: 'Fraunces', Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
+    font-weight: 560;
+}
+
+/* Drafting-paper grid texture. Light tinted sections and dark imageless
+   sections both carry a faint survey grid — real-estate drawing-board cue. */
+#root section.bg-slate-50 {
+    background-image:
+        linear-gradient(rgba(2, 6, 23, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2, 6, 23, 0.04) 1px, transparent 1px);
+    background-size: 112px 112px;
+}
+#root section.bg-slate-900,
+footer.bg-slate-950 {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 112px 112px;
+}
+
+/* Brand stripe along the very top of the viewport. */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b45309, #f59e0b 35%, #fbbf24 50%, #f59e0b 65%, #b45309);
+    z-index: 60;
+    pointer-events: none;
+}
+
+/* Eyebrow: square amber anchor + auto-numbered section index. */
+.roofy-eyebrow { display: inline-flex; align-items: center; gap: .65em; }
+.roofy-eyebrow::before {
+    content: '';
+    width: .5em; height: .5em;
+    background: currentColor;
+    flex: none;
+}
+#root main > section { counter-increment: roofysec; }
+#root main > section .roofy-eyebrow::after {
+    content: "/ " counter(roofysec, decimal-leading-zero);
+    margin-left: .35em;
+    font-weight: 600;
+    letter-spacing: .18em;
+    color: rgba(148, 163, 184, .65);
+}
+
+::selection { background: rgba(245, 158, 11, .28); color: inherit; }

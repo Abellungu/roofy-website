@@ -35,7 +35,7 @@ function notFoundBlock() {
         '<h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">' +
         (ROOFY.state.lang === 'zh' ? '文章未找到' : 'Article not found') + '</h1>' +
         '<p class="text-slate-600 mb-8">' + T.news.notFound + '</p>' +
-        '<a href="/news/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/news/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         T.news.notFoundCta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
@@ -54,8 +54,8 @@ function detailHero(a) {
         '<a href="/news/index.html" class="reveal-mask inline-flex"><span class="reveal-line inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-amber-400 transition-colors mb-6">' +
         '<i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>' + T.news.back + '</span></a>' +
         '<div class="flex flex-wrap items-center gap-2 mb-5">' +
-        '<span class="text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-md">' + catLabel + '</span>' +
-        (a.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md">' + T.news.sample + '</span>' : '') +
+        '<span class="text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm">' + catLabel + '</span>' +
+        (a.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-2.5 py-1 rounded-sm">' + T.news.sample + '</span>' : '') +
         '</div>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400">' +
@@ -95,7 +95,7 @@ function relatedSection(a) {
         const rTitle = lang === 'zh' ? r.titleZh : r.titleEn;
         const rExcerpt = lang === 'zh' ? r.excerptZh : r.excerptEn;
         return '<a href="/news/article.html?id=' + encodeURIComponent(r.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
+            'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.coverImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + rTitle + '" loading="lazy" class="w-full h-full object-cover" />' +
             '</div>' +
@@ -108,7 +108,7 @@ function relatedSection(a) {
 
     return '<section class="py-16 lg:py-20 bg-slate-50 border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.news.related + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.news.related + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8" data-reveal-up>' +
         (T.news.categories[a.category] || a.category) + '</h2>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-5">' + cards + '</div>' +

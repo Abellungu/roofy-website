@@ -15,13 +15,13 @@
         const txnLabel = (T.properties && T.properties.chipFor && T.properties.chipFor[txn]) || '';
         const regionLabel = p.region && T.properties && T.properties.regions ? T.properties.regions[p.region] : '';
         return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100">' +
             '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">' +
-            '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + tag + '</span>' +
-            (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-md">' + txnLabel + '</span>' : '') +
-            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-md">' + T.featured.sample + '</span>' : '') +
+            '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + tag + '</span>' +
+            (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-sm">' + txnLabel + '</span>' : '') +
+            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + T.featured.sample + '</span>' : '') +
             '</div></div>' +
             '<div class="p-5">' +
             '<div class="flex items-center justify-between gap-2 text-xs text-slate-500 mb-2">' +

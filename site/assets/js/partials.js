@@ -51,10 +51,10 @@
             '<a href="/index.html" class="nav-wordmark text-2xl font-bold tracking-tight">Roo<span class="text-amber-500">fy</span></a>' +
             '<nav class="hidden lg:flex items-center gap-8">' + desktop + '</nav>' +
             '<div class="flex items-center gap-2">' +
-            '<button onclick="toggleLang()" class="nav-lang hidden md:inline-flex items-center text-xs font-medium transition-colors px-3 h-9 rounded-md">' +
+            '<button onclick="toggleLang()" class="nav-lang hidden md:inline-flex items-center text-xs font-medium transition-colors px-3 h-9 rounded-sm">' +
             window.ROOFY.flipLabel() +
             '</button>' +
-            '<a href="/contact.html" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 rounded-md transition-colors shadow-sm">' +
+            '<a href="/contact.html" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 rounded-sm transition-colors shadow-sm">' +
             T.cta.contact +
             '</a>' +
             '<button onclick="toggleMobile()" class="nav-mobile-toggle lg:hidden p-1" aria-label="Menu">' +
@@ -93,11 +93,13 @@
 
         return '<footer class="bg-slate-950 pt-16 pb-10 border-t border-slate-800">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+            '<div class="border-b border-slate-800 pb-10 mb-12">' +
+            '<h2 class="text-3xl md:text-4xl lg:text-5xl text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
             '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">' +
             '<div class="lg:col-span-5">' +
             '<a href="/index.html" class="text-2xl font-bold tracking-tight text-white mb-5 inline-block">Roo<span class="text-amber-500">fy</span></a>' +
             '<p class="text-sm text-slate-400 max-w-sm leading-relaxed mb-3">' + T.footer.desc + '</p>' +
-            '<p class="text-sm text-amber-500 font-medium mb-8">' + T.footer.sloganLine + '</p>' +
+            
             '<div class="flex items-center gap-3">' +
             (function () {
                 const SVG_ATTRS = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"';
@@ -156,8 +158,8 @@
             '<div><div class="text-slate-900 text-sm font-medium mb-1">' + T.cookies.title + '</div>' +
             '<div class="text-slate-500 text-xs leading-relaxed">' + T.cookies.desc + '</div></div></div>' +
             '<div class="flex items-center gap-2 flex-wrap">' +
-            '<button onclick="setCookieConsent(\'all\')" class="text-xs font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 rounded-md transition-colors">' + T.cookies.accept + '</button>' +
-            '<button onclick="setCookieConsent(\'essential\')" class="text-xs font-medium border border-slate-200 hover:border-slate-400 hover:text-slate-900 text-slate-700 px-4 h-9 rounded-md transition-colors">' + T.cookies.reject + '</button>' +
+            '<button onclick="setCookieConsent(\'all\')" class="text-xs font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 rounded-sm transition-colors">' + T.cookies.accept + '</button>' +
+            '<button onclick="setCookieConsent(\'essential\')" class="text-xs font-medium border border-slate-200 hover:border-slate-400 hover:text-slate-900 text-slate-700 px-4 h-9 rounded-sm transition-colors">' + T.cookies.reject + '</button>' +
             '<a href="/cookies.html" class="text-xs text-slate-500 hover:text-slate-900 px-2 h-9 inline-flex items-center transition-colors">' + T.cookies.settings + '</a>' +
             '</div></div>';
         setTimeout(function () { el.classList.add('is-visible'); }, 1200);

@@ -24,7 +24,7 @@ function statusBadge(status, T) {
         'under-construction': 'bg-slate-200 text-slate-900',
         upcoming: 'bg-slate-700 text-white'
     }[status] || 'bg-slate-200 text-slate-900';
-    return '<span class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md ' + tone + '">' + label + '</span>';
+    return '<span class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-sm ' + tone + '">' + label + '</span>';
 }
 
 function notFoundBlock() {
@@ -35,7 +35,7 @@ function notFoundBlock() {
         '<h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">' +
         (ROOFY.state.lang === 'zh' ? '项目未找到' : 'Project not found') + '</h1>' +
         '<p class="text-slate-600 mb-8">' + T.projects.notFound + '</p>' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         T.projects.notFoundCta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
@@ -54,7 +54,7 @@ function projectHero(p) {
         '<a href="/properties/index.html" class="reveal-mask inline-flex"><span class="reveal-line inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-amber-400 transition-colors mb-8">' +
         '<i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>' + T.projects.back + '</span></a>' +
         '<div class="flex flex-wrap items-center gap-2 mb-5">' + statusBadge(p.status, T) +
-        (p.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-3 py-1.5 rounded-md">' + T.projects.sample + '</span>' : '') +
+        (p.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-3 py-1.5 rounded-sm">' + T.projects.sample + '</span>' : '') +
         '</div>' +
         '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + name + '</span></span></h1>' +
         (tagline ? '<div class="reveal-mask max-w-2xl mb-8"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + tagline + '</p></div>' : '') +
@@ -84,8 +84,8 @@ function specTable(p) {
             '<div class="text-sm text-slate-900 font-medium text-right">' + r[1] + '</div></div>';
     }).join('');
 
-    return '<div class="bg-white border border-slate-100 rounded-xl shadow-sm p-6 lg:p-8">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' +
+    return '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-6 lg:p-8">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' +
         (ROOFY.state.lang === 'zh' ? '关键信息' : 'At a glance') + '</div>' +
         cells + '</div>';
 }
@@ -95,13 +95,13 @@ function inquireCard(p) {
     const lang = ROOFY.state.lang;
     const name = lang === 'zh' ? p.nameZh : p.nameEn;
     const subject = '咨询项目 / Project inquiry: ' + name + ' [' + p.id + ']';
-    return '<div class="bg-slate-900 text-white rounded-xl p-6 lg:p-8 mt-5">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' + T.projects.inquire + '</div>' +
+    return '<div class="bg-slate-900 text-white rounded-lg p-6 lg:p-8 mt-5">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' + T.projects.inquire + '</div>' +
         '<p class="text-sm text-slate-300 leading-relaxed mb-5">' + T.projects.inquireDesc + '</p>' +
         '<div class="flex flex-col gap-2">' +
-        '<a href="mailto:roofy@mingyangrt.com?subject=' + encodeURIComponent(subject) + '" class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-11 rounded-md transition-colors">' +
+        '<a href="mailto:roofy@mingyangrt.com?subject=' + encodeURIComponent(subject) + '" class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-11 rounded-sm transition-colors">' +
         '<i data-lucide="mail" class="w-4 h-4"></i>' + (lang === 'zh' ? '发送邮件咨询' : 'Send by email') + '</a>' +
-        '<a href="https://wa.me/260964813736?text=' + encodeURIComponent(T.whatsapp['project-detail'] + ' (' + name + ')') + '" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 h-11 rounded-md transition-colors">' +
+        '<a href="https://wa.me/260964813736?text=' + encodeURIComponent(T.whatsapp['project-detail'] + ' (' + name + ')') + '" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 h-11 rounded-sm transition-colors">' +
         '<i data-lucide="message-circle" class="w-4 h-4"></i>WhatsApp</a>' +
         '</div></div>';
 }
@@ -125,8 +125,8 @@ function projectBody(p) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-7" data-reveal-up>' +
         '<div class="prose-article">' + paragraphs + '</div>' +
-        (features ? '<div class="mt-10"><div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + T.projects.keyFeatures + '</div>' +
-            '<ul class="bg-white border border-slate-100 rounded-xl shadow-sm p-2 lg:p-4">' + features + '</ul></div>' : '') +
+        (features ? '<div class="mt-10"><div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + T.projects.keyFeatures + '</div>' +
+            '<ul class="bg-white border border-slate-100 rounded-lg shadow-sm p-2 lg:p-4">' + features + '</ul></div>' : '') +
         '</div>' +
         '<div class="lg:col-span-5">' +
         specTable(p) +
@@ -140,14 +140,14 @@ function gallerySection(p) {
     if (!gallery.length) return '';
     const items = gallery.map(function (src, i) {
         const aspect = i % 3 === 0 ? 'aspect-[16/10]' : 'aspect-[4/3]';
-        return '<div class="img-zoom overflow-hidden rounded-xl ' + aspect + ' bg-slate-100" data-reveal-up>' +
+        return '<div class="img-zoom overflow-hidden rounded-lg ' + aspect + ' bg-slate-100" data-reveal-up>' +
             '<img src="' + src + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + (p.nameEn || p.nameZh) + '" loading="lazy" class="w-full h-full object-cover" />' +
             '</div>';
     }).join('');
     return '<section class="py-16 lg:py-24 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10" data-reveal-up>' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.gallery + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.gallery + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900">' +
         (ROOFY.state.lang === 'zh' ? p.nameZh + ' · 画册' : p.nameEn + ' · Gallery') +
         '</h2></div>' +
@@ -170,14 +170,14 @@ function relatedProjects(p) {
             'under-construction': 'bg-slate-200 text-slate-900',
             upcoming: 'bg-slate-700 text-white'
         }[status] || 'bg-slate-200 text-slate-900';
-        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ' + tone + '">' + label + '</span>';
+        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
     }
 
     const cards = list.map(function (r) {
         const name = lang === 'zh' ? r.nameZh : r.nameEn;
         const tagline = lang === 'zh' ? r.taglineZh : r.taglineEn;
         return '<a href="/projects/detail.html?id=' + encodeURIComponent(r.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3">' + badge(r.status) + '</div>' +
@@ -190,7 +190,7 @@ function relatedProjects(p) {
 
     return '<section class="py-16 lg:py-20 bg-white border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.projects.related + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.projects.related + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8" data-reveal-up>' +
         (lang === 'zh' ? '继续看看其他项目' : 'Browse other projects') + '</h2>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-5">' + cards + '</div>' +

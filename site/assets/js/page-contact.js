@@ -13,7 +13,7 @@ function contactHero() {
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + T.contact.eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.contact.eyebrow + '</span></span>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + T.contact.desc + '</p></div>' +
         '</div></section>';
@@ -49,11 +49,11 @@ function contactBlock() {
         infoTile(T.contact.email, T.contact.emailV, 'mail', 'mailto:' + MAILTO) +
         infoTile(T.contact.hours, T.contact.hoursV1 + '\n' + T.contact.hoursV2 + '\n' + T.contact.hoursV3, 'clock', null) +
         '</div>' +
-        '<a href="https://wa.me/' + WHATSAPP_RAW + '?text=' + encodeURIComponent(T.whatsapp.contact) + '" target="_blank" rel="noopener" class="flex items-center justify-between p-5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-xl shadow-sm transition-colors">' +
+        '<a href="https://wa.me/' + WHATSAPP_RAW + '?text=' + encodeURIComponent(T.whatsapp.contact) + '" target="_blank" rel="noopener" class="flex items-center justify-between p-5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-lg shadow-sm transition-colors">' +
         '<div><div class="text-xs font-semibold uppercase tracking-wider text-white/80 mb-1">WhatsApp</div>' +
         '<div class="font-semibold">' + T.cta.whatsapp + '</div></div>' +
         '<i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>' +
-        '<div class="p-6 bg-white border border-slate-100 rounded-xl shadow-sm">' +
+        '<div class="p-6 bg-white border border-slate-100 rounded-lg shadow-sm">' +
         '<div class="text-base font-bold text-slate-900 mb-4">' + T.contact.why.title + '</div>' +
         '<ul class="space-y-3">' + why + '</ul></div>' +
         '</div>' +
@@ -68,7 +68,7 @@ function fieldLabel(text) {
 
 function contactForm(T, interestOpts) {
     const inputCls = 'w-full bg-slate-50 border border-slate-200 rounded-lg px-4 h-11 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
-    return '<form data-reveal-up class="bg-white border border-slate-100 rounded-xl shadow-sm p-7 lg:p-10" id="roofy-contact-form" onsubmit="return submitContact(event)">' +
+    return '<form data-reveal-up class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10" id="roofy-contact-form" onsubmit="return submitContact(event)">' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">' +
         '<label class="block">' + fieldLabel(T.contact.formName) +
         '<input type="text" name="name" required class="' + inputCls + '" /></label>' +
@@ -81,7 +81,7 @@ function contactForm(T, interestOpts) {
         '<select name="interest" class="' + inputCls + ' appearance-none">' + interestOpts + '</select></label>' +
         '<label class="block mb-8">' + fieldLabel(T.contact.formMessage) +
         '<textarea name="message" rows="4" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors resize-none"></textarea></label>' +
-        '<button type="submit" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-md transition-colors shadow-sm">' +
+        '<button type="submit" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-sm">' +
         T.cta.send + '<i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
         '<p class="text-xs text-slate-500 mt-5">' + (ROOFY.state.lang === 'zh' ? '提交后将通过您的默认邮件客户端发送至 ' : 'Will open your default mail client to send to ') + MAILTO + '。</p>' +
         '</form>';
@@ -110,12 +110,12 @@ function mapSection() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">' +
         '<div>' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.contact.mapTitle + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.contact.mapTitle + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + T.contact.mapHint + '</h2></div>' +
         '<a href="https://maps.google.com/?q=Ibex+Hill+Lusaka+Zambia" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         (lang === 'zh' ? '在 Google 地图打开' : 'Open in Google Maps') +
         '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></a></div>' +
-        '<div class="aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm" data-reveal-up>' +
+        '<div class="aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm" data-reveal-up>' +
         '<iframe title="ROOFY Lusaka office map" src="https://maps.google.com/maps?q=Ibex%20Hill%20Lusaka%20Zambia&z=14&output=embed" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
         '</div></div></section>';
 }

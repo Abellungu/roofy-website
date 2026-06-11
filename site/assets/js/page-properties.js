@@ -52,7 +52,7 @@ function propertiesHero() {
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + T.properties.eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.properties.eyebrow + '</span></span>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-300 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
         '</div></section>';
@@ -74,7 +74,7 @@ function featuredProjectsBand() {
             'under-construction': 'bg-slate-200 text-slate-900',
             upcoming: 'bg-slate-700 text-white'
         }[status] || 'bg-slate-200 text-slate-900';
-        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ' + tone + '">' + label + '</span>';
+        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
     }
 
     const cards = projects.map(function (p) {
@@ -82,11 +82,11 @@ function featuredProjectsBand() {
         const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
         const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
         return '<a href="/projects/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
-            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-md">' + T.projects.sample + '</span>' : '') +
+            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
             '<div class="p-5 flex flex-col flex-1">' +
             '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
@@ -104,7 +104,7 @@ function featuredProjectsBand() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8" data-reveal-up>' +
         '<div class="max-w-2xl">' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
         '<p class="text-sm text-slate-600">' + T.projects.sectionDesc + '</p>' +
         '</div></div>' +
@@ -116,7 +116,7 @@ function featuredProjectsBand() {
 function facetRow(label, options, activeValue, handler) {
     const opts = options.map(function (o) {
         const active = activeValue === o.value;
-        return '<button onclick="' + handler + '(\'' + o.value + '\')" class="text-sm px-3 h-8 rounded-md transition-colors ' +
+        return '<button onclick="' + handler + '(\'' + o.value + '\')" class="text-sm px-3 h-8 rounded-sm transition-colors ' +
             (active ? 'bg-amber-500 text-slate-900 font-semibold' : 'text-slate-600 hover:text-amber-600 font-medium') + '">' + o.label + '</button>';
     }).join('');
     return '<div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 py-3 border-b border-slate-100 last:border-b-0">' +
@@ -189,7 +189,7 @@ function filterPanel() {
             '<i data-lucide="x" class="w-4 h-4"></i></button>' : '') +
         '</div>' +
         /* faceted filter rows */
-        '<div class="rounded-xl border border-slate-200 bg-white px-4 lg:px-6">' +
+        '<div class="rounded-lg border border-slate-200 bg-white px-4 lg:px-6">' +
         facetRow(T.properties.transaction.label, transactionOptions, ROOFY.state.propertyTransaction, 'setPropertyTransaction') +
         facetRow(T.properties.typeLabel, typeOptions, ROOFY.state.propertyFilter, 'setFilter') +
         facetRow(T.properties.regionLabel, regionOptions, ROOFY.state.propertyRegion, 'setPropertyRegion') +
@@ -217,18 +217,18 @@ function listRow(p, T) {
     if (p.beds > 0) specChips.push(p.beds + ' ' + T.featured.bedroom + ' / ' + p.baths + ' ' + T.featured.bathroom);
     if (p.area && p.area !== '—') specChips.push(p.area);
     const chipsHtml = specChips.map(function (c) {
-        return '<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs">' + c + '</span>';
+        return '<span class="inline-flex items-center px-2.5 py-1 rounded-sm bg-slate-100 text-slate-600 text-xs">' + c + '</span>';
     }).join('');
 
     return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-        'class="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all">' +
+        'class="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all">' +
         /* image */
         '<div class="img-zoom relative w-full sm:w-64 lg:w-72 shrink-0 aspect-[16/10] sm:aspect-auto overflow-hidden bg-slate-100">' +
         '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" class="w-full h-full object-cover" />' +
         '<div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">' +
-        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + tag + '</span>' +
-        (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-md">' + txnLabel + '</span>' : '') +
-        (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-md">' + T.featured.sample + '</span>' : '') +
+        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + tag + '</span>' +
+        (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-sm">' + txnLabel + '</span>' : '') +
+        (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + T.featured.sample + '</span>' : '') +
         '</div></div>' +
         /* info + price */
         '<div class="flex-1 flex flex-col sm:flex-row sm:items-center gap-4 p-5">' +
@@ -265,9 +265,9 @@ function listingRows() {
             '<i data-lucide="search-x" class="w-10 h-10 mx-auto text-slate-400 mb-5"></i>' +
             '<p class="text-slate-600 leading-relaxed mb-8">' + T.properties.empty + '</p>' +
             '<div class="flex flex-wrap items-center justify-center gap-3">' +
-            '<button onclick="resetPropertyFilters()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold text-sm px-5 h-11 rounded-md transition-colors">' +
+            '<button onclick="resetPropertyFilters()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold text-sm px-5 h-11 rounded-sm transition-colors">' +
             '<i data-lucide="rotate-ccw" class="w-4 h-4"></i>' + T.properties.reset + '</button>' +
-            '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-11 rounded-md transition-colors">' +
+            '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-11 rounded-sm transition-colors">' +
             T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
             '</div></div></section>';
     }
@@ -285,11 +285,11 @@ function propertiesCta() {
     return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
         '<h2 class="text-2xl md:text-4xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
         (lang === 'zh' ? '没找到合适的？我们手上还有未公开房源。' : 'Didn\'t find what you need? We also represent off-market opportunities.') +
         '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
         T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

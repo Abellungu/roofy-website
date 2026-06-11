@@ -29,7 +29,7 @@ function legalHero() {
     return '<section class="relative bg-slate-900 pt-32 pb-14 lg:pt-44 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-3xl mx-auto px-6 lg:px-8">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + T.footer.legal + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.footer.legal + '</span></span>' +
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4"><span class="reveal-mask block"><span class="reveal-line">' + doc.title + '</span></span></h1>' +
         '<div class="reveal-mask"><div class="reveal-line text-xs font-medium tracking-wider uppercase text-amber-400">' + doc.lastUpdated + '</div></div>' +
         '<div class="mt-8 reveal-mask"><p class="reveal-line text-base text-slate-300 leading-relaxed">' + renderInline(doc.intro) + '</p></div>' +
@@ -60,7 +60,7 @@ function cookieTableSection() {
     return '<section class="pb-16 lg:pb-20 bg-white">' +
         '<div class="max-w-3xl mx-auto px-6 lg:px-8" data-reveal-up>' +
         '<h2 class="text-xl font-bold text-slate-900 mb-5">' + tab.title + '</h2>' +
-        '<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">' +
+        '<div class="border border-slate-200 rounded-lg overflow-hidden shadow-sm">' +
         '<div class="grid grid-cols-12 gap-2 bg-slate-900 text-white px-4 py-3 text-[10px] font-semibold tracking-wider uppercase">' +
         '<div class="col-span-4 lg:col-span-3">' + tab.columns.name + '</div>' +
         '<div class="col-span-5 lg:col-span-6">' + tab.columns.purpose + '</div>' +
@@ -76,10 +76,10 @@ function cookieTableSection() {
                 '</div>';
         }).join('') +
         '</div>' +
-        '<div class="mt-10 p-7 bg-slate-50 border border-slate-100 rounded-xl">' +
+        '<div class="mt-10 p-7 bg-slate-50 border border-slate-100 rounded-lg">' +
         '<div class="text-base font-bold text-slate-900 mb-2">' + T.cookies.manage + '</div>' +
         '<p class="text-sm text-slate-600 leading-relaxed mb-5">' + T.cookies.manageDesc + '</p>' +
-        '<button onclick="manageCookies()" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-10 rounded-md transition-colors">' +
+        '<button onclick="manageCookies()" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-5 h-10 rounded-sm transition-colors">' +
         '<i data-lucide="refresh-ccw" class="w-4 h-4"></i>' + T.cookies.manage +
         '</button></div>' +
         '</div></section>';
@@ -90,11 +90,11 @@ function legalContact() {
     const lang = ROOFY.state.lang;
     return '<section class="py-16 lg:py-20 bg-slate-50 border-t border-slate-200">' +
         '<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center" data-reveal-up>' +
-        '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.contact.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.contact.eyebrow + '</div>' +
         '<p class="text-slate-600 leading-relaxed mb-8">' +
         (lang === 'zh' ? '对本文档有疑问？随时和我们对话。' : 'Questions about this document? Get in touch.') +
         '</p>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
