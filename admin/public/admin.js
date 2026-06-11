@@ -466,6 +466,7 @@
 
     /* ── boot ── */
     document.addEventListener('DOMContentLoaded', function () {
+        if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
         document.querySelectorAll('.paras').forEach(initParas);
         document.querySelectorAll('.pairlist').forEach(initPairlist);
         document.querySelectorAll('.matrix').forEach(initMatrix);

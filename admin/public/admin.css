@@ -23,7 +23,7 @@ button { font: inherit; cursor: pointer; }
 .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; color: #94a3b8; border-left: 3px solid transparent; }
 .nav-item:hover { color: #fff; background: #0f172a; }
 .nav-item.active { color: #fff; background: #0f172a; border-left-color: var(--amber); }
-.nav-item .ni { width: 20px; text-align: center; }
+.nav-item .ni { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.8; }
 .nav-item .nt .lz { display: block; font-size: 13.5px; }
 .nav-item .nt .le { display: block; font-size: 10.5px; color: #475569; }
 .nav-item.active .nt .le, .nav-item:hover .nt .le { color: #64748b; }
@@ -66,7 +66,8 @@ button { font: inherit; cursor: pointer; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
 .card.stat { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; transition: box-shadow .15s, border-color .15s; }
 .card.stat:hover { border-color: var(--amber); box-shadow: 0 4px 16px rgba(15, 23, 42, .06); }
-.stat-ic { font-size: 20px; }
+.stat-ic { color: var(--amber-d); }
+.stat-ic svg { width: 22px; height: 22px; }
 .stat-n { font-size: 26px; font-weight: 800; margin: 6px 0 2px; }
 .stat-l .lz { font-size: 13px; }
 .stat-l .le { display: block; margin: 0; }

@@ -16,25 +16,25 @@ function L(zh, en) {
 function layout(opts) {
     const BASE = opts.base || '/admin';
     const navItems = [
-        ['', '概览', 'Dashboard', '📊'],
-        ['c/news', '新闻', 'News', '📰'],
-        ['c/properties', '房源', 'Properties', '🏠'],
-        ['c/projects', '集团项目', 'Projects', '🏗️'],
-        ['c/team', '团队成员', 'Team', '👥'],
-        ['c/led-products', 'LED 产品', 'LED products', '📺'],
-        ['c/led-billboards', 'LED 点位', 'LED billboards', '🛣️'],
-        ['c/services', '业务文案', 'Pillars', '🧭'],
-        ['c/legal', '法律文本', 'Legal', '⚖️'],
-        ['media', '图片库', 'Media', '🖼️'],
-        ['history', '发布历史', 'History', '🕘'],
-        ['settings', '站点设置', 'Settings', '⚙️'],
-        ['account', '账号', 'Account', '🔑']
+        ['', '概览', 'Dashboard', 'layout-dashboard'],
+        ['c/news', '新闻', 'News', 'newspaper'],
+        ['c/properties', '房源', 'Properties', 'home'],
+        ['c/projects', '集团项目', 'Projects', 'building-2'],
+        ['c/team', '团队成员', 'Team', 'users'],
+        ['c/led-products', 'LED 产品', 'LED products', 'tv-minimal-play'],
+        ['c/led-billboards', 'LED 点位', 'LED billboards', 'megaphone'],
+        ['c/services', '业务文案', 'Pillars', 'compass'],
+        ['c/legal', '法律文本', 'Legal', 'scale'],
+        ['media', '图片库', 'Media', 'image'],
+        ['history', '发布历史', 'History', 'history'],
+        ['settings', '站点设置', 'Settings', 'settings'],
+        ['account', '账号', 'Account', 'key-round']
     ];
     const nav = navItems.map(function (n) {
         const href = BASE + '/' + n[0];
         const active = opts.active === (n[0] || 'dashboard') || (n[0] === '' && opts.active === 'dashboard');
         return `<a class="nav-item${active ? ' active' : ''}" href="${href}">` +
-            `<span class="ni">${n[3]}</span><span class="nt">${L(n[1], n[2])}</span></a>`;
+            `<i data-lucide="${n[3]}" class="ni"></i><span class="nt">${L(n[1], n[2])}</span></a>`;
     }).join('');
     return `<!DOCTYPE html>
 <html lang="zh">
@@ -48,7 +48,7 @@ function layout(opts) {
 <body>
 <div class="shell">
     <aside class="side">
-        <div class="brand"><span class="b1">ROO·FY</span><span class="b2">内容管理 Admin</span></div>
+        <div class="brand"><span class="b1">Roofy</span><span class="b2">内容管理 Admin</span></div>
         <nav>${nav}</nav>
         <div class="side-foot">
             <div class="who">👤 ${esc(opts.user ? opts.user.name : '')}</div>
@@ -66,6 +66,7 @@ function layout(opts) {
 </div>
 <div id="toast"></div>
 <script>window.ADMIN_BASE=${JSON.stringify(BASE)};</script>
+<script src="${BASE}/site-assets/assets/vendor/lucide.min.js"></script>
 <script src="${BASE}/public/admin.js"></script>
 </body>
 </html>`;
@@ -176,7 +177,9 @@ function renderList(desc, items, opts) {
             `</td></tr>`;
     }).join('');
 
-    return `<div class="hintbox">${L(desc.hintZh || '', desc.hintEn || '')}</div>
+    const hint = (desc.hintZh || desc.hintEn)
+        ? `<div class="hintbox">${L(desc.hintZh || '', desc.hintEn || '')}</div>` : '';
+    return `${hint}
     <div class="tablewrap"><table class="ltable" id="list-table"
         data-type="${esc(desc.key)}" data-base-sha="${esc(opts.baseSha)}">
         <thead><tr>${head}</tr></thead><tbody>${rows}</tbody>

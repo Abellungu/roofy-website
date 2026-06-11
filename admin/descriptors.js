@@ -17,7 +17,7 @@ const BRAND_LINT = [
 const T = {
     properties: {
         key: 'properties', file: 'properties.json', listKey: 'items',
-        labelZh: '房源', labelEn: 'Properties', icon: '🏠', kind: 'collection',
+        labelZh: '房源', labelEn: 'Properties', icon: 'home', kind: 'collection',
         imageFolder: 'properties',
         hintZh: '价格格式:克瓦查写 K 1,500,000,美元写 US$ 5,000。标记为「占位示例」的条目应在正式房源充足后删除。',
         hintEn: 'Price format: K 1,500,000 for Kwacha, US$ 5,000 for dollars. Items marked “placeholder” should be removed once real listings fill in.',
@@ -50,7 +50,7 @@ const T = {
 
     news: {
         key: 'news', file: 'news.json', listKey: 'articles',
-        labelZh: '新闻', labelEn: 'News', icon: '📰', kind: 'collection',
+        labelZh: '新闻', labelEn: 'News', icon: 'newspaper', kind: 'collection',
         imageFolder: 'news',
         hintZh: '新闻在首页最前排展示最新 3 篇(按发布日期)。保存即上线,请确认内容真实、来源可查。',
         hintEn: 'The homepage shows the 3 latest articles by date. Saving publishes immediately — verify facts and sources.',
@@ -80,7 +80,7 @@ const T = {
 
     projects: {
         key: 'projects', file: 'projects.json', listKey: 'projects',
-        labelZh: '集团项目', labelEn: 'Group projects', icon: '🏗️', kind: 'collection',
+        labelZh: '集团项目', labelEn: 'Group projects', icon: 'building-2', kind: 'collection',
         imageFolder: 'projects',
         hintZh: '集团母公司开发的旗舰项目(皇冠/奇迹/静居/荣耀)。当前为占位文案,替换为真实项目资料后请取消「占位示例」。',
         hintEn: 'Flagship developments by the parent group. Currently placeholder copy — untick “placeholder” once real material lands.',
@@ -119,10 +119,8 @@ const T = {
 
     team: {
         key: 'team', file: 'team.json', listKey: 'members',
-        labelZh: '团队成员', labelEn: 'Team', icon: '👥', kind: 'collection',
+        labelZh: '团队成员', labelEn: 'Team', icon: 'users', kind: 'collection',
         imageFolder: 'team',
-        hintZh: '六位核心成员来自公司备案资料。注意:文件名 chisha.jpg 对应 Chisa Kabaso,拼写差异是历史原因,不要改名。',
-        hintEn: 'Six leaders from company records. Note: chisha.jpg maps to Chisa Kabaso — the spelling difference is historical, keep the filename.',
         listColumns: [
             { field: 'photo', kind: 'image' },
             { field: 'name', zh: '姓名', en: 'Name' },
@@ -141,7 +139,7 @@ const T = {
 
     'led-products': {
         key: 'led-products', file: 'led-products.json', listKey: 'products',
-        labelZh: 'LED 产品', labelEn: 'LED products', icon: '📺', kind: 'collection',
+        labelZh: 'LED 产品', labelEn: 'LED products', icon: 'tv-minimal-play', kind: 'collection',
         imageFolder: 'led',
         hintZh: '参数须来自 Absen 官方规格书,价格留空则显示「面议 / On request」。',
         hintEn: 'Specs must come from official Absen datasheets. Empty prices display as “On request”.',
@@ -177,7 +175,7 @@ const T = {
 
     'led-billboards': {
         key: 'led-billboards', file: 'led-billboards.json', listKey: 'billboards',
-        labelZh: 'LED 户外点位', labelEn: 'LED billboards', icon: '🛣️', kind: 'collection',
+        labelZh: 'LED 户外点位', labelEn: 'LED billboards', icon: 'megaphone', kind: 'collection',
         imageFolder: 'led',
         hintZh: '品牌红线:只录入真实点位(真实照片 + 真实地址 + 报价)。此列表为空时,广告页的点位板块自动隐藏。',
         hintEn: 'Brand rule: REAL locations only (real photo + address + rates). When this list is empty the billboards block on the advertising page hides itself.',
@@ -206,7 +204,7 @@ const T = {
 
     services: {
         key: 'services', file: 'services.json', listKey: 'pillars',
-        labelZh: '业务板块文案', labelEn: 'Service pillars', icon: '🧭', kind: 'fixed',
+        labelZh: '业务板块文案', labelEn: 'Service pillars', icon: 'compass', kind: 'fixed',
         imageFolder: 'stock',
         hintZh: '三大业务板块的对外文案。注意品牌红线:房地产说「核心业务之一」;LED 不许示弱也不许造假;「物业开发」一律写「代建」。',
         hintEn: 'Public copy for the three pillars. Brand rules: real estate is “one of our core businesses”; no launch-weakness or fabricated stats for LED; always 代建 / Turnkey Development.',
@@ -258,7 +256,7 @@ const T = {
 
     legal: {
         key: 'legal', file: 'legal.json', listKey: null,
-        labelZh: '法律文本', labelEn: 'Legal pages', icon: '⚖️', kind: 'fixed',
+        labelZh: '法律文本', labelEn: 'Legal pages', icon: 'scale', kind: 'fixed',
         imageFolder: 'misc',
         hintZh: '隐私 / Cookie / 条款三份文本的中英版本。正式运营前应由赞比亚律师审阅,改动前请谨慎。',
         hintEn: 'Privacy / Cookies / Terms in both languages. Should be reviewed by Zambian counsel before formal operation — edit with care.',

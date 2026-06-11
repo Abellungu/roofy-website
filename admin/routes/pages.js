@@ -19,7 +19,7 @@ router.get('/', async function (req, res) {
             count = String(D.listItems(desc, json).length);
         } catch (e) { /* keep dash */ }
         return `<a class="card stat" href="${req.baseUrl}/c/${desc.key}">
-            <div class="stat-ic">${desc.icon}</div>
+            <div class="stat-ic"><i data-lucide="${desc.icon}"></i></div>
             <div class="stat-n">${count}</div>
             <div class="stat-l">${H.L(desc.labelZh, desc.labelEn)}</div></a>`;
     }).join('');
