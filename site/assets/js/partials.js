@@ -6,7 +6,10 @@
     'use strict';
 
     const STORAGE_CONSENT = 'roofy_consent';
-    const PHONE_RAW = '260964813736';
+    /* Editable in the admin panel (settings.js); hardcoded fallback keeps the
+     * site working even if settings.js fails to load. */
+    const SETTINGS = window.ROOFY_SETTINGS || {};
+    const PHONE_RAW = SETTINGS.whatsapp || '260964813736';
 
     function topLinks(T) {
         return [
@@ -99,8 +102,9 @@
                     ['linkedin', '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>'],
                     ['youtube', '<path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>']
                 ];
-                return brands.map(function (b) {
-                    return '<a href="#" aria-label="' + b[0] + '" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-500 hover:border-amber-500 flex items-center justify-center transition-colors">' +
+                const soc = SETTINGS.social || {};
+                return brands.filter(function (b) { return soc[b[0]]; }).map(function (b) {
+                    return '<a href="' + soc[b[0]] + '" target="_blank" rel="noopener" aria-label="' + b[0] + '" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-amber-500 hover:border-amber-500 flex items-center justify-center transition-colors">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" ' + SVG_ATTRS + '>' + b[1] + '</svg></a>';
                 }).join('');
             })() +

@@ -13,8 +13,12 @@
 (function () {
     'use strict';
 
-    var GA4_ID = '';    // e.g. 'G-XXXXXXXXXX' — client to supply
-    var PIXEL_ID = '';  // e.g. '1234567890123456' — client to supply
+    /* IDs are managed in the admin panel (settings.js). Empty = disabled.
+     * analytics.js is deferred, so settings.js (a plain body script) has
+     * already executed by the time this runs. */
+    var SETTINGS = window.ROOFY_SETTINGS || {};
+    var GA4_ID = SETTINGS.ga4Id || '';
+    var PIXEL_ID = SETTINGS.pixelId || '';
 
     function hasConsent() {
         try { return localStorage.getItem('roofy_consent') === 'all'; } catch (_) { return false; }

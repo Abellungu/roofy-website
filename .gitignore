@@ -2,6 +2,9 @@
 node_modules/
 **/node_modules/
 
+# Admin panel runtime state (credentials, sessions, audit log) — never commit
+admin/data/
+
 # Secrets / env
 .env
 .env.local
