@@ -236,20 +236,6 @@ p {
    Editorial-estate language: display serif headings, drafting-paper grid
    texture, square eyebrow anchors with auto section indexes, brand stripe. */
 
-/* Display serif for the heading tier. Fraunces covers latin; Chinese
-   glyphs fall back to the bold sans stack, which pairs cleanly. */
-#root h1,
-#root h2 {
-    font-family: 'Fraunces', Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
-    font-weight: 580;
-    letter-spacing: -0.01em;
-}
-#root h1 { font-weight: 620; }
-footer h2 {
-    font-family: 'Fraunces', Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
-    font-weight: 560;
-}
-
 /* Drafting-paper grid texture. Light tinted sections and dark imageless
    sections both carry a faint survey grid — real-estate drawing-board cue. */
 #root section.bg-slate-50 {

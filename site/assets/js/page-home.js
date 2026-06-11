@@ -9,25 +9,34 @@ window.ROOFY_PAGE = { id: 'home', whatsapp: 'home' };
 
 function heroSection() {
     const T = ROOFY.tr();
-    return '<section id="top" class="relative bg-slate-900 pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden" data-hero-reveal>' +
-        '<div class="absolute inset-0">' +
-        '<img src="/assets/img/stock/u1600596542815.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-30" />' +
-        '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
-        '</div>' +
+    const lang = ROOFY.state.lang;
+    return '<section id="top" class="relative bg-slate-950 pt-28 lg:pt-40 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-3xl">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">' +
+        '<div class="lg:col-span-7">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
-        '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">' + T.hero.desc + '</p></div>' +
+        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.06] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
+        '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-12 rounded-sm transition-colors">' +
         T.hero.primary + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-sm transition-colors">' +
+        '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-12 rounded-sm transition-colors">' +
         T.hero.secondary + '</a>' +
         '</div></div>' +
-        '<div class="reveal-mask mt-14"><div class="reveal-line border-t border-slate-700/60 pt-5 flex flex-wrap gap-x-10 gap-y-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-400">' +
-        '<span>EST · 2024</span><span>Ibex Hill · Lusaka</span><span>15°25\u2032S · 28°17\u2032E</span><span class="text-amber-500">Build · Brand · Grow</span>' +
-        '</div></div></div></div></section>';
+        '</div>' +
+        '<div class="lg:col-span-5 hidden lg:block">' +
+        '<div class="relative" data-reveal-up>' +
+        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-amber-500/40 pointer-events-none"></div>' +
+        '<div class="relative overflow-hidden img-zoom">' +
+        '<img src="/assets/img/projects/oasis-miracle-aerial.jpg" alt="Oasis Miracle, Ibex Hill" class="w-full aspect-[4/5] object-cover" />' +
+        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent p-5 pt-16">' +
+        '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">Oasis Miracle · Ibex Hill</div>' +
+        '<div class="text-xs text-slate-200 mt-1">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in one year') + '</div>' +
+        '</div></div></div>' +
+        '</div></div>' +
+        '<div class="reveal-mask mt-12 lg:mt-16"><div class="reveal-line border-t border-slate-800 pt-5 flex flex-wrap gap-x-10 gap-y-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-500">' +
+        '<span>EST \u00b7 2024</span><span>Ibex Hill \u00b7 Lusaka</span><span>15\u00b025\u2032S \u00b7 28\u00b017\u2032E</span><span class="text-amber-500">Build \u00b7 Brand \u00b7 Grow</span>' +
+        '</div></div></div></section>';
 }
 
 function newsSection() {
@@ -35,30 +44,37 @@ function newsSection() {
     const lang = ROOFY.state.lang;
     const list = (window.ROOFY_DATA.news || []).slice(0, 3);
     if (!list.length) return '';
-    const cards = list.map(function (a) {
-        const title = lang === 'zh' ? a.titleZh : a.titleEn;
+    function meta(a) {
         const cat = (T.news.categories && T.news.categories[a.category]) || '';
-        return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" data-reveal-up class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
-            '<div class="img-zoom relative aspect-[16/9] overflow-hidden bg-slate-100">' +
-            '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
-            (cat ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + cat + '</span>' : '') +
-            '</div>' +
-            '<div class="p-5">' +
-            '<div class="text-xs text-slate-400 mb-2">' + (a.publishedAt || '') + '</div>' +
-            '<h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
+        return '<span class="text-amber-600 font-semibold">' + cat + '</span><span class="text-slate-300">/</span><span>' + (a.publishedAt || '') + '</span>';
+    }
+    const a0 = list[0];
+    const lead = '<a href="/news/article.html?id=' + encodeURIComponent(a0.id) + '" class="group block lg:col-span-7" data-reveal-up>' +
+        '<div class="img-zoom overflow-hidden mb-5"><img src="' + a0.coverImg + '" alt="' + (lang === 'zh' ? a0.titleZh : a0.titleEn) + '" loading="lazy" class="w-full aspect-[16/9] object-cover" /></div>' +
+        '<div class="flex items-center gap-2 text-xs mb-3 text-slate-500">' + meta(a0) + '</div>' +
+        '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors max-w-xl">' + (lang === 'zh' ? a0.titleZh : a0.titleEn) + '</h3>' +
+        '<p class="text-sm text-slate-600 leading-relaxed mt-3 max-w-xl">' + (lang === 'zh' ? (a0.excerptZh || '') : (a0.excerptEn || '')) + '</p>' +
+        '</a>';
+    const side = list.slice(1, 3).map(function (a, i) {
+        return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" class="group flex gap-5 items-start' + (i > 0 ? ' border-t border-slate-200 pt-7' : '') + '" data-reveal-up>' +
+            '<div class="img-zoom overflow-hidden w-32 sm:w-40 shrink-0"><img src="' + a.coverImg + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>' +
+            '<div class="min-w-0">' +
+            '<div class="flex items-center gap-2 text-xs mb-2 text-slate-500">' + meta(a) + '</div>' +
+            '<h3 class="text-base font-bold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">' + (lang === 'zh' ? a.titleZh : a.titleEn) + '</h3>' +
             '</div></a>';
     }).join('');
     return '<section class="py-20 lg:py-24 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
-        '<div class="max-w-2xl">' +
+        '<div class="flex items-end justify-between gap-6 mb-10">' +
+        '<div>' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.homeNews.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.homeNews.title + '</h2></div>' +
-        '<a href="/news/index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
+        '<a href="/news/index.html" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors shrink-0" data-reveal-up>' +
         T.homeNews.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
-        '</div></section>';
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">' + lead +
+        '<div class="lg:col-span-5 flex flex-col gap-7 lg:pt-2">' + side + '</div>' +
+        '</div></div></section>';
 }
 
 function aboutSection() {
@@ -81,17 +97,18 @@ function aboutSection() {
 
 function missionVisionSection() {
     const T = ROOFY.tr();
-    function tile(eyebrow, title, desc) {
-        return '<div class="border-t-2 border-slate-900 pt-8 hover:border-amber-500 transition-colors duration-300" data-reveal-up>' +
-            '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
-            '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">' + title + '</h3>' +
-            '<p class="text-slate-600 leading-relaxed">' + desc + '</p>' +
+    function tile(idx, eyebrow, title, desc) {
+        return '<div class="relative border-t-2 border-amber-500/70 pt-8" data-reveal-up>' +
+            '<span class="absolute -top-3 right-0 text-7xl lg:text-8xl font-bold text-white/[0.06] leading-none select-none pointer-events-none">' + idx + '</span>' +
+            '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
+            '<h3 class="text-2xl lg:text-3xl font-bold text-white mb-4 max-w-md">' + title + '</h3>' +
+            '<p class="text-slate-300 leading-relaxed max-w-lg">' + desc + '</p>' +
             '</div>';
     }
-    return '<section class="py-20 lg:py-28 bg-white">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-12">' +
-        tile(T.mission.eyebrow, T.mission.title, T.mission.desc) +
-        tile(T.vision.eyebrow, T.vision.title, T.vision.desc) +
+    return '<section class="py-20 lg:py-28 bg-slate-900">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-14">' +
+        tile('01', T.mission.eyebrow, T.mission.title, T.mission.desc) +
+        tile('02', T.vision.eyebrow, T.vision.title, T.vision.desc) +
         '</div></section>';
 }
 
@@ -109,39 +126,33 @@ function valuesSection() {
             '</div>';
     }).join('');
     return '<section id="values" class="py-20 lg:py-28 bg-slate-50">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-12">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">' +
+        '<div class="lg:col-span-4"><div class="lg:sticky lg:top-28">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + items + '</div>' +
+        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2>' +
+        '</div></div>' +
+        '<div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">' + items + '</div>' +
         '</div></section>';
 }
 
 function servicesSection() {
     const T = ROOFY.tr();
-    const cards = T.services.items.map(function (s) {
-        return '<article data-reveal-up class="group border-t-2 border-slate-900 pt-7 hover:border-amber-500 transition-colors duration-300">' +
-            '<div class="flex items-center justify-between mb-6">' +
-            '<i data-lucide="' + s.icon + '" class="w-6 h-6 text-amber-600"></i>' +
-            '<span class="text-xs font-bold tracking-widest text-slate-400">' + s.tag + '</span>' +
-            '</div>' +
-            '<h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">' + s.title + '</h3>' +
-            '<p class="text-sm text-slate-600 leading-relaxed mb-6">' + s.desc + '</p>' +
-            '<a href="/' + s.href + '" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors">' +
-            s.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-            '</article>';
+    const rows = T.services.items.map(function (s) {
+        return '<a href="/' + s.href + '" data-reveal-up class="group grid grid-cols-12 gap-x-4 gap-y-3 items-start border-t border-slate-200 py-8 lg:py-10 transition-colors duration-300 hover:bg-amber-50/70 lg:px-4 lg:-mx-4">' +
+            '<div class="col-span-2 lg:col-span-1 text-2xl lg:text-3xl font-bold text-slate-300 group-hover:text-amber-500 transition-colors">' + s.tag + '</div>' +
+            '<h3 class="col-span-10 lg:col-span-4 text-2xl lg:text-3xl font-bold tracking-tight text-slate-900">' + s.title + '</h3>' +
+            '<p class="col-span-10 col-start-3 lg:col-span-5 lg:col-start-auto text-sm text-slate-600 leading-relaxed lg:pt-1.5">' + s.desc + '</p>' +
+            '<div class="col-span-2 col-start-11 lg:col-span-2 flex lg:justify-end">' +
+            '<span class="inline-flex w-11 h-11 border border-slate-300 text-slate-500 group-hover:border-amber-500 group-hover:bg-amber-500 group-hover:text-slate-900 items-center justify-center transition-colors">' +
+            '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></span></div>' +
+            '</a>';
     }).join('');
     return '<section id="services" class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">' +
-        '<div class="max-w-2xl">' +
+        '<div class="max-w-2xl mb-12">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.services.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.services.title + '</h2></div>' +
-        '<a href="/about.html#process" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors">' +
-        (ROOFY.state.lang === 'zh' ? '了解我们的工作流程' : 'See our process') +
-        '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
+        '<div class="border-b border-slate-200">' + rows + '</div>' +
         '</div></section>';
 }
 
@@ -180,18 +191,21 @@ function featuredPropertiesSection() {
 function processSection() {
     const T = ROOFY.tr();
     const items = T.process.items.map(function (it) {
-        return '<div data-reveal-up>' +
-            '<div class="text-3xl font-bold text-amber-500 mb-3">' + it.n + '</div>' +
+        return '<div data-reveal-up class="relative pt-9">' +
+            '<span class="absolute top-0 left-0 w-3 h-3 -translate-y-[5px] bg-amber-500"></span>' +
+            '<div class="text-xs font-bold tracking-widest text-slate-400 mb-3">' + it.n + '</div>' +
             '<h3 class="text-lg font-bold text-slate-900 mb-2">' + it.t + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed">' + it.d + '</p></div>';
     }).join('');
     return '<section id="process" class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-12">' +
+        '<div class="max-w-2xl mb-14">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.process.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.process.title + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">' + items + '</div>' +
-        '</div></section>';
+        '<div class="relative">' +
+        '<div class="absolute top-0 left-0 right-0 h-px bg-slate-200"></div>' +
+        '<div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + items + '</div>' +
+        '</div></div></section>';
 }
 
 function ctaBannerSection() {

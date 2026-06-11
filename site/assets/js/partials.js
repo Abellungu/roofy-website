@@ -94,7 +94,7 @@
         return '<footer class="bg-slate-950 pt-16 pb-10 border-t border-slate-800">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
             '<div class="border-b border-slate-800 pb-10 mb-12">' +
-            '<h2 class="text-3xl md:text-4xl lg:text-5xl text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
+            '<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
             '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">' +
             '<div class="lg:col-span-5">' +
             '<a href="/index.html" class="text-2xl font-bold tracking-tight text-white mb-5 inline-block">Roo<span class="text-amber-500">fy</span></a>' +
