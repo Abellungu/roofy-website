@@ -9,7 +9,7 @@ function contactHero() {
     const T = ROOFY.tr();
     return '<section class="relative bg-slate-900 pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="absolute inset-0">' +
-        '<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
+        '<img src="/assets/img/stock/u1486406146926.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +

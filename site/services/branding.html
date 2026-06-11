@@ -21,27 +21,17 @@
     <link rel="icon" type="image/jpeg" href="/assets/img/logo.jpg">
     <link rel="apple-touch-icon" href="/assets/img/logo.jpg">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
-                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind (compiled, self-hosted) -->
+    <link rel="stylesheet" href="/assets/css/tailwind.css">
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Lucide icons (self-hosted, v1.17.0) -->
+    <script src="/assets/vendor/lucide.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- GSAP + ScrollTrigger (self-hosted, v3.12.5) -->
+    <script src="/assets/vendor/gsap.min.js"></script>
+    <script src="/assets/vendor/ScrollTrigger.min.js"></script>
+    <!-- Fonts (self-hosted Inter; Chinese text uses the system stack) -->
+    <link rel="stylesheet" href="/assets/vendor/fonts.css">
 
     <link rel="stylesheet" href="/assets/css/roofy.css">
 
@@ -73,7 +63,17 @@
     <script src="/assets/js/analytics.js" defer></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased">    </div>    <div id="root"></div>
+<body class="bg-slate-50 text-slate-800 antialiased">
+    <noscript>
+        <div style="max-width:720px;margin:40px auto;padding:0 20px;font-family:system-ui,sans-serif;color:#0f172a;line-height:1.65">
+            <h1 style="font-size:22px">Branding & Marketing — Roofy Investments Zambia</h1>
+            <p>Roofy Investments Zambia's branding practice: positioning, identity systems and marketing campaign execution for businesses across Zambia.</p>
+            <p>Roofy Investments Zambia &middot; 2742/M Second Street, Ibex Hill, Lusaka &middot; +260 964 813 736 &middot; roofy@mingyangrt.com</p>
+            <p><a href="/index.html">Home 首页</a> &middot; <a href="/news/index.html">News 新闻</a> &middot; <a href="/about.html">About 关于</a> &middot; <a href="/services/real-estate.html">Real Estate 房地产</a> &middot; <a href="/services/advertising.html">LED Advertising 广告</a> &middot; <a href="/services/branding.html">Branding 品牌</a> &middot; <a href="/properties/index.html">Properties 房源</a> &middot; <a href="/contact.html">Contact 联系</a></p>
+            <p>This site requires JavaScript for the full experience. 完整浏览本站需启用 JavaScript。</p>
+        </div>
+    </noscript>
+    <div id="root"></div>
 
     <div id="whatsapp-fab"></div>
     <div id="cookie-banner"></div>

@@ -48,7 +48,7 @@ function propertiesHero() {
     const T = ROOFY.tr();
     return '<section class="relative bg-slate-900 pt-32 pb-14 lg:pt-44 lg:pb-16 overflow-hidden" data-hero-reveal>' +
         '<div class="absolute inset-0">' +
-        '<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
+        '<img src="/assets/img/stock/u1600585154340.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +

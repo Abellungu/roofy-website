@@ -14,7 +14,7 @@ function newsHero() {
     const T = ROOFY.tr();
     return '<section class="relative bg-slate-900 pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="absolute inset-0">' +
-        '<img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=2000" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-20" />' +
+        '<img src="/assets/img/stock/u1495020689067.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-20" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +

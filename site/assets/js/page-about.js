@@ -15,7 +15,7 @@ function aboutHero() {
         ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立。我们以房地产、LED 户外广告与品牌营销为根基，通过资源整合与系统化运营，参与卢萨卡城市升级的每一个关键节点。'
         : 'Roofy Investments Zambia was founded in 2024 at Ibex Hill, Lusaka. Anchored in real estate, LED outdoor advertising and brand marketing, we integrate fragmented resources and run them as a single system — at every key node of Lusaka\'s urban upgrade.';
     return '<section class="relative bg-slate-900 pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden" data-hero-reveal>' +
-        '<div class="absolute inset-0"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
+        '<div class="absolute inset-0"><img src="/assets/img/stock/u1497366216548.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + eyebrow + '</span></span>' +
@@ -101,7 +101,7 @@ function foundingStory() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-5">' +
         '<div class="aspect-[4/5] overflow-hidden rounded-xl bg-slate-200 shadow-lg" data-reveal-up>' +
-        '<img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=1200" data-placeholder="true" alt="Lusaka skyline" class="w-full h-full object-cover" />' +
+        '<img src="/assets/img/stock/u1517502884422.jpg" data-placeholder="true" alt="Lusaka skyline" class="w-full h-full object-cover" />' +
         '</div></div>' +
         '<div class="lg:col-span-7 lg:pt-4">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +

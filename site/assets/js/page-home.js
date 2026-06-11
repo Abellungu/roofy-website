@@ -11,7 +11,7 @@ function heroSection() {
     const T = ROOFY.tr();
     return '<section id="top" class="relative bg-slate-900 pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden" data-hero-reveal>' +
         '<div class="absolute inset-0">' +
-        '<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-30" />' +
+        '<img src="/assets/img/stock/u1600596542815.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-30" />' +
         '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
         '</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
@@ -74,7 +74,7 @@ function aboutSection() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">' +
         '<div class="lg:col-span-5" data-reveal-up>' +
         '<div class="aspect-[4/5] overflow-hidden rounded-xl bg-slate-200 shadow-lg">' +
-        '<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1200" data-placeholder="true" alt="Architecture" class="w-full h-full object-cover" />' +
+        '<img src="/assets/img/stock/u1600585154526.jpg" data-placeholder="true" alt="Architecture" class="w-full h-full object-cover" />' +
         '</div></div>' +
         '<div class="lg:col-span-7 lg:pt-4">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.about.eyebrow + '</div>' +
