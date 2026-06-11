@@ -95,7 +95,7 @@ function relatedSection(a) {
         const rTitle = lang === 'zh' ? r.titleZh : r.titleEn;
         const rExcerpt = lang === 'zh' ? r.excerptZh : r.excerptEn;
         return '<a href="/news/article.html?id=' + encodeURIComponent(r.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.coverImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + rTitle + '" loading="lazy" class="w-full h-full object-cover" />' +
             '</div>' +

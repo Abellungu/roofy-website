@@ -1,5 +1,5 @@
 /* Home page — clean long-scroll layout in slate + amber register (references 模板1.html).
- * Section rhythm: dark hero → marquee → light news → slate-50 about → light mission/vision →
+ * Section rhythm: dark hero → light news → slate-50 about → light mission/vision →
  *                 slate-50 values → light services → slate-50 featured →
  *                 light process → dark CTA → light contact teaser → dark footer.
  * Data: properties + news fetched at boot (news shown first per client direction 2026-06-11).
@@ -17,7 +17,7 @@ function heroSection() {
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-3xl">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold tracking-wider uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
+        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
         '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">' + T.hero.desc + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-md transition-colors shadow-lg shadow-amber-500/20">' +
@@ -25,16 +25,6 @@ function heroSection() {
         '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-md transition-colors">' +
         T.hero.secondary + '</a>' +
         '</div></div></div></div></section>';
-}
-
-function marqueeSection() {
-    const T = ROOFY.tr();
-    const set = T.marquee.map(function (w) {
-        return '<span class="text-sm text-slate-500 flex items-center gap-6">' + w + '<span class="text-amber-500/60">·</span></span>';
-    }).join('');
-    return '<section class="py-5 border-b border-slate-200 bg-white">' +
-        '<div class="marquee"><div class="marquee__track">' + set + '</div><div class="marquee__track" aria-hidden="true">' + set + '</div></div>' +
-        '</section>';
 }
 
 function newsSection() {
@@ -45,7 +35,7 @@ function newsSection() {
     const cards = list.map(function (a) {
         const title = lang === 'zh' ? a.titleZh : a.titleEn;
         const cat = (T.news.categories && T.news.categories[a.category]) || '';
-        return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" data-reveal-up class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" data-reveal-up class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="img-zoom relative aspect-[16/9] overflow-hidden bg-slate-100">' +
             '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
             (cat ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-md">' + cat + '</span>' : '') +
@@ -89,7 +79,7 @@ function aboutSection() {
 function missionVisionSection() {
     const T = ROOFY.tr();
     function tile(eyebrow, title, desc) {
-        return '<div class="p-8 lg:p-10 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow" data-reveal-up>' +
+        return '<div class="p-8 lg:p-10 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-reveal-up>' +
             '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + eyebrow + '</div>' +
             '<h3 class="text-2xl font-bold text-slate-900 mb-4">' + title + '</h3>' +
             '<p class="text-slate-600 leading-relaxed">' + desc + '</p>' +
@@ -105,7 +95,7 @@ function missionVisionSection() {
 function valuesSection() {
     const T = ROOFY.tr();
     const items = T.values.items.map(function (v, i) {
-        return '<div data-reveal-up class="group p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="group p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="flex items-center justify-between mb-5">' +
             '<div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + v.icon + '" class="w-6 h-6"></i></div>' +
@@ -121,14 +111,14 @@ function valuesSection() {
         '<div class="max-w-2xl mb-12">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">' + items + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + items + '</div>' +
         '</div></section>';
 }
 
 function servicesSection() {
     const T = ROOFY.tr();
     const cards = T.services.items.map(function (s) {
-        return '<article data-reveal-up class="group p-8 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-shadow duration-300">' +
+        return '<article data-reveal-up class="group p-8 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300">' +
             '<div class="flex items-center justify-between mb-6">' +
             '<div class="w-14 h-14 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + s.icon + '" class="w-7 h-7"></i></div>' +
@@ -210,7 +200,7 @@ function ctaBannerSection() {
         '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
-        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
+        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-md transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
@@ -249,7 +239,6 @@ window.renderPage = function () {
     return PARTIALS.navHtml() +
         '<main>' +
         heroSection() +
-        marqueeSection() +
         newsSection() +
         aboutSection() +
         missionVisionSection() +

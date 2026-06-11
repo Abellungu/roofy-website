@@ -68,7 +68,7 @@ function pillarDeliverables() {
     const descs = (lang === 'zh' ? p.deliverableDescZh : p.deliverableDescEn) || [];
     if (!names.length) return '';
     const tiles = names.map(function (n, i) {
-        return '<div data-reveal-up class="p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="text-xs text-amber-600 font-semibold mb-3">' + String(i + 1).padStart(2, '0') + '</div>' +
             '<h3 class="text-base font-bold text-slate-900 mb-2">' + n + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed">' + (descs[i] || '') + '</p>' +
@@ -139,7 +139,7 @@ function capabilitiesBlock(T) {
     const caps = T.pillars.capabilities || [];
     const ti18n = T.pillars.advertising;
     const capTiles = caps.map(function (c, i) {
-        return '<div data-reveal-up class="group p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="group p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + c.icon + '" class="w-5 h-5"></i></div>' +
             '<h3 class="text-base font-bold text-slate-900 mb-1.5">' + c.t + '</h3>' +
@@ -175,7 +175,7 @@ function ledProductsBlock(T) {
         const note = lang === 'zh' ? p.noteZh : p.noteEn;
         const usage = ti.usageLabels[p.usage] || p.usage;
         const mode = (ti.modeLabels && ti.modeLabels[p.mode]) || '';
-        return '<div data-reveal-up class="group flex flex-col bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="group flex flex-col bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="relative aspect-[16/10] bg-slate-50 flex items-center justify-center overflow-hidden">' +
             '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + p.model + ' ' + name + '" loading="lazy" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105" />' +
             (p.series ? '<span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-slate-900/85 backdrop-blur text-white px-2 py-0.5 rounded-md">' + p.series + '</span>' : '') +
@@ -237,7 +237,7 @@ function ledBillboardsBlock(T) {
     const cards = boards.map(function (b) {
         const name = lang === 'zh' ? b.nameZh : b.nameEn;
         const addr = lang === 'zh' ? b.addressZh : b.addressEn;
-        return '<div data-reveal-up class="group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="group bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + b.img + '" data-placeholder="' + (b.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex items-center gap-2">' +
@@ -303,7 +303,7 @@ function pillarAdjacent() {
     const cards = others.map(function (p) {
         const title = lang === 'zh' ? p.titleZh : p.title;
         const summary = lang === 'zh' ? p.summaryZh : p.summary;
-        return '<a href="/services/' + p.id + '.html" class="group block p-8 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow" data-reveal-up>' +
+        return '<a href="/services/' + p.id + '.html" class="group block p-8 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-reveal-up>' +
             '<div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center mb-5 group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + p.icon + '" class="w-5 h-5"></i></div>' +
             '<h3 class="text-lg font-bold text-slate-900 mb-2">' + title + '</h3>' +

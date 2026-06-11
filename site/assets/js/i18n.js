@@ -38,7 +38,6 @@ window.I18N = {
             primary: '浏览房源',
             secondary: '了解我们'
         },
-        marquee: ['Build · Brand · Grow', '筑造 · 品牌 · 共同成长', 'Real Estate', '房地产', 'LED Advertising', 'LED 广告', 'Branding', '品牌策略', 'Lusaka', '卢萨卡', 'Since 2024', '始于 2024'],
         about: {
             eyebrow: '关于 ROOFY',
             title: '在赞比亚，以匠心建造价值。',
@@ -415,7 +414,6 @@ window.I18N = {
             primary: 'View Properties',
             secondary: 'About Us'
         },
-        marquee: ['Build · Brand · Grow', 'Real Estate', 'LED Advertising', 'Branding', 'Lusaka', 'Since 2024', 'Property Investors', 'Corporate Clients', 'Outdoor Media', 'Marketing'],
         about: {
             eyebrow: 'About ROOFY',
             title: 'Crafting value in Zambia, with the patience of a craftsman.',

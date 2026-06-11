@@ -82,7 +82,7 @@ function featuredProjectsBand() {
         const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
         const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
         return '<a href="/projects/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-300" data-reveal-up>' +
+            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
@@ -221,7 +221,7 @@ function listRow(p, T) {
     }).join('');
 
     return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-        'class="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-slate-300 transition-all">' +
+        'class="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all">' +
         /* image */
         '<div class="img-zoom relative w-full sm:w-64 lg:w-72 shrink-0 aspect-[16/10] sm:aspect-auto overflow-hidden bg-slate-100">' +
         '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" class="w-full h-full object-cover" />' +

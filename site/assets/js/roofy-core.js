@@ -37,23 +37,41 @@
     function initReveals() {
         if (typeof gsap === 'undefined') return;
 
+        /* Respect OS-level reduced motion: show everything, animate nothing. */
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) {
+            gsap.set('[data-hero-reveal] .reveal-line', { y: '0%' });
+            gsap.set('[data-reveal-up]', { clearProps: 'all', autoAlpha: 1 });
+            return;
+        }
+
         gsap.to('[data-hero-reveal] .reveal-line', {
             y: '0%',
-            duration: 0.7,
-            ease: 'power3.out',
-            stagger: 0.06,
+            duration: 0.9,
+            ease: 'expo.out',
+            stagger: 0.08,
             delay: 0.05
         });
 
         if (typeof ScrollTrigger === 'undefined') return;
 
+        /* One orchestrated wave per section instead of dozens of independent
+         * pops: group [data-reveal-up] by their closest <section> and reveal
+         * each group with a single stagger. Feels intentional, not busy. */
+        const groups = new Map();
         gsap.utils.toArray('[data-reveal-up]').forEach(function (el) {
-            gsap.from(el, {
-                y: 24,
+            const key = el.closest('section') || el;
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(el);
+        });
+        groups.forEach(function (els, section) {
+            gsap.from(els, {
+                y: 18,
                 autoAlpha: 0,
-                duration: 0.6,
-                ease: 'power2.out',
-                scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
+                duration: 0.7,
+                ease: 'power3.out',
+                stagger: 0.07,
+                scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
             });
         });
 

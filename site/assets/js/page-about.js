@@ -27,7 +27,7 @@ function aboutHero() {
 function missionVisionRow() {
     const T = ROOFY.tr();
     function tile(eyebrow, title, desc) {
-        return '<div class="p-8 lg:p-10 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow" data-reveal-up>' +
+        return '<div class="p-8 lg:p-10 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-reveal-up>' +
             '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + eyebrow + '</div>' +
             '<h3 class="text-2xl font-bold text-slate-900 mb-4 leading-snug">' + title + '</h3>' +
             '<p class="text-slate-600 leading-relaxed">' + desc + '</p>' +
@@ -43,7 +43,7 @@ function missionVisionRow() {
 function valuesGrid() {
     const T = ROOFY.tr();
     const items = T.values.items.map(function (v, i) {
-        return '<div data-reveal-up class="group p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<div data-reveal-up class="group p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="flex items-center justify-between mb-5">' +
             '<div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + v.icon + '" class="w-6 h-6"></i></div>' +
@@ -67,7 +67,7 @@ function businessScopeSection() {
     const T = ROOFY.tr();
     if (!T.businessScope) return '';
     const items = T.businessScope.items.map(function (b) {
-        return '<article data-reveal-up class="group flex gap-5 p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-xl transition-shadow">' +
+        return '<article data-reveal-up class="group flex gap-5 p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
             '<div class="shrink-0 w-12 h-12 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
             '<i data-lucide="' + b.icon + '" class="w-6 h-6"></i></div>' +
             '<div class="flex-1 min-w-0">' +

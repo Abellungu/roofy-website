@@ -15,7 +15,7 @@
         const txnLabel = (T.properties && T.properties.chipFor && T.properties.chipFor[txn]) || '';
         const regionLabel = p.region && T.properties && T.properties.regions ? T.properties.regions[p.region] : '';
         return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-300" data-reveal-up>' +
+            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100">' +
             '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">' +

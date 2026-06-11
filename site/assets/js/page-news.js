@@ -43,7 +43,7 @@ function articleCard(a, T) {
     const excerpt = lang === 'zh' ? a.excerptZh : a.excerptEn;
     const catLabel = T.news.categories[a.category] || a.category;
     return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" ' +
-        'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-300" data-reveal-up>' +
+        'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
         '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
         '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
         '<div class="absolute top-3 left-3 flex items-center gap-2">' +

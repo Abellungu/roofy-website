@@ -177,7 +177,7 @@ function relatedProjects(p) {
         const name = lang === 'zh' ? r.nameZh : r.nameEn;
         const tagline = lang === 'zh' ? r.taglineZh : r.taglineEn;
         return '<a href="/projects/detail.html?id=' + encodeURIComponent(r.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-300" data-reveal-up>' +
+            'class="group block bg-white border border-slate-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3">' + badge(r.status) + '</div>' +

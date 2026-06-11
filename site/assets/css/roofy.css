@@ -115,33 +115,17 @@ p {
     will-change: transform;
 }
 
-.marquee {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    mask-image: linear-gradient(90deg, transparent, #FFFFFF 8%, #FFFFFF 92%, transparent);
-}
 
-.marquee__track {
-    display: flex;
-    gap: 4rem;
-    padding-right: 4rem;
-    animation: marquee 40s linear infinite;
-    flex-shrink: 0;
-}
 
-@keyframes marquee {
-    from { transform: translateX(0); }
     to { transform: translateX(-100%); }
 }
 
 .img-zoom > img {
-    transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+    transition: transform .7s cubic-bezier(.22, 1, .36, 1);
 }
 
 .img-zoom:hover > img {
-    transform: scale(1.04);
+    transform: scale(1.03);
 }
 
 .vertical-text {
@@ -210,9 +194,6 @@ p {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
-    .marquee__track {
-        animation: none;
-    }
 }
 
 ::-webkit-scrollbar {
@@ -237,4 +218,16 @@ p {
 ::selection {
     background: #F59E0B;
     color: #0F172A;
+}
+
+/* Unified card hover feel: non-linear easing for shadow + a 1px lift.
+   Applies to every card already carrying Tailwind's transition-shadow. */
+.transition-shadow {
+    transition: box-shadow .45s cubic-bezier(.22, 1, .36, 1), transform .45s cubic-bezier(.22, 1, .36, 1) !important;
+}
+.transition-shadow:hover {
+    transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+    .transition-shadow:hover { transform: none; }
 }
