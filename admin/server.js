@@ -65,7 +65,7 @@ router.use('/site-assets/assets', express.static(path.join(store.SITE, 'assets')
 router.get('/login', function (req, res) {
     res.send(`<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex,nofollow">
-<title>登录 · ROOFY Admin</title><link rel="stylesheet" href="${BASE}/public/admin.css"></head>
+<title>登录 · ROOFY Admin</title><link rel="stylesheet" href="${BASE}/public/admin.css?v=${H.ASSET_V}"></head>
 <body class="login-body"><form class="login-card" method="post" action="${BASE}/login">
 <div class="brand center"><span class="b1">Roofy</span><span class="b2">内容管理 Content Admin</span></div>
 ${req.query.e === 'locked' ? '<div class="errbox">尝试次数过多,请 15 分钟后再试 — too many attempts, retry in 15 minutes</div>' : ''}

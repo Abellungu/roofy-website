@@ -1,6 +1,10 @@
 /* Server-side HTML rendering: tiny string-template helpers, no view engine.
  * Visual language mirrors the public site: slate + amber. */
 
+/* Cache-buster for /public assets: changes on every service restart, so a
+ * deploy + restart invalidates browsers' cached admin.css/admin.js (1h maxAge). */
+const ASSET_V = String(Date.now());
+
 function esc(s) {
     return String(s == null ? '' : s)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -43,7 +47,7 @@ function layout(opts) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>${esc(opts.title)} · ROOFY Admin</title>
-<link rel="stylesheet" href="${BASE}/public/admin.css">
+<link rel="stylesheet" href="${BASE}/public/admin.css?v=${ASSET_V}">
 </head>
 <body>
 <div class="shell">
@@ -51,7 +55,7 @@ function layout(opts) {
         <div class="brand"><span class="b1">Roofy</span><span class="b2">内容管理 Admin</span></div>
         <nav>${nav}</nav>
         <div class="side-foot">
-            <div class="who">👤 ${esc(opts.user ? opts.user.name : '')}</div>
+            <div class="who"><i data-lucide="user-round" class="wi"></i>${esc(opts.user ? opts.user.name : '')}</div>
             <form method="post" action="${BASE}/logout"><button class="btn-ghost" type="submit">${L('退出登录', 'Sign out')}</button></form>
         </div>
     </aside>
@@ -66,8 +70,8 @@ function layout(opts) {
 </div>
 <div id="toast"></div>
 <script>window.ADMIN_BASE=${JSON.stringify(BASE)};</script>
-<script src="${BASE}/site-assets/assets/vendor/lucide.min.js"></script>
-<script src="${BASE}/public/admin.js"></script>
+<script src="${BASE}/site-assets/assets/vendor/lucide.min.js?v=${ASSET_V}"></script>
+<script src="${BASE}/public/admin.js?v=${ASSET_V}"></script>
 </body>
 </html>`;
 }
@@ -187,4 +191,4 @@ function renderList(desc, items, opts) {
     ${items.length === 0 ? `<div class="empty">${L('暂无条目', 'No items yet')}</div>` : ''}`;
 }
 
-module.exports = { esc, L, layout, renderForm, renderList, renderField, attrJson };
+module.exports = { esc, L, layout, renderForm, renderList, renderField, attrJson, ASSET_V };

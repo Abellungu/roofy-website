@@ -28,7 +28,8 @@ button { font: inherit; cursor: pointer; }
 .nav-item .nt .le { display: block; font-size: 10.5px; color: #475569; }
 .nav-item.active .nt .le, .nav-item:hover .nt .le { color: #64748b; }
 .side-foot { padding: 14px 20px; border-top: 1px solid #1e293b; font-size: 12px; }
-.side-foot .who { margin-bottom: 8px; color: #e2e8f0; }
+.side-foot .who { margin-bottom: 8px; color: #e2e8f0; display: flex; align-items: center; gap: 7px; }
+.side-foot .who .wi { width: 14px; height: 14px; color: var(--amber); flex-shrink: 0; }
 
 .main { min-width: 0; }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 28px; background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
