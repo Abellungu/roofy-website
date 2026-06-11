@@ -20,13 +20,14 @@ function contactHero() {
 }
 
 function infoTile(label, value, icon, href) {
-    const inner = '<div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center mb-4"><i data-lucide="' + icon + '" class="w-5 h-5"></i></div>' +
-        '<div class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">' + label + '</div>' +
+    const inner = '<div class="flex items-center gap-2 mb-2">' +
+        '<i data-lucide="' + icon + '" class="w-4 h-4 text-amber-600"></i>' +
+        '<div class="text-xs font-semibold uppercase tracking-wider text-slate-500">' + label + '</div></div>' +
         '<div class="text-sm text-slate-900 leading-relaxed whitespace-pre-line">' + value + '</div>';
     if (href) {
-        return '<a href="' + href + '" class="block p-5 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">' + inner + '</a>';
+        return '<a href="' + href + '" class="block border-t-2 border-slate-900 pt-5 hover:border-amber-500 transition-colors duration-300">' + inner + '</a>';
     }
-    return '<div class="p-5 bg-white border border-slate-100 rounded-xl shadow-sm">' + inner + '</div>';
+    return '<div class="border-t-2 border-slate-900 pt-5">' + inner + '</div>';
 }
 
 function contactBlock() {

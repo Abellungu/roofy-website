@@ -144,9 +144,11 @@ function capabilitiesBlock(T) {
     const caps = T.pillars.capabilities || [];
     const ti18n = T.pillars.advertising;
     const capTiles = caps.map(function (c, i) {
-        return '<div data-reveal-up class="group p-6 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
-            '<div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
-            '<i data-lucide="' + c.icon + '" class="w-5 h-5"></i></div>' +
+        return '<div data-reveal-up class="group border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300">' +
+            '<div class="flex items-center justify-between mb-4">' +
+            '<i data-lucide="' + c.icon + '" class="w-5 h-5 text-amber-600"></i>' +
+            '<span class="text-xs font-bold tracking-widest text-slate-400">' + String(i + 1).padStart(2, '0') + '</span>' +
+            '</div>' +
             '<h3 class="text-base font-bold text-slate-900 mb-1.5">' + c.t + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed">' + c.d + '</p>' +
             '</div>';
@@ -156,7 +158,7 @@ function capabilitiesBlock(T) {
         '<div class="max-w-2xl mb-10">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.capabilitiesTitle + '</div>' +
         '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + ti18n.capabilitiesDesc + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + capTiles + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + capTiles + '</div>' +
         '</div></section>';
 }
 
@@ -308,10 +310,9 @@ function pillarAdjacent() {
     const cards = others.map(function (p) {
         const title = lang === 'zh' ? p.titleZh : p.title;
         const summary = lang === 'zh' ? p.summaryZh : p.summary;
-        return '<a href="/services/' + p.id + '.html" class="group block p-8 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-reveal-up>' +
-            '<div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center mb-5 group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
-            '<i data-lucide="' + p.icon + '" class="w-5 h-5"></i></div>' +
-            '<h3 class="text-lg font-bold text-slate-900 mb-2">' + title + '</h3>' +
+        return '<a href="/services/' + p.id + '.html" class="group block border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300" data-reveal-up>' +
+            '<i data-lucide="' + p.icon + '" class="w-5 h-5 text-amber-600 mb-5"></i>' +
+            '<h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed mb-5">' + summary + '</p>' +
             '<span class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600">' +
             (lang === 'zh' ? '继续了解' : 'Keep exploring') + ' <i data-lucide="arrow-right" class="w-4 h-4"></i></span>' +

@@ -79,14 +79,14 @@ function aboutSection() {
 function missionVisionSection() {
     const T = ROOFY.tr();
     function tile(eyebrow, title, desc) {
-        return '<div class="p-8 lg:p-10 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-reveal-up>' +
-            '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + eyebrow + '</div>' +
-            '<h3 class="text-2xl font-bold text-slate-900 mb-4">' + title + '</h3>' +
+        return '<div class="border-t-2 border-slate-900 pt-8 hover:border-amber-500 transition-colors duration-300" data-reveal-up>' +
+            '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
+            '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">' + title + '</h3>' +
             '<p class="text-slate-600 leading-relaxed">' + desc + '</p>' +
             '</div>';
     }
     return '<section class="py-20 lg:py-28 bg-white">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-6">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-12">' +
         tile(T.mission.eyebrow, T.mission.title, T.mission.desc) +
         tile(T.vision.eyebrow, T.vision.title, T.vision.desc) +
         '</div></section>';
@@ -95,11 +95,10 @@ function missionVisionSection() {
 function valuesSection() {
     const T = ROOFY.tr();
     const items = T.values.items.map(function (v, i) {
-        return '<div data-reveal-up class="group p-7 bg-white border border-slate-100 rounded-xl shadow-sm hover:shadow-lg transition-shadow">' +
+        return '<div data-reveal-up class="group border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300">' +
             '<div class="flex items-center justify-between mb-5">' +
-            '<div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
-            '<i data-lucide="' + v.icon + '" class="w-6 h-6"></i></div>' +
-            '<div class="text-xs text-slate-400 font-semibold">' + String(i + 1).padStart(2, '0') + '</div>' +
+            '<i data-lucide="' + v.icon + '" class="w-5 h-5 text-amber-600"></i>' +
+            '<span class="text-xs font-bold tracking-widest text-slate-400">' + String(i + 1).padStart(2, '0') + '</span>' +
             '</div>' +
             '<h3 class="text-lg font-bold text-slate-900 mb-1">' + v.t + '</h3>' +
             '<div class="text-xs text-slate-500 mb-3 uppercase tracking-wider">' + v.e + '</div>' +
@@ -111,20 +110,19 @@ function valuesSection() {
         '<div class="max-w-2xl mb-12">' +
         '<div class="text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + items + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + items + '</div>' +
         '</div></section>';
 }
 
 function servicesSection() {
     const T = ROOFY.tr();
     const cards = T.services.items.map(function (s) {
-        return '<article data-reveal-up class="group p-8 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-shadow duration-300">' +
+        return '<article data-reveal-up class="group border-t-2 border-slate-900 pt-7 hover:border-amber-500 transition-colors duration-300">' +
             '<div class="flex items-center justify-between mb-6">' +
-            '<div class="w-14 h-14 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors">' +
-            '<i data-lucide="' + s.icon + '" class="w-7 h-7"></i></div>' +
-            '<div class="text-xs text-slate-400 font-semibold">' + s.tag + '</div>' +
+            '<i data-lucide="' + s.icon + '" class="w-6 h-6 text-amber-600"></i>' +
+            '<span class="text-xs font-bold tracking-widest text-slate-400">' + s.tag + '</span>' +
             '</div>' +
-            '<h3 class="text-xl font-bold text-slate-900 mb-3">' + s.title + '</h3>' +
+            '<h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">' + s.title + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed mb-6">' + s.desc + '</p>' +
             '<a href="/' + s.href + '" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors">' +
             s.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
@@ -226,10 +224,9 @@ function contactTeaserSection() {
 }
 
 function contactTile(label, value, icon) {
-    return '<div class="p-5 bg-slate-50 border border-slate-100 rounded-xl">' +
-        '<div class="flex items-center gap-2 mb-3">' +
-        '<div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center">' +
-        '<i data-lucide="' + icon + '" class="w-4 h-4"></i></div>' +
+    return '<div class="border-t border-slate-200 pt-4">' +
+        '<div class="flex items-center gap-2 mb-2">' +
+        '<i data-lucide="' + icon + '" class="w-4 h-4 text-amber-600"></i>' +
         '<div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">' + label + '</div></div>' +
         '<div class="text-sm text-slate-800 leading-relaxed whitespace-pre-line">' + value + '</div>' +
         '</div>';
