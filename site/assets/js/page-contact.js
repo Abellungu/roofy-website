@@ -1,9 +1,12 @@
 /* Contact page — slate+amber register. Real address/phone/email, hours, map,
- * mailto form, WhatsApp deeplink. */
+ * AJAX form (posts to the self-hosted /admin/contact endpoint), WhatsApp deeplink. */
 window.ROOFY_PAGE = { id: 'contact', whatsapp: 'contact' };
 
 const MAILTO = 'roofy@mingyangrt.com';
 const WHATSAPP_RAW = '260964813736';
+/* Same-origin in production: nginx proxies /admin/ to the admin service, which
+ * stores the lead and surfaces it under /admin/leads. */
+const CONTACT_ENDPOINT = '/admin/contact';
 
 function contactHero() {
     const T = ROOFY.tr();
@@ -68,7 +71,9 @@ function fieldLabel(text) {
 
 function contactForm(T, interestOpts) {
     const inputCls = 'w-full bg-slate-50 border border-slate-200 rounded-lg px-4 h-11 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
-    return '<form data-reveal-up class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10" id="roofy-contact-form" onsubmit="return submitContact(event)">' +
+    return '<form data-reveal-up class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10" id="roofy-contact-form" onsubmit="return submitContact(event)" novalidate>' +
+        /* honeypot: hidden from humans, bots tend to fill it; submissions with it set are dropped server-side */
+        '<div class="hidden" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">' +
         '<label class="block">' + fieldLabel(T.contact.formName) +
         '<input type="text" name="name" required class="' + inputCls + '" /></label>' +
@@ -81,25 +86,76 @@ function contactForm(T, interestOpts) {
         '<select name="interest" class="' + inputCls + ' appearance-none">' + interestOpts + '</select></label>' +
         '<label class="block mb-8">' + fieldLabel(T.contact.formMessage) +
         '<textarea name="message" rows="4" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors resize-none"></textarea></label>' +
-        '<button type="submit" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-sm">' +
-        T.cta.send + '<i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
-        '<p class="text-xs text-slate-500 mt-5">' + (ROOFY.state.lang === 'zh' ? '提交后将通过您的默认邮件客户端发送至 ' : 'Will open your default mail client to send to ') + MAILTO + '。</p>' +
+        '<button type="submit" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-sm">' +
+        '<span data-btn-label>' + T.cta.send + '</span><i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
+        '<p data-form-status class="text-sm mt-5" role="status" aria-live="polite"></p>' +
+        '<p class="text-xs text-slate-500 mt-3">' + T.contact.formNote + '</p>' +
         '</form>';
 }
 
 window.submitContact = function (e) {
     e.preventDefault();
     const f = e.target;
+    const T = ROOFY.tr();
+    const status = f.querySelector('[data-form-status]');
+    const btn = f.querySelector('button[type="submit"]');
+    const btnLabel = f.querySelector('[data-btn-label]');
+
+    function setStatus(kind, text) {
+        if (!status) return;
+        status.className = 'text-sm mt-5 ' + (kind === 'error' ? 'text-red-600' : 'text-slate-500');
+        status.textContent = text || '';
+    }
+
     const d = new FormData(f);
-    const subject = encodeURIComponent('[ROOFY Inquiry] ' + (d.get('interest') || ''));
-    const body = encodeURIComponent(
-        'Name: ' + (d.get('name') || '') + '\n' +
-        'Email: ' + (d.get('email') || '') + '\n' +
-        'Phone: ' + (d.get('phone') || '') + '\n' +
-        'Interest: ' + (d.get('interest') || '') + '\n\n' +
-        (d.get('message') || '')
-    );
-    window.location.href = 'mailto:' + MAILTO + '?subject=' + subject + '&body=' + body;
+    const name = String(d.get('name') || '').trim();
+    const email = String(d.get('email') || '').trim();
+    const message = String(d.get('message') || '').trim();
+
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message) {
+        setStatus('error', T.contact.formErrFields);
+        return false;
+    }
+
+    const payload = {
+        name: name, email: email,
+        phone: String(d.get('phone') || '').trim(),
+        interest: String(d.get('interest') || 'other'),
+        message: message,
+        website: String(d.get('website') || ''),   // honeypot
+        lang: ROOFY.state.lang
+    };
+
+    btn.disabled = true;
+    const restore = btnLabel ? btnLabel.textContent : '';
+    if (btnLabel) btnLabel.textContent = T.contact.formSending;
+    setStatus('ok', '');
+
+    fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).then(function (r) {
+        return r.json().then(function (j) { return { status: r.status, body: j }; })
+            .catch(function () { return { status: r.status, body: { ok: r.ok } }; });
+    }).then(function (res) {
+        if (res.body && res.body.ok) {
+            const wrap = f.parentNode;
+            wrap.innerHTML = '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10 text-center" data-reveal-up>' +
+                '<div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-50 mb-5"><i data-lucide="check" class="w-7 h-7 text-emerald-600"></i></div>' +
+                '<div class="text-xl font-bold text-slate-900 mb-2">' + T.contact.formOkTitle + '</div>' +
+                '<p class="text-sm text-slate-600 leading-relaxed max-w-md mx-auto">' + T.contact.formOkBody + '</p></div>';
+            if (window.lucide) lucide.createIcons();
+            return;
+        }
+        btn.disabled = false;
+        if (btnLabel) btnLabel.textContent = restore;
+        setStatus('error', (res.status === 429) ? T.contact.formErrRate : T.contact.formErr);
+    }).catch(function () {
+        btn.disabled = false;
+        if (btnLabel) btnLabel.textContent = restore;
+        setStatus('error', T.contact.formErr);
+    });
     return false;
 };
 

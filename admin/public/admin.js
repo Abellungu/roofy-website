@@ -464,6 +464,20 @@
         });
     }
 
+    function initLeadsPage() {
+        var table = document.getElementById('leads-table');
+        if (!table) return;
+        table.addEventListener('click', function (e) {
+            var b = e.target.closest('.act-lead-del'); if (!b) return;
+            var tr = e.target.closest('tr'); if (!tr) return;
+            if (!confirm('删除这条线索?\nDelete this lead?')) return;
+            post('/api/leads/delete', { id: tr.getAttribute('data-id') }).then(function (d) {
+                if (d.ok) { tr.remove(); toast('已删除 deleted'); }
+                else toast((d.errors || ['failed']).join('; '), true);
+            });
+        });
+    }
+
     /* ── boot ── */
     document.addEventListener('DOMContentLoaded', function () {
         if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
@@ -483,5 +497,6 @@
         if (pf) initPasswordForm(pf);
         initMediaPage();
         initHistoryPage();
+        initLeadsPage();
     });
 })();

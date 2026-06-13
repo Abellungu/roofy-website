@@ -100,6 +100,9 @@ router.post('/logout', auth.requireAuth, function (req, res) {
     res.redirect(BASE + '/login');
 });
 
+/* ── public contact-form endpoint (unauthenticated) ── */
+router.use(require('./routes/contact'));
+
 /* ── authenticated area ── */
 router.use(auth.requireAuth);
 router.use(require('./routes/content'));

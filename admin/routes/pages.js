@@ -5,7 +5,8 @@ const store = require('../lib/store');
 const gitops = require('../lib/gitops');
 const uploads = require('../lib/uploads');
 const auth = require('../lib/auth');
-const { tail } = require('../lib/audit');
+const leads = require('../lib/leads');
+const { audit, tail } = require('../lib/audit');
 const H = require('../lib/html');
 
 const router = express.Router();
@@ -163,6 +164,52 @@ router.post('/api/account/password', function (req, res) {
     const ok = auth.changePassword(req.adminUser.username, String(oldPw || ''), String(newPw));
     if (!ok) return res.json({ ok: false, errors: ['当前密码不正确 — current password incorrect'] });
     res.json({ ok: true });
+});
+
+/* ── leads (public contact-form submissions) ── */
+const INTEREST_L = {
+    realestate: ['房地产', 'Real estate'], led: ['LED 广告', 'LED ads'],
+    branding: ['品牌策划', 'Branding'], other: ['其他', 'Other']
+};
+
+router.get('/leads', function (req, res) {
+    const list = leads.all().reverse();   // newest first
+    const rows = list.map(function (l) {
+        const il = INTEREST_L[l.interest] || INTEREST_L.other;
+        const when = H.esc((l.at || '').replace('T', ' ').slice(0, 16));
+        const phone = l.phone ? `<div class="dim">${H.esc(l.phone)}</div>` : '';
+        const wa = l.phone ? ` · <a href="https://wa.me/${H.esc(String(l.phone).replace(/[^\d]/g, ''))}" target="_blank" rel="noopener">WhatsApp</a>` : '';
+        return `<tr class="${l.read ? '' : 'lead-unread'}" data-id="${H.esc(l.id)}">
+            <td class="nowrap">${when}</td>
+            <td><strong>${H.esc(l.name)}</strong></td>
+            <td><a href="mailto:${H.esc(l.email)}">${H.esc(l.email)}</a>${phone}${wa}</td>
+            <td>${H.L(il[0], il[1])}</td>
+            <td style="white-space:pre-line">${H.esc(l.message)}</td>
+            <td class="ops"><button class="btn-sm danger act-lead-del">${H.L('删除', 'Delete')}</button></td>
+        </tr>`;
+    }).join('');
+    leads.markAllRead();   // viewing the inbox clears the unread badge
+    res.send(H.layout({
+        base: req.baseUrl, active: 'leads', user: req.adminUser,
+        title: '咨询线索', titleEn: 'Leads',
+        body: `<div class="hintbox">${H.L(
+            '网站联系表单的提交都会进入这里。这些数据只保存在服务器本地,不进 git、不公开。点邮箱直接回复,或用 WhatsApp 跟进。',
+            'Contact-form submissions land here. They are stored only on the server — never committed to git, never public. Click an email to reply, or follow up on WhatsApp.')}</div>
+        <div class="tablewrap"><table class="ltable" id="leads-table">
+        <thead><tr><th>${H.L('时间', 'When')}</th><th>${H.L('姓名', 'Name')}</th><th>${H.L('联系方式', 'Contact')}</th><th>${H.L('意向', 'Interest')}</th><th>${H.L('留言', 'Message')}</th><th class="ops-col">${H.L('操作', 'Actions')}</th></tr></thead>
+        <tbody>${rows || `<tr><td colspan="6"><div class="empty">${H.L('暂无线索', 'No leads yet')}</div></td></tr>`}</tbody>
+        </table></div>`
+    }));
+});
+
+router.post('/api/leads/delete', function (req, res) {
+    const id = String((req.body || {}).id || '');
+    if (!/^[0-9a-f]{8,32}$/.test(id)) return res.json({ ok: false, errors: ['bad id'] });
+    try {
+        leads.remove(id);
+        audit(req.adminUser.username, 'lead-delete', id);
+        res.json({ ok: true });
+    } catch (e) { res.json({ ok: false, errors: [e.message] }); }
 });
 
 module.exports = router;
