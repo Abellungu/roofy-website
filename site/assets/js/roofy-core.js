@@ -88,19 +88,8 @@
             });
         });
 
-        /* Nav scroll-mode swap. On the home page the nav starts in 'hero' mode
-         * (transparent over dark hero); scrolling past ~80px flips it to 'solid'.
-         * On every other page the nav stays in 'solid' mode regardless. */
-        const nav = document.getElementById('site-nav');
-        if (nav && state.page === 'home') {
-            ScrollTrigger.create({
-                start: 80,
-                end: 99999,
-                onUpdate: function (self) {
-                    nav.dataset.mode = self.scroll() > 60 ? 'solid' : 'hero';
-                }
-            });
-        }
+        /* Nav is always solid (navy) now — the home hero is a light golden band,
+         * so there is no transparent-over-dark-hero mode to toggle. */
     }
 
     function initPage() {

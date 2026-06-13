@@ -10,23 +10,23 @@ window.ROOFY_PAGE = { id: 'home', whatsapp: 'home' };
 function heroSection() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
-    return '<section id="top" class="relative bg-slate-950 pt-28 lg:pt-40 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-40 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">' +
         '<div class="lg:col-span-7">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.06] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
-        '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
+        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.06] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
+        '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-12 rounded-sm transition-colors">' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-12 rounded-sm transition-colors">' +
         T.hero.primary + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-600 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-12 rounded-sm transition-colors">' +
+        '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-12 rounded-sm transition-colors">' +
         T.hero.secondary + '</a>' +
         '</div></div>' +
         '</div>' +
         '<div class="lg:col-span-5 hidden lg:block">' +
         '<div class="relative" data-reveal-up>' +
-        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-amber-500/40 pointer-events-none"></div>' +
+        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none"></div>' +
         '<div class="relative overflow-hidden img-zoom">' +
         '<img src="/assets/img/projects/oasis-miracle-aerial.jpg" alt="Oasis Miracle, Ibex Hill" class="w-full aspect-[4/5] object-cover" />' +
         '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent p-5 pt-16">' +
@@ -34,8 +34,8 @@ function heroSection() {
         '<div class="text-xs text-slate-200 mt-1">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in one year') + '</div>' +
         '</div></div></div>' +
         '</div></div>' +
-        '<div class="reveal-mask mt-12 lg:mt-16"><div class="reveal-line border-t border-slate-800 pt-5 flex flex-wrap gap-x-10 gap-y-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-500">' +
-        '<span>EST \u00b7 2024</span><span>Ibex Hill \u00b7 Lusaka</span><span>15\u00b025\u2032S \u00b7 28\u00b017\u2032E</span><span class="text-amber-500">Build \u00b7 Brand \u00b7 Grow</span>' +
+        '<div class="reveal-mask mt-12 lg:mt-16"><div class="reveal-line border-t border-slate-900/25 pt-5 flex flex-wrap gap-x-10 gap-y-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-800/70">' +
+        '<span>EST \u00b7 2024</span><span>Ibex Hill \u00b7 Lusaka</span><span>15\u00b025\u2032S \u00b7 28\u00b017\u2032E</span><span class="text-slate-900">Build \u00b7 Brand \u00b7 Grow</span>' +
         '</div></div></div></section>';
 }
 
@@ -210,13 +210,13 @@ function processSection() {
 
 function ctaBannerSection() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
-        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
+        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-slate-900/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
-        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<h2 class="text-3xl md:text-5xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

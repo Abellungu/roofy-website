@@ -24,15 +24,15 @@ function legalHero() {
     const T = ROOFY.tr();
     const doc = currentLegal();
     if (!doc) {
-        return '<section class="bg-slate-900 pt-32 lg:pt-44 pb-16"><div class="max-w-3xl mx-auto px-6 text-center text-slate-400 text-sm">Loading…</div></section>';
+        return '<section class="bg-amber-500 pt-32 lg:pt-44 pb-16"><div class="max-w-3xl mx-auto px-6 text-center text-slate-700 text-sm">Loading…</div></section>';
     }
-    return '<section class="relative bg-slate-900 pt-32 pb-14 lg:pt-44 lg:pb-20 overflow-hidden" data-hero-reveal>' +
-        '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative bg-amber-500 pt-32 pb-14 lg:pt-44 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+        '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-3xl mx-auto px-6 lg:px-8">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.footer.legal + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4"><span class="reveal-mask block"><span class="reveal-line">' + doc.title + '</span></span></h1>' +
-        '<div class="reveal-mask"><div class="reveal-line text-xs font-medium tracking-wider uppercase text-amber-400">' + doc.lastUpdated + '</div></div>' +
-        '<div class="mt-8 reveal-mask"><p class="reveal-line text-base text-slate-300 leading-relaxed">' + renderInline(doc.intro) + '</p></div>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.footer.legal + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4"><span class="reveal-mask block"><span class="reveal-line">' + doc.title + '</span></span></h1>' +
+        '<div class="reveal-mask"><div class="reveal-line text-xs font-medium tracking-wider uppercase text-slate-800">' + doc.lastUpdated + '</div></div>' +
+        '<div class="mt-8 reveal-mask"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + renderInline(doc.intro) + '</p></div>' +
         '</div></section>';
 }
 

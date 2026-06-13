@@ -46,15 +46,11 @@ function applyFilters(all) {
 
 function propertiesHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-slate-900 pt-32 pb-14 lg:pt-44 lg:pb-16 overflow-hidden" data-hero-reveal>' +
-        '<div class="absolute inset-0">' +
-        '<img src="/assets/img/stock/u1600585154340.jpg" data-placeholder="true" alt="" class="w-full h-full object-cover opacity-25" />' +
-        '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
-        '</div>' +
+    return '<section class="relative bg-amber-500 pt-32 pb-14 lg:pt-44 lg:pb-16 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.properties.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-300 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.properties.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
         '</div></section>';
 }
 
@@ -69,8 +65,8 @@ function featuredProjectsBand() {
         const label = (T.projects.statusLabels && T.projects.statusLabels[status]) || status;
         const tone = {
             selling: 'bg-amber-500 text-slate-900',
-            delivered: 'bg-emerald-500 text-white',
-            'sold-out': 'bg-rose-600 text-white',
+            delivered: 'bg-leaf-500 text-white',
+            'sold-out': 'bg-leaf-600 text-white',
             'under-construction': 'bg-slate-200 text-slate-900',
             upcoming: 'bg-slate-700 text-white'
         }[status] || 'bg-slate-200 text-slate-900';
@@ -282,14 +278,14 @@ function listingRows() {
 function propertiesCta() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
-    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
-        '<h2 class="text-2xl md:text-4xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
+        '<h2 class="text-2xl md:text-4xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
         (lang === 'zh' ? '没找到合适的？我们手上还有未公开房源。' : 'Didn\'t find what you need? We also represent off-market opportunities.') +
         '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
         T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

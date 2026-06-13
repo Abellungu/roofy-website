@@ -10,15 +10,11 @@ const CONTACT_ENDPOINT = '/admin/contact';
 
 function contactHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-slate-900 pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-hero-reveal>' +
-        '<div class="absolute inset-0">' +
-        '<img src="/assets/img/office/office-boardroom.jpg" alt="" class="w-full h-full object-cover opacity-25" />' +
-        '<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/85 to-slate-900/60"></div>' +
-        '</div>' +
+    return '<section class="relative bg-amber-500 pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-400 uppercase">' + T.contact.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + T.contact.desc + '</p></div>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.contact.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + T.contact.desc + '</p></div>' +
         '</div></section>';
 }
 
@@ -142,7 +138,7 @@ window.submitContact = function (e) {
         if (res.body && res.body.ok) {
             const wrap = f.parentNode;
             wrap.innerHTML = '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10 text-center" data-reveal-up>' +
-                '<div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-50 mb-5"><i data-lucide="check" class="w-7 h-7 text-emerald-600"></i></div>' +
+                '<div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-leaf-50 mb-5"><i data-lucide="check" class="w-7 h-7 text-leaf-600"></i></div>' +
                 '<div class="text-xl font-bold text-slate-900 mb-2">' + T.contact.formOkTitle + '</div>' +
                 '<p class="text-sm text-slate-600 leading-relaxed max-w-md mx-auto">' + T.contact.formOkBody + '</p></div>';
             if (window.lucide) lucide.createIcons();

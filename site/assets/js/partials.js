@@ -27,11 +27,11 @@
         const T = window.ROOFY.tr();
         const state = window.ROOFY.state;
         const links = topLinks(T);
-        /* Nav visual mode: 'hero' when on home page at top (over dark hero image),
-         * 'solid' otherwise (white bg + dark text). Toggled by scroll watcher
-         * in roofy-core.js's initReveals. Styling lives in roofy.css under
-         * [#site-nav[data-mode='hero']] and [#site-nav[data-mode='solid']]. */
-        const initialMode = state.page === 'home' ? 'hero' : 'solid';
+        /* Nav visual mode: always 'solid' (navy bar, light text). Since the home
+         * hero is now a light golden band (white text would be unreadable on it),
+         * the home nav is a solid navy bar from the top like every other page.
+         * Styling lives in roofy.css under [#site-nav[data-mode='solid']]. */
+        const initialMode = 'solid';
 
         const desktop = links.map(function (l) {
             const active = state.page === l[0];

@@ -39,7 +39,7 @@ html.lenis body {
     letter-spacing: -0.02em;
     line-height: 1.1;
     font-size: clamp(1.875rem, 4vw, 3rem);
-    color: #09090B;
+    color: #0B1F3A;
 }
 
 .display-lg {
@@ -48,7 +48,7 @@ html.lenis body {
     letter-spacing: -0.018em;
     line-height: 1.15;
     font-size: clamp(1.625rem, 3vw, 2.25rem);
-    color: #09090B;
+    color: #0B1F3A;
 }
 
 .display-md {
@@ -57,7 +57,7 @@ html.lenis body {
     letter-spacing: -0.015em;
     line-height: 1.25;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
-    color: #09090B;
+    color: #0B1F3A;
 }
 
 .eyebrow {
@@ -66,7 +66,7 @@ html.lenis body {
     letter-spacing: .14em;
     text-transform: uppercase;
     font-size: .75rem;
-    color: #D97706;
+    color: #C2870A;
 }
 
 /* Two-mode navbar: 'hero' = transparent over a dark hero image (light text),
@@ -82,22 +82,22 @@ html.lenis body {
 #site-nav[data-mode="hero"] .nav-wordmark { color: #FFFFFF; }
 #site-nav[data-mode="hero"] .nav-link { color: rgba(241, 245, 249, 0.85); }
 #site-nav[data-mode="hero"] .nav-link:hover,
-#site-nav[data-mode="hero"] .nav-link.is-active { color: #FBBF24; }
+#site-nav[data-mode="hero"] .nav-link.is-active { color: #F5B301; }
 #site-nav[data-mode="hero"] .nav-lang { color: rgba(241, 245, 249, 0.85); }
-#site-nav[data-mode="hero"] .nav-lang:hover { color: #FBBF24; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="hero"] .nav-lang:hover { color: #F5B301; background: rgba(255, 255, 255, 0.08); }
 #site-nav[data-mode="hero"] .nav-mobile-toggle { color: #FFFFFF; }
 
 #site-nav[data-mode="solid"] {
-    background: #0F172A;
-    border-bottom: 1px solid #0F172A;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    background: #0B1F3A;
+    border-bottom: 1px solid #0B1F3A;
+    box-shadow: 0 10px 24px rgba(11, 31, 58, 0.2);
 }
 #site-nav[data-mode="solid"] .nav-wordmark { color: #FFFFFF; }
 #site-nav[data-mode="solid"] .nav-link { color: rgba(226, 232, 240, 0.85); }
 #site-nav[data-mode="solid"] .nav-link:hover,
-#site-nav[data-mode="solid"] .nav-link.is-active { color: #FBBF24; }
+#site-nav[data-mode="solid"] .nav-link.is-active { color: #F5B301; }
 #site-nav[data-mode="solid"] .nav-lang { color: rgba(226, 232, 240, 0.85); }
-#site-nav[data-mode="solid"] .nav-lang:hover { color: #FBBF24; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="solid"] .nav-lang:hover { color: #F5B301; background: rgba(255, 255, 255, 0.08); }
 #site-nav[data-mode="solid"] .nav-mobile-toggle { color: #FFFFFF; }
 
 p {
@@ -216,8 +216,8 @@ p {
 }
 
 ::selection {
-    background: #F59E0B;
-    color: #0F172A;
+    background: #F5B301;
+    color: #0B1F3A;
 }
 
 /* Unified card hover feel: non-linear easing for shadow + a 1px lift.
@@ -258,7 +258,7 @@ body::before {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #b45309, #f59e0b 35%, #fbbf24 50%, #f59e0b 65%, #b45309);
+    background: linear-gradient(90deg, #C2870A, #F5B301 35%, #FBC22E 50%, #F5B301 65%, #C2870A);
     z-index: 60;
     pointer-events: none;
 }
@@ -280,4 +280,4 @@ body::before {
     color: rgba(148, 163, 184, .65);
 }
 
-::selection { background: rgba(245, 158, 11, .28); color: inherit; }
+::selection { background: rgba(245, 179, 1, .28); color: inherit; }
