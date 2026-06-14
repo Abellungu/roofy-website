@@ -57,8 +57,8 @@ function pillarHero() {
             '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
             '<a href="#adjacent" class="inline-flex items-center gap-2 border border-white/40 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
             '</div></div></div>' +
-            '<div class="hidden lg:flex bg-amber-500 items-center justify-center p-10" data-reveal-up>' +
-            '<div class="relative overflow-hidden w-full aspect-[4/3] shadow-2xl shadow-slate-950/30"><img src="' + p.heroImg + '" alt="" class="w-full h-full object-cover" /></div>' +
+            '<div class="hidden lg:flex bg-amber-500 items-center justify-center p-8 lg:p-12" data-reveal-up>' +
+            '<img src="' + p.heroImg + '" alt="" class="w-full max-h-[440px] object-contain drop-shadow-2xl" />' +
             '</div></div></section>';
     }
     return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-40 pb-20 lg:pb-32 overflow-hidden" data-hero-reveal>' +
