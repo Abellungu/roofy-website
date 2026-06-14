@@ -46,10 +46,18 @@ function applyFilters(all) {
 
 function propertiesHero() {
     const T = ROOFY.tr();
-    const thumbs = (window.ROOFY_DATA.properties || []).filter(function (p) { return p.img; }).slice(0, 4);
-    const grid = thumbs.map(function (p) {
+    /* Curated clean (watermark-free) project shots for the hero montage. The
+     * actual listing photos carry the old roofyinvestments.com watermark, which
+     * looks crude when enlarged, so the hero uses the group's project renders. */
+    const heroShots = [
+        '/assets/img/projects/serenity-villa-a.jpg',
+        '/assets/img/projects/estate-gate.jpg',
+        '/assets/img/projects/oasis-miracle-pool.jpg',
+        '/assets/img/projects/oasis-crown-render.jpg'
+    ];
+    const grid = heroShots.map(function (src) {
         return '<div class="overflow-hidden img-zoom shadow-lg shadow-slate-900/20">' +
-            '<img src="' + p.img + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>';
+            '<img src="' + src + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>';
     }).join('');
     return '<section class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
