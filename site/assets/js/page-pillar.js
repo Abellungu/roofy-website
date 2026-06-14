@@ -28,17 +28,26 @@ function pillarHero() {
     const ti18n = T.pillars[PILLAR_I18N_KEY[p.id]] || {};
     const title = ti18n.title || (lang === 'zh' ? p.titleZh : p.title);
     const summary = ti18n.summary || (lang === 'zh' ? p.summaryZh : p.summary);
-    return '<section id="top" class="relative bg-amber-500 pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-hero-reveal>' +
+    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">' +
+        '<div>' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + ti18n.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl mb-8"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + summary + '</p></div>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-5"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-xl mb-8"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + summary + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-lg shadow-slate-900/20">' +
         ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-11 rounded-sm transition-colors">' +
         T.pillars.adjacent + '</a>' +
-        '</div></div></div></section>';
+        '</div></div>' +
+        '</div>' +
+        '<div class="hidden lg:block" data-reveal-up>' +
+        '<div class="relative overflow-hidden img-zoom aspect-[5/4] shadow-2xl shadow-slate-900/25">' +
+        '<img src="' + p.heroImg + '" alt="" class="w-full h-full object-cover" />' +
+        '</div>' +
+        '</div>' +
+        '</div></div></section>';
 }
 
 function pillarNarrative() {

@@ -46,12 +46,21 @@ function applyFilters(all) {
 
 function propertiesHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-amber-500 pt-32 pb-14 lg:pt-44 lg:pb-16 overflow-hidden" data-hero-reveal>' +
+    const thumbs = (window.ROOFY_DATA.properties || []).filter(function (p) { return p.img; }).slice(0, 4);
+    const grid = thumbs.map(function (p) {
+        return '<div class="overflow-hidden img-zoom shadow-lg shadow-slate-900/20">' +
+            '<img src="' + p.img + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>';
+    }).join('');
+    return '<section class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">' +
+        '<div class="lg:col-span-5">' +
         '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.properties.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
-        '</div></section>';
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-md"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
+        '</div>' +
+        (grid ? '<div class="lg:col-span-7 hidden lg:grid grid-cols-2 gap-3" data-reveal-up>' + grid + '</div>' : '') +
+        '</div></div></section>';
 }
 
 function featuredProjectsBand() {

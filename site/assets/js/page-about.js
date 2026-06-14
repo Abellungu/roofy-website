@@ -14,12 +14,26 @@ function aboutHero() {
     const desc = lang === 'zh'
         ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立。我们以房地产、LED 户外广告与品牌营销为根基，通过资源整合与系统化运营，参与卢萨卡城市升级的每一个关键节点。'
         : 'Roofy Investments Zambia was founded in 2024 at Ibex Hill, Lusaka. Anchored in real estate, LED outdoor advertising and brand marketing, we integrate fragmented resources and run them as a single system — at every key node of Lusaka\'s urban upgrade.';
-    return '<section class="relative bg-amber-500 pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden" data-hero-reveal>' +
+    return '<section class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">' +
+        '<div class="lg:col-span-7">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + desc + '</p></div>' +
-        '</div></section>';
+        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + desc + '</p></div>' +
+        '<div class="reveal-mask mt-8"><div class="reveal-line flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-900/70">' +
+        '<span>EST · 2024</span><span>Ibex Hill · Lusaka</span><span>' + (lang === 'zh' ? '三大业务' : 'Three practices') + '</span>' +
+        '</div></div>' +
+        '</div>' +
+        '<div class="lg:col-span-5 hidden lg:block">' +
+        '<div class="relative" data-reveal-up>' +
+        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none"></div>' +
+        '<div class="relative overflow-hidden img-zoom">' +
+        '<img src="/assets/img/office/office-lobby.jpg" alt="ROOFY office · Ibex Hill, Lusaka" class="w-full aspect-[4/5] object-cover" />' +
+        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent p-5 pt-16">' +
+        '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">ROOFY · Ibex Hill, Lusaka</div>' +
+        '</div></div></div>' +
+        '</div></div></div></section>';
 }
 
 function missionVisionRow() {

@@ -12,12 +12,28 @@ const NEWS_CATS = ['all', 'international', 'lusaka', 'lusaka-real-estate'];
 
 function newsHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-amber-500 pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden" data-hero-reveal>' +
+    const lang = ROOFY.state.lang;
+    const latest = (window.ROOFY_DATA.news || [])[0];
+    const photo = (latest && latest.coverImg) ? latest.coverImg : '/assets/img/stock/u1495020689067.jpg';
+    const cap = latest ? (lang === 'zh' ? latest.titleZh : latest.titleEn) : '';
+    return '<section class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">' +
+        '<div class="lg:col-span-7">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.news.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.news.desc + '</p></div>' +
-        '</div></section>';
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-5"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.news.desc + '</p></div>' +
+        '</div>' +
+        '<div class="lg:col-span-5 hidden lg:block">' +
+        '<a href="/news/article.html?id=' + (latest ? encodeURIComponent(latest.id) : '') + '" class="relative block" data-reveal-up>' +
+        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none"></div>' +
+        '<div class="relative overflow-hidden img-zoom">' +
+        '<img src="' + photo + '" alt="" class="w-full aspect-[4/5] object-cover" />' +
+        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent p-5 pt-20">' +
+        (latest ? '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400 mb-1.5">' + (lang === 'zh' ? '最新 · Latest' : 'Latest') + '</div>' : '') +
+        '<div class="text-sm font-semibold text-white leading-snug">' + cap + '</div>' +
+        '</div></div></a>' +
+        '</div></div></div></section>';
 }
 
 function categoryTabs() {

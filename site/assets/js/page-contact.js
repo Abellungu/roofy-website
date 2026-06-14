@@ -10,11 +10,11 @@ const CONTACT_ENDPOINT = '/admin/contact';
 
 function contactHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-amber-500 pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden" data-hero-reveal>' +
+    return '<section class="relative bg-amber-500 pt-28 pb-10 lg:pt-32 lg:pb-14 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.contact.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-5 max-w-4xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + T.contact.desc + '</p></div>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.contact.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4 max-w-3xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-800 leading-relaxed">' + T.contact.desc + '</p></div>' +
         '</div></section>';
 }
 
