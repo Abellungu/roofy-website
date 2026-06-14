@@ -21,19 +21,15 @@ function aboutHero() {
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + eyebrow + '</span></span>' +
         '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + desc + '</p></div>' +
-        '<div class="reveal-mask mt-8"><div class="reveal-line flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-900/70">' +
-        '<span>EST · 2024</span><span>Ibex Hill · Lusaka</span><span>' + (lang === 'zh' ? '三大业务' : 'Three practices') + '</span>' +
-        '</div></div>' +
         '</div>' +
-        '<div class="lg:col-span-5 hidden lg:block">' +
-        '<div class="relative" data-reveal-up>' +
-        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none"></div>' +
-        '<div class="relative overflow-hidden img-zoom">' +
-        '<img src="/assets/img/office/office-lobby.jpg" alt="ROOFY office · Ibex Hill, Lusaka" class="w-full aspect-[4/5] object-cover" />' +
-        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent p-5 pt-16">' +
-        '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">ROOFY · Ibex Hill, Lusaka</div>' +
-        '</div></div></div>' +
-        '</div></div></div></section>';
+        '<div class="lg:col-span-5 hidden lg:block" data-reveal-up>' +
+        '<dl class="border-t-2 border-slate-900 divide-y divide-slate-900/20">' +
+        '<div class="py-5"><dt class="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '成立年份' : 'Founded') + '</dt><dd class="text-4xl lg:text-5xl font-black text-slate-900 leading-none">2024</dd></div>' +
+        '<div class="py-5"><dt class="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '核心业务' : 'Core practices') + '</dt><dd class="text-4xl lg:text-5xl font-black text-slate-900 leading-none">3</dd></div>' +
+        '<div class="py-5"><dt class="text-[11px] font-bold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '卢萨卡总部' : 'Lusaka HQ') + '</dt><dd class="text-3xl lg:text-4xl font-black text-slate-900 leading-none">Ibex Hill</dd></div>' +
+        '</dl>' +
+        '</div>' +
+        '</div></div></section>';
 }
 
 function missionVisionRow() {
