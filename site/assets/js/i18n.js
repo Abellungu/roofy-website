@@ -214,7 +214,8 @@ window.I18N = {
             desc: '我们直采中国一线屏厂艾比森（Absen）：A25 系列户外固装大屏用于销售与户外广告投放，NT V2 系列压铸铝租赁屏用于活动与舞台。以下为在售型号与核心规格，销售价与租赁价以正式清单为准。',
             usageLabels: { indoor: '室内', outdoor: '户外固装', rental: '租赁' },
             modeLabels: { sale: '销售', rental: '租赁' },
-            cols: { product: '产品 / 型号', usage: '用途', pitch: '点间距', brightness: '亮度', cabinet: '箱体尺寸', ip: '防护等级', refresh: '刷新率', sale: '销售价', rental: '租赁价' },
+            cols: { product: '产品 / 型号', usage: '用途', pitch: '点间距', brightness: '亮度', cabinet: '箱体尺寸', ip: '防护等级', refresh: '刷新率', install: '安装方式', cert: '认证', sale: '销售价', rental: '租赁价' },
+            moreSpecs: '完整规格',
             onRequest: '面议',
             inquire: '索取完整产品与报价清单',
             note: '注：产品规格源自艾比森官方规格书；价格以 ROOFY 正式清单为准，欢迎咨询。'
@@ -597,7 +598,8 @@ window.I18N = {
             desc: 'Sourced direct from tier-one Chinese maker Absen: the A25 Series outdoor fixed displays for sale and outdoor advertising, and the NT V2 die-cast rental panels for events and stages. Live models and core specs below; sale and rental pricing per the official quotation.',
             usageLabels: { indoor: 'Indoor', outdoor: 'Outdoor fixed', rental: 'Rental' },
             modeLabels: { sale: 'For sale', rental: 'For rental' },
-            cols: { product: 'Product / Model', usage: 'Type', pitch: 'Pitch', brightness: 'Brightness', cabinet: 'Cabinet', ip: 'IP rating', refresh: 'Refresh', sale: 'Sale', rental: 'Rental' },
+            cols: { product: 'Product / Model', usage: 'Type', pitch: 'Pitch', brightness: 'Brightness', cabinet: 'Cabinet', ip: 'IP rating', refresh: 'Refresh', install: 'Install', cert: 'Cert', sale: 'Sale', rental: 'Rental' },
+            moreSpecs: 'Full specs',
             onRequest: 'On request',
             inquire: 'Request full product & price list',
             note: 'Note: specs from official Absen datasheets; pricing per the official ROOFY quotation. Get in touch for details.'

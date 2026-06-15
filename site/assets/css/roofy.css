@@ -281,3 +281,8 @@ body::before {
 }
 
 ::selection { background: rgba(245, 179, 1, .28); color: inherit; }
+
+/* LED product cards: collapsible "full specs" disclosure */
+details.led-specs > summary { list-style: none; }
+details.led-specs > summary::-webkit-details-marker { display: none; }
+details.led-specs[open] .led-chev { transform: rotate(180deg); }

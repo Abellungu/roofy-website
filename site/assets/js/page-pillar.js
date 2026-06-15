@@ -227,8 +227,15 @@ function ledProductsBlock(T) {
             specRow(ti.cols.pitch, p.pixelPitch) +
             specRow(ti.cols.brightness, p.brightness) +
             specRow(ti.cols.cabinet, p.cabinetSize) +
-            specRow(ti.cols.ip, p.ip) +
-            specRow(ti.cols.refresh, p.refresh) +
+            ((p.ip || p.refresh || p.install || p.cert) ?
+                '<details class="led-specs">' +
+                '<summary class="flex items-center justify-between py-1.5 cursor-pointer text-slate-500 hover:text-amber-600 transition-colors">' +
+                '<span>' + ti.moreSpecs + '</span><i data-lucide="chevron-down" class="led-chev w-3.5 h-3.5 shrink-0 transition-transform"></i></summary>' +
+                specRow(ti.cols.ip, p.ip) +
+                specRow(ti.cols.refresh, p.refresh) +
+                specRow(ti.cols.install, p.install) +
+                specRow(ti.cols.cert, p.cert) +
+                '</details>' : '') +
             '</div>' +
             (note ? '<p class="text-xs text-slate-500 leading-relaxed mb-4">' + note + '</p>' : '') +
             '<div class="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">' +
