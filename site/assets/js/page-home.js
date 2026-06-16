@@ -77,61 +77,50 @@ function newsSection() {
         '</div></div></section>';
 }
 
-function aboutSection() {
+/* Merged "who we are" block: company intro + mission/vision + a compact values
+ * strip. The full mission/vision/values/team live on /about; the home only needs
+ * the highlight. (2026-06-16 home consolidation, plan B.) */
+function whoWeAreSection() {
     const T = ROOFY.tr();
+    const lang = ROOFY.state.lang;
+    function mvTile(idx, eyebrow, title, desc) {
+        return '<div class="relative border-t-2 border-amber-500 pt-7" data-reveal-up>' +
+            '<span class="absolute -top-2 right-0 text-6xl lg:text-7xl font-black text-slate-900/[0.05] leading-none select-none pointer-events-none">' + idx + '</span>' +
+            '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + eyebrow + '</div>' +
+            '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-3 max-w-md">' + title + '</h3>' +
+            '<p class="text-slate-600 leading-relaxed max-w-lg">' + desc + '</p>' +
+            '</div>';
+    }
+    const valueWords = (T.values.items || []).map(function (v) {
+        return '<span class="text-lg lg:text-xl font-bold text-slate-900">' + v.t + '</span>';
+    }).join('<span class="text-amber-500 mx-3" aria-hidden="true">·</span>');
     return '<section id="about" class="py-20 lg:py-28 bg-slate-50">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 lg:mb-24">' +
         '<div class="lg:col-span-5" data-reveal-up>' +
         '<div class="aspect-[4/5] overflow-hidden rounded-lg bg-slate-200 shadow-lg">' +
-        '<img src="/assets/img/stock/u1600585154526.jpg" data-placeholder="true" alt="Architecture" class="w-full h-full object-cover" />' +
+        '<img src="/assets/img/office/office-terrace.jpg" alt="ROOFY · Ibex Hill, Lusaka" class="w-full h-full object-cover" />' +
         '</div></div>' +
-        '<div class="lg:col-span-7 lg:pt-4">' +
+        '<div class="lg:col-span-7">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.about.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight" data-reveal-up>' + T.about.title + '</h2>' +
         '<p class="text-slate-600 leading-relaxed mb-4 max-w-xl" data-reveal-up>' + T.about.body + '</p>' +
         '<p class="text-slate-500 leading-relaxed mb-8 max-w-xl" data-reveal-up>' + T.about.body2 + '</p>' +
         '<a href="/about.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors" data-reveal-up>' +
         T.about.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div></div></section>';
-}
-
-function missionVisionSection() {
-    const T = ROOFY.tr();
-    function tile(idx, eyebrow, title, desc) {
-        return '<div class="relative border-t-2 border-amber-500/70 pt-8" data-reveal-up>' +
-            '<span class="absolute -top-3 right-0 text-7xl lg:text-8xl font-bold text-white/[0.06] leading-none select-none pointer-events-none">' + idx + '</span>' +
-            '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">' + eyebrow + '</div>' +
-            '<h3 class="text-2xl lg:text-3xl font-bold text-white mb-4 max-w-md">' + title + '</h3>' +
-            '<p class="text-slate-300 leading-relaxed max-w-lg">' + desc + '</p>' +
-            '</div>';
-    }
-    return '<section class="py-20 lg:py-28 bg-slate-900">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-14">' +
-        tile('01', T.mission.eyebrow, T.mission.title, T.mission.desc) +
-        tile('02', T.vision.eyebrow, T.vision.title, T.vision.desc) +
-        '</div></section>';
-}
-
-function valuesSection() {
-    const T = ROOFY.tr();
-    const items = T.values.items.map(function (v, i) {
-        return '<div data-reveal-up class="group border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300">' +
-            '<div class="flex items-center justify-between mb-5">' +
-            '<i data-lucide="' + v.icon + '" class="w-5 h-5 text-amber-600"></i>' +
-            '<span class="text-xs font-bold tracking-widest text-slate-400">' + String(i + 1).padStart(2, '0') + '</span>' +
-            '</div>' +
-            '<h3 class="text-lg font-bold text-slate-900 mb-1">' + v.t + '</h3>' +
-            '<div class="text-xs text-slate-500 mb-3 uppercase tracking-wider">' + v.e + '</div>' +
-            '<p class="text-sm text-slate-600 leading-relaxed">' + v.d + '</p>' +
-            '</div>';
-    }).join('');
-    return '<section id="values" class="py-20 lg:py-28 bg-slate-50">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">' +
-        '<div class="lg:col-span-4"><div class="lg:sticky lg:top-28">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.values.title + '</h2>' +
         '</div></div>' +
-        '<div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">' + items + '</div>' +
+        '<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-12 mb-14 lg:mb-16">' +
+        mvTile('01', T.mission.eyebrow, T.mission.title, T.mission.desc) +
+        mvTile('02', T.vision.eyebrow, T.vision.title, T.vision.desc) +
+        '</div>' +
+        '<div id="values" class="border-t-2 border-slate-900 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" data-reveal-up>' +
+        '<div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-2">' + T.values.eyebrow + '</div>' +
+        '<div class="flex flex-wrap items-center">' + valueWords + '</div>' +
+        '</div>' +
+        '<a href="/about.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors shrink-0">' +
+        (lang === 'zh' ? '了解我们的价值观' : 'Our values') + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '</div>' +
         '</div></section>';
 }
 
@@ -159,7 +148,7 @@ function servicesSection() {
 function featuredPropertiesSection() {
     const T = ROOFY.tr();
     const all = (window.ROOFY_DATA.properties || []);
-    const list = (ROOFY.state.propertyFilter === 'all' ? all : all.filter(function (p) { return p.type === ROOFY.state.propertyFilter; })).slice(0, 6);
+    const list = (ROOFY.state.propertyFilter === 'all' ? all : all.filter(function (p) { return p.type === ROOFY.state.propertyFilter; })).slice(0, 3);
     const filterButtons = ['all', 'new', 'resale', 'rent', 'land'].map(function (k) {
         const active = ROOFY.state.propertyFilter === k;
         return '<button onclick="setFilter(\'' + k + '\')" class="text-sm font-medium px-4 h-9 rounded-full transition-colors ' +
@@ -188,26 +177,6 @@ function featuredPropertiesSection() {
         '</div></div></section>';
 }
 
-function processSection() {
-    const T = ROOFY.tr();
-    const items = T.process.items.map(function (it) {
-        return '<div data-reveal-up class="relative pt-9">' +
-            '<span class="absolute top-0 left-0 w-3 h-3 -translate-y-[5px] bg-amber-500"></span>' +
-            '<div class="text-xs font-bold tracking-widest text-slate-400 mb-3">' + it.n + '</div>' +
-            '<h3 class="text-lg font-bold text-slate-900 mb-2">' + it.t + '</h3>' +
-            '<p class="text-sm text-slate-600 leading-relaxed">' + it.d + '</p></div>';
-    }).join('');
-    return '<section id="process" class="py-20 lg:py-28 bg-white">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-14">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.process.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.process.title + '</h2></div>' +
-        '<div class="relative">' +
-        '<div class="absolute top-0 left-0 right-0 h-px bg-slate-200"></div>' +
-        '<div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + items + '</div>' +
-        '</div></div></section>';
-}
-
 function ctaBannerSection() {
     const T = ROOFY.tr();
     return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
@@ -218,35 +187,12 @@ function ctaBannerSection() {
         '<h2 class="text-3xl md:text-5xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div></section>';
-}
-
-function contactTeaserSection() {
-    const T = ROOFY.tr();
-    return '<section class="py-20 lg:py-28 bg-white">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
-        '<div class="lg:col-span-5">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.contact.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-5" data-reveal-up>' + T.contact.title + '</h2>' +
-        '<p class="text-slate-600 leading-relaxed mb-8 max-w-md" data-reveal-up>' + T.contact.desc + '</p>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-sm" data-reveal-up>' +
-        T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '<div class="mt-10 pt-8 border-t border-slate-900/15 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-900/80" data-reveal-up>' +
+        '<span class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>' + T.contact.addressV + '</span>' +
+        '<a href="tel:+260964813736" class="inline-flex items-center gap-2 hover:text-slate-900 transition-colors"><i data-lucide="phone" class="w-4 h-4"></i>' + T.contact.phoneV + '</a>' +
+        '<a href="mailto:roofy@mingyangrt.com" class="inline-flex items-center gap-2 hover:text-slate-900 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i>' + T.contact.emailV + '</a>' +
         '</div>' +
-        '<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" data-reveal-up>' +
-        contactTile(T.contact.address, T.contact.addressV, 'map-pin') +
-        contactTile(T.contact.phone, T.contact.phoneV, 'phone') +
-        contactTile(T.contact.email, T.contact.emailV, 'mail') +
-        contactTile(T.contact.hours, T.contact.hoursV1 + '\n' + T.contact.hoursV2, 'clock') +
-        '</div></div></section>';
-}
-
-function contactTile(label, value, icon) {
-    return '<div class="border-t border-slate-200 pt-4">' +
-        '<div class="flex items-center gap-2 mb-2">' +
-        '<i data-lucide="' + icon + '" class="w-4 h-4 text-amber-600"></i>' +
-        '<div class="text-xs text-slate-500 font-semibold uppercase tracking-wider">' + label + '</div></div>' +
-        '<div class="text-sm text-slate-800 leading-relaxed whitespace-pre-line">' + value + '</div>' +
-        '</div>';
+        '</div></section>';
 }
 
 window.renderPage = function () {
@@ -254,14 +200,10 @@ window.renderPage = function () {
         '<main>' +
         heroSection() +
         newsSection() +
-        aboutSection() +
-        missionVisionSection() +
-        valuesSection() +
+        whoWeAreSection() +
         servicesSection() +
         featuredPropertiesSection() +
-        processSection() +
         ctaBannerSection() +
-        contactTeaserSection() +
         '</main>' +
         PARTIALS.footerHtml();
 };
