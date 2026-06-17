@@ -20,7 +20,7 @@ window.I18N = {
             learnMore: '了解更多',
             inquire: '咨询此项业务',
             send: '发送 · Send Message',
-            ctaBig: '让光，照亮你下一段旅程。',
+            ctaBig: '找到你在赞比亚的下一处房产。',
             ctaBtn: '预约对话'
         },
         common: {
@@ -44,7 +44,7 @@ window.I18N = {
         },
         about: {
             eyebrow: '关于 ROOFY',
-            title: '在赞比亚，以匠心建造价值。',
+            title: '在赞比亚，做地产、广告与品牌。',
             body: 'Roofy Investments Zambia 是一家成长迅速的综合性服务集团，立足赞比亚、连接中赞两地，专注于地产、广告与品牌行业。我们以创新的房地产投资方案、现代化的 LED 户外广告解决方案，以及富有影响力的品牌策略，服务企业与个人。',
             body2: '从卢萨卡 Ibex Hill 的总部出发，我们与中赞客户并肩前行，把土地、影像与故事打磨为可以传承的资产。',
             cta: '查看完整介绍'
@@ -312,7 +312,7 @@ window.I18N = {
         },
         news: {
             eyebrow: '新闻 · News',
-            title: '一线动态 · 速读 ROOFY 视角下的城市与市场。',
+            title: '地产、城市与市场的最新动态。',
             desc: '由 ROOFY 团队精选、编译与速记的国际、卢萨卡与本地地产要闻——更新中。',
             categories: {
                 all: '全部',
@@ -408,7 +408,7 @@ window.I18N = {
             learnMore: 'Learn More',
             inquire: 'Inquire',
             send: 'Send Message',
-            ctaBig: 'Let the light find your next chapter.',
+            ctaBig: 'Find your next property in Zambia.',
             ctaBtn: 'Book a conversation'
         },
         common: {
@@ -432,7 +432,7 @@ window.I18N = {
         },
         about: {
             eyebrow: 'About ROOFY',
-            title: 'Crafting value in Zambia, with the patience of a craftsman.',
+            title: 'Property, advertising and branding, in Zambia.',
             body: 'Roofy Investments Zambia is a fast-growing comprehensive services group rooted in Zambia and connecting China and Zambia, focused on the property, advertising, and branding sectors. We offer innovative real-estate investment opportunities, modern LED outdoor advertising and impactful brand strategies — tailored for both businesses and individuals.',
             body2: 'From our headquarters in Ibex Hill, Lusaka, we walk alongside clients across China and Zambia, turning land, image and story into assets worth inheriting.',
             cta: 'Read the full story'
@@ -700,7 +700,7 @@ window.I18N = {
         },
         news: {
             eyebrow: 'News · 新闻',
-            title: 'Front-line dispatches — cities and markets, through ROOFY\'s lens.',
+            title: 'The latest in property, city and markets.',
             desc: 'Curated, translated and digested by the ROOFY team across international, Lusaka and local real-estate beats — updated regularly.',
             categories: {
                 all: 'All',
