@@ -115,6 +115,12 @@ p {
     will-change: transform;
 }
 
+/* When a reveal-line is ALSO a flex row (buttons, meta strips, breadcrumbs),
+ * keep flex so its gap/justify work — the base inline-block above would
+ * otherwise win the cascade over Tailwind's .flex and collapse the gaps. */
+.reveal-line.flex { display: flex; }
+.reveal-line.inline-flex { display: inline-flex; }
+
 
 
     to { transform: translateX(-100%); }
