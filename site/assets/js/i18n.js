@@ -31,9 +31,9 @@ window.I18N = {
             est: 'EST · 2024 · Lusaka, Zambia'
         },
         hero: {
-            eyebrow: 'BUILD · BRAND · GROW WITH ROOFY',
-            title1: '光影之间',
-            title2: '铸造传世',
+            eyebrow: '房地产 · LED 广告 · 品牌营销',
+            title1: '筑造 · 塑造 · 成长',
+            title2: '在赞比亚',
             desc: 'Roofy Investments Zambia，立足赞比亚、连接中赞两地的综合性服务集团：以房地产、LED 户外广告与品牌营销三大业务，与中赞客户共同书写城市与品牌的下一页。',
             primary: '浏览房源',
             secondary: '了解我们'
@@ -415,9 +415,9 @@ window.I18N = {
             est: 'EST · 2024 · Lusaka, Zambia'
         },
         hero: {
-            eyebrow: 'BUILD · BRAND · GROW WITH ROOFY',
-            title1: 'Built on Light',
-            title2: 'Crafted for Legacy',
+            eyebrow: 'REAL ESTATE · LED ADVERTISING · BRANDING',
+            title1: 'Build. Brand. Grow.',
+            title2: 'in Zambia.',
             desc: 'Roofy Investments Zambia is a comprehensive services group rooted in Zambia, connecting China and Zambia through three practices — real estate, LED outdoor advertising and brand marketing — for individuals, SMEs and corporates.',
             primary: 'View Properties',
             secondary: 'About Us'

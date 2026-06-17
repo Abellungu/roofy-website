@@ -15,7 +15,7 @@ function heroSection() {
         '<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">' +
         '<div class="lg:col-span-7">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.06] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span></h1>' +
+        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.04] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span><span class="block reveal-mask"><span class="reveal-line text-2xl md:text-4xl lg:text-5xl text-slate-900/75">' + T.hero.title2 + '</span></span></h1>' +
         '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-12 rounded-sm transition-colors">' +
