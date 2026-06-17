@@ -36,7 +36,11 @@ window.I18N = {
             title2: '在赞比亚',
             desc: 'Roofy Investments Zambia，立足赞比亚、连接中赞两地的综合性服务集团：以房地产、LED 户外广告与品牌营销三大业务，与中赞客户共同书写城市与品牌的下一页。',
             primary: '浏览房源',
-            secondary: '了解我们'
+            secondary: '了解我们',
+            searchTitle: '在赞比亚找房，从这里开始',
+            kwPlaceholder: '输入小区、地段或关键词',
+            searchBtn: '搜索房源',
+            popular: '热门'
         },
         about: {
             eyebrow: '关于 ROOFY',
@@ -420,7 +424,11 @@ window.I18N = {
             title2: 'in Zambia.',
             desc: 'Roofy Investments Zambia is a comprehensive services group rooted in Zambia, connecting China and Zambia through three practices — real estate, LED outdoor advertising and brand marketing — for individuals, SMEs and corporates.',
             primary: 'View Properties',
-            secondary: 'About Us'
+            secondary: 'About Us',
+            searchTitle: 'Find your place in Zambia.',
+            kwPlaceholder: 'Area, neighbourhood, or keyword',
+            searchBtn: 'Search',
+            popular: 'Popular'
         },
         about: {
             eyebrow: 'About ROOFY',

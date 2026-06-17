@@ -1,42 +1,187 @@
-/* Home page — clean long-scroll layout in slate + amber register (references 模板1.html).
- * Section rhythm: dark hero → light news → slate-50 about → light mission/vision →
- *                 slate-50 values → light services → slate-50 featured →
- *                 light process → dark CTA → light contact teaser → dark footer.
- * Data: properties + news fetched at boot (news shown first per client direction 2026-06-11).
+/* Home page — service-oriented property-portal layout (2026-06-17 redesign).
+ * Direction: function-led, NOT company-intro (搜房网-style). Search hero
+ * (deep-links to /properties) → latest listings → group projects → news →
+ * compact services row → CTA. The full "who we are" / mission / vision /
+ * values now live only on /about.
+ * Section rhythm: amber hero → white listings → slate-50 projects →
+ *                 white news → slate-50 services → amber CTA → dark footer.
+ * Data: properties + news + projects fetched at boot.
  */
-window.ROOFY_DATA = window.ROOFY_DATA || { properties: [], news: [] };
+window.ROOFY_DATA = window.ROOFY_DATA || { properties: [], news: [], projects: [] };
 window.ROOFY_PAGE = { id: 'home', whatsapp: 'home' };
 
+function escapeAttr(s) {
+    return (s == null ? '' : String(s)).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/* Home search bar → /properties deep-link (?txn=&region=&type=&q=). The
+ * properties page parses these params on boot, so the home search reuses its
+ * full filter — no duplicate filtering logic here. Handlers are on window so
+ * the inline onclick/onsubmit strings resolve (see CLAUDE.md render lifecycle). */
+window.setHomeTxn = function (btn, v) {
+    const hidden = document.getElementById('home-txn');
+    if (hidden) hidden.value = v;
+    Array.prototype.forEach.call(document.querySelectorAll('.home-txn'), function (b) {
+        const on = b.getAttribute('data-txn') === v;
+        b.classList.toggle('bg-slate-900', on);
+        b.classList.toggle('text-white', on);
+        b.classList.toggle('text-slate-600', !on);
+    });
+};
+
+window.homeSearch = function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    function val(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+    const txn = val('home-txn') || 'all';
+    const region = val('home-region');
+    const type = val('home-type') || 'all';
+    const kw = (val('home-kw') || '').trim();
+    const params = new URLSearchParams();
+    if (txn && txn !== 'all') params.set('txn', txn);
+    if (region) params.set('region', region);
+    if (type && type !== 'all') params.set('type', type);
+    if (kw) params.set('q', kw);
+    const qs = params.toString();
+    window.location.href = '/properties/index.html' + (qs ? '?' + qs : '');
+    return false;
+};
+
+/* Search-led hero: functional headline + positioning line (client-mandated,
+ * kept here + in <head> meta) + the search card + popular quick-links. */
 function heroSection() {
     const T = ROOFY.tr();
-    const lang = ROOFY.state.lang;
-    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-40 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+    const regions = T.properties.regions || {};
+    const regionOpts = '<option value="">' + T.properties.regionAll + '</option>' +
+        Object.keys(regions).map(function (k) {
+            return '<option value="' + k + '">' + regions[k] + '</option>';
+        }).join('');
+    const typeOpts = ['all', 'new', 'resale', 'land'].map(function (k) {
+        return '<option value="' + k + '">' + T.featured.filters[k] + '</option>';
+    }).join('');
+    const regionKeys = Object.keys(regions);
+    const chipDefs = regionKeys.slice(0, 3).map(function (k) {
+        return { label: regions[k], href: '/properties/index.html?region=' + encodeURIComponent(k) };
+    });
+    chipDefs.push({ label: T.featured.filters.land, href: '/properties/index.html?type=land' });
+    chipDefs.push({ label: T.properties.transaction.rent, href: '/properties/index.html?txn=rent' });
+    const chips = chipDefs.map(function (c) {
+        return '<a href="' + c.href + '" class="inline-flex items-center px-3.5 h-8 rounded-full bg-slate-900/10 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium transition-colors">' + c.label + '</a>';
+    }).join('');
+    const selCls = 'h-12 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
+
+    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">' +
-        '<div class="lg:col-span-7">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.04] mb-7"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span><span class="block reveal-mask"><span class="reveal-line text-2xl md:text-4xl lg:text-5xl text-slate-900/75">' + T.hero.title2 + '</span></span></h1>' +
-        '<div class="reveal-mask mb-10"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
-        '<div class="reveal-mask"><div class="reveal-line flex flex-wrap items-center gap-3">' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-12 rounded-sm transition-colors">' +
-        T.hero.primary + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<a href="/about.html" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-12 rounded-sm transition-colors">' +
-        T.hero.secondary + '</a>' +
-        '</div></div>' +
+        '<div class="max-w-3xl">' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
+        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.05] mb-5"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.searchTitle + '</span></span></h1>' +
+        '<div class="reveal-mask mb-8"><p class="reveal-line text-base text-slate-800/90 leading-relaxed max-w-2xl">' + T.hero.desc + '</p></div>' +
         '</div>' +
-        '<div class="lg:col-span-5 hidden lg:block">' +
-        '<div class="relative" data-reveal-up>' +
-        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none"></div>' +
-        '<div class="relative overflow-hidden img-zoom">' +
-        '<img src="/assets/img/projects/oasis-miracle-aerial.jpg" alt="Oasis Miracle, Ibex Hill" class="w-full aspect-[4/5] object-cover" />' +
-        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent p-5 pt-16">' +
-        '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">Oasis Miracle · Ibex Hill</div>' +
-        '<div class="text-xs text-slate-200 mt-1">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in one year') + '</div>' +
-        '</div></div></div>' +
+        '<form onsubmit="return homeSearch(event)" class="bg-white rounded-xl shadow-2xl shadow-slate-900/15 p-4 sm:p-5 max-w-4xl" data-reveal-up>' +
+        '<div class="inline-flex mb-4 rounded-md border border-slate-200 overflow-hidden text-sm font-semibold">' +
+        '<button type="button" onclick="setHomeTxn(this,\'sale\')" data-txn="sale" class="home-txn px-6 h-9 bg-slate-900 text-white transition-colors">' + T.properties.transaction.sale + '</button>' +
+        '<button type="button" onclick="setHomeTxn(this,\'rent\')" data-txn="rent" class="home-txn px-6 h-9 text-slate-600 hover:bg-slate-50 transition-colors">' + T.properties.transaction.rent + '</button>' +
+        '</div>' +
+        '<input type="hidden" id="home-txn" value="sale">' +
+        '<div class="flex flex-col md:flex-row gap-3">' +
+        '<select id="home-region" class="' + selCls + ' md:w-44" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
+        '<select id="home-type" class="' + selCls + ' md:w-36" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
+        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="flex-1 h-12 rounded-md border border-slate-200 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors">' +
+        '<button type="submit" class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-md transition-colors shrink-0">' +
+        '<i data-lucide="search" class="w-4 h-4"></i>' + T.hero.searchBtn + '</button>' +
+        '</div>' +
+        '</form>' +
+        '<div class="mt-5 flex flex-wrap items-center gap-2.5 max-w-4xl" data-reveal-up>' +
+        '<span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-900/60 mr-1">' + T.hero.popular + '</span>' + chips +
+        '</div>' +
+        '</div></section>';
+}
+
+function featuredPropertiesSection() {
+    const T = ROOFY.tr();
+    const all = (window.ROOFY_DATA.properties || []);
+    const list = (ROOFY.state.propertyFilter === 'all' ? all : all.filter(function (p) { return p.type === ROOFY.state.propertyFilter; })).slice(0, 6);
+    const filterButtons = ['all', 'new', 'resale', 'rent', 'land'].map(function (k) {
+        const active = ROOFY.state.propertyFilter === k;
+        return '<button onclick="setFilter(\'' + k + '\')" class="text-sm font-medium px-4 h-9 rounded-full transition-colors ' +
+            (active ? 'bg-slate-900 text-white' : 'text-slate-600 bg-slate-100 hover:bg-slate-200') + '">' + T.featured.filters[k] + '</button>';
+    }).join('');
+
+    let cards;
+    if (list.length === 0) {
+        cards = '<div class="col-span-full text-center py-16 text-slate-500 text-sm">Loading listings…</div>';
+    } else {
+        cards = list.map(function (p) { return window.propertyCard(p, T); }).join('');
+    }
+
+    return '<section id="properties" class="py-20 lg:py-28 bg-white">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
+        '<div class="max-w-2xl">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
+        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-reveal-up>' + T.featured.title + '</h2>' +
+        '<p class="text-slate-600" data-reveal-up>' + T.featured.subtitle + '</p></div>' +
+        '<div class="flex flex-wrap gap-2">' + filterButtons + '</div></div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
+        '<div class="mt-12 flex justify-center" data-reveal-up>' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
+        T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '</div></div></section>';
+}
+
+/* Group flagship projects (Crown / Miracle / Serenity). Mirrors the band on
+ * the properties page; cards link to /projects/detail.html?id=. */
+function projectsBandSection() {
+    const T = ROOFY.tr();
+    if (!T.projects) return '';
+    const lang = ROOFY.state.lang;
+    const projects = window.ROOFY_DATA.projects || [];
+    if (!projects.length) return '';
+
+    function statusBadge(status) {
+        const label = (T.projects.statusLabels && T.projects.statusLabels[status]) || status;
+        const tone = {
+            selling: 'bg-amber-500 text-slate-900',
+            delivered: 'bg-leaf-500 text-white',
+            'sold-out': 'bg-leaf-600 text-white',
+            'under-construction': 'bg-slate-200 text-slate-900',
+            upcoming: 'bg-slate-700 text-white'
+        }[status] || 'bg-slate-200 text-slate-900';
+        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
+    }
+
+    const cards = projects.map(function (p) {
+        const name = lang === 'zh' ? p.nameZh : p.nameEn;
+        const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
+        const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
+        return '<a href="/projects/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
+            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
+            '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
+            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
+            '</div></div>' +
+            '<div class="p-5 flex flex-col flex-1">' +
+            '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
+            '<i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>' + (p.location || '') + '</div>' +
+            '<h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
+            '<p class="text-sm text-slate-600 leading-snug mb-4 line-clamp-2 flex-1">' + (tagline || '') + '</p>' +
+            '<div class="pt-4 border-t border-slate-100 mt-auto">' +
+            '<div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 mb-1">' + T.projects.specs.priceRange + '</div>' +
+            '<div class="text-amber-600 font-bold text-lg whitespace-nowrap mb-2">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
+            '<div class="text-xs text-slate-500 leading-snug">' + (propertyType || '') + '</div>' +
+            '</div></div></a>';
+    }).join('');
+
+    return '<section class="py-20 lg:py-24 bg-slate-50">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10" data-reveal-up>' +
+        '<div class="max-w-2xl">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
+        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
+        '<p class="text-slate-600">' + T.projects.sectionDesc + '</p>' +
         '</div></div>' +
-        '<div class="reveal-mask mt-12 lg:mt-16"><div class="reveal-line border-t border-slate-900/25 pt-5 flex flex-wrap gap-x-10 gap-y-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-slate-800/70">' +
-        '<span>EST \u00b7 2024</span><span>Ibex Hill \u00b7 Lusaka</span><span>15\u00b025\u2032S \u00b7 28\u00b017\u2032E</span><span class="text-slate-900">Build \u00b7 Brand \u00b7 Grow</span>' +
-        '</div></div></div></section>';
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' + cards + '</div>' +
+        '</div></section>';
 }
 
 function newsSection() {
@@ -77,53 +222,8 @@ function newsSection() {
         '</div></div></section>';
 }
 
-/* Merged "who we are" block: company intro + mission/vision + a compact values
- * strip. The full mission/vision/values/team live on /about; the home only needs
- * the highlight. (2026-06-16 home consolidation, plan B.) */
-function whoWeAreSection() {
-    const T = ROOFY.tr();
-    const lang = ROOFY.state.lang;
-    function mvTile(idx, eyebrow, title, desc) {
-        return '<div class="relative border-t-2 border-amber-500 pt-7" data-reveal-up>' +
-            '<span class="absolute -top-2 right-0 text-6xl lg:text-7xl font-black text-slate-900/[0.05] leading-none select-none pointer-events-none">' + idx + '</span>' +
-            '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + eyebrow + '</div>' +
-            '<h3 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-3 max-w-md">' + title + '</h3>' +
-            '<p class="text-slate-600 leading-relaxed max-w-lg">' + desc + '</p>' +
-            '</div>';
-    }
-    const valueWords = (T.values.items || []).map(function (v) {
-        return '<span class="text-lg lg:text-xl font-bold text-slate-900">' + v.t + '</span>';
-    }).join('<span class="text-amber-500 mx-3" aria-hidden="true">·</span>');
-    return '<section id="about" class="py-20 lg:py-28 bg-slate-50">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 lg:mb-24">' +
-        '<div class="lg:col-span-5" data-reveal-up>' +
-        '<div class="aspect-[4/5] overflow-hidden rounded-lg bg-slate-200 shadow-lg">' +
-        '<img src="/assets/img/office/office-terrace.jpg" alt="ROOFY · Ibex Hill, Lusaka" class="w-full h-full object-cover" />' +
-        '</div></div>' +
-        '<div class="lg:col-span-7">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.about.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight" data-reveal-up>' + T.about.title + '</h2>' +
-        '<p class="text-slate-600 leading-relaxed mb-4 max-w-xl" data-reveal-up>' + T.about.body + '</p>' +
-        '<p class="text-slate-500 leading-relaxed mb-8 max-w-xl" data-reveal-up>' + T.about.body2 + '</p>' +
-        '<a href="/about.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors" data-reveal-up>' +
-        T.about.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div></div>' +
-        '<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-12 mb-14 lg:mb-16">' +
-        mvTile('01', T.mission.eyebrow, T.mission.title, T.mission.desc) +
-        mvTile('02', T.vision.eyebrow, T.vision.title, T.vision.desc) +
-        '</div>' +
-        '<div id="values" class="border-t-2 border-slate-900 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" data-reveal-up>' +
-        '<div>' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-2">' + T.values.eyebrow + '</div>' +
-        '<div class="flex flex-wrap items-center">' + valueWords + '</div>' +
-        '</div>' +
-        '<a href="/about.html" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors shrink-0">' +
-        (lang === 'zh' ? '了解我们的价值观' : 'Our values') + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div>' +
-        '</div></section>';
-}
-
+/* Compact services row — function navigation to the three pillar pages, not a
+ * company write-up. */
 function servicesSection() {
     const T = ROOFY.tr();
     const rows = T.services.items.map(function (s) {
@@ -136,45 +236,13 @@ function servicesSection() {
             '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></span></div>' +
             '</a>';
     }).join('');
-    return '<section id="services" class="py-20 lg:py-28 bg-white">' +
+    return '<section id="services" class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.services.eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-bold text-slate-900" data-reveal-up>' + T.services.title + '</h2></div>' +
         '<div class="border-b border-slate-200">' + rows + '</div>' +
         '</div></section>';
-}
-
-function featuredPropertiesSection() {
-    const T = ROOFY.tr();
-    const all = (window.ROOFY_DATA.properties || []);
-    const list = (ROOFY.state.propertyFilter === 'all' ? all : all.filter(function (p) { return p.type === ROOFY.state.propertyFilter; })).slice(0, 3);
-    const filterButtons = ['all', 'new', 'resale', 'rent', 'land'].map(function (k) {
-        const active = ROOFY.state.propertyFilter === k;
-        return '<button onclick="setFilter(\'' + k + '\')" class="text-sm font-medium px-4 h-9 rounded-full transition-colors ' +
-            (active ? 'bg-slate-900 text-white' : 'text-slate-600 bg-slate-100 hover:bg-slate-200') + '">' + T.featured.filters[k] + '</button>';
-    }).join('');
-
-    let cards;
-    if (list.length === 0) {
-        cards = '<div class="col-span-full text-center py-16 text-slate-500 text-sm">Loading listings…</div>';
-    } else {
-        cards = list.map(function (p) { return window.propertyCard(p, T); }).join('');
-    }
-
-    return '<section id="properties" class="py-20 lg:py-28 bg-slate-50">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
-        '<div class="max-w-2xl">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-reveal-up>' + T.featured.title + '</h2>' +
-        '<p class="text-slate-600" data-reveal-up>' + T.featured.subtitle + '</p></div>' +
-        '<div class="flex flex-wrap gap-2">' + filterButtons + '</div></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
-        '<div class="mt-12 flex justify-center" data-reveal-up>' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
-        T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div></div></section>';
 }
 
 function ctaBannerSection() {
@@ -199,10 +267,10 @@ window.renderPage = function () {
     return PARTIALS.navHtml() +
         '<main>' +
         heroSection() +
-        newsSection() +
-        whoWeAreSection() +
-        servicesSection() +
         featuredPropertiesSection() +
+        projectsBandSection() +
+        newsSection() +
+        servicesSection() +
         ctaBannerSection() +
         '</main>' +
         PARTIALS.footerHtml();
@@ -211,13 +279,15 @@ window.renderPage = function () {
 function loadHomeData() {
     return Promise.all([
         fetch('/assets/data/properties.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
-        fetch('/assets/data/news.json').then(function (r) { return r.json(); }).catch(function () { return null; })
+        fetch('/assets/data/news.json').then(function (r) { return r.json(); }).catch(function () { return null; }),
+        fetch('/assets/data/projects.json').then(function (r) { return r.json(); }).catch(function () { return null; })
     ]).then(function (res) {
         window.ROOFY_DATA.properties = (res[0] && res[0].items) || [];
         const articles = (res[1] && res[1].articles) || [];
         window.ROOFY_DATA.news = articles.slice().sort(function (a, b) {
             return (b.publishedAt || '').localeCompare(a.publishedAt || '');
         });
+        window.ROOFY_DATA.projects = (res[2] && res[2].projects) || [];
     });
 }
 
