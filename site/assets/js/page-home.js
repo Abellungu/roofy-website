@@ -46,10 +46,14 @@ window.homeSearch = function (e) {
     return false;
 };
 
-/* Search-led hero: functional headline + positioning line (client-mandated,
- * kept here + in <head> meta) + the search card + popular quick-links. */
+/* Search-led hero, split layout (option C, 2026-06-17): golden left column with
+ * the headline + search panel + quick-links, a tall flagship-property image on
+ * the right (mirrors the pillar-page 50/50 hero). The image hides < lg so the
+ * mobile hero stays short and search-first. Search panel is mobile-compact:
+ * region/type sit side-by-side, keyword + button stack on the smallest screens. */
 function heroSection() {
     const T = ROOFY.tr();
+    const lang = ROOFY.state.lang;
     const regions = T.properties.regions || {};
     const regionOpts = '<option value="">' + T.properties.regionAll + '</option>' +
         Object.keys(regions).map(function (k) {
@@ -67,33 +71,50 @@ function heroSection() {
     const chips = chipDefs.map(function (c) {
         return '<a href="' + c.href + '" class="inline-flex items-center px-3.5 h-8 rounded-full bg-slate-900/10 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium transition-colors">' + c.label + '</a>';
     }).join('');
-    const selCls = 'h-12 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
+    const selCls = 'h-12 w-full min-w-0 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
 
-    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-3xl">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.05] mb-5"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.searchTitle + '</span></span></h1>' +
-        '<div class="reveal-mask mb-8"><p class="reveal-line text-base text-slate-800/90 leading-relaxed max-w-2xl">' + T.hero.desc + '</p></div>' +
-        '</div>' +
-        '<form onsubmit="return homeSearch(event)" class="bg-white rounded-xl shadow-2xl shadow-slate-900/15 p-4 sm:p-5 max-w-4xl" data-reveal-up>' +
-        '<div class="inline-flex mb-4 rounded-md border border-slate-200 overflow-hidden text-sm font-semibold">' +
-        '<button type="button" onclick="setHomeTxn(this,\'sale\')" data-txn="sale" class="home-txn px-6 h-9 bg-slate-900 text-white transition-colors">' + T.properties.transaction.sale + '</button>' +
-        '<button type="button" onclick="setHomeTxn(this,\'rent\')" data-txn="rent" class="home-txn px-6 h-9 text-slate-600 hover:bg-slate-50 transition-colors">' + T.properties.transaction.rent + '</button>' +
+    const searchPanel =
+        '<form onsubmit="return homeSearch(event)" class="bg-white rounded-xl shadow-2xl shadow-slate-900/15 p-4 sm:p-5" data-reveal-up>' +
+        '<div class="inline-flex mb-3 rounded-md border border-slate-200 overflow-hidden text-sm font-semibold">' +
+        '<button type="button" onclick="setHomeTxn(this,\'sale\')" data-txn="sale" class="home-txn px-7 h-9 bg-slate-900 text-white transition-colors">' + T.properties.transaction.sale + '</button>' +
+        '<button type="button" onclick="setHomeTxn(this,\'rent\')" data-txn="rent" class="home-txn px-7 h-9 text-slate-600 hover:bg-slate-50 transition-colors">' + T.properties.transaction.rent + '</button>' +
         '</div>' +
         '<input type="hidden" id="home-txn" value="sale">' +
-        '<div class="flex flex-col md:flex-row gap-3">' +
-        '<select id="home-region" class="' + selCls + ' md:w-44" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
-        '<select id="home-type" class="' + selCls + ' md:w-36" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
+        '<div class="grid grid-cols-2 gap-3 mb-3">' +
+        '<select id="home-region" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
+        '<select id="home-type" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
+        '</div>' +
+        '<div class="flex flex-col sm:flex-row gap-3">' +
         '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="flex-1 h-12 rounded-md border border-slate-200 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors">' +
         '<button type="submit" class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-md transition-colors shrink-0">' +
         '<i data-lucide="search" class="w-4 h-4"></i>' + T.hero.searchBtn + '</button>' +
         '</div>' +
-        '</form>' +
-        '<div class="mt-5 flex flex-wrap items-center gap-2.5 max-w-4xl" data-reveal-up>' +
+        '</form>';
+
+    const imageCard =
+        '<div class="relative h-full" data-reveal-up>' +
+        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none hidden xl:block"></div>' +
+        '<div class="relative overflow-hidden rounded-lg img-zoom h-full min-h-[440px]">' +
+        '<img src="/assets/img/projects/oasis-miracle-pool.jpg" alt="Oasis Miracle, Ibex Hill" class="w-full h-full object-cover" />' +
+        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent p-5 pt-16">' +
+        '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">Oasis Miracle · Ibex Hill</div>' +
+        '<div class="text-xs text-slate-200 mt-1">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in a year') + '</div>' +
+        '</div></div></div>';
+
+    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-32 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 lg:items-stretch">' +
+        '<div class="lg:col-span-7 min-w-0">' +
+        '<span class="reveal-mask inline-block mb-5 max-w-full"><span class="reveal-line roofy-eyebrow inline-flex text-[10px] sm:text-xs font-bold tracking-[0.1em] sm:tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.05] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.searchTitle + '</span></span></h1>' +
+        '<div class="reveal-mask mb-7"><p class="reveal-line text-sm sm:text-base text-slate-800/90 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
+        searchPanel +
+        '<div class="mt-5 flex flex-wrap items-center gap-2 sm:gap-2.5" data-reveal-up>' +
         '<span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-900/60 mr-1">' + T.hero.popular + '</span>' + chips +
         '</div>' +
-        '</div></section>';
+        '</div>' +
+        '<div class="lg:col-span-5 hidden lg:block">' + imageCard + '</div>' +
+        '</div></div></section>';
 }
 
 function featuredPropertiesSection() {
