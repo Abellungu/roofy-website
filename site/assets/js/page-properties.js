@@ -94,7 +94,7 @@ function featuredProjectsBand() {
         const name = lang === 'zh' ? p.nameZh : p.nameEn;
         const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
         const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
-        return '<a href="/projects/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
+        return '<a href="/projects/' + encodeURIComponent(p.id) + '.html" ' +
             'class="group flex flex-col h-full bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +

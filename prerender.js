@@ -40,12 +40,19 @@ const SKIP_SRC = /(lucide|gsap|ScrollTrigger|swiper|analytics)/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function prerenderPage(rel) {
+function escapeHtml(s) {
+    return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* Render a page's #root in jsdom. `urlOverride` lets ?id= detail pages render a
+ * specific record (the page JS reads location.search). Returns the baked HTML. */
+async function prerenderPage(rel, urlOverride) {
     const file = path.join(SITE, rel);
     const html = fs.readFileSync(file, 'utf8');
 
     const dom = new JSDOM(html, {
-        url: ORIGIN + '/' + rel,
+        url: urlOverride || (ORIGIN + '/' + rel),
         runScripts: 'outside-only',
         pretendToBeVisual: true,
     });
@@ -118,6 +125,46 @@ function inject(rel, content) {
     fs.writeFileSync(file, html);
 }
 
+/* Generate one static, SEO-clean HTML file per REAL project (placeholder:false).
+ * Source template is projects/detail.html; we render its #root with ?id=<slug>,
+ * rewrite the per-project head tags, bake in window.ROOFY_PROJECT_ID so the live
+ * page (served without a query string) re-renders the right record, and write
+ * /projects/<slug>.html. These clean URLs go in the sitemap; the legacy
+ * /projects/detail.html?id= keeps working for old links. */
+async function generateProjectPages() {
+    const data = JSON.parse(fs.readFileSync(path.join(SITE, 'assets/data/projects.json'), 'utf8'));
+    const projects = (data.projects || []).filter((p) => !p.placeholder);
+    const tpl = fs.readFileSync(path.join(SITE, 'projects/detail.html'), 'utf8');
+    const reRoot = /<div id="root">[\s\S]*?<\/div>(\s*(?:<!--[\s\S]*?-->\s*)?<div id="whatsapp-fab")/;
+    const slugs = [];
+    for (const p of projects) {
+        const slug = p.id;
+        const content = await prerenderPage('projects/detail.html', ORIGIN + '/projects/detail.html?id=' + encodeURIComponent(slug));
+        const name = p.nameEn || p.nameZh || 'Project';
+        const desc = (p.taglineEn || p.taglineZh || 'A flagship project developed by the Roofy parent group.');
+        const cleanUrl = ORIGIN + '/projects/' + slug + '.html';
+        const ogImg = ORIGIN + (p.heroImg || '/assets/img/logo.jpg');
+
+        let out = tpl
+            .replace(
+                "<script>document.documentElement.classList.add('js');</script>",
+                "<script>document.documentElement.classList.add('js');</script>\n    <script>window.ROOFY_PROJECT_ID=" + JSON.stringify(slug) + ";</script>"
+            )
+            .replace(/<title>[\s\S]*?<\/title>/, '<title>' + escapeHtml(name) + ' — Roofy Projects</title>')
+            .replace('content="A flagship project developed by the Roofy parent group."', 'content="' + escapeHtml(desc) + '"')
+            .split('https://www.roofyinvestments.com/projects/detail.html').join(cleanUrl)
+            .replace('content="Roofy Project"', 'content="' + escapeHtml(name) + '"')
+            .replace('content="https://www.roofyinvestments.com/assets/img/logo.jpg"', 'content="' + ogImg + '"');
+
+        if (!reRoot.test(out)) throw new Error('could not locate #root block in project ' + slug);
+        out = out.replace(reRoot, '<div id="root">' + content + '</div>$1');
+        fs.writeFileSync(path.join(SITE, 'projects/' + slug + '.html'), out);
+        console.log('  ✓ projects/' + slug + '.html  (' + content.length.toLocaleString() + ' chars)');
+        slugs.push(slug);
+    }
+    return slugs;
+}
+
 (async function main() {
     let ok = 0;
     for (const rel of PAGES) {
@@ -130,6 +177,15 @@ function inject(rel, content) {
             console.error('  ✗ ' + rel + '  — ' + e.message);
         }
     }
-    console.log('\nPrerendered ' + ok + '/' + PAGES.length + ' pages.');
+
+    let projOk = 0;
+    try {
+        const slugs = await generateProjectPages();
+        projOk = slugs.length;
+    } catch (e) {
+        console.error('  ✗ project pages — ' + e.message);
+    }
+
+    console.log('\nPrerendered ' + ok + '/' + PAGES.length + ' static pages + ' + projOk + ' project pages.');
     if (ok < PAGES.length) process.exit(1);
 })();

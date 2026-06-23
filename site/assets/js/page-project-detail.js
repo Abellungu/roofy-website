@@ -5,8 +5,14 @@ window.ROOFY_DATA = window.ROOFY_DATA || { projects: [] };
 window.ROOFY_PAGE = { id: 'project-detail', whatsapp: 'project-detail' };
 
 function currentProjectId() {
-    try { return new URLSearchParams(location.search).get('id'); }
-    catch (_) { return null; }
+    /* Prefer ?id= (legacy /projects/detail.html?id= URLs); fall back to the
+     * window.ROOFY_PROJECT_ID baked into the prerendered static page
+     * (/projects/<slug>.html), which has no query string. */
+    try {
+        const q = new URLSearchParams(location.search).get('id');
+        if (q) return q;
+    } catch (_) { }
+    return window.ROOFY_PROJECT_ID || null;
 }
 
 function currentProject() {
@@ -176,7 +182,7 @@ function relatedProjects(p) {
     const cards = list.map(function (r) {
         const name = lang === 'zh' ? r.nameZh : r.nameEn;
         const tagline = lang === 'zh' ? r.taglineZh : r.taglineEn;
-        return '<a href="/projects/detail.html?id=' + encodeURIComponent(r.id) + '" ' +
+        return '<a href="/projects/' + encodeURIComponent(r.id) + '.html" ' +
             'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
