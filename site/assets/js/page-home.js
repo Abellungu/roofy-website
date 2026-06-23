@@ -104,7 +104,7 @@ function heroSection() {
         '<div class="text-xs sm:text-sm text-slate-100 mt-1 font-medium">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in a year') + '</div>' +
         '</div></div>';
 
-    return '<section id="top" class="relative bg-gradient-to-br from-amber-50 via-white to-amber-50 pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+    return '<section id="top" class="relative bg-gradient-to-b from-slate-50 via-white to-white pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<span class="reveal-mask inline-block mb-5 max-w-full"><span class="reveal-line roofy-eyebrow inline-flex text-[10px] sm:text-xs font-bold tracking-[0.18em] sm:tracking-[0.25em] text-amber-600 uppercase">' + T.hero.eyebrow + '</span></span>' +
         '<h1 class="font-extrabold tracking-tight text-slate-900 leading-[0.98] mb-5 text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.25rem] mx-auto max-w-5xl"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.heroLead + ' <span class="text-gold-gradient">' + T.hero.heroAccent + '</span></span></span></h1>' +
@@ -320,18 +320,18 @@ function servicesSection() {
 
 function ctaBannerSection() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-gold-gradient text-slate-900 overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
-        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-slate-900/5 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
+        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
-        '<h2 class="text-3xl md:text-5xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight text-balance" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<div class="mt-10 pt-8 border-t border-slate-900/15 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-900/80" data-reveal-up>' +
-        '<span class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i>' + T.contact.addressV + '</span>' +
-        '<a href="tel:+260964813736" class="inline-flex items-center gap-2 hover:text-slate-900 transition-colors"><i data-lucide="phone" class="w-4 h-4"></i>' + T.contact.phoneV + '</a>' +
-        '<a href="mailto:roofy@mingyangrt.com" class="inline-flex items-center gap-2 hover:text-slate-900 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i>' + T.contact.emailV + '</a>' +
+        '<div class="mt-10 pt-8 border-t border-white/15 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-slate-300" data-reveal-up>' +
+        '<span class="inline-flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>' + T.contact.addressV + '</span>' +
+        '<a href="tel:+260964813736" class="inline-flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="phone" class="w-4 h-4 text-amber-400"></i>' + T.contact.phoneV + '</a>' +
+        '<a href="mailto:roofy@mingyangrt.com" class="inline-flex items-center gap-2 hover:text-white transition-colors"><i data-lucide="mail" class="w-4 h-4 text-amber-400"></i>' + T.contact.emailV + '</a>' +
         '</div>' +
         '</div></section>';
 }

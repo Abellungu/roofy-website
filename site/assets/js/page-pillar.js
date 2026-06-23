@@ -36,10 +36,10 @@ function pillarHero() {
             '<div class="absolute inset-0"><img src="' + p.heroImg + '" alt="" class="w-full h-full object-cover" />' +
             '<div class="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/15 to-transparent"></div></div>' +
             '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 min-h-[460px] lg:min-h-[560px] flex items-center">' +
-            '<div class="bg-amber-500 p-8 lg:p-12 max-w-xl shadow-2xl shadow-slate-950/40" data-reveal-up>' +
-            '<div class="roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase mb-5">' + ti18n.eyebrow + '</div>' +
+            '<div class="bg-white p-8 lg:p-12 max-w-xl shadow-2xl shadow-slate-950/40 border-t-4 border-amber-500" data-reveal-up>' +
+            '<div class="roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase mb-5">' + ti18n.eyebrow + '</div>' +
             '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4">' + title + '</h1>' +
-            '<p class="text-base lg:text-lg text-slate-800 leading-relaxed mb-7 max-w-md">' + summary + '</p>' +
+            '<p class="text-base lg:text-lg text-slate-600 leading-relaxed mb-7 max-w-md">' + summary + '</p>' +
             '<div class="flex flex-wrap items-center gap-3">' +
             '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
             '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
@@ -57,17 +57,17 @@ function pillarHero() {
             '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
             '<a href="#adjacent" class="inline-flex items-center gap-2 border border-white/40 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
             '</div></div></div>' +
-            '<div class="hidden lg:flex bg-amber-500 items-center justify-center p-8 lg:p-12" data-reveal-up>' +
+            '<div class="hidden lg:flex bg-slate-800 items-center justify-center p-8 lg:p-12" data-reveal-up>' +
             '<img src="' + p.heroImg + '" alt="" class="w-full max-h-[440px] object-contain drop-shadow-2xl" />' +
             '</div></div></section>';
     }
-    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-40 pb-20 lg:pb-32 overflow-hidden" data-hero-reveal>' +
+    return '<section id="top" class="relative bg-slate-50 pt-28 lg:pt-40 pb-20 lg:pb-32 overflow-hidden" data-hero-reveal>' +
         '<div aria-hidden="true" class="pointer-events-none absolute -right-2 bottom-0 leading-[0.8] font-black text-slate-900/5 text-[150px] lg:text-[280px] select-none">Brand</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-3xl" data-reveal-up>' +
-        '<div class="roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase mb-6">' + ti18n.eyebrow + '</div>' +
+        '<div class="roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase mb-6">' + ti18n.eyebrow + '</div>' +
         '<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.02] mb-6">' + title + '</h1>' +
-        '<p class="text-base lg:text-lg text-slate-800 leading-relaxed mb-8 max-w-xl">' + summary + '</p>' +
+        '<p class="text-base lg:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">' + summary + '</p>' +
         '<div class="flex flex-wrap items-center gap-3">' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-lg shadow-slate-900/20">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
@@ -315,25 +315,25 @@ function emergingCallout(T) {
     if (!ti18n || !ti18n.empty) return '';
     return '<section class="py-16 lg:py-20 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="relative rounded-lg bg-amber-500 text-slate-900 p-10 lg:p-14 overflow-hidden" data-reveal-up>' +
-        '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
+        '<div class="relative rounded-lg bg-slate-900 text-white p-10 lg:p-14 overflow-hidden" data-reveal-up>' +
+        '<div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-2xl">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-4">' + ti18n.empty.badge + '</div>' +
-        '<h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4 leading-tight">' + ti18n.empty.title + '</h3>' +
-        '<p class="text-slate-800 leading-relaxed mb-8">' + ti18n.empty.desc + '</p>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4">' + ti18n.empty.badge + '</div>' +
+        '<h3 class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">' + ti18n.empty.title + '</h3>' +
+        '<p class="text-slate-300 leading-relaxed mb-8">' + ti18n.empty.desc + '</p>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-6 h-11 rounded-sm transition-all shadow-lg shadow-amber-500/25">' +
         ti18n.empty.cta + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></div></section>';
 }
 
 function pillarCta() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
-        '<h2 class="text-3xl md:text-5xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.pillars.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.pillars.ctaBig + '</h2>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
         T.pillars.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

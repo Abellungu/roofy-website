@@ -12,13 +12,13 @@ const NEWS_CATS = ['all', 'international', 'lusaka', 'lusaka-real-estate'];
 
 function newsHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-amber-500 pt-28 lg:pt-40 pb-20 lg:pb-28 overflow-hidden" data-hero-reveal>' +
+    return '<section class="relative bg-slate-50 pt-28 lg:pt-40 pb-20 lg:pb-28 overflow-hidden" data-hero-reveal>' +
         '<div aria-hidden="true" class="pointer-events-none absolute -right-2 bottom-0 leading-[0.8] font-black text-slate-900/5 text-[150px] lg:text-[260px] select-none">News</div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-3xl">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + T.news.eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase">' + T.news.eyebrow + '</span></span>' +
         '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.05] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
-        '<div class="reveal-mask"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + T.news.desc + '</p></div>' +
+        '<div class="reveal-mask"><p class="reveal-line text-base lg:text-lg text-slate-600 leading-relaxed">' + T.news.desc + '</p></div>' +
         '</div>' +
         '</div></section>';
 }
@@ -101,17 +101,17 @@ function listingSection() {
 function newsCtaBanner() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
-    return '<section class="relative py-16 lg:py-20 bg-amber-500 text-slate-900 overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-16 lg:py-20 bg-slate-900 text-white overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">' +
         '<div class="lg:col-span-8">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-3">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' +
         (lang === 'zh' ? '想第一时间收到更新？' : 'Want updates first?') + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">' +
+        '<h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">' +
         (lang === 'zh' ? '订阅 ROOFY 邮件简报 · 每周一封，仅看本地市场最关键的几条。' : 'Subscribe to the ROOFY brief · one email a week with the local market moves that matter.') +
         '</h2></div>' +
         '<div class="lg:col-span-4 lg:text-right">' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-6 h-11 rounded-sm transition-all shadow-lg shadow-amber-500/25">' +
         (lang === 'zh' ? '联系我们订阅' : 'Get in touch') + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
 }

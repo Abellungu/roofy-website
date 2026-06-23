@@ -14,13 +14,13 @@ function aboutHero() {
     const desc = lang === 'zh'
         ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立。我们以房地产、LED 户外广告与品牌营销为根基，通过资源整合与系统化运营，参与卢萨卡城市升级的每一个关键节点。'
         : 'Roofy Investments Zambia was founded in 2024 at Ibex Hill, Lusaka. Anchored in real estate, LED outdoor advertising and brand marketing, we integrate fragmented resources and run them as a single system — at every key node of Lusaka\'s urban upgrade.';
-    return '<section class="relative bg-amber-500 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
+    return '<section class="relative bg-slate-50 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">' +
         '<div class="lg:col-span-7">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-slate-900 uppercase">' + eyebrow + '</span></span>' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase">' + eyebrow + '</span></span>' +
         '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base lg:text-lg text-slate-800 leading-relaxed">' + desc + '</p></div>' +
+        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base lg:text-lg text-slate-600 leading-relaxed">' + desc + '</p></div>' +
         '</div>' +
         '<div class="lg:col-span-5 hidden lg:block" data-reveal-up>' +
         '<dl class="border-t-2 border-slate-900 divide-y divide-slate-900/20">' +
@@ -175,13 +175,13 @@ function teamSection() {
 
 function aboutCtaBanner() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
-        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-slate-900/5 blur-3xl pointer-events-none"></div>' +
+    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
+        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
+        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
-        '<h2 class="text-3xl md:text-5xl font-bold text-slate-900 max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-lg shadow-slate-900/20" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
+        '<h2 class="text-3xl md:text-5xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
