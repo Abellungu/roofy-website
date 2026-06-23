@@ -232,7 +232,7 @@ p {
     transition: box-shadow .45s cubic-bezier(.22, 1, .36, 1), transform .45s cubic-bezier(.22, 1, .36, 1) !important;
 }
 .transition-shadow:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 @media (prefers-reduced-motion: reduce) {
     .transition-shadow:hover { transform: none; }
@@ -306,3 +306,15 @@ details.led-specs[open] .led-chev { transform: rotate(180deg); }
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
+
+/* Featured property carousel (Swiper, self-hosted 11.1.14) */
+.featured-swiper { padding-bottom: 6px; }
+.featured-swiper .swiper-slide { height: auto; display: flex; }
+.featured-swiper .swiper-slide > * { width: 100%; }
+.featured-pagination { line-height: 0; }
+.featured-pagination .swiper-pagination-bullet {
+    width: 8px; height: 8px; border-radius: 9999px;
+    background: #C9CFDD; opacity: 1;
+    transition: width .3s ease, background .3s ease;
+}
+.featured-pagination .swiper-pagination-bullet-active { width: 22px; background: #E6AD15; }

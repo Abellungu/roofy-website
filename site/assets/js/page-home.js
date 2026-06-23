@@ -117,37 +117,89 @@ function heroSection() {
         '</div></section>';
 }
 
+/* Featured listings as a Swiper carousel (Phase B, ref roofy.greenwebb.tech):
+ * real-photo property cards, 1 / 2 / 3 per view, autoplay + drag + arrows +
+ * pagination. (Re)initialised by window.onRoofyRender after each render. */
 function featuredPropertiesSection() {
     const T = ROOFY.tr();
     const all = (window.ROOFY_DATA.properties || []);
-    const list = (ROOFY.state.propertyFilter === 'all' ? all : all.filter(function (p) { return p.type === ROOFY.state.propertyFilter; })).slice(0, 6);
-    const filterButtons = ['all', 'new', 'resale', 'rent', 'land'].map(function (k) {
-        const active = ROOFY.state.propertyFilter === k;
-        return '<button onclick="setFilter(\'' + k + '\')" class="text-sm font-medium px-4 h-9 rounded-full transition-colors ' +
-            (active ? 'bg-slate-900 text-white' : 'text-slate-600 bg-slate-100 hover:bg-slate-200') + '">' + T.featured.filters[k] + '</button>';
-    }).join('');
+    const list = all.slice(0, 9);
 
-    let cards;
+    let slides;
     if (list.length === 0) {
-        cards = '<div class="col-span-full text-center py-16 text-slate-500 text-sm">Loading listings…</div>';
+        slides = '<div class="swiper-slide"><div class="text-center py-16 text-slate-500 text-sm">Loading listings…</div></div>';
     } else {
-        cards = list.map(function (p) { return window.propertyCard(p, T); }).join('');
+        slides = list.map(function (p) { return '<div class="swiper-slide">' + window.propertyCard(p, T) + '</div>'; }).join('');
     }
 
     return '<section id="properties" class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
+        '<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3" data-reveal-up>' + T.featured.title + '</h2>' +
+        '<h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3" data-reveal-up>' + T.featured.title + '</h2>' +
         '<p class="text-slate-600" data-reveal-up>' + T.featured.subtitle + '</p></div>' +
-        '<div class="flex flex-wrap gap-2">' + filterButtons + '</div></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' + cards + '</div>' +
-        '<div class="mt-12 flex justify-center" data-reveal-up>' +
-        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-8 h-12 rounded-sm transition-colors shadow-lg shadow-amber-500/20">' +
+        '<div class="flex items-center gap-2 shrink-0" data-reveal-up>' +
+        '<button type="button" class="featured-prev inline-flex items-center justify-center w-11 h-11 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Previous"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>' +
+        '<button type="button" class="featured-next inline-flex items-center justify-center w-11 h-11 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Next"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
+        '</div></div>' +
+        '<div class="featured-swiper swiper" data-reveal-up><div class="swiper-wrapper">' + slides + '</div></div>' +
+        '<div class="featured-pagination mt-8 flex justify-center gap-2"></div>' +
+        '<div class="mt-10 flex justify-center" data-reveal-up>' +
+        '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-8 h-12 rounded-md transition-all shadow-lg shadow-amber-500/25">' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
 }
+
+/* Count-up stats band (Phase A: number-roll animation via roofy-core's
+ * [data-counter] GSAP). Initial text = target so reduced-motion / no-JS still
+ * shows the value. */
+function statsSection() {
+    const T = ROOFY.tr();
+    const n = (window.ROOFY_DATA.properties || []).length || 6;
+    const items = [
+        { target: 2024, suffix: '', label: T.stats.founded },
+        { target: 78, suffix: '', label: T.stats.homes },
+        { target: 3, suffix: '', label: T.stats.practices },
+        { target: n, suffix: '+', label: T.stats.listings }
+    ];
+    const cells = items.map(function (it) {
+        return '<div class="text-center" data-reveal-up>' +
+            '<div class="text-gold-gradient font-extrabold text-5xl lg:text-6xl leading-none" data-counter data-target="' + it.target + '" data-suffix="' + it.suffix + '">' + it.target + it.suffix + '</div>' +
+            '<div class="mt-3 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">' + it.label + '</div>' +
+            '</div>';
+    }).join('');
+    return '<section class="py-16 lg:py-20 bg-slate-900">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6">' + cells + '</div>' +
+        '</div></section>';
+}
+
+/* Post-render hook (called by roofy-core after every render): (re)build the
+ * featured carousel. Autoplay is disabled under reduced-motion. */
+window.onRoofyRender = function () {
+    if (typeof Swiper === 'undefined') return;
+    if (window._featSwiper && window._featSwiper.destroy) {
+        try { window._featSwiper.destroy(true, true); } catch (_) { }
+        window._featSwiper = null;
+    }
+    var el = document.querySelector('.featured-swiper');
+    if (!el) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window._featSwiper = new Swiper(el, {
+        slidesPerView: 1.15,
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: el.querySelectorAll('.swiper-slide').length > 3,
+        breakpoints: {
+            640: { slidesPerView: 2, spaceBetween: 22 },
+            1024: { slidesPerView: 3, spaceBetween: 24 }
+        },
+        autoplay: reduce ? false : { delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true },
+        pagination: { el: '.featured-pagination', clickable: true },
+        navigation: { nextEl: '.featured-next', prevEl: '.featured-prev' }
+    });
+};
 
 /* Group flagship projects (Crown / Miracle / Serenity). Mirrors the band on
  * the properties page; cards link to /projects/detail.html?id=. */
@@ -289,6 +341,7 @@ window.renderPage = function () {
         '<main>' +
         heroSection() +
         featuredPropertiesSection() +
+        statsSection() +
         projectsBandSection() +
         newsSection() +
         servicesSection() +

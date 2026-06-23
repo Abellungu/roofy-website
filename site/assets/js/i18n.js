@@ -312,6 +312,13 @@ window.I18N = {
             title: '最新动态',
             viewAll: '查看全部新闻'
         },
+        stats: {
+            eyebrow: '数据一览',
+            founded: '成立年份',
+            homes: '已交付住宅',
+            practices: '核心业务',
+            listings: '在售 / 在租房源'
+        },
         news: {
             eyebrow: '新闻 · News',
             title: '地产、城市与市场的最新动态。',
@@ -701,6 +708,13 @@ window.I18N = {
             eyebrow: 'Newsroom',
             title: 'Latest news',
             viewAll: 'All news'
+        },
+        stats: {
+            eyebrow: 'By the numbers',
+            founded: 'Founded',
+            homes: 'Homes delivered',
+            practices: 'Core practices',
+            listings: 'Active listings'
         },
         news: {
             eyebrow: 'News · 新闻',

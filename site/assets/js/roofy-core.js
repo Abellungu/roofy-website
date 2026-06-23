@@ -126,6 +126,9 @@
         if (typeof window.PARTIALS !== 'undefined' && typeof window.PARTIALS.applyWhatsapp === 'function') window.PARTIALS.applyWhatsapp();
         if (typeof window.PARTIALS !== 'undefined' && typeof window.PARTIALS.applyCookieBanner === 'function') window.PARTIALS.applyCookieBanner();
         initPage();
+        /* Optional per-page post-render hook (e.g. (re)initialising a Swiper
+         * carousel after #root is rebuilt). Defined by the page module if needed. */
+        if (typeof window.onRoofyRender === 'function') { try { window.onRoofyRender(); } catch (_) { } }
     }
 
     // Actions exposed on window for inline onclick handlers
