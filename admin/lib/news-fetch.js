@@ -16,15 +16,15 @@ const KEY = process.env.NEWS_API_KEY || '';
 /* Search themes → query strings. Each becomes one API call; results are tagged
  * with the matching news.json category so drafts land in the right bucket. */
 const TOPICS = [
-    { category: 'international', q: '(Zambia OR China) AND (investment OR "bilateral" OR infrastructure OR trade OR copper)' },
-    { category: 'lusaka', q: 'Lusaka AND (development OR road OR airport OR project OR council OR expo)' },
-    { category: 'lusaka-real-estate', q: '(Lusaka OR Zambia) AND ("real estate" OR property OR housing OR rent OR land OR leasehold)' }
+    { category: 'international', q: 'Zambia AND (China OR investment OR infrastructure OR mining OR copper OR debt OR economy OR trade)' },
+    { category: 'lusaka', q: 'Lusaka AND (development OR road OR airport OR project OR construction OR council OR housing)' },
+    { category: 'lusaka-real-estate', q: '(Lusaka OR Zambia) AND ("real estate" OR property OR housing OR rent OR mortgage OR land OR construction)' }
 ];
 
 function enabled() { return !!KEY; }
 
 async function callGnews(q) {
-    const url = 'https://gnews.io/api/v4/search?lang=en&max=10&sortby=publishedAt' +
+    const url = 'https://gnews.io/api/v4/search?lang=en&max=10&sortby=publishedAt&in=title,description' +
         '&q=' + encodeURIComponent(q) + '&apikey=' + encodeURIComponent(KEY);
     const r = await fetch(url);
     if (!r.ok) throw new Error('gnews ' + r.status);
@@ -38,7 +38,7 @@ async function callGnews(q) {
 }
 
 async function callNewsapi(q) {
-    const url = 'https://newsapi.org/v2/everything?language=en&pageSize=10&sortBy=publishedAt' +
+    const url = 'https://newsapi.org/v2/everything?language=en&pageSize=10&sortBy=publishedAt&searchIn=title,description' +
         '&q=' + encodeURIComponent(q) + '&apiKey=' + encodeURIComponent(KEY);
     const r = await fetch(url);
     if (!r.ok) throw new Error('newsapi ' + r.status);
