@@ -21,10 +21,13 @@ function layout(opts) {
     const BASE = opts.base || '/admin';
     let leadsUnread = 0;
     try { leadsUnread = require('./leads').unreadCount(); } catch (e) { /* leads optional */ }
+    let draftsPending = 0;
+    try { draftsPending = require('./news-drafts').pendingCount(); } catch (e) { /* optional */ }
     const navItems = [
         ['', '概览', 'Dashboard', 'layout-dashboard'],
         ['leads', '咨询线索', 'Leads', 'inbox'],
         ['c/news', '新闻', 'News', 'newspaper'],
+        ['news-drafts', '新闻草稿', 'News drafts', 'sparkles'],
         ['c/properties', '房源', 'Properties', 'home'],
         ['c/projects', '集团项目', 'Projects', 'building-2'],
         ['c/team', '团队成员', 'Team', 'users'],
@@ -40,8 +43,9 @@ function layout(opts) {
     const nav = navItems.map(function (n) {
         const href = BASE + '/' + n[0];
         const active = opts.active === (n[0] || 'dashboard') || (n[0] === '' && opts.active === 'dashboard');
-        const badge = (n[0] === 'leads' && leadsUnread > 0)
-            ? `<span class="nav-badge" style="margin-left:auto;background:#f59e0b;color:#0f172a;font-size:11px;font-weight:700;line-height:1;padding:3px 7px;border-radius:999px">${leadsUnread}</span>`
+        const badgeCount = n[0] === 'leads' ? leadsUnread : (n[0] === 'news-drafts' ? draftsPending : 0);
+        const badge = badgeCount > 0
+            ? `<span class="nav-badge" style="margin-left:auto;background:#f59e0b;color:#0f172a;font-size:11px;font-weight:700;line-height:1;padding:3px 7px;border-radius:999px">${badgeCount}</span>`
             : '';
         return `<a class="nav-item${active ? ' active' : ''}" href="${href}">` +
             `<i data-lucide="${n[3]}" class="ni"></i><span class="nt">${L(n[1], n[2])}</span>${badge}</a>`;

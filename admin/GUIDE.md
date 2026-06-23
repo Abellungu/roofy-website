@@ -21,6 +21,7 @@ Sign in with your own account. Change your password under "账号 Account" right
 | 模块 Module | 用途 Purpose |
 |---|---|
 | 新闻 News | 公司与行业动态。首页自动展示**按日期最新的 3 篇** The homepage shows the 3 latest articles by date |
+| 新闻草稿 News drafts | 系统定时自动抓取行业新闻、用 AI 生成中英文摘要后放在这里**等你审核**。看一眼、改一改、点「通过并发布」才会上线;不合适就「拒绝」。只做摘要 + 标注来源 + 跳转原文,不照搬原文和配图 Auto-fetched news, AI-summarised in zh+en, waiting for **your review**. Edit, then "Approve & publish" to go live, or "Reject". We summarise + attribute + link out only — never copy the source |
 | 房源 Properties | 房源列表。价格写法:克瓦查 `K 1,500,000`,美元 `US$ 5,000` Price format: `K` for Kwacha, `US$` for dollars |
 | 集团项目 Projects | 皇冠 / 奇迹 / 静居 / 荣耀四个旗舰项目 The four flagship developments |
 | 团队成员 Team | 关于页的核心团队 Leadership shown on the About page |

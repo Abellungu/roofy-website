@@ -4,6 +4,7 @@
  *   PORT=3127 ROOFY_REPO=/opt/roofy-website node server.js
  *
  * In production nginx proxies https://<domain>/admin/ -> 127.0.0.1:3127/admin/. */
+require('./lib/loadenv');   // load admin/.env (secrets) before anything reads process.env
 const path = require('path');
 const express = require('express');
 const auth = require('./lib/auth');
@@ -108,6 +109,7 @@ router.use(auth.requireAuth);
 router.use(require('./routes/content'));
 router.use(require('./routes/api'));
 router.use(require('./routes/pages'));
+router.use(require('./routes/news-drafts'));
 
 app.use(BASE, router);
 app.get('/', function (req, res) { res.redirect(BASE + '/'); });
