@@ -13,7 +13,7 @@
 
     function topLinks(T) {
         return [
-            ['home', '/index.html', T.nav.home],
+            ['home', '/', T.nav.home],
             ['news', '/news/index.html', T.nav.news],
             ['about', '/about.html', T.nav.about],
             ['real-estate', '/services/real-estate.html', T.nav.realEstate],
@@ -44,7 +44,7 @@
                 (state.page === id ? ' is-active' : '') + '">' + label + '</a>';
         }
         const desktop =
-            dLink('home', '/index.html', T.nav.home) +
+            dLink('home', '/', T.nav.home) +
             dLink('news', '/news/index.html', T.nav.news) +
             dLink('about', '/about.html', T.nav.about) +
             '<div class="relative group">' +
@@ -65,7 +65,7 @@
                 '<i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-900"></i></a>';
         }
         const mobile =
-            mLink('/index.html', T.nav.home, false) +
+            mLink('/', T.nav.home, false) +
             mLink('/news/index.html', T.nav.news, false) +
             mLink('/about.html', T.nav.about, false) +
             '<div class="px-6 pt-5 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">' + T.nav.services + '</div>' +
@@ -74,7 +74,7 @@
 
         return '\n        <header id="site-nav" data-mode="' + initialMode + '" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">' +
-            '<a href="/index.html" class="nav-wordmark text-2xl font-bold tracking-tight">Roo<span class="text-amber-500">fy</span></a>' +
+            '<a href="/" class="nav-wordmark text-2xl font-bold tracking-tight">Roo<span class="text-amber-500">fy</span></a>' +
             '<nav class="hidden lg:flex items-center gap-8">' + desktop + '</nav>' +
             '<div class="flex items-center gap-2">' +
             '<button onclick="toggleLang()" class="nav-lang hidden md:inline-flex items-center text-xs font-medium transition-colors px-3 h-9 rounded-sm">' +
@@ -123,7 +123,7 @@
             '<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
             '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">' +
             '<div class="lg:col-span-5">' +
-            '<a href="/index.html" class="text-2xl font-bold tracking-tight text-white mb-5 inline-block">Roo<span class="text-amber-500">fy</span></a>' +
+            '<a href="/" class="text-2xl font-bold tracking-tight text-white mb-5 inline-block">Roo<span class="text-amber-500">fy</span></a>' +
             '<p class="text-sm text-slate-400 max-w-sm leading-relaxed mb-3">' + T.footer.desc + '</p>' +
             
             '<div class="flex items-center gap-3">' +

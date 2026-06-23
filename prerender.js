@@ -86,9 +86,13 @@ async function prerenderPage(rel) {
         }
     }
 
-    /* Kick off the page's own data-load + boot chain, then wait for #root. */
-    window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+    /* Clear any prior prerender so we measure a FRESH render (not stale baked
+     * content), then kick off the page's data-load + boot. The event must
+     * bubble — page modules listen on window.addEventListener('DOMContentLoaded'),
+     * and an event dispatched on document only reaches window if it bubbles. */
     const root = window.document.getElementById('root');
+    if (root) root.innerHTML = '';
+    window.document.dispatchEvent(new window.Event('DOMContentLoaded', { bubbles: true }));
     for (let i = 0; i < 40 && (!root || !root.innerHTML.trim()); i++) await sleep(25);
 
     if (!root || !root.innerHTML.trim()) throw new Error('root stayed empty for ' + rel);

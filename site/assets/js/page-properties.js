@@ -140,7 +140,7 @@ function facetRow(label, options, activeValue, handler) {
 
 function breadcrumbBar() {
     const T = ROOFY.tr();
-    const crumbs = ['<a href="/index.html" class="hover:text-amber-600 transition-colors">' + T.properties.breadcrumb.home + '</a>'];
+    const crumbs = ['<a href="/" class="hover:text-amber-600 transition-colors">' + T.properties.breadcrumb.home + '</a>'];
     crumbs.push('<span class="text-slate-300">/</span>');
     crumbs.push('<span class="text-slate-700 font-medium">' + T.properties.breadcrumb.properties + '</span>');
 
