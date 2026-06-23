@@ -112,7 +112,13 @@ p {
 .reveal-line {
     display: inline-block;
     transform: translateY(110%);
+    transition: transform .9s cubic-bezier(.16, 1, .3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
     will-change: transform;
+}
+[data-hero-reveal].hero-in .reveal-line { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+    .reveal-line { transform: none !important; transition: none !important; }
 }
 
 /* When a reveal-line is ALSO a flex row (buttons, meta strips, breadcrumbs),
@@ -120,6 +126,24 @@ p {
  * otherwise win the cascade over Tailwind's .flex and collapse the gaps. */
 .reveal-line.flex { display: flex; }
 .reveal-line.inline-flex { display: inline-flex; }
+
+/* Scroll reveals (IntersectionObserver adds .is-revealed in roofy-core.js).
+   Hidden by default; #root content only exists once JS renders, so there is
+   no no-JS FOUC. Per-element --reveal-delay gives each section a soft wave. */
+[data-reveal-up] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+[data-reveal-up].is-revealed {
+    opacity: 1;
+    transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal-up] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
 
 
 
@@ -242,20 +266,43 @@ p {
    Editorial-estate language: display serif headings, drafting-paper grid
    texture, square eyebrow anchors with auto section indexes, brand stripe. */
 
-/* Drafting-paper grid texture. Light tinted sections and dark imageless
-   sections both carry a faint survey grid — real-estate drawing-board cue. */
+/* ── Surface texture (modernised 2026-06-23) ──
+   No flat pure white. Light sections sit on a soft off-white with a faint
+   navy dot-matrix (Linear/Vercel "designed surface" cue); dark sections keep
+   a fine survey grid plus a soft gold aura so they read with depth. */
+#root section.bg-white { background-color: #FBFCFE; }
+#root section.bg-slate-50 { background-color: #F2F5FB; }
+#root section.bg-white,
 #root section.bg-slate-50 {
-    background-image:
-        linear-gradient(rgba(2, 6, 23, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(2, 6, 23, 0.04) 1px, transparent 1px);
-    background-size: 112px 112px;
+    background-image: radial-gradient(rgba(18, 26, 63, 0.05) 1px, transparent 1.6px);
+    background-size: 26px 26px;
 }
 #root section.bg-slate-900,
 footer.bg-slate-950 {
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 112px 112px;
+        radial-gradient(70% 90% at 88% -10%, rgba(230, 173, 21, 0.12), transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: auto, 112px 112px, 112px 112px;
+}
+
+/* Hero: soft radial spotlight over the light gradient base for depth. */
+#root section#top { position: relative; isolation: isolate; }
+#root section#top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(58% 46% at 50% -6%, rgba(230, 173, 21, 0.13), transparent 70%),
+        radial-gradient(46% 42% at 88% 6%, rgba(18, 26, 63, 0.06), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Card lift: a single soft, layered shadow on hover — modern, not heavy. */
+.transition-shadow:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px -18px rgba(18, 26, 63, 0.28), 0 6px 14px -8px rgba(18, 26, 63, 0.12) !important;
 }
 
 /* Brand stripe along the very top of the viewport. */

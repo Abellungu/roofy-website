@@ -34,87 +34,109 @@
     function tr() { return window.I18N[state.lang]; }
     function flipLabel() { return state.lang === 'zh' ? 'EN' : '中'; }
 
-    function initReveals() {
-        if (typeof gsap === 'undefined') return;
+    /* Scroll reveals run on a live getBoundingClientRect scanner driven by
+     * scroll/resize, NOT ScrollTrigger or IntersectionObserver. ScrollTrigger
+     * cached start positions before lazy images + the Swiper loaded, so
+     * below-fold sections stayed stuck at opacity:0 (the "blank lower half"
+     * bug). IntersectionObserver doesn't fire on this page at all — body has
+     * overflow-x:hidden, which makes it a scroll container and breaks IO's
+     * default-viewport root. getBoundingClientRect is viewport-relative and
+     * read live every scan, so it is immune to both problems. */
+    let _revealCleanup = null;
 
-        /* Respect OS-level reduced motion: show everything, animate nothing. */
+    function runCounter(el) {
+        const target = parseFloat(el.dataset.target || '0');
+        const suffix = el.dataset.suffix || '';
+        if (typeof gsap !== 'undefined') {
+            const obj = { v: 0 };
+            gsap.to(obj, { v: target, duration: 1.4, ease: 'power2.out', onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; } });
+        } else {
+            el.textContent = target + suffix;
+        }
+    }
+
+    function revealEl(el) {
+        if (el._revealed) return;
+        el._revealed = true;
+        if (el.hasAttribute('data-counter')) runCounter(el);
+        else el.classList.add('is-revealed');
+    }
+
+    function initReveals() {
         const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* Hero headline lines slide up via a CSS class toggle (deterministic —
+         * gsap left wrapped headline lines partially behind the reveal-mask on
+         * this page). Stagger via per-line --reveal-delay. */
+        const heroLines = document.querySelectorAll('[data-hero-reveal] .reveal-line');
+        heroLines.forEach(function (el, i) { el.style.setProperty('--reveal-delay', (reduceMotion ? 0 : 50 + i * 90) + 'ms'); });
+        const heroEls = document.querySelectorAll('[data-hero-reveal]');
         if (reduceMotion) {
-            gsap.set('[data-hero-reveal] .reveal-line', { y: '0%' });
-            gsap.set('[data-reveal-up]', { clearProps: 'all', autoAlpha: 1 });
+            heroEls.forEach(function (h) { h.classList.add('hero-in'); });
+        } else {
+            requestAnimationFrame(function () { requestAnimationFrame(function () { heroEls.forEach(function (h) { h.classList.add('hero-in'); }); }); });
+        }
+
+        /* Tear down the previous page's scanner (language re-render rebuilds #root). */
+        if (_revealCleanup) { _revealCleanup(); _revealCleanup = null; }
+
+        let targets = Array.prototype.slice.call(document.querySelectorAll('[data-reveal-up], [data-counter]'));
+        targets.forEach(function (el) { el._revealed = false; });
+
+        /* Reduced motion: show everything at once, no animation. */
+        if (reduceMotion) {
+            targets.forEach(revealEl);
             return;
         }
 
-        gsap.to('[data-hero-reveal] .reveal-line', {
-            y: '0%',
-            duration: 0.9,
-            ease: 'expo.out',
-            stagger: 0.08,
-            delay: 0.05
+        /* Per-section stagger: the nth reveal element in a section waits n·70ms,
+         * so each section animates as one intentional wave, not dozens of pops. */
+        const counts = new Map();
+        document.querySelectorAll('[data-reveal-up]').forEach(function (el) {
+            const sec = el.closest('section') || el.parentElement;
+            const n = counts.get(sec) || 0;
+            el.style.setProperty('--reveal-delay', (n * 70) + 'ms');
+            counts.set(sec, n + 1);
         });
 
-        if (typeof ScrollTrigger === 'undefined') return;
-
-        /* One orchestrated wave per section instead of dozens of independent
-         * pops: group [data-reveal-up] by their closest <section> and reveal
-         * each group with a single stagger. Feels intentional, not busy. */
-        const groups = new Map();
-        gsap.utils.toArray('[data-reveal-up]').forEach(function (el) {
-            const key = el.closest('section') || el;
-            if (!groups.has(key)) groups.set(key, []);
-            groups.get(key).push(el);
-        });
-        groups.forEach(function (els, section) {
-            gsap.from(els, {
-                y: 18,
-                autoAlpha: 0,
-                duration: 0.7,
-                ease: 'power3.out',
-                stagger: 0.07,
-                scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none none' }
+        let ticking = false;
+        function scan() {
+            ticking = false;
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            targets = targets.filter(function (el) {
+                /* Reveal once the element's top has crossed the trigger line —
+                 * NOT gated on still being in view, so a fast scroll/fling that
+                 * skips a section past the top still reveals it (no stuck gaps). */
+                if (el.getBoundingClientRect().top < vh * 0.9) { revealEl(el); return false; }
+                return true;
             });
-        });
+            if (!targets.length) cleanup();
+        }
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(scan);
+        }
+        function cleanup() {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+            _revealCleanup = null;
+        }
+        _revealCleanup = cleanup;
 
-        document.querySelectorAll('[data-counter]').forEach(function (el) {
-            const target = parseFloat(el.dataset.target || '0');
-            const suffix = el.dataset.suffix || '';
-            const obj = { v: 0 };
-            gsap.to(obj, {
-                v: target,
-                duration: 1.4,
-                ease: 'power2.out',
-                scrollTrigger: { trigger: el, start: 'top 85%' },
-                onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; }
-            });
-        });
-
-        /* Nav is always solid (navy) now — the home hero is a light golden band,
-         * so there is no transparent-over-dark-hero mode to toggle. */
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        /* Initial pass for above-the-fold, plus delayed passes to catch lazy
+         * images / Swiper reflowing content into view without a scroll event. */
+        scan();
+        setTimeout(scan, 300);
+        setTimeout(scan, 900);
+        window.addEventListener('load', function () { setTimeout(scan, 50); }, { once: true });
     }
 
     function initPage() {
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.getAll().forEach(function (s) { s.kill(); });
         initReveals();
         if (typeof lucide !== 'undefined') lucide.createIcons();
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-
-        /* Images load after first paint and shift layout, which throws off
-         * ScrollTrigger start positions — elements below the fold can get
-         * stuck at autoAlpha:0. Recompute once images settle, and as a hard
-         * safety net force-reveal any [data-reveal-up] still left hidden. */
-        if (typeof ScrollTrigger !== 'undefined' && !initPage._loadBound) {
-            initPage._loadBound = true;
-            const refresh = function () {
-                try { ScrollTrigger.refresh(); } catch (_) { }
-                if (typeof gsap !== 'undefined') {
-                    document.querySelectorAll('[data-reveal-up]').forEach(function (el) {
-                        const cs = window.getComputedStyle(el);
-                        if (parseFloat(cs.opacity) < 0.05) gsap.set(el, { autoAlpha: 1, y: 0 });
-                    });
-                }
-            };
-            window.addEventListener('load', function () { setTimeout(refresh, 100); });
-        }
     }
 
     function render() {
