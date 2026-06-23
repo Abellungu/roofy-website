@@ -8,7 +8,7 @@ html,
 body {
     background: #F8FAFC;
     color: #334155;
-    font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    font-family: 'Montserrat', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     -webkit-font-smoothing: antialiased;
@@ -34,39 +34,39 @@ html.lenis body {
 
 /* Moderate display scale. Hero max ~3rem (48px), then proportional steps down. */
 .display-xl {
-    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-family: 'Montserrat', 'Noto Sans SC', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.1;
     font-size: clamp(1.875rem, 4vw, 3rem);
-    color: #0B1F3A;
+    color: #121A3F;
 }
 
 .display-lg {
-    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-family: 'Montserrat', 'Noto Sans SC', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.018em;
     line-height: 1.15;
     font-size: clamp(1.625rem, 3vw, 2.25rem);
-    color: #0B1F3A;
+    color: #121A3F;
 }
 
 .display-md {
-    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    font-family: 'Montserrat', 'Noto Sans SC', system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: -0.015em;
     line-height: 1.25;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
-    color: #0B1F3A;
+    color: #121A3F;
 }
 
 .eyebrow {
-    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-family: 'Montserrat', 'Noto Sans SC', sans-serif;
     font-weight: 600;
     letter-spacing: .14em;
     text-transform: uppercase;
     font-size: .75rem;
-    color: #C2870A;
+    color: #B5860C;
 }
 
 /* Two-mode navbar: 'hero' = transparent over a dark hero image (light text),
@@ -82,22 +82,22 @@ html.lenis body {
 #site-nav[data-mode="hero"] .nav-wordmark { color: #FFFFFF; }
 #site-nav[data-mode="hero"] .nav-link { color: rgba(241, 245, 249, 0.85); }
 #site-nav[data-mode="hero"] .nav-link:hover,
-#site-nav[data-mode="hero"] .nav-link.is-active { color: #F5B301; }
+#site-nav[data-mode="hero"] .nav-link.is-active { color: #E6AD15; }
 #site-nav[data-mode="hero"] .nav-lang { color: rgba(241, 245, 249, 0.85); }
-#site-nav[data-mode="hero"] .nav-lang:hover { color: #F5B301; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="hero"] .nav-lang:hover { color: #E6AD15; background: rgba(255, 255, 255, 0.08); }
 #site-nav[data-mode="hero"] .nav-mobile-toggle { color: #FFFFFF; }
 
 #site-nav[data-mode="solid"] {
-    background: #0B1F3A;
-    border-bottom: 1px solid #0B1F3A;
+    background: #121A3F;
+    border-bottom: 1px solid #121A3F;
     box-shadow: 0 10px 24px rgba(11, 31, 58, 0.2);
 }
 #site-nav[data-mode="solid"] .nav-wordmark { color: #FFFFFF; }
 #site-nav[data-mode="solid"] .nav-link { color: rgba(226, 232, 240, 0.85); }
 #site-nav[data-mode="solid"] .nav-link:hover,
-#site-nav[data-mode="solid"] .nav-link.is-active { color: #F5B301; }
+#site-nav[data-mode="solid"] .nav-link.is-active { color: #E6AD15; }
 #site-nav[data-mode="solid"] .nav-lang { color: rgba(226, 232, 240, 0.85); }
-#site-nav[data-mode="solid"] .nav-lang:hover { color: #F5B301; background: rgba(255, 255, 255, 0.08); }
+#site-nav[data-mode="solid"] .nav-lang:hover { color: #E6AD15; background: rgba(255, 255, 255, 0.08); }
 #site-nav[data-mode="solid"] .nav-mobile-toggle { color: #FFFFFF; }
 
 p {
@@ -222,8 +222,8 @@ p {
 }
 
 ::selection {
-    background: #F5B301;
-    color: #0B1F3A;
+    background: #E6AD15;
+    color: #121A3F;
 }
 
 /* Unified card hover feel: non-linear easing for shadow + a 1px lift.
@@ -264,7 +264,7 @@ body::before {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #C2870A, #F5B301 35%, #FBC22E 50%, #F5B301 65%, #C2870A);
+    background: linear-gradient(90deg, #B5860C, #E6AD15 35%, #F2C53D 50%, #E6AD15 65%, #B5860C);
     z-index: 60;
     pointer-events: none;
 }
@@ -286,9 +286,23 @@ body::before {
     color: rgba(148, 163, 184, .65);
 }
 
-::selection { background: rgba(245, 179, 1, .28); color: inherit; }
+::selection { background: rgba(230, 173, 21, .28); color: inherit; }
 
 /* LED product cards: collapsible "full specs" disclosure */
 details.led-specs > summary { list-style: none; }
 details.led-specs > summary::-webkit-details-marker { display: none; }
 details.led-specs[open] .led-chev { transform: rotate(180deg); }
+
+/* ── Gold gradient utilities (Kachinga direction 2026-06-23) ──
+   Large bright areas use a gold gradient instead of a flat fill; accent
+   headline words use a clipped gradient for the two-tone display look. */
+.bg-gold-gradient {
+    background-image: linear-gradient(135deg, #F2C53D 0%, #E6AD15 52%, #CE9A0F 100%);
+}
+.text-gold-gradient {
+    background-image: linear-gradient(120deg, #F2C53D 0%, #E6AD15 45%, #CE9A0F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}

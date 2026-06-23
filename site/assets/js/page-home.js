@@ -35,22 +35,24 @@ window.homeSearch = function (e) {
     const txn = val('home-txn') || 'all';
     const region = val('home-region');
     const type = val('home-type') || 'all';
+    const beds = val('home-beds') || 'all';
     const kw = (val('home-kw') || '').trim();
     const params = new URLSearchParams();
     if (txn && txn !== 'all') params.set('txn', txn);
     if (region) params.set('region', region);
     if (type && type !== 'all') params.set('type', type);
+    if (beds && beds !== 'all') params.set('beds', beds);
     if (kw) params.set('q', kw);
     const qs = params.toString();
     window.location.href = '/properties/index.html' + (qs ? '?' + qs : '');
     return false;
 };
 
-/* Search-led hero, split layout (option C, 2026-06-17): golden left column with
- * the headline + search panel + quick-links, a tall flagship-property image on
- * the right (mirrors the pillar-page 50/50 hero). The image hides < lg so the
- * mobile hero stays short and search-first. Search panel is mobile-compact:
- * region/type sit side-by-side, keyword + button stack on the smallest screens. */
+/* Search hero, portal style (Phase A redesign 2026-06-23, ref Roofy.greenwebb.tech):
+ * a light gold-tinted band with an oversized two-tone Montserrat ExtraBold headline
+ * (navy + gold-gradient accent), a full-width tabbed search panel (sale/rent +
+ * keyword / region / type / bedrooms), popular quick-links, and a wide flagship
+ * image band. Centered composition; the headline scales 41px → 100px across breakpoints. */
 function heroSection() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
@@ -62,6 +64,9 @@ function heroSection() {
     const typeOpts = ['all', 'new', 'resale', 'land'].map(function (k) {
         return '<option value="' + k + '">' + T.featured.filters[k] + '</option>';
     }).join('');
+    const bedsOpts = ['all', '1', '3', '4', '5'].map(function (k) {
+        return '<option value="' + k + '">' + T.properties.beds[k] + '</option>';
+    }).join('');
     const regionKeys = Object.keys(regions);
     const chipDefs = regionKeys.slice(0, 3).map(function (k) {
         return { label: regions[k], href: '/properties/index.html?region=' + encodeURIComponent(k) };
@@ -69,52 +74,47 @@ function heroSection() {
     chipDefs.push({ label: T.featured.filters.land, href: '/properties/index.html?type=land' });
     chipDefs.push({ label: T.properties.transaction.rent, href: '/properties/index.html?txn=rent' });
     const chips = chipDefs.map(function (c) {
-        return '<a href="' + c.href + '" class="inline-flex items-center px-3.5 h-8 rounded-full bg-slate-900/10 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium transition-colors">' + c.label + '</a>';
+        return '<a href="' + c.href + '" class="inline-flex items-center px-3.5 h-8 rounded-full bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-700 text-sm font-medium transition-colors">' + c.label + '</a>';
     }).join('');
     const selCls = 'h-12 w-full min-w-0 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
 
     const searchPanel =
-        '<form onsubmit="return homeSearch(event)" class="bg-white rounded-xl shadow-2xl shadow-slate-900/15 p-4 sm:p-5" data-reveal-up>' +
+        '<form onsubmit="return homeSearch(event)" class="bg-white rounded-xl shadow-2xl shadow-slate-900/15 ring-1 ring-slate-900/5 p-4 sm:p-5 text-left max-w-4xl mx-auto" data-reveal-up>' +
         '<div class="inline-flex mb-3 rounded-md border border-slate-200 overflow-hidden text-sm font-semibold">' +
         '<button type="button" onclick="setHomeTxn(this,\'sale\')" data-txn="sale" class="home-txn px-7 h-9 bg-slate-900 text-white transition-colors">' + T.properties.transaction.sale + '</button>' +
         '<button type="button" onclick="setHomeTxn(this,\'rent\')" data-txn="rent" class="home-txn px-7 h-9 text-slate-600 hover:bg-slate-50 transition-colors">' + T.properties.transaction.rent + '</button>' +
         '</div>' +
         '<input type="hidden" id="home-txn" value="sale">' +
-        '<div class="grid grid-cols-2 gap-3 mb-3">' +
+        '<div class="grid grid-cols-2 lg:grid-cols-4 gap-3">' +
+        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="' + selCls + ' placeholder-slate-400">' +
         '<select id="home-region" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
         '<select id="home-type" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
+        '<select id="home-beds" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.bedsLabel) + '">' + bedsOpts + '</select>' +
         '</div>' +
-        '<div class="flex flex-col sm:flex-row gap-3">' +
-        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="flex-1 h-12 rounded-md border border-slate-200 bg-slate-50 px-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors">' +
-        '<button type="submit" class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-7 h-12 rounded-md transition-colors shrink-0">' +
+        '<button type="submit" class="mt-3 w-full inline-flex items-center justify-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm h-12 rounded-md transition-all shadow-lg shadow-amber-500/25">' +
         '<i data-lucide="search" class="w-4 h-4"></i>' + T.hero.searchBtn + '</button>' +
-        '</div>' +
         '</form>';
 
-    const imageCard =
-        '<div class="relative h-full" data-reveal-up>' +
-        '<div class="absolute -top-4 -right-4 left-10 bottom-10 border border-slate-900/30 pointer-events-none hidden xl:block"></div>' +
-        '<div class="relative overflow-hidden rounded-lg img-zoom h-full min-h-[440px]">' +
-        '<img src="/assets/img/projects/oasis-miracle-pool.jpg" alt="Oasis Miracle, Ibex Hill" class="w-full h-full object-cover" />' +
-        '<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent p-5 pt-16">' +
+    const imageBand =
+        '<div class="relative mt-12 lg:mt-16 overflow-hidden rounded-2xl img-zoom shadow-xl shadow-slate-900/15 max-w-[1180px] mx-auto" data-reveal-up>' +
+        '<img src="/assets/img/projects/oasis-miracle-pool.jpg" alt="Oasis Miracle, Ibex Hill" loading="lazy" class="w-full h-[220px] sm:h-[300px] lg:h-[360px] object-cover" />' +
+        '<div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent"></div>' +
+        '<div class="absolute left-5 bottom-4 sm:left-7 sm:bottom-6 text-left">' +
         '<div class="text-[11px] font-bold tracking-[0.2em] uppercase text-amber-400">Oasis Miracle · Ibex Hill</div>' +
-        '<div class="text-xs text-slate-200 mt-1">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in a year') + '</div>' +
-        '</div></div></div>';
+        '<div class="text-xs sm:text-sm text-slate-100 mt-1 font-medium">' + (lang === 'zh' ? '集团真实交付 · 78 户社区一年售罄' : 'Delivered by our group · 78 homes, sold out in a year') + '</div>' +
+        '</div></div>';
 
-    return '<section id="top" class="relative bg-amber-500 pt-28 lg:pt-32 pb-14 lg:pb-20 overflow-hidden" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 lg:items-stretch">' +
-        '<div class="lg:col-span-7 min-w-0">' +
-        '<span class="reveal-mask inline-block mb-5 max-w-full"><span class="reveal-line roofy-eyebrow inline-flex text-[10px] sm:text-xs font-bold tracking-[0.1em] sm:tracking-[0.25em] text-slate-900 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.05] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.searchTitle + '</span></span></h1>' +
-        '<div class="reveal-mask mb-7"><p class="reveal-line text-sm sm:text-base text-slate-800/90 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
+    return '<section id="top" class="relative bg-gradient-to-br from-amber-50 via-white to-amber-50 pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
+        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
+        '<span class="reveal-mask inline-block mb-5 max-w-full"><span class="reveal-line roofy-eyebrow inline-flex text-[10px] sm:text-xs font-bold tracking-[0.18em] sm:tracking-[0.25em] text-amber-600 uppercase">' + T.hero.eyebrow + '</span></span>' +
+        '<h1 class="font-extrabold tracking-tight text-slate-900 leading-[0.98] mb-5 text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.25rem] mx-auto max-w-5xl"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.heroLead + ' <span class="text-gold-gradient">' + T.hero.heroAccent + '</span></span></span></h1>' +
+        '<div class="reveal-mask mb-9"><p class="reveal-line text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">' + T.hero.desc + '</p></div>' +
         searchPanel +
-        '<div class="mt-5 flex flex-wrap items-center gap-2 sm:gap-2.5" data-reveal-up>' +
-        '<span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-900/60 mr-1">' + T.hero.popular + '</span>' + chips +
+        '<div class="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5" data-reveal-up>' +
+        '<span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-500 mr-1">' + T.hero.popular + '</span>' + chips +
         '</div>' +
-        '</div>' +
-        '<div class="lg:col-span-5 hidden lg:block">' + imageCard + '</div>' +
-        '</div></div></section>';
+        imageBand +
+        '</div></section>';
 }
 
 function featuredPropertiesSection() {
@@ -268,7 +268,7 @@ function servicesSection() {
 
 function ctaBannerSection() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-amber-500 text-slate-900 overflow-hidden">' +
+    return '<section class="relative py-20 lg:py-28 bg-gold-gradient text-slate-900 overflow-hidden">' +
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-slate-900/10 blur-3xl pointer-events-none"></div>' +
         '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-slate-900/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +

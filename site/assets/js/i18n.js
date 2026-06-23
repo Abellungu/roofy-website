@@ -38,6 +38,8 @@ window.I18N = {
             primary: '浏览房源',
             secondary: '了解我们',
             searchTitle: '在赞比亚找房，从这里开始',
+            heroLead: '在赞比亚，',
+            heroAccent: '找到理想的家',
             kwPlaceholder: '输入小区、地段或关键词',
             searchBtn: '搜索房源',
             popular: '热门'
@@ -426,6 +428,8 @@ window.I18N = {
             primary: 'View Properties',
             secondary: 'About Us',
             searchTitle: 'Find your place in Zambia.',
+            heroLead: 'Find your place in',
+            heroAccent: 'Zambia.',
             kwPlaceholder: 'Area, neighbourhood, or keyword',
             searchBtn: 'Search',
             popular: 'Popular'

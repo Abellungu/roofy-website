@@ -24,18 +24,18 @@ module.exports = {
              * never small text on white — gold text only sits on navy. */
             colors: {
                 amber: {
-                    50: '#FEF6E0',
-                    300: '#FCD24A',
-                    400: '#FBC22E',
-                    500: '#F5B301',   // primary gold (hero band, CTAs, stripe)
-                    600: '#C2870A',   // dark gold — readable as text on white
-                    700: '#9A6B07'
+                    50: '#FBF3DC',
+                    300: '#F7D976',
+                    400: '#F2C53D',   // light gold — gradient top
+                    500: '#E6AD15',   // primary gold (Kachinga spec 2026-06-23)
+                    600: '#B5860C',   // dark gold — readable as text on white
+                    700: '#8A6608'
                 },
                 slate: {
-                    700: '#2E4F78',   // strong body text (navy-blue)
-                    800: '#1A3A63',   // navy
-                    900: '#102A4C',   // primary navy — dark sections, headings, nav (bluer/more vivid)
-                    950: '#0A2342'    // deepest navy — footer
+                    700: '#33427A',   // strong body text (navy-blue) on white
+                    800: '#1E2A55',   // navy
+                    900: '#121A3F',   // primary navy (Kachinga spec 2026-06-23) — dark sections, headings, nav
+                    950: '#0C1230'    // deepest navy — footer
                 },
                 leaf: {
                     50: '#E4F2EA',
@@ -44,8 +44,8 @@ module.exports = {
                 }
             },
             fontFamily: {
-                display: ['Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif'],
-                sans: ['Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif']
+                display: ['Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                sans: ['Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif']
             }
         }
     }
