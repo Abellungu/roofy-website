@@ -14,9 +14,9 @@ const STOCK_DIR = path.join(store.SITE, 'assets', 'img', 'stock');
 /* Curated per-category preference order (filenames must exist in stock/). The
  * pipeline falls back to the whole stock pool if a preferred file is missing. */
 const BY_CATEGORY = {
-    'international': ['u1474487548417.jpg', 'u1450101499163.jpg', 'u1526304640581.jpg'],
-    'lusaka': ['u1500382017468.jpg', 'u1582407947304.jpg', 'u1542296332-2e.jpg'],
-    'lusaka-real-estate': ['u1564013799919.jpg', 'u1605276374104.jpg', 'u1486406146926.jpg']
+    'international': ['u1474487548417.jpg', 'u1450101499163.jpg', 'u1526304640581.jpg', 'u1416331108676.jpg', 'u1486325212027.jpg', 'u1487958449943.jpg', 'u1495020689067.jpg', 'u1502672260266.jpg', 'u1505693416388.jpg'],
+    'lusaka': ['u1500382017468.jpg', 'u1582407947304.jpg', 'u1542296332-2e.jpg', 'u1545324418-cc.jpg', 'u1512917774080.jpg', 'u1517502884422.jpg', 'u1600566753086.jpg', 'u1600566753190.jpg', 'u1600573472550.jpg'],
+    'lusaka-real-estate': ['u1564013799919.jpg', 'u1605276374104.jpg', 'u1486406146926.jpg', 'u1497366216548.jpg', 'u1600573472556.jpg', 'u1600585154340.jpg', 'u1600585154526.jpg', 'u1600596542815.jpg', 'u1600607687939.jpg']
 };
 
 function pool() {
