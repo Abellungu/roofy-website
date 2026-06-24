@@ -12,11 +12,25 @@
  * require of an uninstalled package would crash it on boot.
  *
  *   ANTHROPIC_API_KEY   = sk-ant-...        (shared with the planned AI chat)
+ *   ANTHROPIC_BASE_URL  = https://api.anthropic.com  (override for a relay/proxy,
+ *                         e.g. a new-api gateway exposing the Anthropic /v1/messages API)
  *   NEWS_SUMMARY_MODEL  = claude-opus-4-8   (default; set haiku/sonnet for cost)
  */
 const KEY = process.env.ANTHROPIC_API_KEY || '';
 const MODEL = process.env.NEWS_SUMMARY_MODEL || 'claude-opus-4-8';
-const ENDPOINT = 'https://api.anthropic.com/v1/messages';
+const BASE = (process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/+$/, '');
+const ENDPOINT = BASE + '/v1/messages';
+/* Anthropic direct authenticates with x-api-key; new-api / relay gateways
+ * authenticate the gateway token with Authorization: Bearer. Pick by host
+ * (override with ANTHROPIC_AUTH_STYLE = bearer | x-api-key). */
+const AUTH_STYLE = process.env.ANTHROPIC_AUTH_STYLE ||
+    (BASE === 'https://api.anthropic.com' ? 'x-api-key' : 'bearer');
+
+function authHeaders() {
+    return AUTH_STYLE === 'bearer'
+        ? { 'Authorization': 'Bearer ' + KEY }
+        : { 'x-api-key': KEY };
+}
 
 function enabled() { return !!KEY; }
 
@@ -67,11 +81,10 @@ async function summarize(candidate) {
     if (!enabled()) throw new Error('summariser disabled (no ANTHROPIC_API_KEY)');
     const res = await fetch(ENDPOINT, {
         method: 'POST',
-        headers: {
-            'x-api-key': KEY,
+        headers: Object.assign({
             'anthropic-version': '2023-06-01',
             'content-type': 'application/json'
-        },
+        }, authHeaders()),
         body: JSON.stringify({
             model: MODEL,
             max_tokens: 2000,
