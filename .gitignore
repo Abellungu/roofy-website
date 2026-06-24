@@ -40,3 +40,5 @@ CLAUDE.md
 
 # Client working documents — not part of the codebase
 *.pptx
+.ssh/
+.npm/
