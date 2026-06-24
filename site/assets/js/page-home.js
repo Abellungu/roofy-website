@@ -86,10 +86,10 @@ function heroSection() {
         '</div>' +
         '<input type="hidden" id="home-txn" value="sale">' +
         '<div class="grid grid-cols-2 lg:grid-cols-4 gap-3">' +
-        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="' + selCls + ' placeholder-slate-400">' +
-        '<select id="home-region" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
-        '<select id="home-type" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
-        '<select id="home-beds" class="' + selCls + '" aria-label="' + escapeAttr(T.properties.bedsLabel) + '">' + bedsOpts + '</select>' +
+        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="' + selCls + ' placeholder-slate-400 col-span-2 sm:col-span-1">' +
+        '<select id="home-region" class="' + selCls + ' col-span-2 sm:col-span-1" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
+        '<select id="home-type" class="' + selCls + ' hidden sm:block" aria-label="' + escapeAttr(T.properties.typeLabel) + '">' + typeOpts + '</select>' +
+        '<select id="home-beds" class="' + selCls + ' hidden sm:block" aria-label="' + escapeAttr(T.properties.bedsLabel) + '">' + bedsOpts + '</select>' +
         '</div>' +
         '<button type="submit" class="mt-3 w-full inline-flex items-center justify-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm h-12 rounded-md transition-all shadow-lg shadow-amber-500/25">' +
         '<i data-lucide="search" class="w-4 h-4"></i>' + T.hero.searchBtn + '</button>' +
@@ -108,9 +108,9 @@ function heroSection() {
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<span class="reveal-mask inline-block mb-5 max-w-full"><span class="reveal-line roofy-eyebrow inline-flex text-[10px] sm:text-xs font-bold tracking-[0.18em] sm:tracking-[0.25em] text-amber-600 uppercase">' + T.hero.eyebrow + '</span></span>' +
         '<h1 class="font-extrabold tracking-tight text-slate-900 leading-[0.98] mb-5 text-[2.6rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.25rem] mx-auto max-w-5xl"><span class="block reveal-mask"><span class="reveal-line">' + T.hero.heroLead + ' <span class="text-gold-gradient">' + T.hero.heroAccent + '</span></span></span></h1>' +
-        '<div class="reveal-mask mb-9"><p class="reveal-line text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">' + T.hero.desc + '</p></div>' +
+        '<div class="reveal-mask mb-9 hidden sm:block"><p class="reveal-line text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">' + T.hero.desc + '</p></div>' +
         searchPanel +
-        '<div class="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5" data-reveal-up>' +
+        '<div class="mt-5 hidden sm:flex flex-wrap items-center justify-center gap-2 sm:gap-2.5" data-reveal-up>' +
         '<span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-500 mr-1">' + T.hero.popular + '</span>' + chips +
         '</div>' +
         imageBand +

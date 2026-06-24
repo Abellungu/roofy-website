@@ -87,9 +87,9 @@
             '<i data-lucide="' + (state.mobileMenuOpen ? 'x' : 'menu') + '" class="w-6 h-6"></i></button>' +
             '</div></div>' +
             (state.mobileMenuOpen ?
-                '<div class="lg:hidden bg-white border-t border-slate-200 absolute top-full left-0 right-0 max-h-[80vh] overflow-y-auto shadow-xl">' +
-                mobile +
-                '<div class="p-6 flex items-center gap-3">' +
+                '<div class="lg:hidden bg-white fixed top-16 left-0 right-0 bottom-0 overflow-y-auto flex flex-col">' +
+                '<div class="border-t border-slate-200">' + mobile + '</div>' +
+                '<div class="p-6 flex items-center gap-3 mt-auto border-t border-slate-200">' +
                 '<button onclick="toggleLang()" class="flex-1 py-3 border border-slate-200 rounded-lg text-slate-800 font-medium">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
                 '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 text-center py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-lg font-semibold">' + T.cta.contact + '</a>' +
                 '</div></div>' : '') +
