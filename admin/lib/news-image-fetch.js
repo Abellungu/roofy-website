@@ -30,6 +30,14 @@ async function downloadCover(url, slug) {
     } catch (e) { return null; }
     if (!buf || buf.length < 3000) return null;   // skip tracking pixels / tiny images
 
+    /* Reject low-detail images (flags, logos, solid-colour OG cards) — they read
+     * as "broken / half-loaded" on the page. Photos score ~6-7.5 entropy; flags
+     * and logos score under ~3. Below the threshold we fall back to stock. */
+    try {
+        const st = await sharp(buf, { failOn: 'none' }).stats();
+        if (typeof st.entropy === 'number' && st.entropy < 4.5) return null;
+    } catch (e) { /* stats failed — don't block on it */ }
+
     try {
         fs.mkdirSync(NEWS_DIR, { recursive: true });
         const out = path.join(NEWS_DIR, slug + '.jpg');
