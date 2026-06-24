@@ -48,6 +48,7 @@ router.get('/news-drafts', function (req, res) {
         const cat = (D.descriptor('news').fields.find(function (f) { return f.name === 'category'; }).options
             .find(function (o) { return o[0] === d.category; }) || [d.category, d.category])[1];
         return `<div class="dcard">
+            ${d.coverImg ? `<img class="dcard-img" src="${esc(req.baseUrl + '/site-assets' + d.coverImg)}" alt="" loading="lazy">` : ''}
             <div class="dcard-head">
                 <span class="badge">${esc(cat)}</span>
                 <span class="dcard-date">${esc(d.publishedAt || '')}</span>

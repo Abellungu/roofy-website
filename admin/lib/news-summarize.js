@@ -41,17 +41,39 @@ const SYSTEM = [
     'Write an ORIGINAL, faithful summary in your OWN words — never copy the source text verbatim.',
     '',
     'Hard rules:',
-    '- Do NOT invent facts, figures, dates, quotes or place names not present in the input. If a detail is absent, omit it.',
+    '- Do NOT invent SPECIFIC facts not in the source: no made-up figures, dates, quotes, names or statistics.',
+    '  General, widely-known background context about Zambia / China-Zambia ties / the sector IS allowed and encouraged.',
     '- Stay factual and neutral. No marketing spin, no self-promotion, no fabricated testimonials.',
     '- ROOFY was founded in 2024. Never claim vanity stats (e.g. "320+ properties", "7+ years").',
-    '- Relevance: prefer angles relevant to Zambia / Lusaka / China-Zambia ties / real estate / investment.',
     '- Both languages must say the same thing; zh is Simplified Chinese, en is English.',
     '',
-    'Return ONLY a JSON object (no markdown, no prose) with exactly these keys:',
-    '{ "titleZh": str, "titleEn": str, "excerptZh": str, "excerptEn": str,',
-    '  "bodyZh": [str, ...], "bodyEn": [str, ...], "relevant": bool }',
-    'titles: <= 40 chars each. excerpts: 1-2 sentences. body: 2-3 short paragraphs each, parallel zh/en.',
-    'Set "relevant" false if the story has no plausible relevance to ROOFY\'s markets — the editor will skip it.'
+    'Develop the story — do NOT just restate the headline. The source is thin (a headline + one or two',
+    'sentences), so add value through framing, not invention:',
+    '- Para 1: what happened, in your own words.',
+    '- Middle paras: background and why it matters, using general regional/sector context (no invented specifics).',
+    '- Final para: a short outlook on what this could mean for ROOFY\'s markets — Zambian real estate,',
+    '  investment, or China-Zambia trade — clearly framed as interpretation/outlook, not as new fact.',
+    '',
+    'Lengths: titles <= 40 chars; excerpts 2-3 sentences; body 3-4 DEVELOPED paragraphs each (each a full',
+    'paragraph, not a one-liner), parallel zh/en, with the final paragraph being the ROOFY-market outlook.',
+    'Set relevant=false if the story has no plausible relevance to ROOFY\'s markets — the editor will skip it.',
+    '',
+    'Output EXACTLY in this marker format and nothing else — no JSON, no markdown, no commentary.',
+    'Each field follows its @@marker@@ on the next line(s). In body fields, separate paragraphs with a blank line:',
+    '@@titleZh@@',
+    '中文标题',
+    '@@titleEn@@',
+    'English title',
+    '@@excerptZh@@',
+    '中文摘要',
+    '@@excerptEn@@',
+    'English excerpt',
+    '@@bodyZh@@',
+    '中文正文第一段\n\n第二段\n\n第三段',
+    '@@bodyEn@@',
+    'English body paragraph one\n\nparagraph two\n\nparagraph three',
+    '@@relevant@@',
+    'true'
 ].join('\n');
 
 function buildUser(candidate) {
@@ -67,16 +89,24 @@ function buildUser(candidate) {
     ].join('\n');
 }
 
-function extractJson(text) {
-    const s = String(text || '');
-    const start = s.indexOf('{');
-    const end = s.lastIndexOf('}');
-    if (start < 0 || end <= start) throw new Error('no JSON in model output');
-    return JSON.parse(s.slice(start, end + 1));
+/* Parse the @@marker@@ format. No escaping needed, so paragraphs may contain any
+ * quotes / punctuation / newlines (the relay doesn't support tool-use, and free
+ * JSON broke on long content). Returns {field: rawText}. */
+function parseMarkers(text) {
+    const re = /@@(titleZh|titleEn|excerptZh|excerptEn|bodyZh|bodyEn|relevant)@@/g;
+    const hits = [];
+    let m;
+    while ((m = re.exec(text)) !== null) hits.push({ key: m[1], end: re.lastIndex, start: m.index });
+    const out = {};
+    for (let i = 0; i < hits.length; i++) {
+        const to = i + 1 < hits.length ? hits[i + 1].start : text.length;
+        out[hits[i].key] = text.slice(hits[i].end, to).trim();
+    }
+    return out;
 }
 
 /* Summarise one candidate → article fields (without id/coverImg/source, which
- * the pipeline fills in). Throws on API or parse error; caller decides per-item. */
+ * the pipeline fills in). Throws on API or shape error; caller decides per-item. */
 async function summarize(candidate) {
     if (!enabled()) throw new Error('summariser disabled (no ANTHROPIC_API_KEY)');
     const res = await fetch(ENDPOINT, {
@@ -87,7 +117,7 @@ async function summarize(candidate) {
         }, authHeaders()),
         body: JSON.stringify({
             model: MODEL,
-            max_tokens: 2000,
+            max_tokens: 3500,
             system: SYSTEM,
             messages: [{ role: 'user', content: buildUser(candidate) }]
         })
@@ -99,17 +129,18 @@ async function summarize(candidate) {
     const data = await res.json();
     const text = (data.content || []).filter(function (b) { return b.type === 'text'; })
         .map(function (b) { return b.text; }).join('');
-    const out = extractJson(text);
-    /* Normalise body fields to arrays of non-empty strings. */
-    const arr = function (v) { return (Array.isArray(v) ? v : [v]).map(String).map(function (s) { return s.trim(); }).filter(Boolean); };
+    const out = parseMarkers(text);
+    if (!out.titleEn && !out.titleZh) throw new Error('unparseable model output (no markers)');
+    /* Split body text into paragraphs on blank lines. */
+    const splitP = function (s) { return String(s || '').split(/\n\s*\n/).map(function (x) { return x.trim(); }).filter(Boolean); };
     return {
         titleZh: String(out.titleZh || '').trim(),
         titleEn: String(out.titleEn || '').trim(),
         excerptZh: String(out.excerptZh || '').trim(),
         excerptEn: String(out.excerptEn || '').trim(),
-        bodyZh: arr(out.bodyZh),
-        bodyEn: arr(out.bodyEn),
-        relevant: out.relevant !== false
+        bodyZh: splitP(out.bodyZh),
+        bodyEn: splitP(out.bodyEn),
+        relevant: !/^false$/i.test(String(out.relevant || '').trim())
     };
 }
 
