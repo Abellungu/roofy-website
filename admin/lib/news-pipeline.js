@@ -9,6 +9,7 @@ const store = require('./store');
 const fetcher = require('./news-fetch');
 const summarizer = require('./news-summarize');
 const images = require('./news-images');
+const imageFetch = require('./news-image-fetch');
 const drafts = require('./news-drafts');
 
 function slugify(s) {
@@ -70,11 +71,15 @@ async function run(opts) {
         if (!summary.relevant || !summary.titleEn) { skipped++; continue; }
 
         const id = uniqueId(slugify(summary.titleEn), takenIds);
+        /* Real article photo, self-hosted; stock fallback when blocked/absent. */
+        let cover = await imageFetch.downloadCover(a.image, id);
+        const usedSourceImg = !!cover;
+        if (!cover) cover = images.pickCover(cand.category, summary.titleEn);
         const article = {
             id: id,
             category: cand.category || 'international',
             publishedAt: publishedDate(a),
-            coverImg: images.pickCover(cand.category, summary.titleEn),
+            coverImg: cover,
             titleZh: summary.titleZh,
             titleEn: summary.titleEn,
             excerptZh: summary.excerptZh,
@@ -84,7 +89,8 @@ async function run(opts) {
             source: a.source || '',
             sourceUrl: a.url || ''
         };
-        drafts.append(Object.assign({ originalUrl: a.url || '', model: summarizer.MODEL }, article));
+        drafts.append(Object.assign({ originalUrl: a.url || '', sourceImageUrl: a.image || '',
+            sourceImageUsed: usedSourceImg, model: summarizer.MODEL }, article));
         if (url) seen.add(url);
         if (titleKey) seen.add(titleKey);
         added++;

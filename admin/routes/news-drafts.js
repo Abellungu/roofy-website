@@ -13,6 +13,7 @@ const store = require('../lib/store');
 const gitops = require('../lib/gitops');
 const drafts = require('../lib/news-drafts');
 const pipeline = require('../lib/news-pipeline');
+const imageFetch = require('../lib/news-image-fetch');
 const prerender = require('../lib/prerender-hook');
 const fetcher = require('../lib/news-fetch');
 const summarizer = require('../lib/news-summarize');
@@ -51,6 +52,7 @@ router.get('/news-drafts', function (req, res) {
             ${d.coverImg ? `<img class="dcard-img" src="${esc(req.baseUrl + '/site-assets' + d.coverImg)}" alt="" loading="lazy">` : ''}
             <div class="dcard-head">
                 <span class="badge">${esc(cat)}</span>
+                <span class="badge" style="background:${d.sourceImageUsed ? '#dcfce7;color:#166534' : '#f1f5f9;color:#64748b'}">${d.sourceImageUsed ? L('原图', 'source photo') : L('图库图', 'stock')}</span>
                 <span class="dcard-date">${esc(d.publishedAt || '')}</span>
                 ${d.source ? `<span class="dcard-src">${esc(d.source)}</span>` : ''}
             </div>
@@ -153,6 +155,8 @@ router.post('/news-drafts/:draftId/save', function (req, res) {
 });
 
 router.post('/news-drafts/:draftId/reject', function (req, res) {
+    const d = drafts.get(req.params.draftId);
+    if (d) imageFetch.removeCover(d.coverImg);   // delete the self-hosted source image, if any
     drafts.remove(req.params.draftId);
     audit(req.adminUser.username, 'news-draft-reject', req.params.draftId);
     res.redirect(req.baseUrl + '/news-drafts?msg=' + encodeURIComponent('草稿已删除 Draft rejected'));
@@ -192,7 +196,7 @@ router.post('/news-drafts/:draftId/publish', async function (req, res) {
     /* re-bake the prerendered HTML so the crawlable home + news pages update */
     const baked = await prerender.run();
 
-    const paths = [store.repoRel(path.join(store.DATA_DIR, desc.file))];
+    const paths = [store.repoRel(path.join(store.DATA_DIR, desc.file)), 'site/assets/img/news'];
     if (baked.ok) paths.push('site/index.html', 'site/news/index.html');
 
     try {
