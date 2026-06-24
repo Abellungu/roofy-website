@@ -342,6 +342,22 @@ body::before {
 
 ::selection { background: rgba(230, 173, 21, .28); color: inherit; }
 
+/* Keyboard accessibility: a clear gold focus ring on interactive elements.
+   :focus-visible fires only for keyboard navigation, so mouse users never
+   see it. Previously interactive elements had no visible focus indicator. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #E6AD15;
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+/* Inputs/selects already carry a Tailwind focus ring; tighten the offset. */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible { outline: none; }
+
 /* LED product cards: collapsible "full specs" disclosure */
 details.led-specs > summary { list-style: none; }
 details.led-specs > summary::-webkit-details-marker { display: none; }
