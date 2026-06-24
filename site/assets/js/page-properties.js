@@ -67,7 +67,7 @@ function propertiesHero() {
         '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-md"><p class="reveal-line text-base text-slate-600 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
         '</div>' +
-        (grid ? '<div class="lg:col-span-7 hidden lg:grid grid-cols-2 gap-3" data-reveal-up>' + grid + '</div>' : '') +
+        (grid ? '<div class="lg:col-span-7 grid grid-cols-2 gap-3 mt-2 lg:mt-0" data-reveal-up>' + grid + '</div>' : '') +
         '</div></div></section>';
 }
 
