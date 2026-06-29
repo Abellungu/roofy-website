@@ -46,28 +46,13 @@ function applyFilters(all) {
 
 function propertiesHero() {
     const T = ROOFY.tr();
-    /* Curated clean (watermark-free) project shots for the hero montage. The
-     * actual listing photos carry the old roofyinvestments.com watermark, which
-     * looks crude when enlarged, so the hero uses the group's project renders. */
-    const heroShots = [
-        '/assets/img/projects/serenity-villa-a.jpg',
-        '/assets/img/projects/estate-gate.jpg',
-        '/assets/img/projects/oasis-miracle-pool.jpg',
-        '/assets/img/projects/oasis-crown-render.jpg'
-    ];
-    const grid = heroShots.map(function (src) {
-        return '<div class="overflow-hidden img-zoom shadow-lg shadow-slate-900/20">' +
-            '<img src="' + src + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>';
-    }).join('');
-    return '<section class="relative bg-slate-50 pt-28 lg:pt-36 pb-16 lg:pb-20 overflow-hidden" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">' +
-        '<div class="lg:col-span-5">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + T.properties.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-[1.1] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-md"><p class="reveal-line text-base text-slate-600 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
-        '</div>' +
-        (grid ? '<div class="lg:col-span-7 grid grid-cols-2 gap-3 mt-2 lg:mt-0" data-reveal-up>' + grid + '</div>' : '') +
+    const heroImg = '/assets/img/projects/estate-gate.jpg';
+    return '<section id="top" class="hero-cinematic relative min-h-[66vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
+        '<div class="max-w-3xl">' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.properties.eyebrow + '</span></span>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
         '</div></div></section>';
 }
 

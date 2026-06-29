@@ -10,12 +10,14 @@ const CONTACT_ENDPOINT = '/admin/contact';
 
 function contactHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-slate-50 pt-28 pb-10 lg:pt-32 lg:pb-14 overflow-hidden" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + T.contact.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-[1.1] mb-4 max-w-3xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-600 leading-relaxed">' + T.contact.desc + '</p></div>' +
-        '</div></section>';
+    const heroImg = '/assets/img/office/office-boardroom.jpg';
+    return '<section id="top" class="hero-cinematic relative min-h-[58vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
+        '<div class="max-w-3xl">' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.contact.eyebrow + '</span></span>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + T.contact.desc + '</p></div>' +
+        '</div></div></section>';
 }
 
 function infoTile(label, value, icon, href) {

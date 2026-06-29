@@ -12,15 +12,14 @@ const NEWS_CATS = ['all', 'international', 'lusaka', 'lusaka-real-estate'];
 
 function newsHero() {
     const T = ROOFY.tr();
-    return '<section class="relative bg-slate-50 pt-28 lg:pt-40 pb-20 lg:pb-28 overflow-hidden" data-hero-reveal>' +
-        '<div aria-hidden="true" class="pointer-events-none absolute -right-2 bottom-0 leading-[0.8] font-black text-slate-900/5 text-[150px] lg:text-[260px] select-none">News</div>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+    const heroImg = '/assets/img/office/office-values-wall.jpg';
+    return '<section id="top" class="hero-cinematic relative min-h-[56vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
         '<div class="max-w-3xl">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + T.news.eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-[1.05] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
-        '<div class="reveal-mask"><p class="reveal-line text-base lg:text-lg text-slate-600 leading-relaxed">' + T.news.desc + '</p></div>' +
-        '</div>' +
-        '</div></section>';
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.news.eyebrow + '</span></span>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
+        '<div class="reveal-mask"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed max-w-2xl">' + T.news.desc + '</p></div>' +
+        '</div></div></section>';
 }
 
 function categoryTabs() {

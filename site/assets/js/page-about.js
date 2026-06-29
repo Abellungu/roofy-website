@@ -8,27 +8,17 @@ window.ROOFY_PAGE = { id: 'about', whatsapp: 'about' };
 function aboutHero() {
     const lang = ROOFY.state.lang;
     const eyebrow = lang === 'zh' ? '关于我们' : 'About';
-    const title = lang === 'zh'
-        ? '一家立足赞比亚、连接中赞两地的综合性服务集团。'
-        : 'A comprehensive services group rooted in Zambia, bridging China and Zambia.';
+    const title = lang === 'zh' ? '立足赞比亚，连接中赞。' : 'Rooted in Zambia, bridging China.';
     const desc = lang === 'zh'
-        ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立。我们以房地产、LED 户外广告与品牌营销为根基，通过资源整合与系统化运营，参与卢萨卡城市升级的每一个关键节点。'
-        : 'Roofy Investments Zambia was founded in 2024 at Ibex Hill, Lusaka. Anchored in real estate, LED outdoor advertising and brand marketing, we integrate fragmented resources and run them as a single system — at every key node of Lusaka\'s urban upgrade.';
-    return '<section class="relative bg-slate-50 pt-28 lg:pt-36 pb-16 lg:pb-24 overflow-hidden" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">' +
-        '<div class="lg:col-span-7">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + eyebrow + '</span></span>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-[1.08] mb-6"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-base lg:text-lg text-slate-600 leading-relaxed">' + desc + '</p></div>' +
-        '</div>' +
-        '<div class="lg:col-span-5 hidden lg:block" data-reveal-up>' +
-        '<dl class="border-t-2 border-slate-900 divide-y divide-slate-900/20">' +
-        '<div class="py-5"><dt class="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '成立年份' : 'Founded') + '</dt><dd class="text-4xl lg:text-5xl font-black text-slate-900 leading-none">2024</dd></div>' +
-        '<div class="py-5"><dt class="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '核心业务' : 'Core practices') + '</dt><dd class="text-4xl lg:text-5xl font-black text-slate-900 leading-none">3</dd></div>' +
-        '<div class="py-5"><dt class="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-900/70 mb-1.5">' + (lang === 'zh' ? '卢萨卡总部' : 'Lusaka HQ') + '</dt><dd class="text-3xl lg:text-4xl font-black text-slate-900 leading-none">Ibex Hill</dd></div>' +
-        '</dl>' +
-        '</div>' +
+        ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立，是一家以房地产、LED 户外广告与品牌营销为根基的综合性服务集团，参与卢萨卡城市升级的每一个关键节点。'
+        : 'Founded in 2024 at Ibex Hill, Lusaka, Roofy Investments Zambia is a comprehensive services group anchored in real estate, LED outdoor advertising and brand marketing — present at every key node of Lusaka\'s urban upgrade.';
+    const heroImg = '/assets/img/office/office-lobby.jpg';
+    return '<section id="top" class="hero-cinematic relative min-h-[68vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
+        '<div class="max-w-3xl">' +
+        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + eyebrow + '</span></span>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
+        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + desc + '</p></div>' +
         '</div></div></section>';
 }
 
