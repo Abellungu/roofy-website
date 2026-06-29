@@ -82,9 +82,6 @@ function heroSection() {
         '<div class="reveal-mask mb-8"><p class="reveal-line text-base sm:text-lg text-slate-100/85 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
         txnToggle +
         searchPanel +
-        '<div class="mt-5" data-reveal-up>' +
-        '<a href="/about.html" class="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-amber-400 transition-colors">' + T.hero.secondary + ' <i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '</div>' +
         '</div></section>';
 }
 

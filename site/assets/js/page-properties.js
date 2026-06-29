@@ -187,7 +187,7 @@ function filterPanel() {
         || ROOFY.state.propertyTransaction !== 'all' || ROOFY.state.propertyBeds !== 'all'
         || (ROOFY.state.propertySearch || '').length > 0;
 
-    return '<section class="py-8 lg:py-10 bg-white border-b border-slate-200">' +
+    return '<section id="browse" class="py-8 lg:py-10 bg-white border-b border-slate-200 scroll-mt-20">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         /* breadcrumb */
         '<div class="mb-5">' + breadcrumbBar() + '</div>' +
@@ -331,6 +331,7 @@ function loadAllData() {
 
 window.addEventListener('DOMContentLoaded', function () {
     /* Deep-links: ?type=&region=&txn=&beds=&q= */
+    var fromSearch = false;
     try {
         const qs = new URLSearchParams(location.search);
         const t = qs.get('type'); if (t && ['all', 'new', 'resale', 'rent', 'land'].indexOf(t) >= 0) ROOFY.state.propertyFilter = t;
@@ -338,6 +339,21 @@ window.addEventListener('DOMContentLoaded', function () {
         const tx = qs.get('txn'); if (tx && ['all', 'sale', 'rent'].indexOf(tx) >= 0) ROOFY.state.propertyTransaction = tx;
         const b = qs.get('beds'); if (b && ['all', '1', '3', '4', '5'].indexOf(b) >= 0) ROOFY.state.propertyBeds = b;
         const q = qs.get('q'); if (q) ROOFY.state.propertySearch = q;
+        fromSearch = !!(qs.get('txn') || qs.get('type') || qs.get('region') || qs.get('beds') || qs.get('q'));
     } catch (_) { }
-    loadAllData().then(function () { ROOFY.boot({ page: 'properties' }); });
+    loadAllData().then(function () {
+        ROOFY.boot({ page: 'properties' });
+        /* Arriving from the home search: skip the hero montage and land on the
+         * filters + results so the user sees what they searched for. Wait two
+         * frames so layout (the fixed-ratio image grid) settles before we
+         * measure; scroll-mt-20 on #browse leaves room for the fixed navbar. */
+        if (fromSearch) {
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    var el = document.getElementById('browse');
+                    if (el) el.scrollIntoView({ block: 'start' });
+                });
+            });
+        }
+    });
 });
