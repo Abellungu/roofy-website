@@ -28,49 +28,24 @@ function pillarHero() {
     const ti18n = T.pillars[PILLAR_I18N_KEY[p.id]] || {};
     const title = ti18n.title || (lang === 'zh' ? p.titleZh : p.title);
     const summary = ti18n.summary || (lang === 'zh' ? p.summaryZh : p.summary);
-    /* Each pillar gets a structurally different banner so the three service
-     * pages don't look alike: real-estate = full-bleed render + yellow card,
-     * advertising = navy/yellow split with the LED screen, branding = type-only. */
-    if (p.id === 'real-estate') {
-        return '<section id="top" class="relative bg-slate-900 overflow-hidden" data-hero-reveal>' +
-            '<div class="absolute inset-0"><img src="' + p.heroImg + '" alt="" class="w-full h-full object-cover" />' +
-            '<div class="absolute inset-0 bg-gradient-to-r from-slate-950/55 via-slate-950/15 to-transparent"></div></div>' +
-            '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 min-h-[460px] lg:min-h-[560px] flex items-center">' +
-            '<div class="bg-white p-8 lg:p-12 max-w-xl shadow-2xl shadow-slate-950/40 border-t-4 border-amber-500" data-reveal-up>' +
-            '<div class="roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase mb-5">' + ti18n.eyebrow + '</div>' +
-            '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-[1.1] mb-4">' + title + '</h1>' +
-            '<p class="text-base lg:text-lg text-slate-600 leading-relaxed mb-7 max-w-md">' + summary + '</p>' +
-            '<div class="flex flex-wrap items-center gap-3">' +
-            '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-            '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
-            '</div></div></div></section>';
-    }
-    if (p.id === 'advertising') {
-        return '<section id="top" class="relative bg-slate-900 overflow-hidden" data-hero-reveal>' +
-            '<div class="grid grid-cols-1 lg:grid-cols-2 items-stretch">' +
-            '<div class="flex items-center px-6 lg:px-12 py-16 lg:py-24" data-reveal-up>' +
-            '<div class="w-full max-w-lg lg:ml-auto">' +
-            '<div class="roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase mb-5">' + ti18n.eyebrow + '</div>' +
-            '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-[1.1] mb-4">' + title + '</h1>' +
-            '<p class="text-base lg:text-lg text-slate-300 leading-relaxed mb-7">' + summary + '</p>' +
-            '<div class="flex flex-wrap items-center gap-3">' +
-            '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-            '<a href="#adjacent" class="inline-flex items-center gap-2 border border-white/40 hover:border-amber-500 hover:text-amber-400 text-white text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
-            '</div></div></div>' +
-            '<div class="hidden lg:flex bg-slate-800 items-center justify-center p-8 lg:p-12" data-reveal-up>' +
-            '<img src="' + p.heroImg + '" alt="" class="w-full max-h-[440px] object-contain drop-shadow-2xl" />' +
-            '</div></div></section>';
-    }
-    return '<section id="top" class="relative bg-slate-50 pt-28 lg:pt-40 pb-20 lg:pb-32 overflow-hidden" data-hero-reveal>' +
-        '<div aria-hidden="true" class="pointer-events-none absolute -right-2 bottom-0 leading-[0.8] font-black text-slate-900/5 text-[150px] lg:text-[280px] select-none">Brand</div>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-3xl" data-reveal-up>' +
-        '<div class="roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase mb-6">' + ti18n.eyebrow + '</div>' +
-        '<h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.02] mb-6">' + title + '</h1>' +
-        '<p class="text-base lg:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">' + summary + '</p>' +
-        '<div class="flex flex-wrap items-center gap-3">' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-6 h-11 rounded-sm transition-colors shadow-lg shadow-slate-900/20">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-        '<a href="#adjacent" class="inline-flex items-center gap-2 border border-slate-900/40 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-sm font-medium px-6 h-11 rounded-sm transition-colors">' + T.pillars.adjacent + '</a>' +
+    /* Unified cinematic hero across all three pillars (the design-reference
+     * look): full-bleed image, oversized Cormorant title bottom-left, minimal.
+     * Each pillar keeps its own photo. */
+    const heroImg = {
+        'real-estate': '/assets/img/projects/oasis-crown-render.jpg',
+        advertising: '/assets/img/projects/oasis-miracle-aerial.jpg',
+        branding: '/assets/img/office/office-terrace.jpg'
+    }[p.id] || p.heroImg;
+    return '<section id="top" class="hero-cinematic relative min-h-[80vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-16 lg:pb-20">' +
+        '<div class="max-w-3xl">' +
+        '<div class="reveal-mask mb-6"><div class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + ti18n.eyebrow + '</div></div>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl">' +
+        '<span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
+        '<div class="reveal-mask mb-8"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed max-w-xl">' + summary + '</p></div>' +
+        '<div class="flex flex-wrap items-center gap-3" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
+        '<a href="#adjacent" class="inline-flex items-center gap-2 border border-white/40 hover:border-amber-400 hover:text-amber-400 text-white text-sm font-medium px-7 h-12 transition-colors">' + T.pillars.adjacent + '</a>' +
         '</div></div></div></section>';
 }
 

@@ -151,23 +151,7 @@ window.onRoofyRender = function () {
             });
         }
     }
-    initNavMode();
 };
-
-/* Home navbar: transparent over the cinematic hero, frosted-solid past it. */
-function initNavMode() {
-    var nav = document.getElementById('site-nav');
-    var hero = document.getElementById('top');
-    if (!nav || !hero) return;
-    function update() {
-        var threshold = hero.offsetHeight - 80;
-        nav.setAttribute('data-mode', window.scrollY > threshold ? 'solid' : 'hero');
-    }
-    update();
-    if (window._navModeHandler) { window.removeEventListener('scroll', window._navModeHandler); }
-    window._navModeHandler = update;
-    window.addEventListener('scroll', update, { passive: true });
-}
 
 /* Group flagship projects (Crown / Miracle / Serenity). */
 function projectsBandSection() {

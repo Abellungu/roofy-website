@@ -134,8 +134,30 @@
         window.addEventListener('load', function () { setTimeout(scan, 50); }, { once: true });
     }
 
+    /* Nav runs transparent over a cinematic full-image hero and turns solid
+     * past it; pages without such a hero keep the solid bar. Generalised here so
+     * any page whose #top has .hero-cinematic gets the behaviour. */
+    let _navModeHandler = null;
+    function initNavMode() {
+        const nav = document.getElementById('site-nav');
+        const hero = document.getElementById('top');
+        if (_navModeHandler) { window.removeEventListener('scroll', _navModeHandler); _navModeHandler = null; }
+        if (!nav) return;
+        if (!hero || !hero.classList.contains('hero-cinematic')) { nav.setAttribute('data-mode', 'solid'); return; }
+        const update = function () {
+            /* Math.max guards the first run before the hero has laid out
+               (offsetHeight 0); rAF re-runs once layout settles. */
+            nav.setAttribute('data-mode', window.scrollY > Math.max(160, hero.offsetHeight - 80) ? 'solid' : 'hero');
+        };
+        update();
+        requestAnimationFrame(update);
+        _navModeHandler = update;
+        window.addEventListener('scroll', update, { passive: true });
+    }
+
     function initPage() {
         initReveals();
+        initNavMode();
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
