@@ -14,11 +14,11 @@
     function topLinks(T) {
         return [
             ['home', '/', T.nav.home],
+            ['real-estate', '/services/real-estate.html', T.nav.realEstate],
+            ['advertising', '/services/advertising.html', T.nav.media],
+            ['branding', '/services/branding.html', T.nav.branding],
             ['news', '/news/index.html', T.nav.news],
             ['about', '/about.html', T.nav.about],
-            ['real-estate', '/services/real-estate.html', T.nav.realEstate],
-            ['advertising', '/services/advertising.html', T.nav.advertising],
-            ['branding', '/services/branding.html', T.nav.branding],
             ['contact', '/contact.html', T.nav.contact]
         ];
     }
@@ -26,38 +26,37 @@
     function navHtml() {
         const T = window.ROOFY.tr();
         const state = window.ROOFY.state;
-        /* Nav visual mode: always 'solid' (navy bar, light text). Styling lives
-         * in roofy.css under [#site-nav[data-mode='solid']]. */
+        /* Nav visual mode: 'hero' = transparent over the cinematic hero (home),
+         * 'solid' = frosted off-white bar. roofy-core toggles it on scroll. */
         const initialMode = 'solid';
 
-        /* Keep the top level short — home / news / about / Services ▾ / contact.
-         * The three service pillars are grouped under a Services dropdown so the
-         * desktop bar isn't crowded. */
-        const pillars = [
-            ['real-estate', '/services/real-estate.html', T.nav.realEstate],
-            ['advertising', '/services/advertising.html', T.nav.advertising],
-            ['branding', '/services/branding.html', T.nav.branding]
+        /* Three businesses sit flat in the bar so all pillars are visible.
+         * Real-estate carries a dropdown to the listings + the practice page. */
+        const reItems = [
+            ['properties', '/properties/index.html', T.nav.properties],
+            ['real-estate', '/services/real-estate.html', T.nav.realEstateBiz]
         ];
-        const pillarActive = ['real-estate', 'advertising', 'branding'].indexOf(state.page) >= 0;
+        const reActive = ['real-estate', 'properties', 'property-detail'].indexOf(state.page) >= 0;
         function dLink(id, href, label) {
             return '<a href="' + href + '" class="nav-link text-sm font-medium transition-colors' +
                 (state.page === id ? ' is-active' : '') + '">' + label + '</a>';
         }
         const desktop =
             dLink('home', '/', T.nav.home) +
-            dLink('news', '/news/index.html', T.nav.news) +
-            dLink('about', '/about.html', T.nav.about) +
             '<div class="relative group">' +
-            '<button type="button" class="nav-link text-sm font-medium font-sans transition-colors inline-flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer' + (pillarActive ? ' is-active' : '') + '" aria-haspopup="true">' +
-            T.nav.services + '<i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></button>' +
+            '<button type="button" class="nav-link text-sm font-medium transition-colors inline-flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer' + (reActive ? ' is-active' : '') + '" aria-haspopup="true">' +
+            T.nav.realEstate + '<i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></button>' +
             '<div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">' +
-            '<div class="bg-white rounded-lg shadow-xl ring-1 ring-slate-900/5 py-2 min-w-[210px]">' +
-            pillars.map(function (l) {
+            '<div class="bg-white shadow-xl ring-1 ring-slate-900/5 py-2 min-w-[200px]">' +
+            reItems.map(function (l) {
                 return '<a href="' + l[1] + '" class="block px-4 py-2.5 text-sm font-medium transition-colors ' +
                     (state.page === l[0] ? 'text-amber-600 bg-amber-50' : 'text-slate-700 hover:text-amber-700 hover:bg-amber-50') + '">' + l[2] + '</a>';
             }).join('') +
             '</div></div></div>' +
-            dLink('contact', '/contact.html', T.nav.contact);
+            dLink('advertising', '/services/advertising.html', T.nav.media) +
+            dLink('branding', '/services/branding.html', T.nav.branding) +
+            dLink('news', '/news/index.html', T.nav.news) +
+            dLink('about', '/about.html', T.nav.about);
 
         function mLink(href, label, indent) {
             return '<a href="' + href + '" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 ' + (indent ? 'pl-10 pr-6' : 'px-6') + ' border-b border-slate-200 text-slate-800 text-lg">' +
@@ -66,21 +65,22 @@
         }
         const mobile =
             mLink('/', T.nav.home, false) +
+            '<div class="px-6 pt-5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">' + T.nav.realEstate + '</div>' +
+            reItems.map(function (l) { return mLink(l[1], l[2], true); }).join('') +
+            mLink('/services/advertising.html', T.nav.media, false) +
+            mLink('/services/branding.html', T.nav.branding, false) +
             mLink('/news/index.html', T.nav.news, false) +
-            mLink('/about.html', T.nav.about, false) +
-            '<div class="px-6 pt-5 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">' + T.nav.services + '</div>' +
-            pillars.map(function (l) { return mLink(l[1], l[2], true); }).join('') +
-            mLink('/contact.html', T.nav.contact, false);
+            mLink('/about.html', T.nav.about, false);
 
         return '\n        <header id="site-nav" data-mode="' + initialMode + '" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">' +
-            '<a href="/" class="nav-wordmark text-2xl font-bold tracking-tight">Roo<span class="text-amber-500">fy</span></a>' +
-            '<nav class="hidden lg:flex items-center gap-8">' + desktop + '</nav>' +
+            '<a href="/" class="nav-wordmark text-2xl font-semibold tracking-tight">Roofy<span class="text-amber-500">.</span></a>' +
+            '<nav class="hidden lg:flex items-center gap-7">' + desktop + '</nav>' +
             '<div class="flex items-center gap-2">' +
-            '<button onclick="toggleLang()" class="nav-lang hidden md:inline-flex items-center text-xs font-medium transition-colors px-3 h-9 rounded-sm">' +
+            '<button onclick="toggleLang()" class="nav-lang hidden md:inline-flex items-center text-xs font-medium transition-colors px-3 h-9">' +
             window.ROOFY.flipLabel() +
             '</button>' +
-            '<a href="/contact.html" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 rounded-sm transition-colors shadow-sm">' +
+            '<a href="/contact.html" class="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold bg-amber-500 hover:bg-amber-400 text-slate-900 px-4 h-9 transition-colors">' +
             T.cta.contact +
             '</a>' +
             '<button onclick="toggleMobile()" class="nav-mobile-toggle lg:hidden p-1" aria-label="Menu">' +
@@ -90,8 +90,8 @@
                 '<div class="lg:hidden bg-white fixed top-16 left-0 right-0 bottom-0 overflow-y-auto flex flex-col">' +
                 '<div class="border-t border-slate-200">' + mobile + '</div>' +
                 '<div class="p-6 flex items-center gap-3 mt-auto border-t border-slate-200">' +
-                '<button onclick="toggleLang()" class="flex-1 py-3 border border-slate-200 rounded-lg text-slate-800 font-medium">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
-                '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 text-center py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 rounded-lg font-semibold">' + T.cta.contact + '</a>' +
+                '<button onclick="toggleLang()" class="flex-1 py-3 border border-slate-200 text-slate-800 font-medium">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
+                '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 text-center py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold">' + T.cta.contact + '</a>' +
                 '</div></div>' : '') +
             '</header>';
     }
@@ -120,10 +120,10 @@
         return '<footer class="bg-slate-950 pt-16 pb-10 border-t border-slate-800">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
             '<div class="border-b border-slate-800 pb-10 mb-12">' +
-            '<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
+            '<h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white max-w-4xl leading-tight">' + T.footer.sloganLine + '</h2></div>' +
             '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">' +
             '<div class="lg:col-span-5">' +
-            '<a href="/" class="text-2xl font-bold tracking-tight text-white mb-5 inline-block">Roo<span class="text-amber-500">fy</span></a>' +
+            '<a href="/" class="nav-wordmark text-2xl font-semibold tracking-tight text-white mb-5 inline-block">Roofy<span class="text-amber-500">.</span></a>' +
             '<p class="text-sm text-slate-400 max-w-sm leading-relaxed mb-3">' + T.footer.desc + '</p>' +
             
             '<div class="flex items-center gap-3">' +

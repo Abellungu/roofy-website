@@ -12,8 +12,8 @@ function contactHero() {
     const T = ROOFY.tr();
     return '<section class="relative bg-slate-50 pt-28 pb-10 lg:pt-32 lg:pb-14 overflow-hidden" data-hero-reveal>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase">' + T.contact.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4 max-w-3xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + T.contact.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-[1.1] mb-4 max-w-3xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-base text-slate-600 leading-relaxed">' + T.contact.desc + '</p></div>' +
         '</div></section>';
 }
@@ -53,7 +53,7 @@ function contactBlock() {
         '<div class="font-semibold">' + T.cta.whatsapp + '</div></div>' +
         '<i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>' +
         '<div class="p-6 bg-white border border-slate-100 rounded-lg shadow-sm">' +
-        '<div class="text-base font-bold text-slate-900 mb-4">' + T.contact.why.title + '</div>' +
+        '<div class="text-base font-semibold text-slate-900 mb-4">' + T.contact.why.title + '</div>' +
         '<ul class="space-y-3">' + why + '</ul></div>' +
         '</div>' +
         '<div class="lg:col-span-7">' +
@@ -139,7 +139,7 @@ window.submitContact = function (e) {
             const wrap = f.parentNode;
             wrap.innerHTML = '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10 text-center" data-reveal-up>' +
                 '<div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-leaf-50 mb-5"><i data-lucide="check" class="w-7 h-7 text-leaf-600"></i></div>' +
-                '<div class="text-xl font-bold text-slate-900 mb-2">' + T.contact.formOkTitle + '</div>' +
+                '<div class="text-xl font-semibold text-slate-900 mb-2">' + T.contact.formOkTitle + '</div>' +
                 '<p class="text-sm text-slate-600 leading-relaxed max-w-md mx-auto">' + T.contact.formOkBody + '</p></div>';
             if (window.lucide) lucide.createIcons();
             return;
@@ -163,7 +163,7 @@ function mapSection() {
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">' +
         '<div>' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.contact.mapTitle + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + T.contact.mapHint + '</h2></div>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900" data-reveal-up>' + T.contact.mapHint + '</h2></div>' +
         '<a href="https://maps.google.com/?q=Ibex+Hill+Lusaka+Zambia" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         (lang === 'zh' ? '在 Google 地图打开' : 'Open in Google Maps') +
         '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></a></div>' +

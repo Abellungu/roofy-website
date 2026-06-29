@@ -32,7 +32,7 @@ function notFoundBlock() {
     return '<section class="bg-slate-50 min-h-[60vh] flex items-center">' +
         '<div class="max-w-[640px] mx-auto px-6 lg:px-10 py-24 text-center">' +
         '<i data-lucide="file-question" class="w-12 h-12 mx-auto mb-6 text-slate-400"></i>' +
-        '<h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">' +
+        '<h1 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">' +
         (ROOFY.state.lang === 'zh' ? '文章未找到' : 'Article not found') + '</h1>' +
         '<p class="text-slate-600 mb-8">' + T.news.notFound + '</p>' +
         '<a href="/news/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
@@ -54,10 +54,10 @@ function detailHero(a) {
         '<a href="/news/index.html" class="reveal-mask inline-flex"><span class="reveal-line inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-amber-400 transition-colors mb-6">' +
         '<i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>' + T.news.back + '</span></a>' +
         '<div class="flex flex-wrap items-center gap-2 mb-5">' +
-        '<span class="text-xs font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm">' + catLabel + '</span>' +
-        (a.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-2.5 py-1 rounded-sm">' + T.news.sample + '</span>' : '') +
+        '<span class="text-xs font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm">' + catLabel + '</span>' +
+        (a.placeholder ? '<span class="text-xs font-semibold uppercase tracking-wider bg-slate-800 text-slate-300 px-2.5 py-1 rounded-sm">' + T.news.sample + '</span>' : '') +
         '</div>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '<div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400">' +
         '<span class="inline-flex items-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>' + formatDate(a.publishedAt, lang) + '</span>' +
         (a.source ? '<span class="inline-flex items-center gap-1.5"><i data-lucide="newspaper" class="w-3.5 h-3.5"></i>' + T.news.source + ' · ' + a.source + '</span>' : '') +
@@ -101,7 +101,7 @@ function relatedSection(a) {
             '</div>' +
             '<div class="p-5">' +
             '<div class="text-xs text-slate-500 mb-2">' + formatDate(r.publishedAt, lang) + '</div>' +
-            '<h3 class="text-sm font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-amber-600 transition-colors">' + rTitle + '</h3>' +
+            '<h3 class="text-sm font-semibold text-slate-900 mb-2 line-clamp-2 group-hover:text-amber-600 transition-colors">' + rTitle + '</h3>' +
             '<p class="text-xs text-slate-600 line-clamp-2">' + (rExcerpt || '') + '</p>' +
             '</div></a>';
     }).join('');
@@ -109,7 +109,7 @@ function relatedSection(a) {
     return '<section class="py-16 lg:py-20 bg-slate-50 border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.news.related + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8" data-reveal-up>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-8" data-reveal-up>' +
         (T.news.categories[a.category] || a.category) + '</h2>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-5">' + cards + '</div>' +
         '</div></section>';

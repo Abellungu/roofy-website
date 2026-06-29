@@ -63,8 +63,8 @@ function propertiesHero() {
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">' +
         '<div class="lg:col-span-5">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-bold tracking-[0.25em] text-amber-600 uppercase">' + T.properties.eyebrow + '</span></span>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
+        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-xs font-semibold tracking-[0.25em] text-amber-600 uppercase">' + T.properties.eyebrow + '</span></span>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-[1.1] mb-4"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
         '<div class="reveal-mask max-w-md"><p class="reveal-line text-base text-slate-600 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
         '</div>' +
         (grid ? '<div class="lg:col-span-7 grid grid-cols-2 gap-3 mt-2 lg:mt-0" data-reveal-up>' + grid + '</div>' : '') +
@@ -87,7 +87,7 @@ function featuredProjectsBand() {
             'under-construction': 'bg-slate-200 text-slate-900',
             upcoming: 'bg-slate-700 text-white'
         }[status] || 'bg-slate-200 text-slate-900';
-        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
+        return '<span class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
     }
 
     const cards = projects.map(function (p) {
@@ -99,16 +99,16 @@ function featuredProjectsBand() {
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
-            (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
+            (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
             '<div class="p-5 flex flex-col flex-1">' +
             '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
             '<i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>' + (p.location || '') + '</div>' +
-            '<h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
+            '<h3 class="text-lg font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
             '<p class="text-sm text-slate-600 leading-snug mb-4 line-clamp-2 flex-1">' + (tagline || '') + '</p>' +
             '<div class="pt-4 border-t border-slate-100 mt-auto">' +
             '<div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 mb-1">' + T.projects.specs.priceRange + '</div>' +
-            '<div class="text-amber-600 font-bold text-lg whitespace-nowrap mb-2">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
+            '<div class="text-amber-600 font-semibold text-lg whitespace-nowrap mb-2">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
             '<div class="text-xs text-slate-500 leading-snug">' + (propertyType || '') + '</div>' +
             '</div></div></a>';
     }).join('');
@@ -118,7 +118,7 @@ function featuredProjectsBand() {
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8" data-reveal-up>' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
         '<p class="text-sm text-slate-600">' + T.projects.sectionDesc + '</p>' +
         '</div></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + cards + '</div>' +
@@ -210,7 +210,7 @@ function filterPanel() {
         '</div>' +
         /* result count + reset */
         '<div class="flex items-center justify-between gap-3 mt-5">' +
-        '<div class="text-sm text-slate-600">' + T.properties.found.replace('{n}', '<span class="text-amber-600 font-bold">' + matched.length + '</span>') + '</div>' +
+        '<div class="text-sm text-slate-600">' + T.properties.found.replace('{n}', '<span class="text-amber-600 font-semibold">' + matched.length + '</span>') + '</div>' +
         (isFiltered ? '<button onclick="resetPropertyFilters()" class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors">' +
             '<i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>' + T.properties.reset + '</button>' : '') +
         '</div>' +
@@ -239,14 +239,14 @@ function listRow(p, T) {
         '<div class="img-zoom relative w-full sm:w-64 lg:w-72 shrink-0 aspect-[16/10] sm:aspect-auto overflow-hidden bg-slate-100">' +
         '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" class="w-full h-full object-cover" />' +
         '<div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">' +
-        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + tag + '</span>' +
-        (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-sm">' + txnLabel + '</span>' : '') +
-        (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + T.featured.sample + '</span>' : '') +
+        '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + tag + '</span>' +
+        (txnLabel ? '<span class="text-[10px] font-semibold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-sm">' + txnLabel + '</span>' : '') +
+        (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + T.featured.sample + '</span>' : '') +
         '</div></div>' +
         /* info + price */
         '<div class="flex-1 flex flex-col sm:flex-row sm:items-center gap-4 p-5">' +
         '<div class="flex-1 min-w-0">' +
-        '<h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
+        '<h3 class="text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
         '<div class="flex items-center gap-1.5 text-sm text-slate-500 mb-3">' +
         '<i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0"></i><span class="truncate">' + (p.loc || '') + '</span>' +
         (regionLabel ? '<span class="ml-1 text-[10px] font-semibold uppercase tracking-wider text-amber-600">· ' + regionLabel + '</span>' : '') +
@@ -256,7 +256,7 @@ function listRow(p, T) {
         /* price column */
         '<div class="shrink-0 sm:text-right sm:pl-5 sm:border-l border-slate-100">' +
         '<div class="text-[10px] text-slate-400 uppercase tracking-wider mb-1 font-semibold">' + (T.properties.detail ? T.properties.detail.priceLabel : 'Price') + '</div>' +
-        '<div class="text-amber-600 font-bold text-xl leading-tight">' + p.price + '</div>' +
+        '<div class="text-amber-600 font-semibold text-xl leading-tight">' + p.price + '</div>' +
         '<div class="hidden sm:inline-flex items-center gap-1 text-xs font-semibold text-slate-500 group-hover:text-amber-600 transition-colors mt-3">' +
         (lang === 'zh' ? '查看详情' : 'View detail') + '<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>' +
         '</div>' +
@@ -299,10 +299,10 @@ function propertiesCta() {
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
-        '<h2 class="text-2xl md:text-4xl font-bold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
+        '<h2 class="text-2xl md:text-4xl font-semibold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
         (lang === 'zh' ? '没找到合适的？我们手上还有未公开房源。' : 'Didn\'t find what you need? We also represent off-market opportunities.') +
         '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-bold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
         T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

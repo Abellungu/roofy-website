@@ -13,39 +13,58 @@ module.exports = {
     ],
     theme: {
         extend: {
-            /* ── Brand palette (2026-06-13) ──
-             * Primary = golden yellow, secondary = deep navy, accent = green.
-             * No black anywhere (Zambian cultural sensitivity): the near-black
-             * slate darks are remapped to navy. We override specific shades of
-             * Tailwind's built-in `amber` (→ gold) and `slate` (dark end → navy)
-             * so the existing utility classes recolour site-wide without a
-             * find/replace; light slate shades keep their near-white values.
+            /* ── Brand palette (premium redesign 2026-06-29) ──
+             * Champagne gold + navy on an off-white base. No black anywhere
+             * (Zambian cultural sensitivity): near-black is mapped to navy.
+             * We override Tailwind's `amber` (→ champagne gold) and `slate`
+             * (dark end → navy, light end → off-white) so existing utility
+             * classes recolour site-wide without a find/replace.
              * Accessibility: gold is for fills / squares / underlines / icons,
-             * never small text on white — gold text only sits on navy. */
+             * gold text only sits on navy — never small gold text on light. */
             colors: {
                 amber: {
-                    50: '#FBF3DC',
-                    300: '#F7D976',
-                    400: '#F2C53D',   // light gold — gradient top
-                    500: '#E6AD15',   // primary gold (Kachinga spec 2026-06-23)
-                    600: '#B5860C',   // dark gold — readable as text on white
-                    700: '#8A6608'
+                    50: '#F7F1E4',
+                    300: '#E2CFA0',
+                    400: '#D8BC82',   // light champagne — gradient top / hover
+                    500: '#C8A45A',   // primary champagne gold (designer spec)
+                    600: '#A07E3C',   // dark gold — readable as text on light
+                    700: '#7A5E2C'
                 },
                 slate: {
-                    700: '#33427A',   // strong body text (navy-blue) on white
-                    800: '#1E2A55',   // navy
-                    900: '#121A3F',   // primary navy (Kachinga spec 2026-06-23) — dark sections, headings, nav
-                    950: '#0C1230'    // deepest navy — footer
+                    50: '#F8F8F6',    // off-white — primary page surface
+                    100: '#F1F0EC',   // off-white tint — subtle bands
+                    200: '#E4E2DB',   // hairline divider on off-white
+                    700: '#2E3A5C',   // strong body text (navy-blue) on light
+                    800: '#16213F',   // navy — dark blocks
+                    900: '#0C1630',   // primary navy (designer) — hero, headings, nav
+                    950: '#080C20'    // deepest navy — footer base / overlays
                 },
                 leaf: {
                     50: '#E4F2EA',
-                    500: '#1C8C54',   // green accent — tags, sold-out, success
+                    500: '#1C8C54',   // green — sold-out / success status, used sparingly
                     600: '#15784A'
                 }
             },
             fontFamily: {
-                display: ['Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif'],
-                sans: ['Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif']
+                /* Display = Cormorant Garamond serif (latin only); Chinese
+                 * headings fall back to bold sans (PingFang etc.), matching the
+                 * prior latin-serif rule. Body = Inter. Both self-hosted. */
+                display: ['"Cormorant Garamond"', 'Georgia', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'serif'],
+                serif: ['"Cormorant Garamond"', 'Georgia', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'serif'],
+                sans: ['Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'system-ui', 'sans-serif']
+            },
+            borderRadius: {
+                /* Sharp, right-angle component language (client direction).
+                 * Everything squares off; only true circles keep `full`. */
+                'none': '0',
+                'sm': '0',
+                DEFAULT: '0',
+                'md': '0',
+                'lg': '0',
+                'xl': '0',
+                '2xl': '0',
+                '3xl': '0',
+                'full': '9999px'
             }
         }
     }

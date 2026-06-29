@@ -25,7 +25,7 @@ function notFoundBlock() {
         '<div class="max-w-[640px] mx-auto px-6 lg:px-10 py-24 text-center">' +
         '<i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-400 mb-6"></i>' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">404 · Listing</div>' +
-        '<h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">' + T.properties.detail.notFoundTitle + '</h1>' +
+        '<h1 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">' + T.properties.detail.notFoundTitle + '</h1>' +
         '<p class="text-slate-600 leading-relaxed mb-8 max-w-md mx-auto">' + T.properties.detail.notFoundDesc + '</p>' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
         T.properties.detail.back + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
@@ -50,14 +50,14 @@ function detailHero(p) {
         '<div class="absolute bottom-0 left-0 right-0 pb-8 lg:pb-12">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex items-center gap-1.5 mb-4 reveal-mask"><span class="reveal-line inline-flex items-center gap-1.5">' +
-        '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm">' + tag + '</span>' +
-        (txnLabel ? '<span class="text-[10px] font-bold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-800 text-white' : 'bg-white text-slate-900') + ' px-2.5 py-1 rounded-sm">' + txnLabel + '</span>' : '') +
-        (p.placeholder ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-slate-800/80 backdrop-blur text-slate-200 px-2.5 py-1 rounded-sm">' + T.featured.sample + '</span>' : '') +
+        '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm">' + tag + '</span>' +
+        (txnLabel ? '<span class="text-[10px] font-semibold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-800 text-white' : 'bg-white text-slate-900') + ' px-2.5 py-1 rounded-sm">' + txnLabel + '</span>' : '') +
+        (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-800/80 backdrop-blur text-slate-200 px-2.5 py-1 rounded-sm">' + T.featured.sample + '</span>' : '') +
         '</span></div>' +
-        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white max-w-4xl mb-4 reveal-mask"><span class="reveal-line">' + title + '</span></h1>' +
+        '<h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white max-w-4xl mb-4 reveal-mask"><span class="reveal-line">' + title + '</span></h1>' +
         '<div class="reveal-mask"><div class="reveal-line flex flex-col md:flex-row md:items-end md:justify-between gap-4">' +
         '<div class="flex items-center gap-2 text-slate-200"><i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i><span>' + p.loc + '</span></div>' +
-        '<div class="text-amber-400 font-bold text-3xl lg:text-4xl">' + p.price + '</div>' +
+        '<div class="text-amber-400 font-semibold text-3xl lg:text-4xl">' + p.price + '</div>' +
         '</div></div></div></div></section>';
 }
 
@@ -75,7 +75,7 @@ function specsStrip(p) {
         items.map(function (it, i) {
             return '<div class="py-6 lg:py-8 px-4 lg:px-6 ' + (i === 0 ? 'lg:pl-0' : '') + '">' +
                 '<div class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5">' + it.label + '</div>' +
-                '<div class="text-base lg:text-lg font-bold text-slate-900">' + it.value + '</div>' +
+                '<div class="text-base lg:text-lg font-semibold text-slate-900">' + it.value + '</div>' +
                 '</div>';
         }).join('') +
         '</div></section>';
@@ -104,7 +104,7 @@ function locationSection(p) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">' +
         '<div><div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.properties.detail.location + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + p.loc + '</h2></div>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900" data-reveal-up>' + p.loc + '</h2></div>' +
         '<a href="https://maps.google.com/?q=' + query + '" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         (lang === 'zh' ? '在 Google 地图打开' : 'Open in Google Maps') +
         '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>' +
@@ -126,7 +126,7 @@ function inquireSection(p) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">' +
         '<div class="lg:col-span-5">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.cta.contact + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4" data-reveal-up>' + T.properties.detail.inquire + '</h2>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-4" data-reveal-up>' + T.properties.detail.inquire + '</h2>' +
         '<p class="text-slate-600 leading-relaxed mb-8 max-w-md" data-reveal-up>' + T.properties.detail.inquireDesc + '</p>' +
         '<a href="https://wa.me/' + WHATSAPP_RAW + '?text=' + encodeURIComponent(waMsg) + '" target="_blank" rel="noopener" class="flex items-center justify-between p-5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-lg shadow-sm transition-colors" data-reveal-up>' +
         '<div><div class="text-xs font-semibold uppercase tracking-wider text-white/80 mb-1">WhatsApp</div>' +
@@ -174,7 +174,7 @@ function similarListings(current) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="mb-8">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.properties.detail.similar + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900" data-reveal-up>' + T.properties.detail.similarDesc + '</h2></div>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900" data-reveal-up>' + T.properties.detail.similarDesc + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">' +
         list.map(function (p) { return window.propertyCard(p, T); }).join('') +
         '</div></div></section>';

@@ -30,7 +30,7 @@ function statusBadge(status, T) {
         'under-construction': 'bg-slate-200 text-slate-900',
         upcoming: 'bg-slate-700 text-white'
     }[status] || 'bg-slate-200 text-slate-900';
-    return '<span class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-sm ' + tone + '">' + label + '</span>';
+    return '<span class="text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-sm ' + tone + '">' + label + '</span>';
 }
 
 function notFoundBlock() {
@@ -38,7 +38,7 @@ function notFoundBlock() {
     return '<section class="bg-slate-50 min-h-[60vh] flex items-center">' +
         '<div class="max-w-[640px] mx-auto px-6 lg:px-10 py-24 text-center">' +
         '<i data-lucide="file-question" class="w-12 h-12 mx-auto mb-6 text-slate-400"></i>' +
-        '<h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">' +
+        '<h1 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">' +
         (ROOFY.state.lang === 'zh' ? '项目未找到' : 'Project not found') + '</h1>' +
         '<p class="text-slate-600 mb-8">' + T.projects.notFound + '</p>' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
@@ -60,9 +60,9 @@ function projectHero(p) {
         '<a href="/properties/index.html" class="reveal-mask inline-flex"><span class="reveal-line inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-amber-400 transition-colors mb-8">' +
         '<i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>' + T.projects.back + '</span></a>' +
         '<div class="flex flex-wrap items-center gap-2 mb-5">' + statusBadge(p.status, T) +
-        (p.placeholder ? '<span class="text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 px-3 py-1.5 rounded-sm">' + T.projects.sample + '</span>' : '') +
+        (p.placeholder ? '<span class="text-xs font-semibold uppercase tracking-wider bg-slate-800 text-slate-300 px-3 py-1.5 rounded-sm">' + T.projects.sample + '</span>' : '') +
         '</div>' +
-        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + name + '</span></span></h1>' +
+        '<h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-5"><span class="block reveal-mask"><span class="reveal-line">' + name + '</span></span></h1>' +
         (tagline ? '<div class="reveal-mask max-w-2xl mb-8"><p class="reveal-line text-base lg:text-lg text-slate-300 leading-relaxed">' + tagline + '</p></div>' : '') +
         '<div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400">' +
         (p.location ? '<span class="inline-flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i>' + p.location + '</span>' : '') +
@@ -154,7 +154,7 @@ function gallerySection(p) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10" data-reveal-up>' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.gallery + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900">' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900">' +
         (ROOFY.state.lang === 'zh' ? p.nameZh + ' · 画册' : p.nameEn + ' · Gallery') +
         '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">' + items + '</div>' +
@@ -176,7 +176,7 @@ function relatedProjects(p) {
             'under-construction': 'bg-slate-200 text-slate-900',
             upcoming: 'bg-slate-700 text-white'
         }[status] || 'bg-slate-200 text-slate-900';
-        return '<span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
+        return '<span class="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-sm ' + tone + '">' + label + '</span>';
     }
 
     const cards = list.map(function (r) {
@@ -189,7 +189,7 @@ function relatedProjects(p) {
             '<div class="absolute top-3 left-3">' + badge(r.status) + '</div>' +
             '</div>' +
             '<div class="p-5">' +
-            '<h3 class="text-base font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
+            '<h3 class="text-base font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
             '<p class="text-xs text-slate-600 line-clamp-2">' + (tagline || '') + '</p>' +
             '</div></a>';
     }).join('');
@@ -197,7 +197,7 @@ function relatedProjects(p) {
     return '<section class="py-16 lg:py-20 bg-white border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.projects.related + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8" data-reveal-up>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-8" data-reveal-up>' +
         (lang === 'zh' ? '继续看看其他项目' : 'Browse other projects') + '</h2>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-5">' + cards + '</div>' +
         '</div></section>';
