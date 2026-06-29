@@ -348,12 +348,15 @@ window.addEventListener('DOMContentLoaded', function () {
          * frames so layout (the fixed-ratio image grid) settles before we
          * measure; scroll-mt-20 on #browse leaves room for the fixed navbar. */
         if (fromSearch) {
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    var el = document.getElementById('browse');
-                    if (el) el.scrollIntoView({ block: 'start' });
-                });
-            });
+            var landOnResults = function () {
+                var el = document.getElementById('browse');
+                if (el) el.scrollIntoView({ block: 'start' });
+            };
+            /* Several passes so a late image reflow can't strand us: next frame,
+             * a short timer, and once every image has finished loading. */
+            requestAnimationFrame(function () { requestAnimationFrame(landOnResults); });
+            setTimeout(landOnResults, 300);
+            window.addEventListener('load', landOnResults, { once: true });
         }
     });
 });
