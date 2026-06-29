@@ -54,12 +54,12 @@ window.I18N = {
             cta: '查看完整介绍'
         },
         mission: {
-            eyebrow: '使命 · Mission',
+            eyebrow: '我们的使命',
             title: '以资源整合与系统运营推动城市升级。',
             desc: '我们把资金、土地、品牌、媒介、人才等碎片化资源整合到同一套运营体系中，让每一处地产、每一面屏幕、每一次活动都成为城市升级的拼图。'
         },
         vision: {
-            eyebrow: '愿景 · Vision',
+            eyebrow: '我们的愿景',
             title: '成为推动卢萨卡城市发展与商业价值升级的重要力量。',
             desc: '不靠规模取胜，而靠在每个项目里持续创造的真实价值——把卢萨卡变成中赞两地企业与家庭都愿意长期下注的城市。'
         },
@@ -74,7 +74,7 @@ window.I18N = {
             ]
         },
         businessScope: {
-            eyebrow: '经营范围 · Business scope',
+            eyebrow: '经营范围',
             title: '一家公司，承接城市升级的七条业务线。',
             desc: '从前期策划到代建落地，从二手交易到广告投放，再到品牌与活动的最终呈现——我们提供完整可衔接的业务链路。',
             items: [
@@ -169,14 +169,14 @@ window.I18N = {
         pillars: {
             realEstate: {
                 tag: '01',
-                eyebrow: '业务一 · Real Estate',
+                eyebrow: '业务一 · 房地产',
                 title: '从一张地契，到一个家。',
                 summary: '我们为个人、家庭与企业提供完整的房地产服务链路：代建、新房与二手交易、租赁托管、土地买卖与投资咨询。每一处房源由顾问亲自走访、拍摄与核验。',
                 inquire: '咨询房产业务'
             },
             advertising: {
                 tag: '02',
-                eyebrow: '业务二 · LED Advertising',
+                eyebrow: '业务二 · LED 户外广告',
                 title: '让品牌在城市的地标上发光。',
                 summary: 'ROOFY 的 LED 户外广告业务，以现代 LED 屏幕为载体，把品牌带到赞比亚最具能见度的城市核心。现正招募首批合作品牌。',
                 inquire: '加入首批合作伙伴',
@@ -191,7 +191,7 @@ window.I18N = {
             },
             branding: {
                 tag: '03',
-                eyebrow: '业务三 · Branding & Marketing',
+                eyebrow: '业务三 · 品牌营销',
                 title: '在赞比亚，给品牌一席之地。',
                 summary: 'ROOFY 的品牌团队从战略层面定位品牌，从执行层面落地营销活动 —— 让企业、店铺与产品在市场中获得清晰、可信、可被记忆的位置。',
                 inquire: '咨询品牌业务',
@@ -310,7 +310,7 @@ window.I18N = {
             legal: '你好 ROOFY，我希望就网站条款或隐私政策做一些咨询。'
         },
         homeNews: {
-            eyebrow: '新闻动态 · Newsroom',
+            eyebrow: '新闻动态',
             title: '最新动态',
             viewAll: '查看全部新闻'
         },
@@ -322,7 +322,7 @@ window.I18N = {
             listings: '在售 / 在租房源'
         },
         news: {
-            eyebrow: '新闻 · News',
+            eyebrow: '最新动态',
             title: '地产、城市与市场的最新动态。',
             desc: '由 ROOFY 团队精选、编译与速记的国际、卢萨卡与本地地产要闻——更新中。',
             categories: {
@@ -343,7 +343,7 @@ window.I18N = {
             notFoundCta: '返回新闻列表'
         },
         projects: {
-            eyebrow: '集团项目 · Group Developments',
+            eyebrow: '集团项目',
             title: '由本集团母公司开发的旗舰住区。',
             desc: '从「热销中」到「建设中」，每一个项目都是 ROOFY 集团为卢萨卡城市升级写下的一行注脚。',
             sectionEyebrow: '本集团母公司开发',
@@ -721,7 +721,7 @@ window.I18N = {
             listings: 'Active listings'
         },
         news: {
-            eyebrow: 'News · 新闻',
+            eyebrow: 'Latest News',
             title: 'The latest in property, city and markets.',
             desc: 'Curated, translated and digested by the ROOFY team across international, Lusaka and local real-estate beats — updated regularly.',
             categories: {
