@@ -134,12 +134,12 @@ p { line-height: 1.7; }
 .hero-cinematic { position: relative; isolation: isolate; background-size: cover; background-position: center; }
 .hero-cinematic::after {
     content: ''; position: absolute; inset: 0; z-index: -1;
-    /* Two scrims so the headline (left) and the search panel (bottom) stay
-       legible over bright spots in the photo, while the right stays open so
-       the image still reads. */
+    /* Title sits bottom-left and the search bottom-right, nav at the top: darken
+       the bottom and left for legibility, keep the middle/top bright so the
+       architecture photo reads clean (the design-reference look). */
     background:
-        linear-gradient(180deg, rgba(12, 22, 48, 0.80) 0%, rgba(12, 22, 48, 0.48) 40%, rgba(12, 22, 48, 0.46) 60%, rgba(12, 22, 48, 0.85) 100%),
-        linear-gradient(100deg, rgba(12, 22, 48, 0.42) 0%, rgba(12, 22, 48, 0) 62%);
+        linear-gradient(180deg, rgba(12, 22, 48, 0.46) 0%, rgba(12, 22, 48, 0.12) 34%, rgba(12, 22, 48, 0.30) 62%, rgba(12, 22, 48, 0.86) 100%),
+        linear-gradient(105deg, rgba(12, 22, 48, 0.45) 0%, rgba(12, 22, 48, 0) 55%);
 }
 /* Belt-and-braces: keep the hero headline + lede readable even over a bright
    sky or pale patch right behind the text. Tight shadow reads like a soft

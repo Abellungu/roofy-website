@@ -48,41 +48,32 @@ window.homeSearch = function (e) {
  * navbar runs transparent over the hero and turns solid past it (initNavMode). */
 function heroSection() {
     const T = ROOFY.tr();
-    const regions = T.properties.regions || {};
-    const regionOpts = '<option value="">' + T.properties.regionAll + '</option>' +
-        Object.keys(regions).map(function (k) { return '<option value="' + k + '">' + regions[k] + '</option>'; }).join('');
-    const heroImg = '/assets/img/projects/oasis-miracle-pool.jpg';
+    const lang = ROOFY.state.lang;
+    const heroImg = '/assets/img/projects/serenity-villa-a.jpg';
+    const titleLines = lang === 'zh' ? ['筑造.', '塑造.', '成长.'] : ['Build.', 'Brand.', 'Grow.'];
+    const titleHtml = titleLines.map(function (l) {
+        return '<span class="block reveal-mask"><span class="reveal-line">' + l + '</span></span>';
+    }).join('');
 
-    const txnToggle =
-        '<div class="inline-flex text-xs font-semibold mb-3" data-reveal-up>' +
-        '<button type="button" onclick="setHomeTxn(this,\'sale\')" data-txn="sale" class="home-txn px-6 h-9 bg-amber-500 text-slate-900 transition-colors">' + T.properties.transaction.sale + '</button>' +
-        '<button type="button" onclick="setHomeTxn(this,\'rent\')" data-txn="rent" class="home-txn px-6 h-9 bg-white/10 text-white hover:bg-white/20 transition-colors">' + T.properties.transaction.rent + '</button>' +
-        '</div>';
+    /* Minimal frosted search, bottom-right (matches the design reference): a
+     * single keyword field + gold arrow → /properties, where the full filters
+     * live. Hidden fields keep homeSearch()'s deep-link logic working. */
+    const search =
+        '<form onsubmit="return homeSearch(event)" class="glass-search w-full p-6" data-reveal-up>' +
+        '<input type="hidden" id="home-txn" value="all"><input type="hidden" id="home-type" value="all">' +
+        '<input type="hidden" id="home-beds" value="all"><input type="hidden" id="home-region" value="">' +
+        '<div class="text-[11px] tracking-[0.25em] uppercase text-white/70 mb-4">' + (lang === 'zh' ? '探索房源' : 'Discover Properties') + '</div>' +
+        '<div class="flex items-center gap-3 border-b border-white/35 pb-2.5 focus-within:border-amber-400 transition-colors">' +
+        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="gs-field flex-1 bg-transparent text-white text-base italic placeholder-white/55 focus:outline-none">' +
+        '<button type="submit" class="text-amber-400 hover:text-amber-300 transition-colors shrink-0" aria-label="' + escapeAttr(T.hero.searchBtn) + '"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>' +
+        '</div></form>';
 
-    const searchPanel =
-        '<form onsubmit="return homeSearch(event)" class="glass-search p-2.5 flex flex-col sm:flex-row sm:items-center gap-2 max-w-2xl" data-reveal-up>' +
-        '<input type="hidden" id="home-txn" value="sale">' +
-        '<div class="flex items-center gap-2 flex-1 px-3 min-w-0">' +
-        '<i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0"></i>' +
-        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="gs-field w-full h-10 text-sm bg-transparent focus:outline-none">' +
-        '</div>' +
-        '<select id="home-region" class="gs-field h-10 px-3 text-sm sm:border-l sm:border-white/20 focus:outline-none" aria-label="' + escapeAttr(T.properties.regionLabel) + '">' + regionOpts + '</select>' +
-        '<select id="home-type" class="hidden"><option value="all"></option></select>' +
-        '<select id="home-beds" class="hidden"><option value="all"></option></select>' +
-        '<button type="submit" class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm h-11 px-6 transition-colors shrink-0">' +
-        '<i data-lucide="search" class="w-4 h-4"></i>' + T.hero.searchBtn + '</button>' +
-        '</form>';
-
-    return '<section id="top" class="hero-cinematic relative min-h-[90vh] flex items-center overflow-hidden" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
-        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 w-full pt-28 pb-16">' +
-        '<span class="reveal-mask inline-block mb-5"><span class="reveal-line roofy-eyebrow inline-flex text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-amber-400 uppercase">' + T.hero.eyebrow + '</span></span>' +
-        '<h1 class="font-display font-semibold text-white leading-[1.02] mb-6 text-[2.75rem] sm:text-6xl lg:text-7xl max-w-3xl">' +
-        '<span class="block reveal-mask"><span class="reveal-line">' + T.hero.title1 + '</span></span>' +
-        '<span class="block reveal-mask"><span class="reveal-line text-gold-gradient">' + T.hero.title2 + '</span></span></h1>' +
-        '<div class="reveal-mask mb-8"><p class="reveal-line text-base sm:text-lg text-slate-100/85 leading-relaxed max-w-xl">' + T.hero.desc + '</p></div>' +
-        txnToggle +
-        searchPanel +
-        '</div></section>';
+    return '<section id="top" class="hero-cinematic relative min-h-screen flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-28 pb-14 lg:pb-20">' +
+        '<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">' +
+        '<h1 class="lg:col-span-7 font-display font-medium text-white leading-[0.9] text-[3.5rem] sm:text-7xl lg:text-8xl xl:text-[8.5rem]">' + titleHtml + '</h1>' +
+        '<div class="lg:col-span-5 lg:justify-self-end w-full sm:max-w-[380px]">' + search + '</div>' +
+        '</div></div></section>';
 }
 
 /* Three co-equal businesses, editorial register: a 2px navy top-rule per
