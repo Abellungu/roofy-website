@@ -32,9 +32,12 @@ body {
 h1, h2, h3, h4,
 .font-display, .display-xl, .display-lg, .display-md {
     font-family: 'Cormorant Garamond', Georgia, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
-    color: var(--navy);
     letter-spacing: -0.01em;
 }
+/* Default heading colour on light surfaces. Kept on the element selector only
+   (NOT on .font-display) so Tailwind colour utilities — text-white on the
+   cinematic hero, text-slate-900 elsewhere — always win the cascade. */
+h1, h2, h3, h4 { color: var(--navy); }
 :lang(zh) h1, :lang(zh) h2, :lang(zh) h3, :lang(zh) h4 { letter-spacing: 0; }
 
 .display-xl { font-weight: 600; line-height: 1.02; font-size: clamp(2.25rem, 5vw, 4rem); }
@@ -131,8 +134,18 @@ p { line-height: 1.7; }
 .hero-cinematic { position: relative; isolation: isolate; background-size: cover; background-position: center; }
 .hero-cinematic::after {
     content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(180deg, rgba(12, 22, 48, 0.55) 0%, rgba(12, 22, 48, 0.34) 38%, rgba(12, 22, 48, 0.84) 100%);
+    /* Two scrims so the headline (left) and the search panel (bottom) stay
+       legible over bright spots in the photo, while the right stays open so
+       the image still reads. */
+    background:
+        linear-gradient(180deg, rgba(12, 22, 48, 0.80) 0%, rgba(12, 22, 48, 0.48) 40%, rgba(12, 22, 48, 0.46) 60%, rgba(12, 22, 48, 0.85) 100%),
+        linear-gradient(100deg, rgba(12, 22, 48, 0.42) 0%, rgba(12, 22, 48, 0) 62%);
 }
+/* Belt-and-braces: keep the hero headline + lede readable even over a bright
+   sky or pale patch right behind the text. Tight shadow reads like a soft
+   outline; the wider one lifts text off busy backgrounds. */
+.hero-cinematic h1,
+.hero-cinematic p { text-shadow: 0 1px 3px rgba(12, 22, 48, 0.75), 0 2px 18px rgba(12, 22, 48, 0.45); }
 
 /* ── News article body ── */
 .prose-article p { font-size: 1.0625rem; line-height: 1.8; color: var(--ink); margin-bottom: 1.3rem; }
