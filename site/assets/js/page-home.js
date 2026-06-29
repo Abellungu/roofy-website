@@ -116,15 +116,13 @@ function featuredPropertiesSection() {
         '<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3" data-reveal-up>' + T.featured.title + '</h2>' +
-        '<p class="text-slate-600" data-reveal-up>' + T.featured.subtitle + '</p></div>' +
+        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
         '<div class="flex items-center gap-2 shrink-0" data-reveal-up>' +
         '<button type="button" class="featured-prev inline-flex items-center justify-center w-11 h-11 border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Previous"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>' +
         '<button type="button" class="featured-next inline-flex items-center justify-center w-11 h-11 border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Next"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
         '</div></div>' +
         '<div class="featured-swiper swiper" data-reveal-up><div class="swiper-wrapper">' + slides + '</div></div>' +
-        '<div class="featured-pagination mt-8 flex justify-center gap-2"></div>' +
-        '<div class="mt-10 flex justify-center" data-reveal-up>' +
+        '<div class="mt-12 flex justify-center" data-reveal-up>' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-8 h-12 transition-colors">' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
@@ -190,9 +188,7 @@ function projectsBandSection() {
             '<h3 class="font-display text-xl font-semibold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">' + name + '</h3>' +
             '<p class="text-sm text-slate-600 leading-snug mb-4 line-clamp-2 flex-1">' + (tagline || '') + '</p>' +
             '<div class="pt-4 border-t border-slate-200 mt-auto">' +
-            '<div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 mb-1">' + T.projects.specs.priceRange + '</div>' +
-            '<div class="text-amber-600 font-semibold text-lg whitespace-nowrap mb-2">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
-            '<div class="text-xs text-slate-500 leading-snug">' + (propertyType || '') + '</div>' +
+            '<div class="text-amber-600 font-display font-semibold text-xl whitespace-nowrap">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
             '</div></div></a>';
     }).join('');
 
@@ -201,8 +197,7 @@ function projectsBandSection() {
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10" data-reveal-up>' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
-        '<p class="text-slate-600">' + T.projects.sectionDesc + '</p>' +
+        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900">' + T.projects.sectionTitle + '</h2>' +
         '</div></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' + cards + '</div>' +
         '</div></section>';

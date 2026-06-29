@@ -75,19 +75,13 @@ p { line-height: 1.7; }
 #site-nav[data-mode="solid"] .nav-lang:hover { color: var(--gold-dark); background: rgba(12, 22, 48, 0.05); }
 #site-nav[data-mode="solid"] .nav-mobile-toggle { color: var(--navy); }
 
-/* ── Eyebrow: square gold anchor + auto-numbered section index ── */
+/* ── Eyebrow: minimal plain-text label (gold, uppercase, tracked). The old
+ *    square anchor + "/ 01" section numbering was decorative clutter — removed. ── */
 .eyebrow, .roofy-eyebrow {
     font-family: 'Inter', system-ui, sans-serif;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-}
-.roofy-eyebrow { display: inline-flex; align-items: center; gap: .65em; }
-.roofy-eyebrow::before { content: ''; width: .5em; height: .5em; background: currentColor; flex: none; }
-#root main > section { counter-increment: roofysec; }
-#root main > section .roofy-eyebrow::after {
-    content: "/ " counter(roofysec, decimal-leading-zero);
-    margin-left: .35em; font-weight: 600; letter-spacing: .18em; opacity: .55;
 }
 
 /* ── Scroll reveals — hidden ONLY when JS is present (.html.js), so prerendered
