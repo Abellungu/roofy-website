@@ -27,7 +27,7 @@ function missionVisionRow() {
             '<p class="text-slate-600 leading-relaxed lg:text-lg">' + desc + '</p>' +
             '</div>';
     }
-    return '<section class="py-28 lg:py-40 bg-white">' +
+    return '<section class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">' +
         tile(T.mission.eyebrow, T.mission.title, T.mission.desc) +
         tile(T.vision.eyebrow, T.vision.title, T.vision.desc) +
@@ -44,7 +44,7 @@ function valuesGrid() {
             '<p class="lg:col-span-6 text-sm lg:text-base text-slate-500 leading-relaxed lg:pt-2">' + v.d + '</p>' +
             '</div>';
     }).join('');
-    return '<section id="values" class="py-28 lg:py-40 bg-slate-50">' +
+    return '<section id="values" class="py-16 md:py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12 lg:mb-16">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.values.eyebrow + '</div>' +
@@ -63,7 +63,7 @@ function businessScopeSection() {
             '<p class="lg:col-span-6 text-sm lg:text-base text-slate-500 leading-relaxed lg:pt-1.5">' + b.d + '</p>' +
             '</div>';
     }).join('');
-    return '<section id="business-scope" class="py-28 lg:py-40 bg-white">' +
+    return '<section id="business-scope" class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12 lg:mb-16">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.businessScope.eyebrow + '</div>' +
@@ -79,7 +79,7 @@ function foundingStory() {
     const p1 = lang === 'zh'
         ? '中赞往来日益密切，却少有本地公司能同时理解两边的语境。ROOFY 选择填补这个空白：以统一的专业标准，服务两边的客户。'
         : 'As China and Zambia grow closer, few local firms speak both contexts fluently. ROOFY was built to fill that gap — serving both sides to one standard.';
-    return '<section class="py-28 lg:py-40 bg-slate-50">' +
+    return '<section class="py-16 md:py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">' +
         '<div class="lg:col-span-6">' +
         '<div class="aspect-[4/3] overflow-hidden bg-slate-200" data-reveal-up>' +
@@ -105,7 +105,7 @@ function officeGallery() {
         return '<div data-reveal-up class="img-zoom overflow-hidden aspect-[4/3] bg-slate-200">' +
             '<img src="' + im[0] + '" alt="' + im[1] + '" loading="lazy" class="w-full h-full object-cover" /></div>';
     }).join('');
-    return '<section class="py-28 lg:py-40 bg-white">' +
+    return '<section class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12 lg:mb-16">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
@@ -133,7 +133,7 @@ function teamSection() {
                 '</div>';
         }).join('');
 
-    return '<section id="team" class="py-28 lg:py-40 bg-white">' +
+    return '<section id="team" class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">' +
         '<div class="max-w-2xl">' +
@@ -149,7 +149,7 @@ function teamSection() {
 
 function aboutCtaBanner() {
     const T = ROOFY.tr();
-    return '<section class="relative py-28 lg:py-40 bg-slate-900 text-white overflow-hidden">' +
+    return '<section class="relative py-16 md:py-28 lg:py-40 bg-slate-900 text-white overflow-hidden">' +
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +

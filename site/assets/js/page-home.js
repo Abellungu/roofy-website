@@ -92,7 +92,7 @@ function threePillarsSection() {
             '<span class="text-xs font-semibold tracking-[0.16em] text-amber-600 uppercase">' + s.tag + ' →</span>' +
             '</a>';
     }).join('');
-    return '<section class="bg-slate-50 py-28 lg:py-40">' +
+    return '<section class="bg-slate-50 py-16 md:py-28 lg:py-40">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-16 lg:mb-24">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4" data-reveal-up>' + T.services.eyebrow + '</div>' +
@@ -111,7 +111,7 @@ function featuredPropertiesSection() {
     } else {
         slides = list.map(function (p) { return '<div class="swiper-slide">' + window.propertyCard(p, T) + '</div>'; }).join('');
     }
-    return '<section id="properties" class="py-28 lg:py-40 bg-white">' +
+    return '<section id="properties" class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14 lg:mb-20">' +
         '<div class="max-w-2xl">' +
@@ -192,7 +192,7 @@ function projectsBandSection() {
             '</div></div></a>';
     }).join('');
 
-    return '<section class="py-28 lg:py-40 bg-slate-50">' +
+    return '<section class="py-16 md:py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-14 lg:mb-20" data-reveal-up>' +
         '<div class="max-w-2xl">' +
@@ -227,7 +227,7 @@ function newsSection() {
             '<h3 class="font-display text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-700 transition-colors">' + (lang === 'zh' ? a.titleZh : a.titleEn) + '</h3>' +
             '</div></a>';
     }).join('');
-    return '<section class="py-28 lg:py-40 bg-white">' +
+    return '<section class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex items-end justify-between gap-6 mb-14 lg:mb-20">' +
         '<div>' +
