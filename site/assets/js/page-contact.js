@@ -25,9 +25,9 @@ function infoTile(label, value, icon, href) {
         '<div class="text-xs font-semibold uppercase tracking-wider text-slate-500">' + label + '</div></div>' +
         '<div class="text-sm text-slate-900 leading-relaxed whitespace-pre-line">' + value + '</div>';
     if (href) {
-        return '<a href="' + href + '" class="block border-t-2 border-slate-900 pt-5 hover:border-amber-500 transition-colors duration-300">' + inner + '</a>';
+        return '<a href="' + href + '" class="block border-t border-slate-300 pt-6 hover:border-amber-500 transition-colors duration-300">' + inner + '</a>';
     }
-    return '<div class="border-t-2 border-slate-900 pt-5">' + inner + '</div>';
+    return '<div class="border-t border-slate-300 pt-6">' + inner + '</div>';
 }
 
 function contactBlock() {
@@ -36,7 +36,7 @@ function contactBlock() {
         return '<option value="' + k + '">' + T.contact.interest[k] + '</option>';
     }).join('');
 
-    return '<section class="py-16 lg:py-24 bg-slate-50">' +
+    return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">' +
         '<div class="lg:col-span-5 space-y-4" data-reveal-up>' +
         '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">' +
@@ -152,7 +152,7 @@ window.submitContact = function (e) {
 function mapSection() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
-    return '<section class="py-16 lg:py-24 bg-white">' +
+    return '<section class="py-20 lg:py-28 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8">' +
         '<div>' +

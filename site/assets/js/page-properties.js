@@ -79,13 +79,13 @@ function featuredProjectsBand() {
         const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
         const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
         return '<a href="/projects/' + encodeURIComponent(p.id) + '.html" ' +
-            'class="group flex flex-col h-full bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            'class="group flex flex-col h-full" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
-            '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
+            '<div class="absolute top-4 left-4 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
             (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
-            '<div class="p-5 flex flex-col flex-1">' +
+            '<div class="pt-5 flex flex-col flex-1">' +
             '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
             '<i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>' + (p.location || '') + '</div>' +
             '<h3 class="font-display text-lg font-semibold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">' + name + '</h3>' +
