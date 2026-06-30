@@ -78,22 +78,22 @@ window.I18N = {
             title: '一家公司，承接城市升级的七条业务线。',
             desc: '从前期策划到代建落地，从二手交易到广告投放，再到品牌与活动的最终呈现——我们提供完整可衔接的业务链路。',
             items: [
-                { icon: 'building-2', tag: '01', t: '房地产策划代理', d: '高端住宅、大型商业、大型文旅地产、康养地产、主题公园、工业地产、农业地产等多类型业态。' },
-                { icon: 'hard-hat', tag: '02', t: '代建', d: '一站式覆盖规划、设计、建安、营销策划、销售、招商、营运与资本各环节。' },
-                { icon: 'repeat-2', tag: '03', t: '二手房租赁与交易', d: '面向本地买家、租客与海外投资人，提供经过严格尽调的二手房源。' },
-                { icon: 'map', tag: '04', t: '土地交易', d: '商业用地、住宅用地、农业与产业园用地的转让代理与买方撮合。' },
-                { icon: 'monitor-play', tag: '05', t: '中国高端 LED 销售与租赁', d: '直采中国一线 LED 屏厂资源——支持销售与租赁两种模式。' },
-                { icon: 'megaphone', tag: '06', t: 'LED 户外广告发布', d: '卢萨卡核心商圈点位招商，文旅、活动、节点投放与长期合作均可承接。' },
-                { icon: 'sparkles', tag: '07', t: '品牌、影视、活动', d: '品牌策划、影视制作与高端活动策划全链路打通。' }
+                { icon: 'building-2', tag: '01', t: '房地产策划代理', d: '住宅、商业、文旅、康养、工业与农业地产。' },
+                { icon: 'hard-hat', tag: '02', t: '代建', d: '规划、设计、建安、营销、销售到运营，一站式覆盖。' },
+                { icon: 'repeat-2', tag: '03', t: '二手房租赁与交易', d: '严格尽调的二手房源，面向买家、租客与海外投资人。' },
+                { icon: 'map', tag: '04', t: '土地交易', d: '商业、住宅、农业与产业园用地的转让与撮合。' },
+                { icon: 'monitor-play', tag: '05', t: '中国高端 LED 销售与租赁', d: '直采中国一线 LED 屏厂，支持销售与租赁。' },
+                { icon: 'megaphone', tag: '06', t: 'LED 户外广告发布', d: '卢萨卡核心商圈点位招商，长短期投放均可。' },
+                { icon: 'sparkles', tag: '07', t: '品牌、影视、活动', d: '品牌策划、影视制作与高端活动，全链路打通。' }
             ]
         },
         services: {
             eyebrow: '业务版图',
             title: '三大业务，一种匠心标准。',
             items: [
-                { tag: '01', icon: 'home', title: '房地产解决方案', desc: '代建、房产买卖、投资咨询与置业陪伴——为个人、家庭与企业提供完整的房产服务链路。', href: 'services/real-estate.html', cta: '了解房地产业务' },
-                { tag: '02', icon: 'tv-minimal-play', title: 'LED 户外广告', desc: '以现代 LED 屏幕为载体的数字户外广告，让品牌出现在赞比亚最具能见度的城市核心。现正招募首批合作品牌与项目。', href: 'services/advertising.html', cta: '了解广告业务' },
-                { tag: '03', icon: 'sparkles', title: '品牌与营销', desc: '战略层面的品牌定位，与执行层面的营销活动——让品牌在市场中获得清晰、可信、可被记忆的位置。', href: 'services/branding.html', cta: '了解品牌业务' }
+                { tag: '01', icon: 'home', title: '房地产解决方案', desc: '代建、买卖、租赁与投资咨询，完整的房产服务链路。', href: 'services/real-estate.html', cta: '了解房地产业务' },
+                { tag: '02', icon: 'tv-minimal-play', title: 'LED 户外广告', desc: '以 LED 屏幕为载体的数字户外广告，让品牌占据城市核心。', href: 'services/advertising.html', cta: '了解广告业务' },
+                { tag: '03', icon: 'sparkles', title: '品牌与营销', desc: '从品牌定位到营销落地，让品牌被清晰记住。', href: 'services/branding.html', cta: '了解品牌业务' }
             ]
         },
         featured: {
@@ -491,7 +491,7 @@ window.I18N = {
             title: 'Three practices, one standard of craft.',
             items: [
                 { tag: '01', icon: 'home', title: 'Real Estate Solutions', desc: 'Turnkey development, property sales, investment opportunities and advisory — for individuals, families and businesses.', href: 'services/real-estate.html', cta: 'Real Estate' },
-                { tag: '02', icon: 'tv-minimal-play', title: 'LED Billboard Advertising', desc: 'Digital outdoor advertising powered by modern LED billboards, designed to put brands on Zambia\'s most visible streets. Now booking founding partners and inaugural campaigns.', href: 'services/advertising.html', cta: 'Advertising' },
+                { tag: '02', icon: 'tv-minimal-play', title: 'LED Billboard Advertising', desc: 'Digital outdoor advertising on modern LED billboards, putting brands on Zambia\'s most visible streets.', href: 'services/advertising.html', cta: 'Advertising' },
                 { tag: '03', icon: 'sparkles', title: 'Branding & Marketing', desc: 'Strategic brand positioning and marketing execution that gives brands a clear, credible, memorable seat in the market.', href: 'services/branding.html', cta: 'Branding' }
             ]
         },

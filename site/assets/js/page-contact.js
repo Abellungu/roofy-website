@@ -15,8 +15,7 @@ function contactHero() {
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
         '<div class="max-w-3xl">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.contact.eyebrow + '</span></span>' +
-        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + T.contact.desc + '</p></div>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.contact.title + '</span></span></h1>' +
         '</div></div></section>';
 }
 
@@ -33,10 +32,6 @@ function infoTile(label, value, icon, href) {
 
 function contactBlock() {
     const T = ROOFY.tr();
-    const why = T.contact.why.items.map(function (s) {
-        return '<li class="flex items-start gap-3 text-sm text-slate-700"><i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i><span>' + s + '</span></li>';
-    }).join('');
-
     const interestOpts = ['realestate', 'led', 'branding', 'other'].map(function (k) {
         return '<option value="' + k + '">' + T.contact.interest[k] + '</option>';
     }).join('');
@@ -54,9 +49,6 @@ function contactBlock() {
         '<div><div class="text-xs font-semibold uppercase tracking-wider text-white/80 mb-1">WhatsApp</div>' +
         '<div class="font-semibold">' + T.cta.whatsapp + '</div></div>' +
         '<i data-lucide="arrow-up-right" class="w-5 h-5"></i></a>' +
-        '<div class="p-6 bg-white border border-slate-100 rounded-lg shadow-sm">' +
-        '<div class="text-base font-semibold text-slate-900 mb-4">' + T.contact.why.title + '</div>' +
-        '<ul class="space-y-3">' + why + '</ul></div>' +
         '</div>' +
         '<div class="lg:col-span-7">' +
         contactForm(T, interestOpts) +

@@ -40,9 +40,8 @@ function pillarHero() {
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-16 lg:pb-20">' +
         '<div class="max-w-3xl">' +
         '<div class="reveal-mask mb-6"><div class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + ti18n.eyebrow + '</div></div>' +
-        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl">' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] mb-8 text-5xl sm:text-6xl lg:text-7xl">' +
         '<span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask mb-8"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed max-w-xl">' + summary + '</p></div>' +
         '<div class="flex flex-wrap items-center gap-3" data-reveal-up>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 transition-colors">' + ti18n.inquire + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '<a href="#adjacent" class="inline-flex items-center gap-2 border border-white/40 hover:border-amber-400 hover:text-amber-400 text-white text-sm font-medium px-7 h-12 transition-colors">' + T.pillars.adjacent + '</a>' +
@@ -225,8 +224,7 @@ function ledProductsBlock(T) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-4" data-reveal-up>' + ti.title + '</h2>' +
-        '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + ti.desc + '</p></div>' +
+        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900" data-reveal-up>' + ti.title + '</h2></div>' +
         '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">' + cards + '</div>' +
         '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-10" data-reveal-up>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +
@@ -275,8 +273,7 @@ function ledBillboardsBlock(T) {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-4" data-reveal-up>' + ti.title + '</h2>' +
-        '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + ti.desc + '</p></div>' +
+        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900" data-reveal-up>' + ti.title + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + cards + '</div>' +
         '<div class="flex flex-col sm:flex-row sm:items-center gap-4 mt-8" data-reveal-up>' +
         '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-colors">' +

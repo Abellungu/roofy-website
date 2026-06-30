@@ -9,16 +9,12 @@ function aboutHero() {
     const lang = ROOFY.state.lang;
     const eyebrow = lang === 'zh' ? '关于我们' : 'About';
     const title = lang === 'zh' ? '立足赞比亚，连接中赞。' : 'Rooted in Zambia, bridging China.';
-    const desc = lang === 'zh'
-        ? 'Roofy Investments Zambia 2024 年在卢萨卡 Ibex Hill 成立，是一家以房地产、LED 户外广告与品牌营销为根基的综合性服务集团，参与卢萨卡城市升级的每一个关键节点。'
-        : 'Founded in 2024 at Ibex Hill, Lusaka, Roofy Investments Zambia is a comprehensive services group anchored in real estate, LED outdoor advertising and brand marketing — present at every key node of Lusaka\'s urban upgrade.';
     const heroImg = '/assets/img/office/office-lobby.jpg';
     return '<section id="top" class="hero-cinematic relative min-h-[68vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
         '<div class="max-w-3xl">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + eyebrow + '</span></span>' +
-        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-2xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + desc + '</p></div>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + title + '</span></span></h1>' +
         '</div></div></section>';
 }
 
@@ -77,8 +73,7 @@ function businessScopeSection() {
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.businessScope.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-4" data-reveal-up>' + T.businessScope.title + '</h2>' +
-        '<p class="text-slate-600 leading-relaxed" data-reveal-up>' + T.businessScope.desc + '</p></div>' +
+        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900" data-reveal-up>' + T.businessScope.title + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">' + items + '</div>' +
         '</div></section>';
 }
@@ -88,11 +83,8 @@ function foundingStory() {
     const eyebrow = lang === 'zh' ? '我们的故事' : 'Our story';
     const title = lang === 'zh' ? '始于 2024 · 立足 Ibex Hill。' : 'Founded 2024 · Based in Ibex Hill.';
     const p1 = lang === 'zh'
-        ? '我们诞生于赞比亚房地产与媒介行业飞速变化的时刻。中赞之间的资金、商业与文化往来日益密切，而真正能够同时理解两边语境、并以专业标准服务客户的本地公司却屈指可数——这是 ROOFY 选择出发的理由。'
-        : 'We were born at a moment when Zambia\'s real-estate and media markets were changing fast. Capital, business and culture flow between China and Zambia like never before — but very few local firms can speak both contexts fluently and serve them with a uniform standard. That is the gap ROOFY chose to step into.';
-    const p2 = lang === 'zh'
-        ? '今天，我们的团队覆盖房地产、广告与品牌三个方向，办公室坐落在卢萨卡 Ibex Hill 的 Second Street。我们相信：对客户的承诺，以及对工艺的尊重，是一家公司能走得更远的真正原因。'
-        : 'Today, our team spans real estate, advertising and brand — headquartered on Second Street, Ibex Hill, Lusaka. We believe in deep commitments to clients and a respect for craft. Those, more than anything, are what carry a company through time.';
+        ? '中赞往来日益密切，却少有本地公司能同时理解两边的语境。ROOFY 选择填补这个空白：以统一的专业标准，服务两边的客户。'
+        : 'As China and Zambia grow closer, few local firms speak both contexts fluently. ROOFY was built to fill that gap — serving both sides to one standard.';
     return '<section class="py-20 lg:py-28 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">' +
         '<div class="lg:col-span-5">' +
@@ -102,8 +94,7 @@ function foundingStory() {
         '<div class="lg:col-span-7 lg:pt-4">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + eyebrow + '</div>' +
         '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-6" data-reveal-up>' + title + '</h2>' +
-        '<p class="text-slate-700 leading-relaxed mb-5 max-w-xl" data-reveal-up>' + p1 + '</p>' +
-        '<p class="text-slate-500 leading-relaxed max-w-xl" data-reveal-up>' + p2 + '</p>' +
+        '<p class="text-slate-700 leading-relaxed max-w-xl" data-reveal-up>' + p1 + '</p>' +
         '</div></div></section>';
 }
 

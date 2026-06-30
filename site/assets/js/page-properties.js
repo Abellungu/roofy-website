@@ -51,8 +51,7 @@ function propertiesHero() {
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
         '<div class="max-w-3xl">' +
         '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.properties.eyebrow + '</span></span>' +
-        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
-        '<div class="reveal-mask max-w-xl"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed">' + T.properties.subtitle + '</p></div>' +
+        '<h1 class="font-display font-medium text-white leading-[0.95] text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.properties.title + '</span></span></h1>' +
         '</div></div></section>';
 }
 
