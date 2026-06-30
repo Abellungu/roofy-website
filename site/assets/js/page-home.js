@@ -83,8 +83,8 @@ function threePillarsSection() {
     const items = T.services.items || [];
     const icons = ['building-2', 'tv', 'sparkles'];
     const cards = items.map(function (s, i) {
-        return '<a href="/' + s.href + '" class="group block border-t-2 border-slate-900 pt-6" data-reveal-up>' +
-            '<div class="flex items-center justify-between mb-5">' +
+        return '<a href="/' + s.href + '" class="group block border-t-2 border-slate-900 pt-8" data-reveal-up>' +
+            '<div class="flex items-center justify-between mb-6">' +
             '<i data-lucide="' + (icons[i] || 'square') + '" class="w-7 h-7 text-amber-600"></i>' +
             '<i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-300 group-hover:text-amber-600 transition-colors"></i></div>' +
             '<h3 class="font-display text-2xl lg:text-3xl font-semibold text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">' + s.title + '</h3>' +
@@ -92,12 +92,12 @@ function threePillarsSection() {
             '<span class="text-xs font-semibold tracking-[0.16em] text-amber-600 uppercase">' + s.tag + ' →</span>' +
             '</a>';
     }).join('');
-    return '<section class="bg-slate-50 py-20 lg:py-28">' +
+    return '<section class="bg-slate-50 py-28 lg:py-40">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-14">' +
+        '<div class="max-w-2xl mb-16 lg:mb-24">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4" data-reveal-up>' + T.services.eyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight" data-reveal-up>' + T.services.title + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">' + cards + '</div>' +
+        '<h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight" data-reveal-up>' + T.services.title + '</h2></div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">' + cards + '</div>' +
         '</div></section>';
 }
 
@@ -111,12 +111,12 @@ function featuredPropertiesSection() {
     } else {
         slides = list.map(function (p) { return '<div class="swiper-slide">' + window.propertyCard(p, T) + '</div>'; }).join('');
     }
-    return '<section id="properties" class="py-20 lg:py-28 bg-white">' +
+    return '<section id="properties" class="py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">' +
+        '<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14 lg:mb-20">' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
+        '<h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
         '<div class="flex items-center gap-2 shrink-0" data-reveal-up>' +
         '<button type="button" class="featured-prev inline-flex items-center justify-center w-11 h-11 border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Previous"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>' +
         '<button type="button" class="featured-next inline-flex items-center justify-center w-11 h-11 border border-slate-300 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-colors" aria-label="Next"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
@@ -176,30 +176,30 @@ function projectsBandSection() {
         const tagline = lang === 'zh' ? p.taglineZh : p.taglineEn;
         const propertyType = lang === 'zh' ? p.propertyTypeZh : p.propertyTypeEn;
         return '<a href="/projects/' + encodeURIComponent(p.id) + '.html" ' +
-            'class="group flex flex-col h-full bg-white border border-slate-200 overflow-hidden transition-shadow duration-300" data-reveal-up>' +
+            'class="group flex flex-col h-full" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
             '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
-            '<div class="absolute top-3 left-3 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
+            '<div class="absolute top-4 left-4 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
             (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
-            '<div class="p-5 flex flex-col flex-1">' +
+            '<div class="pt-5 flex flex-col flex-1">' +
             '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
             '<i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>' + (p.location || '') + '</div>' +
             '<h3 class="font-display text-xl font-semibold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">' + name + '</h3>' +
             '<p class="text-sm text-slate-600 leading-snug mb-4 line-clamp-2 flex-1">' + (tagline || '') + '</p>' +
-            '<div class="pt-4 border-t border-slate-200 mt-auto">' +
+            '<div class="mt-auto">' +
             '<div class="text-amber-600 font-display font-semibold text-xl whitespace-nowrap">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
             '</div></div></a>';
     }).join('');
 
-    return '<section class="py-20 lg:py-24 bg-slate-50">' +
+    return '<section class="py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-10" data-reveal-up>' +
+        '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-14 lg:mb-20" data-reveal-up>' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900">' + T.projects.sectionTitle + '</h2>' +
+        '<h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900">' + T.projects.sectionTitle + '</h2>' +
         '</div></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' + cards + '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">' + cards + '</div>' +
         '</div></section>';
 }
 
@@ -227,12 +227,12 @@ function newsSection() {
             '<h3 class="font-display text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-700 transition-colors">' + (lang === 'zh' ? a.titleZh : a.titleEn) + '</h3>' +
             '</div></a>';
     }).join('');
-    return '<section class="py-20 lg:py-24 bg-white">' +
+    return '<section class="py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex items-end justify-between gap-6 mb-10">' +
+        '<div class="flex items-end justify-between gap-6 mb-14 lg:mb-20">' +
         '<div>' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.homeNews.eyebrow + '</div>' +
-        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900" data-reveal-up>' + T.homeNews.title + '</h2></div>' +
+        '<h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900" data-reveal-up>' + T.homeNews.title + '</h2></div>' +
         '<a href="/news/index.html" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors shrink-0" data-reveal-up>' +
         T.homeNews.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
@@ -258,11 +258,24 @@ function ctaBannerSection() {
         '</div></section>';
 }
 
+/* Full-bleed cinematic break — a single oversized line over an estate image,
+ * giving the long scroll a filmic pause between the businesses and the listings. */
+function cinematicBreak() {
+    const lang = ROOFY.state.lang;
+    const img = '/assets/img/projects/estate-gate.jpg';
+    const line = lang === 'zh' ? '在卢萨卡的每一条街道，都有 ROOFY。' : 'On every street in Lusaka, you will find ROOFY.';
+    return '<section class="hero-cinematic relative min-h-[72vh] flex items-end" style="background-image:url(\'' + img + '\')">' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 pb-16 lg:pb-24">' +
+        '<h2 class="font-display font-medium text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl leading-[1.05]" data-reveal-up>' + line + '</h2>' +
+        '</div></section>';
+}
+
 window.renderPage = function () {
     return PARTIALS.navHtml() +
         '<main>' +
         heroSection() +
         threePillarsSection() +
+        cinematicBreak() +
         featuredPropertiesSection() +
         projectsBandSection() +
         newsSection() +
