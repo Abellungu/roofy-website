@@ -33,7 +33,7 @@ function pillarHero() {
      * Each pillar keeps its own photo. */
     const heroImg = {
         'real-estate': '/assets/img/projects/oasis-crown-render.jpg',
-        advertising: '/assets/img/projects/oasis-miracle-aerial.jpg',
+        advertising: '/assets/img/led/advertising-hero.jpg',
         branding: '/assets/img/office/office-terrace.jpg'
     }[p.id] || p.heroImg;
     return '<section id="top" class="hero-cinematic relative min-h-[80vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +

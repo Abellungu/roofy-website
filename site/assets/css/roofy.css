@@ -46,7 +46,10 @@ h1, h2, h3, h4 { color: var(--navy); }
 
 p { line-height: 1.7; }
 
-.nav-wordmark { font-family: 'Cormorant Garamond', Georgia, serif; }
+.nav-wordmark { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+/* Minimal nav links: uppercase, wide-tracked, light — the gallery look from the
+   design reference. text-transform only affects Latin, so zh labels keep case. */
+#site-nav .nav-link { text-transform: uppercase; letter-spacing: 0.14em; font-weight: 400; font-size: 0.8rem; }
 
 /* ── Two-mode navbar: transparent over a cinematic hero (light text) vs a
  *    frosted off-white solid bar (navy text). roofy-core toggles data-mode. ── */
@@ -79,7 +82,7 @@ p { line-height: 1.7; }
  *    square anchor + "/ 01" section numbering was decorative clutter — removed. ── */
 .eyebrow, .roofy-eyebrow {
     font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }

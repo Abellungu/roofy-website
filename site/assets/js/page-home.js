@@ -49,7 +49,7 @@ window.homeSearch = function (e) {
 function heroSection() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
-    const heroImg = '/assets/img/projects/serenity-villa-a.jpg';
+    const heroImg = '/assets/img/projects/villa-hero.jpg';
     const titleLines = lang === 'zh' ? ['筑造.', '塑造.', '成长.'] : ['Build.', 'Brand.', 'Grow.'];
     const titleHtml = titleLines.map(function (l) {
         return '<span class="block reveal-mask"><span class="reveal-line">' + l + '</span></span>';
