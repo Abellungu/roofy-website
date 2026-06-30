@@ -49,7 +49,7 @@ p { line-height: 1.7; }
 .nav-wordmark { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
 /* Minimal nav links: uppercase, wide-tracked, light — the gallery look from the
    design reference. text-transform only affects Latin, so zh labels keep case. */
-#site-nav .nav-link { text-transform: uppercase; letter-spacing: 0.14em; font-weight: 400; font-size: 0.8rem; }
+#site-nav .nav-link { position: relative; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 400; font-size: 0.8rem; }
 
 /* ── Two-mode navbar: transparent over a cinematic hero (light text) vs a
  *    frosted off-white solid bar (navy text). roofy-core toggles data-mode. ── */
@@ -60,6 +60,16 @@ p { line-height: 1.7; }
 #site-nav[data-mode="hero"] .nav-link { color: rgba(255, 255, 255, 0.82); }
 #site-nav[data-mode="hero"] .nav-link:hover,
 #site-nav[data-mode="hero"] .nav-link.is-active { color: var(--gold); }
+#site-nav[data-mode="hero"] .nav-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -0.85rem;
+    width: 4.25rem;
+    height: 2px;
+    transform: translateX(-50%);
+    background: var(--gold);
+}
 #site-nav[data-mode="hero"] .nav-lang { color: rgba(255, 255, 255, 0.82); }
 #site-nav[data-mode="hero"] .nav-lang:hover { color: var(--gold); background: rgba(255, 255, 255, 0.10); }
 #site-nav[data-mode="hero"] .nav-mobile-toggle { color: #FFFFFF; }
@@ -143,6 +153,85 @@ p { line-height: 1.7; }
    outline; the wider one lifts text off busy backgrounds. */
 .hero-cinematic h1,
 .hero-cinematic p { text-shadow: 0 1px 3px rgba(12, 22, 48, 0.75), 0 2px 18px rgba(12, 22, 48, 0.45); }
+
+/* ── Home hero: reference-inspired city-builder banner ── */
+.home-hero {
+    background-position: center center;
+    min-height: 100svh;
+}
+.home-hero::after {
+    background:
+        linear-gradient(90deg, rgba(2, 5, 13, 0.96) 0%, rgba(4, 10, 23, 0.86) 31%, rgba(5, 17, 35, 0.42) 57%, rgba(5, 17, 35, 0.08) 100%),
+        linear-gradient(180deg, rgba(2, 5, 13, 0.32) 0%, rgba(2, 5, 13, 0.10) 48%, rgba(2, 5, 13, 0.72) 100%);
+}
+.home-hero-kicker .reveal-line {
+    letter-spacing: 0.34em;
+}
+.home-hero-kicker > span {
+    display: block;
+    width: 72px;
+    height: 2px;
+    margin-top: 1.15rem;
+    background: var(--gold);
+}
+.home-hero-title {
+    letter-spacing: 0;
+    text-shadow: 0 2px 4px rgba(2, 5, 13, 0.62), 0 16px 44px rgba(2, 5, 13, 0.46);
+}
+.home-hero .text-gold-gradient {
+    background-image: none;
+    -webkit-text-fill-color: #E7A144;
+    color: #E7A144;
+    filter: drop-shadow(0 6px 16px rgba(231, 161, 68, 0.18));
+}
+.home-hero-copy {
+    color: rgba(255, 247, 232, 0.90) !important;
+    text-shadow: 0 1px 2px rgba(2, 5, 13, 0.78), 0 10px 26px rgba(2, 5, 13, 0.42);
+}
+.home-hero-btn {
+    min-width: 240px;
+    border: 1px solid rgba(216, 188, 130, 0.92);
+    font-family: 'Cormorant Garamond', Georgia, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', serif;
+    letter-spacing: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.home-hero-btn-primary {
+    background: linear-gradient(135deg, rgba(4, 94, 82, 0.92), rgba(2, 55, 57, 0.94));
+    color: #FFF7E8;
+}
+.home-hero-btn-primary:hover {
+    background: linear-gradient(135deg, rgba(5, 112, 98, 0.96), rgba(3, 69, 70, 0.98));
+    border-color: #F0CF8A;
+}
+.home-hero-btn-secondary {
+    color: #FFF7E8;
+    border-color: rgba(255, 247, 232, 0.72);
+    background: rgba(2, 5, 13, 0.16);
+}
+.home-hero-btn-secondary:hover {
+    color: #F0CF8A;
+    border-color: #F0CF8A;
+    background: rgba(2, 5, 13, 0.30);
+}
+
+@media (max-width: 767px) {
+    .home-hero {
+        background-position: 64% center;
+    }
+    .home-hero::after {
+        background:
+            linear-gradient(90deg, rgba(2, 5, 13, 0.96) 0%, rgba(4, 10, 23, 0.90) 50%, rgba(5, 17, 35, 0.48) 100%),
+            linear-gradient(180deg, rgba(2, 5, 13, 0.36) 0%, rgba(2, 5, 13, 0.28) 45%, rgba(2, 5, 13, 0.86) 100%);
+    }
+    .home-hero-kicker .reveal-line {
+        letter-spacing: 0.22em;
+        line-height: 1.7;
+    }
+    .home-hero-btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
 
 /* ── News article body ── */
 .prose-article p { font-size: 1.0625rem; line-height: 1.8; color: var(--ink); margin-bottom: 1.3rem; }

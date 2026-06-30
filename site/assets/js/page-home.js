@@ -43,37 +43,32 @@ window.homeSearch = function (e) {
     return false;
 };
 
-/* Cinematic hero: full-bleed property photo + dark overlay, oversized Cormorant
- * two-line headline (white + gold), and a frosted-glass property search. The
- * navbar runs transparent over the hero and turns solid past it (initNavMode). */
+/* Cinematic hero: full-bleed city-at-night image, oversized editorial headline
+ * (white + gold), and two clear CTAs. The navbar runs transparent over the hero
+ * and turns solid past it (initNavMode). */
 function heroSection() {
     const T = ROOFY.tr();
-    const lang = ROOFY.state.lang;
-    const heroImg = '/assets/img/projects/villa-hero.jpg';
-    const titleLines = lang === 'zh' ? ['筑造.', '塑造.', '成长.'] : ['Build.', 'Brand.', 'Grow.'];
-    const titleHtml = titleLines.map(function (l) {
-        return '<span class="block reveal-mask"><span class="reveal-line">' + l + '</span></span>';
-    }).join('');
+    const joiner = ROOFY.state.lang === 'zh' ? '' : ' ';
+    const heroImg = '/assets/img/home/home-hero-city-night.jpg';
 
-    /* Minimal frosted search, bottom-right (matches the design reference): a
-     * single keyword field + gold arrow → /properties, where the full filters
-     * live. Hidden fields keep homeSearch()'s deep-link logic working. */
-    const search =
-        '<form onsubmit="return homeSearch(event)" class="glass-search w-full p-6" data-reveal-up>' +
-        '<input type="hidden" id="home-txn" value="all"><input type="hidden" id="home-type" value="all">' +
-        '<input type="hidden" id="home-beds" value="all"><input type="hidden" id="home-region" value="">' +
-        '<div class="text-[11px] tracking-[0.25em] uppercase text-white/70 mb-4">' + (lang === 'zh' ? '探索房源' : 'Discover Properties') + '</div>' +
-        '<div class="flex items-center gap-3 border-b border-white/35 pb-2.5 focus-within:border-amber-400 transition-colors">' +
-        '<input id="home-kw" type="text" placeholder="' + escapeAttr(T.hero.kwPlaceholder) + '" class="gs-field flex-1 bg-transparent text-white text-base italic placeholder-white/55 focus:outline-none">' +
-        '<button type="submit" class="text-amber-400 hover:text-amber-300 transition-colors shrink-0" aria-label="' + escapeAttr(T.hero.searchBtn) + '"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>' +
-        '</div></form>';
-
-    return '<section id="top" class="hero-cinematic relative min-h-screen flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
-        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-28 pb-14 lg:pb-20">' +
-        '<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">' +
-        '<h1 class="lg:col-span-7 font-display font-medium text-white leading-[0.9] text-[3.5rem] sm:text-7xl lg:text-8xl xl:text-[8.5rem]">' + titleHtml + '</h1>' +
-        '<div class="lg:col-span-5 lg:justify-self-end w-full sm:max-w-[380px]">' + search + '</div>' +
-        '</div></div></section>';
+    return '<section id="top" class="home-hero hero-cinematic relative min-h-[100svh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center pt-28 pb-12 lg:pt-32 lg:pb-16">' +
+        '<div class="max-w-[820px]">' +
+        '<div class="home-hero-kicker reveal-mask mb-8">' +
+        '<div class="reveal-line text-xs sm:text-sm font-semibold text-amber-400 uppercase">' + T.hero.bannerKicker + '</div>' +
+        '<span aria-hidden="true"></span>' +
+        '</div>' +
+        '<h1 class="home-hero-title font-display font-medium text-white leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-[6.75rem]">' +
+        '<span class="block reveal-mask"><span class="reveal-line">' + T.hero.bannerTitle1 + '</span></span>' +
+        '<span class="block reveal-mask"><span class="reveal-line">' + T.hero.bannerTitle2 + joiner + '<span class="text-gold-gradient">' + T.hero.bannerAccent + '</span></span></span>' +
+        '</h1>' +
+        '<p class="home-hero-copy max-w-2xl mt-8 text-lg sm:text-xl lg:text-2xl text-white/90 leading-relaxed" data-reveal-up>' + T.hero.bannerDesc + '</p>' +
+        '<div class="home-hero-actions flex flex-col sm:flex-row gap-4 mt-9" data-reveal-up>' +
+        '<a href="/properties/index.html" class="home-hero-btn home-hero-btn-primary inline-flex items-center justify-between gap-8 px-8 h-14 text-base font-semibold transition-colors">' +
+        '<span>' + T.hero.bannerPrimary + '</span><i data-lucide="arrow-right" class="w-5 h-5"></i></a>' +
+        '<a href="/contact.html" class="home-hero-btn home-hero-btn-secondary inline-flex items-center justify-between gap-8 px-8 h-14 text-base font-semibold transition-colors">' +
+        '<span>' + T.hero.bannerSecondary + '</span><i data-lucide="arrow-right" class="w-5 h-5"></i></a>' +
+        '</div></div></div></section>';
 }
 
 /* Three co-equal businesses, editorial register: a 2px navy top-rule per
