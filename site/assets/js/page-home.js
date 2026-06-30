@@ -51,7 +51,7 @@ function heroSection() {
     const joiner = ROOFY.state.lang === 'zh' ? '' : ' ';
     const heroImg = '/assets/img/home/home-hero-city-night.jpg';
 
-    return '<section id="top" class="home-hero hero-cinematic relative min-h-[100svh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
+    return '<section id="top" class="home-hero hero-cinematic relative min-h-[100svh] min-h-[100dvh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center pt-28 pb-12 lg:pt-32 lg:pb-16">' +
         '<div class="max-w-[820px]">' +
         '<div class="home-hero-kicker reveal-mask mb-8">' +
@@ -259,7 +259,7 @@ function cinematicBreak() {
     const lang = ROOFY.state.lang;
     const img = '/assets/img/projects/estate-gate.jpg';
     const line = lang === 'zh' ? '在卢萨卡的每一条街道，都有 ROOFY。' : 'On every street in Lusaka, you will find ROOFY.';
-    return '<section class="hero-cinematic relative min-h-[72vh] flex items-end" style="background-image:url(\'' + img + '\')">' +
+    return '<section class="hero-cinematic relative min-h-[72vh] min-h-[72dvh] flex items-end" style="background-image:url(\'' + img + '\')">' +
         '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 pb-16 lg:pb-24">' +
         '<h2 class="font-display font-medium text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl leading-[1.05]" data-reveal-up>' + line + '</h2>' +
         '</div></section>';

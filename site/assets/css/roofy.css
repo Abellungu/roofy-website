@@ -157,7 +157,8 @@ p { line-height: 1.7; }
 /* ── Home hero: reference-inspired city-builder banner ── */
 .home-hero {
     background-position: center center;
-    min-height: 100svh;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 .home-hero::after {
     background:
