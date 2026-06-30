@@ -89,12 +89,10 @@ function featuredProjectsBand() {
             '<div class="p-5 flex flex-col flex-1">' +
             '<div class="flex items-center gap-1.5 text-xs text-slate-500 mb-2">' +
             '<i data-lucide="map-pin" class="w-3 h-3 shrink-0"></i>' + (p.location || '') + '</div>' +
-            '<h3 class="text-lg font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
+            '<h3 class="font-display text-lg font-semibold text-slate-900 mb-2 group-hover:text-amber-700 transition-colors">' + name + '</h3>' +
             '<p class="text-sm text-slate-600 leading-snug mb-4 line-clamp-2 flex-1">' + (tagline || '') + '</p>' +
-            '<div class="pt-4 border-t border-slate-100 mt-auto">' +
-            '<div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 mb-1">' + T.projects.specs.priceRange + '</div>' +
-            '<div class="text-amber-600 font-semibold text-lg whitespace-nowrap mb-2">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
-            '<div class="text-xs text-slate-500 leading-snug">' + (propertyType || '') + '</div>' +
+            '<div class="pt-4 border-t border-slate-200 mt-auto">' +
+            '<div class="text-amber-600 font-display font-semibold text-xl whitespace-nowrap">' + (p.priceRange || T.projects.priceOnRequest) + '</div>' +
             '</div></div></a>';
     }).join('');
 
@@ -103,8 +101,7 @@ function featuredProjectsBand() {
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8" data-reveal-up>' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.projects.sectionEyebrow + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900 mb-3">' + T.projects.sectionTitle + '</h2>' +
-        '<p class="text-sm text-slate-600">' + T.projects.sectionDesc + '</p>' +
+        '<h2 class="font-display text-2xl md:text-3xl font-semibold text-slate-900">' + T.projects.sectionTitle + '</h2>' +
         '</div></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">' + cards + '</div>' +
         '</div></section>';
