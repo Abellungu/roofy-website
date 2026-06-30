@@ -20,16 +20,16 @@
             "deliverables": ["Turnkey Development", "Property Sales & Rentals", "Land Agency", "Investment Advisory"],
             "deliverablesZh": ["代建", "房产买卖与租赁", "土地代理", "投资顾问"],
             "deliverableDescEn": [
-                "Build-on-behalf development: site selection, design briefs and managed build-out for residential and commercial projects.",
-                "End-to-end agency for new-build and resale homes, plus long-term and serviced rentals.",
-                "Buying, selling and packaging agricultural, industrial and development land across Zambia.",
-                "Helping investors model returns, structure deals and steward assets after handover."
+                "Site selection, design and managed build-out — residential and commercial.",
+                "New-build and resale homes, plus long-term and serviced rentals.",
+                "Agricultural, industrial and development land across Zambia.",
+                "Return modelling, deal structuring and post-handover stewardship."
             ],
             "deliverableDescZh": [
-                "受托代建：从选址、设计简报到建造管理，住宅与商业项目皆可。",
-                "新房与二手房的完整代理，外加长租与服务式公寓。",
-                "在赞比亚全境代理农业、工业与开发用地的买卖与打包。",
-                "为投资者构建收益模型、设计交易结构，并在交付后提供资产托管。"
+                "选址、设计到建造管理，住宅与商业皆可。",
+                "新房与二手房代理，含长租与服务式公寓。",
+                "农业、工业与开发用地的买卖与打包。",
+                "收益测算、交易结构与交付后资产托管。"
             ],
             "caseStudies": []
         },
@@ -52,16 +52,16 @@
             "deliverables": ["Digital LED Billboards", "Outdoor Advertising Strategy", "Media Planning & Buying", "Campaign Reporting"],
             "deliverablesZh": ["数字 LED 广告屏", "户外广告策略", "媒介规划与投放", "投放效果报告"],
             "deliverableDescEn": [
-                "Building and operating modern LED billboards in core Lusaka districts and high-traffic gateways.",
-                "Helping brands pick the right surfaces, timings and creative formats for their objectives.",
-                "Coordinating with our partner network to assemble media buys that go beyond what we own.",
-                "Post-campaign metrics — impressions, foot-traffic context and learnings — back to the brand."
+                "Modern LED billboards in core Lusaka districts and gateways.",
+                "Right surfaces, timings and creative formats for each objective.",
+                "Media buys assembled across our partner network.",
+                "Post-campaign impressions, footfall context and learnings."
             ],
             "deliverableDescZh": [
-                "在卢萨卡核心商圈与高流量节点搭建并运营现代 LED 广告屏。",
-                "帮品牌选择合适的版位、时段与创意形式，对齐营销目标。",
-                "联动合作媒介网络，构建超出自有库存范围的完整投放方案。",
-                "投放结束后的数据复盘 —— 曝光、人流上下文与可学习的洞察。"
+                "在核心商圈与高流量节点运营现代 LED 广告屏。",
+                "为每个目标匹配合适的版位、时段与创意。",
+                "联动合作媒介网络，构建完整投放方案。",
+                "投放后的曝光、人流与数据复盘。"
             ],
             "caseStudies": []
         },
@@ -84,16 +84,16 @@
             "deliverables": ["Brand Strategy & Positioning", "Visual & Verbal Identity", "Marketing Campaigns", "Content & Social Media"],
             "deliverablesZh": ["品牌战略与定位", "视觉与语言系统", "营销活动落地", "内容与社媒运营"],
             "deliverableDescEn": [
-                "Defining who the brand is, who it's for, and the difference it makes in the market.",
-                "The logo, type system, palette, voice and rules that make a brand recognisable.",
-                "Campaign concepts, rollout plans and the execution to put them on streets, screens and feeds.",
-                "Long-term content programmes for owned channels and bilingual community management."
+                "Who the brand is, who it's for, and why it matters.",
+                "Logo, type, palette and voice that make it recognisable.",
+                "Campaign concepts and the execution to roll them out.",
+                "Long-term content and bilingual community management."
             ],
             "deliverableDescZh": [
-                "明确品牌是谁、为谁存在、在市场中创造怎样的差异。",
-                "Logo、字体系统、色彩、语言风格与使用规范——让品牌一眼可认。",
-                "活动概念、落地计划，以及把它真正推向街头、屏幕与信息流的执行能力。",
-                "长期的自媒体内容计划，配套中赞双语社群运营。"
+                "品牌是谁、为谁、为何重要。",
+                "Logo、字体、色彩与语言，让品牌一眼可认。",
+                "活动概念与落地执行。",
+                "长期内容与双语社群运营。"
             ],
             "caseStudies": []
         }

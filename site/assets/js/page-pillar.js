@@ -71,19 +71,17 @@ function pillarDeliverables() {
     const descs = (lang === 'zh' ? p.deliverableDescZh : p.deliverableDescEn) || [];
     if (!names.length) return '';
     /* Editorial treatment: rule-on-top list items instead of floating cards. */
-    const tiles = names.map(function (n, i) {
-        return '<div data-reveal-up class="border-t-2 border-slate-900 pt-6">' +
-            '<div class="text-xs text-amber-600 font-semibold tracking-widest mb-4">' + String(i + 1).padStart(2, '0') + '</div>' +
-            '<h3 class="text-lg font-semibold text-slate-900 mb-2.5">' + n + '</h3>' +
-            '<p class="text-sm text-slate-600 leading-relaxed">' + (descs[i] || '') + '</p>' +
+    const rows = names.map(function (n, i) {
+        return '<div data-reveal-up class="group grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-3 items-baseline border-t border-slate-300 py-8 lg:py-12">' +
+            '<div class="lg:col-span-1 text-sm font-semibold text-amber-600 tracking-widest">' + String(i + 1).padStart(2, '0') + '</div>' +
+            '<h3 class="lg:col-span-6 font-display text-3xl lg:text-5xl font-medium text-slate-900 leading-[1.05]">' + n + '</h3>' +
+            '<p class="lg:col-span-5 text-sm lg:text-base text-slate-500 leading-relaxed lg:pt-2">' + (descs[i] || '') + '</p>' +
             '</div>';
     }).join('');
-    return '<section class="py-20 lg:py-28 bg-slate-50">' +
+    return '<section class="py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-12">' +
-        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
-        '</div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + tiles + '</div>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-12 lg:mb-16" data-reveal-up>' + T.pillars.deliverablesTitle + '</div>' +
+        '<div class="border-b border-slate-300">' + rows + '</div>' +
         '</div></section>';
 }
 
