@@ -54,10 +54,10 @@ function pillarNarrative() {
     if (!p) return '';
     const paras = (lang === 'zh' ? p.narrativeZh : p.narrative) || [];
     if (!paras.length) return '';
-    return '<section class="py-16 lg:py-24 bg-white">' +
-        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">' +
+    return '<section class="py-28 lg:py-40 bg-white">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">' +
         paras.map(function (para, i) {
-            return '<p class="text-base lg:text-lg leading-relaxed ' + (i === 0 ? 'text-slate-800' : 'text-slate-500') + '" data-reveal-up>' + para + '</p>';
+            return '<p class="font-display text-2xl lg:text-3xl leading-snug ' + (i === 0 ? 'text-slate-900' : 'text-slate-400') + '" data-reveal-up>' + para + '</p>';
         }).join('') +
         '</div></section>';
 }
@@ -100,12 +100,12 @@ function spotlightRealEstate(T) {
     const cards = list.length === 0
         ? '<div class="col-span-full text-center py-12 text-slate-500 text-sm">Loading…</div>'
         : list.map(function (p) { return window.propertyCard(p, T); }).join('');
-    return '<section class="py-20 lg:py-28 bg-white">' +
+    return '<section class="py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">' +
         '<div class="max-w-2xl">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.featured.eyebrow + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
+        '<h2 class="font-display text-4xl md:text-5xl font-semibold text-slate-900" data-reveal-up>' + T.featured.title + '</h2></div>' +
         '<a href="/properties/index.html" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-amber-600 transition-colors" data-reveal-up>' +
         T.featured.viewAll + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div>' +
@@ -126,11 +126,11 @@ function spotlightBranding(T) {
             '<h3 class="text-lg font-semibold text-slate-900 mb-2">' + s.t + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed">' + s.d + '</p></div>';
     }).join('');
-    return '<section class="py-20 lg:py-28 bg-white">' +
+    return '<section class="py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-12">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.approachTitle + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900" data-reveal-up>' + ti18n.approachDesc + '</h2></div>' +
+        '<h2 class="font-display text-4xl md:text-5xl font-semibold text-slate-900" data-reveal-up>' + ti18n.approachDesc + '</h2></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">' + items + '</div>' +
         '</div></section>';
 }
@@ -145,21 +145,18 @@ function capabilitiesBlock(T) {
     const caps = T.pillars.capabilities || [];
     const ti18n = T.pillars.advertising;
     const capTiles = caps.map(function (c, i) {
-        return '<div data-reveal-up class="group border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300">' +
-            '<div class="flex items-center justify-between mb-4">' +
-            '<i data-lucide="' + c.icon + '" class="w-5 h-5 text-amber-600"></i>' +
-            '<span class="text-xs font-semibold tracking-widest text-slate-400">' + String(i + 1).padStart(2, '0') + '</span>' +
-            '</div>' +
-            '<h3 class="text-base font-semibold text-slate-900 mb-1.5">' + c.t + '</h3>' +
-            '<p class="text-sm text-slate-600 leading-relaxed">' + c.d + '</p>' +
+        return '<div data-reveal-up class="group grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-2 items-baseline border-t border-slate-300 py-8 lg:py-11">' +
+            '<div class="lg:col-span-1 text-sm font-semibold text-amber-600 tracking-widest">' + String(i + 1).padStart(2, '0') + '</div>' +
+            '<h3 class="lg:col-span-5 font-display text-2xl lg:text-3xl font-medium text-slate-900 leading-tight">' + c.t + '</h3>' +
+            '<p class="lg:col-span-6 text-sm lg:text-base text-slate-500 leading-relaxed lg:pt-1.5">' + c.d + '</p>' +
             '</div>';
     }).join('');
-    return '<section class="py-20 lg:py-28 bg-slate-50">' +
+    return '<section class="py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="max-w-2xl mb-10">' +
+        '<div class="max-w-2xl mb-12 lg:mb-16">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti18n.capabilitiesTitle + '</div>' +
-        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900" data-reveal-up>' + ti18n.capabilitiesDesc + '</h2></div>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">' + capTiles + '</div>' +
+        '<h2 class="font-display text-4xl md:text-5xl font-semibold text-slate-900" data-reveal-up>' + ti18n.capabilitiesDesc + '</h2></div>' +
+        '<div class="border-b border-slate-300">' + capTiles + '</div>' +
         '</div></section>';
 }
 
@@ -218,7 +215,7 @@ function ledProductsBlock(T) {
             '</div></div></div>';
     }).join('');
 
-    return '<section class="py-20 lg:py-28 bg-white">' +
+    return '<section class="py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
@@ -267,7 +264,7 @@ function ledBillboardsBlock(T) {
             '</div></div></div>';
     }).join('');
 
-    return '<section class="py-20 lg:py-28 bg-slate-50">' +
+    return '<section class="py-28 lg:py-40 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="max-w-2xl mb-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + ti.eyebrow + '</div>' +
@@ -298,7 +295,7 @@ function emergingCallout(T) {
 
 function pillarCta() {
     const T = ROOFY.tr();
-    return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
+    return '<section class="relative py-28 lg:py-40 bg-slate-900 text-white overflow-hidden">' +
         '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
@@ -316,19 +313,18 @@ function pillarAdjacent() {
     const cards = others.map(function (p) {
         const title = lang === 'zh' ? p.titleZh : p.title;
         const summary = lang === 'zh' ? p.summaryZh : p.summary;
-        return '<a href="/services/' + p.id + '.html" class="group block border-t-2 border-slate-900 pt-6 hover:border-amber-500 transition-colors duration-300" data-reveal-up>' +
-            '<i data-lucide="' + p.icon + '" class="w-5 h-5 text-amber-600 mb-5"></i>' +
-            '<h3 class="text-lg font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
-            '<p class="text-sm text-slate-600 leading-relaxed mb-5">' + summary + '</p>' +
+        return '<a href="/services/' + p.id + '.html" class="group block border-t border-slate-300 pt-8" data-reveal-up>' +
+            '<h3 class="font-display text-3xl lg:text-4xl font-medium text-slate-900 mb-3 group-hover:text-amber-700 transition-colors leading-tight">' + title + '</h3>' +
+            '<p class="text-sm lg:text-base text-slate-500 leading-relaxed mb-6 max-w-md">' + summary + '</p>' +
             '<span class="inline-flex items-center gap-2 text-sm font-semibold text-amber-600">' +
             (lang === 'zh' ? '继续了解' : 'Keep exploring') + ' <i data-lucide="arrow-right" class="w-4 h-4"></i></span>' +
             '</a>';
     }).join('');
-    return '<section id="adjacent" class="py-20 lg:py-28 bg-slate-50 border-t border-slate-200">' +
+    return '<section id="adjacent" class="py-28 lg:py-40 bg-slate-50 border-t border-slate-200">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + T.pillars.adjacent + '</div>' +
-        '<h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-10 max-w-3xl" data-reveal-up>' + (lang === 'zh' ? '另外两条业务线，可能也对您有用。' : 'Two adjacent practices you may also find useful.') + '</h2>' +
-        '<div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">' + cards + '</div>' +
+        '<h2 class="font-display text-3xl md:text-4xl font-semibold text-slate-900 mb-12 lg:mb-16 max-w-3xl" data-reveal-up>' + (lang === 'zh' ? '另外两条业务线，可能也对您有用。' : 'Two adjacent practices you may also find useful.') + '</h2>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">' + cards + '</div>' +
         '</div></section>';
 }
 
