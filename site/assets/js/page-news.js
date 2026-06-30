@@ -12,14 +12,14 @@ const NEWS_CATS = ['all', 'international', 'lusaka', 'lusaka-real-estate'];
 
 function newsHero() {
     const T = ROOFY.tr();
-    const heroImg = '/assets/img/office/office-values-wall.jpg';
-    return '<section id="top" class="hero-cinematic relative min-h-[56vh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
-        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end pt-32 pb-14 lg:pb-20">' +
-        '<div class="max-w-3xl">' +
-        '<span class="reveal-mask inline-block mb-6"><span class="reveal-line text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase">' + T.news.eyebrow + '</span></span>' +
-        '<h1 class="font-display font-medium text-white leading-[0.95] mb-6 text-5xl sm:text-6xl lg:text-7xl"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
-        '<div class="reveal-mask"><p class="reveal-line text-lg text-slate-100/85 leading-relaxed max-w-2xl">' + T.news.desc + '</p></div>' +
-        '</div></div></section>';
+    return '<section id="top" class="relative bg-slate-50 pt-32 lg:pt-44 pb-20 lg:pb-28 overflow-hidden" data-hero-reveal>' +
+        '<div aria-hidden="true" class="pointer-events-none absolute -right-3 bottom-0 leading-[0.7] font-black tracking-tighter text-slate-900/[0.04] text-[150px] sm:text-[220px] lg:text-[300px] select-none">News</div>' +
+        '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="max-w-2xl">' +
+        '<h1 class="font-display font-medium text-slate-900 leading-[0.95] text-6xl lg:text-8xl"><span class="block reveal-mask"><span class="reveal-line">' + T.news.title + '</span></span></h1>' +
+        '<div class="reveal-mask mt-7"><p class="reveal-line text-xs sm:text-sm tracking-[0.24em] uppercase text-slate-500">' + T.news.desc + '</p></div>' +
+        '</div>' +
+        '</div></section>';
 }
 
 function categoryTabs() {

@@ -323,8 +323,8 @@ window.I18N = {
         },
         news: {
             eyebrow: '最新动态',
-            title: '地产、城市与市场的最新动态。',
-            desc: '由 ROOFY 团队精选、编译与速记的国际、卢萨卡与本地地产要闻——更新中。',
+            title: '新闻动态',
+            desc: '地产 · 城市 · 市场',
             categories: {
                 all: '全部',
                 international: '国际要闻',
@@ -722,8 +722,8 @@ window.I18N = {
         },
         news: {
             eyebrow: 'Latest News',
-            title: 'The latest in property, city and markets.',
-            desc: 'Curated, translated and digested by the ROOFY team across international, Lusaka and local real-estate beats — updated regularly.',
+            title: 'Newsroom',
+            desc: 'Property · City · Markets',
             categories: {
                 all: 'All',
                 international: 'International',
