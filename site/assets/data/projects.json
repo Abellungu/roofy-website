@@ -12,7 +12,7 @@
             "location": "Leopard’s Hill Road, opposite Mukamunya Estate, Lusaka",
             "launchYear": null,
             "totalUnits": 84,
-            "priceRange": "面议 / On request",
+            "priceRange": "K1,520,000 起 / from ZMW 1.52M",
             "propertyTypeZh": "住宅 + 39 间临街商铺",
             "propertyTypeEn": "Premium homes + 39 retail shops",
             "developmentAreaZh": "16 英亩",
@@ -39,7 +39,34 @@
             "gallery": [
                 "/assets/img/projects/oasis-crown-render.jpg",
                 "/assets/img/projects/oasis-crown-masterplan.jpg"
-            ]
+            ],
+            "priceList": {
+                "titleZh": "2026 年二季度价格表",
+                "titleEn": "Q2 2026 Price List",
+                "phaseZh": "一期 · 售楼处建设期",
+                "phaseEn": "Phase 1 · showroom construction period",
+                "noteZh": "报价 7 天有效,以最终审批为准,全部毛坯交付。",
+                "noteEn": "Quote valid 7 days, subject to final approval, shell structure.",
+                "units": [
+                    { "type": "C2", "qty": 14, "beds": 2, "size": "119.80", "plot": 425, "benchmark": 1520000, "dp15": 228000, "dp20": 304000, "dp30": 456000, "lumpSum": 1474400, "m12": 1497200, "m18": 1662032, "m24": 1755675 },
+                    { "type": "C3B", "qty": 31, "beds": 3, "size": "158.99", "plot": 500, "benchmark": 1970000, "dp15": 295500, "dp20": 394000, "dp30": 591000, "lumpSum": 1910900, "m12": 1940450, "m18": 2154081, "m24": 2275447 },
+                    { "type": "C3A", "qty": 21, "beds": 3, "size": "175.96", "plot": 525, "benchmark": 2170000, "dp15": 325500, "dp20": 434000, "dp30": 651000, "lumpSum": 2104900, "m12": 2137450, "m18": 2372770, "m24": 2506457 },
+                    { "type": "C4", "qty": 8, "beds": 4, "size": "229.22", "plot": 644, "benchmark": 2880000, "dp15": 432000, "dp20": 576000, "dp30": 864000, "lumpSum": 2793600, "m12": 2836800, "m18": 3149114, "m24": 3326543 },
+                    { "type": "D4", "qty": 10, "beds": 4, "size": "284.29", "plot": 690, "benchmark": 3840000, "dp15": 576000, "dp20": 768000, "dp30": 1152000, "lumpSum": 3724800, "m12": 3782400, "m18": 4198819, "m24": 4435390 }
+                ],
+                "notesZh": [
+                    "价格浮动:表列价格仅供参考,实际价格会按认购结构、位置、景观、边角位、庭院大小等因素调整。",
+                    "首付要求:12 期与 18 期最低首付 15%;24 期建议首付不低于 30%,以减轻月供压力。",
+                    "公司权利:若出现延迟签约、逾期付款或变更付款条件,公司保留重新核定原折扣与价格的权利。",
+                    "排除费用:电表安装、该物业的产权转让与登记,以及其他行政或第三方费用,均由买方承担。"
+                ],
+                "notesEn": [
+                    "Price variation: listed prices are for reference only; actual prices adjust for structure, location, view, corner position, courtyard size and similar factors.",
+                    "Down payment: minimum 15% for the 12- and 18-month plans; at least 30% is recommended for the 24-month plan to ease monthly pressure.",
+                    "The Company reserves the right to re-approve the discounts and prices originally offered given any delay in signing, overdue payment, or change of payment terms.",
+                    "Excluded costs: electricity meter installation, conveyancing and registration of the property, and other administrative or third-party fees are borne by the Purchaser."
+                ]
+            }
         },
         {
             "id": "qiji",

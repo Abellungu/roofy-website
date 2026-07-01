@@ -140,6 +140,76 @@ function projectBody(p) {
         '</div></div></section>';
 }
 
+function priceTableSection(p) {
+    const T = ROOFY.tr();
+    const lang = ROOFY.state.lang;
+    const pl = p.priceList;
+    if (!pl || !pl.units || !pl.units.length) return '';
+    const L = T.projects.priceList;
+    function fmt(n) { return (n || n === 0) ? Number(n).toLocaleString('en-US') : '—'; }
+
+    const headCols = [L.type, L.size, L.plot, L.qty, L.benchmark, L.lumpSum, L.m12, L.m18, L.m24];
+    const thead = '<tr class="border-b border-slate-300">' + headCols.map(function (c, i) {
+        return '<th class="' + (i === 0 ? 'text-left pl-1' : 'text-right') + ' py-3 px-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap">' + c + '</th>';
+    }).join('') + '</tr>';
+
+    const bodyRows = pl.units.map(function (u) {
+        return '<tr class="border-b border-slate-200 last:border-b-0">' +
+            '<td class="py-4 pl-1 pr-3 font-display text-xl font-medium text-slate-900 whitespace-nowrap">' + u.type + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-600 whitespace-nowrap">' + u.size + ' ㎡</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-600 whitespace-nowrap">' + fmt(u.plot) + ' ㎡</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-600">' + u.qty + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm font-semibold text-amber-600 whitespace-nowrap">' + fmt(u.benchmark) + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.lumpSum) + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.m12) + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.m18) + '</td>' +
+            '<td class="py-4 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.m24) + '</td>' +
+            '</tr>';
+    }).join('');
+
+    const dpRows = pl.units.map(function (u) {
+        return '<tr class="border-b border-slate-200 last:border-b-0">' +
+            '<td class="py-3 pl-1 pr-3 font-semibold text-slate-900 whitespace-nowrap">' + u.type + '</td>' +
+            '<td class="py-3 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.dp15) + '</td>' +
+            '<td class="py-3 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.dp20) + '</td>' +
+            '<td class="py-3 px-3 text-right text-sm text-slate-700 whitespace-nowrap">' + fmt(u.dp30) + '</td>' +
+            '</tr>';
+    }).join('');
+
+    const notes = (lang === 'zh' ? pl.notesZh : pl.notesEn) || [];
+    const notesHtml = notes.map(function (n) {
+        return '<li class="flex gap-2.5 text-sm text-slate-500 leading-relaxed"><span class="text-amber-600 shrink-0">·</span><span>' + n + '</span></li>';
+    }).join('');
+
+    return '<section class="py-16 md:py-24 lg:py-32 bg-slate-50 border-t border-slate-200">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="max-w-2xl mb-10 lg:mb-14">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3" data-reveal-up>' + (lang === 'zh' ? pl.titleZh : pl.titleEn) + '</div>' +
+        '<h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-4" data-reveal-up>' + L.heading + '</h2>' +
+        '<p class="text-sm text-slate-500 leading-relaxed" data-reveal-up>' + (lang === 'zh' ? pl.phaseZh : pl.phaseEn) + ' · ' + (lang === 'zh' ? pl.noteZh : pl.noteEn) + '</p>' +
+        '</div>' +
+        '<div class="overflow-x-auto -mx-6 px-6 lg:mx-0 lg:px-0" data-reveal-up>' +
+        '<table class="w-full min-w-[760px]"><thead>' + thead + '</thead><tbody>' + bodyRows + '</tbody></table>' +
+        '</div>' +
+        '<p class="text-xs text-slate-400 mt-4 max-w-3xl leading-relaxed" data-reveal-up>' + L.currencyNote + '</p>' +
+        '<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-14 lg:mt-16">' +
+        '<div data-reveal-up>' +
+        '<div class="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5">' + L.downPaymentTitle + '</div>' +
+        '<table class="w-full"><thead><tr class="border-b border-slate-300">' +
+        '<th class="text-left pl-1 py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">' + L.type + '</th>' +
+        '<th class="text-right py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">15%</th>' +
+        '<th class="text-right py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">20%</th>' +
+        '<th class="text-right py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">30%</th>' +
+        '</tr></thead><tbody>' + dpRows + '</tbody></table>' +
+        '</div>' +
+        '<div data-reveal-up>' +
+        '<div class="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-5">' + L.notesTitle + '</div>' +
+        '<ul class="space-y-3.5">' + notesHtml + '</ul>' +
+        '</div>' +
+        '</div>' +
+        '</div></section>';
+}
+
 function gallerySection(p) {
     const T = ROOFY.tr();
     const gallery = p.gallery || [];
@@ -241,6 +311,7 @@ window.renderPage = function () {
         '<main>' +
         projectHero(p) +
         projectBody(p) +
+        priceTableSection(p) +
         gallerySection(p) +
         relatedProjects(p) +
         '</main>' +

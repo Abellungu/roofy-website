@@ -375,6 +375,13 @@ window.I18N = {
             unitsSuffix: ' 套',
             priceOnRequest: '价格面议',
             keyFeatures: '项目亮点',
+            priceList: {
+                heading: '价格表',
+                type: '房型', qty: '套数', beds: '卧室', size: '户型', plot: '地块',
+                benchmark: '基准价', lumpSum: '一次性', m12: '12 期', m18: '18 期', m24: '24 期',
+                downPaymentTitle: '首付金额', notesTitle: '重要说明',
+                currencyNote: '单位为赞比亚克瓦查 ZMW。分期各列是对应付款方式的总房款,月供 =(总房款 − 首付)÷ 期数。'
+            },
             gallery: '项目画册',
             inquire: '咨询此项目',
             inquireDesc: '提交后将通过邮件或 WhatsApp 与您联系。',
@@ -781,6 +788,13 @@ window.I18N = {
             unitsSuffix: ' units',
             priceOnRequest: 'Price on request',
             keyFeatures: 'Key features',
+            priceList: {
+                heading: 'Price List',
+                type: 'Type', qty: 'Units', beds: 'Beds', size: 'Size', plot: 'Plot',
+                benchmark: 'Benchmark', lumpSum: 'Lump-sum', m12: '12 mo.', m18: '18 mo.', m24: '24 mo.',
+                downPaymentTitle: 'Down payment', notesTitle: 'Important notes',
+                currencyNote: 'All figures in Zambian Kwacha (ZMW). Installment columns show the total under each plan; monthly = (total − down payment) ÷ term.'
+            },
             gallery: 'Gallery',
             inquire: 'Enquire about this project',
             inquireDesc: 'We will follow up by email or WhatsApp.',
