@@ -181,8 +181,20 @@
         try { localStorage.setItem(STORAGE_LANG, state.lang); } catch (_) { }
         render();
     };
-    window.toggleMobile = function () { state.mobileMenuOpen = !state.mobileMenuOpen; render(); };
-    window.closeMobileMenu = function () { state.mobileMenuOpen = false; render(); };
+    /* Mobile menu toggles by repainting ONLY the nav bar, not the whole page.
+     * A full render() here rebuilt #root (hero image, every section, Swiper,
+     * ScrollTrigger) just to show a menu — on phones that was slow enough that a
+     * tap felt dead, the user tapped again, and the second tap toggled it shut
+     * ("menu doesn't appear"). Repainting just #site-nav is instant. */
+    function renderNavOnly() {
+        const old = document.getElementById('site-nav');
+        if (!old || !window.PARTIALS || typeof window.PARTIALS.navHtml !== 'function') { render(); return; }
+        old.outerHTML = window.PARTIALS.navHtml().trim();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        initNavMode();
+    }
+    window.toggleMobile = function () { state.mobileMenuOpen = !state.mobileMenuOpen; renderNavOnly(); };
+    window.closeMobileMenu = function () { if (!state.mobileMenuOpen) return; state.mobileMenuOpen = false; renderNavOnly(); };
     window.setFilter = function (f) { state.propertyFilter = f; render(); };
     window.setNewsCategory = function (c) { state.newsCategory = c; render(); };
     window.setPropertyRegion = function (r) { state.propertyRegion = r; render(); };
