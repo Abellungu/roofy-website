@@ -219,12 +219,16 @@ p { line-height: 1.7; }
 
 @media (max-width: 767px) {
     .home-hero {
-        background-position: 64% center;
+        /* Right-edge crop: the phone slice (~29% of the frame) lands on the
+         * lit building + LED screen instead of the empty night sky that a
+         * 64% crop produced. Overlay lightened so the subject reads through
+         * while the left text column stays dark enough for the title. */
+        background-position: 100% center;
     }
     .home-hero::after {
         background:
-            linear-gradient(90deg, rgba(2, 5, 13, 0.96) 0%, rgba(4, 10, 23, 0.90) 50%, rgba(5, 17, 35, 0.48) 100%),
-            linear-gradient(180deg, rgba(2, 5, 13, 0.36) 0%, rgba(2, 5, 13, 0.28) 45%, rgba(2, 5, 13, 0.86) 100%);
+            linear-gradient(90deg, rgba(2, 5, 13, 0.94) 0%, rgba(4, 10, 23, 0.72) 42%, rgba(5, 17, 35, 0.22) 100%),
+            linear-gradient(180deg, rgba(2, 5, 13, 0.34) 0%, rgba(2, 5, 13, 0.16) 45%, rgba(2, 5, 13, 0.82) 100%);
     }
     .home-hero-kicker .reveal-line {
         letter-spacing: 0.22em;
