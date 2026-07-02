@@ -59,11 +59,12 @@
             dLink('about', '/about.html', T.nav.about);
 
         /* Mobile menu: full-screen navy editorial panel — numbered Cormorant
-         * rows staggering in (see .mobile-menu / .mm-item in roofy.css). */
+         * rows. Entrance is a GSAP wave run by renderNavOnly() in roofy-core
+         * (one fluid overlapping motion, not a row-by-row queue). */
         let mmIdx = 0;
         function mLink(href, label, indent) {
             mmIdx += 1;
-            return '<a href="' + href + '" onclick="closeMobileMenu()" class="mm-item flex items-center justify-between py-5 px-6 border-b border-white/10" style="animation-delay:' + (mmIdx * 45) + 'ms">' +
+            return '<a href="' + href + '" onclick="closeMobileMenu()" class="mm-item flex items-center justify-between py-5 px-6 border-b border-white/10">' +
                 '<span class="flex items-baseline gap-4' + (indent ? ' pl-6' : '') + '">' +
                 '<span class="text-[10px] font-semibold tracking-widest text-amber-500/80">' + String(mmIdx).padStart(2, '0') + '</span>' +
                 '<span class="font-display text-3xl font-medium text-white leading-none">' + label + '</span></span>' +
@@ -71,7 +72,7 @@
         }
         const mobile =
             mLink('/', T.nav.home, false) +
-            '<div class="mm-item px-6 pt-7 pb-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-amber-500/70" style="animation-delay:' + ((mmIdx + 1) * 45) + 'ms">' + T.nav.realEstate + '</div>' +
+            '<div class="mm-item px-6 pt-7 pb-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-amber-500/70">' + T.nav.realEstate + '</div>' +
             reItems.map(function (l) { return mLink(l[1], l[2], true); }).join('') +
             mLink('/services/advertising.html', T.nav.media, false) +
             mLink('/services/branding.html', T.nav.branding, false) +
@@ -95,7 +96,7 @@
             (state.mobileMenuOpen ?
                 '<div class="mobile-menu lg:hidden fixed top-16 left-0 right-0 bottom-0 overflow-y-auto flex flex-col">' +
                 '<div>' + mobile + '</div>' +
-                '<div class="mm-item p-6 pb-9 flex items-center gap-3 mt-auto border-t border-white/10" style="animation-delay:' + ((mmIdx + 2) * 45) + 'ms">' +
+                '<div class="mm-item p-6 pb-9 flex items-center gap-3 mt-auto border-t border-white/10">' +
                 '<button onclick="toggleLang()" class="flex-1 h-12 border border-white/25 text-white/90 font-medium text-sm tracking-wide">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
                 '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 h-12 inline-flex items-center justify-center bg-amber-500 text-slate-900 font-semibold text-sm">' + T.cta.contact + '</a>' +
                 '</div></div>' : '') +

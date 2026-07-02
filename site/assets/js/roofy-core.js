@@ -200,6 +200,20 @@
         /* Floating UI (WhatsApp FAB, cookie banner) yields while the menu is
          * open — it otherwise overlaps the menu's own bottom CTA bar. */
         document.body.classList.toggle('menu-open', state.mobileMenuOpen);
+        /* Menu entrance: one fluid GSAP wave (panel + rows overlap into a
+         * single motion) instead of a row-by-row CSS queue, which read as
+         * jank. stagger.amount spreads the whole cascade over 0.22s no
+         * matter how many rows there are. */
+        if (state.mobileMenuOpen && typeof gsap !== 'undefined' &&
+            !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+            gsap.timeline({ defaults: { ease: 'power3.out' } })
+                .from('.mobile-menu', { autoAlpha: 0, y: -14, duration: 0.3 }, 0)
+                .from('.mobile-menu .mm-item', {
+                    y: 22, autoAlpha: 0, duration: 0.5,
+                    stagger: { amount: 0.22 },
+                    clearProps: 'transform,opacity,visibility'
+                }, 0.05);
+        }
     }
     window.toggleMobile = function () { state.mobileMenuOpen = !state.mobileMenuOpen; renderNavOnly(); };
     window.closeMobileMenu = function () { if (!state.mobileMenuOpen) return; state.mobileMenuOpen = false; renderNavOnly(); };
