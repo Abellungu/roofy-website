@@ -41,19 +41,17 @@ function articleCard(a, T) {
     const excerpt = lang === 'zh' ? a.excerptZh : a.excerptEn;
     const catLabel = T.news.categories[a.category] || a.category;
     return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" ' +
-        'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+        'class="group block" data-reveal-up>' +
         '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
         '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
-        '<div class="absolute top-3 left-3 flex items-center gap-2">' +
-        '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1 rounded-sm shadow-sm">' + catLabel + '</span>' +
-        (a.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.news.sample + '</span>' : '') +
+        '<div class="absolute top-4 left-4 flex items-center gap-2">' +
+        '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1">' + catLabel + '</span>' +
+        (a.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1">' + T.news.sample + '</span>' : '') +
         '</div></div>' +
-        '<div class="p-5">' +
+        '<div class="pt-5">' +
         '<div class="text-xs text-slate-500 mb-2">' + formatDate(a.publishedAt, lang) + '</div>' +
-        '<h3 class="text-base font-semibold text-slate-900 mb-2 leading-snug group-hover:text-amber-600 transition-colors line-clamp-2">' + title + '</h3>' +
-        '<p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-3">' + (excerpt || '') + '</p>' +
-        '<div class="inline-flex items-center gap-2 text-xs font-semibold text-amber-600">' +
-        T.news.readMore + '<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></div>' +
+        '<h3 class="font-display text-xl font-semibold text-slate-900 mb-2 leading-snug group-hover:text-amber-700 transition-colors line-clamp-2">' + title + '</h3>' +
+        '<p class="text-sm text-slate-500 leading-relaxed line-clamp-2">' + (excerpt || '') + '</p>' +
         '</div></a>';
 }
 
@@ -101,7 +99,6 @@ function newsCtaBanner() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
     return '<section class="relative py-16 lg:py-20 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">' +
         '<div class="lg:col-span-8">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">' +
@@ -110,7 +107,7 @@ function newsCtaBanner() {
         (lang === 'zh' ? '订阅 ROOFY 邮件简报 · 每周一封，仅看本地市场最关键的几条。' : 'Subscribe to the ROOFY brief · one email a week with the local market moves that matter.') +
         '</h2></div>' +
         '<div class="lg:col-span-4 lg:text-right">' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-semibold text-sm px-6 h-11 rounded-sm transition-all shadow-lg shadow-amber-500/25">' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-6 h-11 transition-colors">' +
         (lang === 'zh' ? '联系我们订阅' : 'Get in touch') + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></div></section>';
 }

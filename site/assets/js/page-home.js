@@ -76,12 +76,8 @@ function heroSection() {
 function threePillarsSection() {
     const T = ROOFY.tr();
     const items = T.services.items || [];
-    const icons = ['building-2', 'tv', 'sparkles'];
-    const cards = items.map(function (s, i) {
+    const cards = items.map(function (s) {
         return '<a href="/' + s.href + '" class="group block border-t-2 border-slate-900 pt-8" data-reveal-up>' +
-            '<div class="flex items-center justify-between mb-6">' +
-            '<i data-lucide="' + (icons[i] || 'square') + '" class="w-7 h-7 text-amber-600"></i>' +
-            '<i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-300 group-hover:text-amber-600 transition-colors"></i></div>' +
             '<h3 class="font-display text-2xl lg:text-3xl font-semibold text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">' + s.title + '</h3>' +
             '<p class="text-sm text-slate-600 leading-relaxed mb-4">' + s.desc + '</p>' +
             '<span class="text-xs font-semibold tracking-[0.16em] text-amber-600 uppercase">' + s.tag + ' →</span>' +
@@ -239,7 +235,6 @@ function newsSection() {
 function ctaBannerSection() {
     const T = ROOFY.tr();
     return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="roofy-eyebrow inline-flex text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
         '<h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +

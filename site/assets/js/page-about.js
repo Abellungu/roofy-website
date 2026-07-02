@@ -150,12 +150,10 @@ function teamSection() {
 function aboutCtaBanner() {
     const T = ROOFY.tr();
     return '<section class="relative py-16 md:py-28 lg:py-40 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
-        '<div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Build · Brand · Grow with Roofy</div>' +
         '<h2 class="text-3xl md:text-5xl font-semibold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' + T.cta.ctaBig + '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 transition-colors" data-reveal-up>' +
         T.cta.ctaBtn + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }

@@ -95,14 +95,13 @@ function relatedSection(a) {
         const rTitle = lang === 'zh' ? r.titleZh : r.titleEn;
         const rExcerpt = lang === 'zh' ? r.excerptZh : r.excerptEn;
         return '<a href="/news/article.html?id=' + encodeURIComponent(r.id) + '" ' +
-            'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">' +
-            '<div class="aspect-[16/10] overflow-hidden bg-slate-100">' +
+            'class="group block">' +
+            '<div class="img-zoom aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.coverImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + rTitle + '" loading="lazy" class="w-full h-full object-cover" />' +
             '</div>' +
-            '<div class="p-5">' +
-            '<div class="text-xs text-slate-500 mb-2">' + formatDate(r.publishedAt, lang) + '</div>' +
-            '<h3 class="text-sm font-semibold text-slate-900 mb-2 line-clamp-2 group-hover:text-amber-600 transition-colors">' + rTitle + '</h3>' +
-            '<p class="text-xs text-slate-600 line-clamp-2">' + (rExcerpt || '') + '</p>' +
+            '<div class="pt-4">' +
+            '<div class="text-xs text-slate-500 mb-1.5">' + formatDate(r.publishedAt, lang) + '</div>' +
+            '<h3 class="font-display text-lg font-semibold text-slate-900 leading-snug line-clamp-2 group-hover:text-amber-700 transition-colors">' + rTitle + '</h3>' +
             '</div></a>';
     }).join('');
 

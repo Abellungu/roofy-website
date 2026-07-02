@@ -90,7 +90,7 @@ function specTable(p) {
             '<div class="text-sm text-slate-900 font-medium text-right">' + r[1] + '</div></div>';
     }).join('');
 
-    return '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-6 lg:p-8">' +
+    return '<div class="border-t border-slate-300 pt-6">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' +
         (ROOFY.state.lang === 'zh' ? '关键信息' : 'At a glance') + '</div>' +
         cells + '</div>';
@@ -132,7 +132,7 @@ function projectBody(p) {
         '<div class="lg:col-span-7" data-reveal-up>' +
         '<div class="prose-article">' + paragraphs + '</div>' +
         (features ? '<div class="mt-10"><div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-4">' + T.projects.keyFeatures + '</div>' +
-            '<ul class="bg-white border border-slate-100 rounded-lg shadow-sm p-2 lg:p-4">' + features + '</ul></div>' : '') +
+            '<ul class="border-t border-slate-300 pt-2">' + features + '</ul></div>' : '') +
         '</div>' +
         '<div class="lg:col-span-5">' +
         specTable(p) +
@@ -340,14 +340,14 @@ function relatedProjects(p) {
         const name = lang === 'zh' ? r.nameZh : r.nameEn;
         const tagline = lang === 'zh' ? r.taglineZh : r.taglineEn;
         return '<a href="/projects/' + encodeURIComponent(r.id) + '.html" ' +
-            'class="group block bg-white border border-slate-100 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300" data-reveal-up>' +
+            'class="group block" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
             '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
-            '<div class="absolute top-3 left-3">' + badge(r.status) + '</div>' +
+            '<div class="absolute top-4 left-4">' + badge(r.status) + '</div>' +
             '</div>' +
-            '<div class="p-5">' +
-            '<h3 class="text-base font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">' + name + '</h3>' +
-            '<p class="text-xs text-slate-600 line-clamp-2">' + (tagline || '') + '</p>' +
+            '<div class="pt-4">' +
+            '<h3 class="font-display text-lg font-semibold text-slate-900 mb-1.5 group-hover:text-amber-700 transition-colors">' + name + '</h3>' +
+            '<p class="text-xs text-slate-500 line-clamp-2">' + (tagline || '') + '</p>' +
             '</div></a>';
     }).join('');
 

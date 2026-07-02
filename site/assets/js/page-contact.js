@@ -60,8 +60,8 @@ function fieldLabel(text) {
 }
 
 function contactForm(T, interestOpts) {
-    const inputCls = 'w-full bg-slate-50 border border-slate-200 rounded-lg px-4 h-11 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
-    return '<form data-reveal-up class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10" id="roofy-contact-form" onsubmit="return submitContact(event)" novalidate>' +
+    const inputCls = 'w-full bg-white border border-slate-200 px-4 h-11 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors';
+    return '<form data-reveal-up class="border-t border-slate-300 pt-8" id="roofy-contact-form" onsubmit="return submitContact(event)" novalidate>' +
         /* honeypot: hidden from humans, bots tend to fill it; submissions with it set are dropped server-side */
         '<div class="hidden" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>' +
         '<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">' +
@@ -75,7 +75,7 @@ function contactForm(T, interestOpts) {
         '<label class="block mb-5">' + fieldLabel(T.contact.formInterest) +
         '<select name="interest" class="' + inputCls + ' appearance-none">' + interestOpts + '</select></label>' +
         '<label class="block mb-8">' + fieldLabel(T.contact.formMessage) +
-        '<textarea name="message" rows="4" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors resize-none"></textarea></label>' +
+        '<textarea name="message" rows="4" required class="w-full bg-white border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-colors resize-none"></textarea></label>' +
         '<button type="submit" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 disabled:opacity-60 disabled:cursor-not-allowed text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-colors shadow-sm">' +
         '<span data-btn-label>' + T.cta.send + '</span><i data-lucide="arrow-right" class="w-4 h-4"></i></button>' +
         '<p data-form-status class="text-sm mt-5" role="status" aria-live="polite"></p>' +
@@ -131,7 +131,7 @@ window.submitContact = function (e) {
     }).then(function (res) {
         if (res.body && res.body.ok) {
             const wrap = f.parentNode;
-            wrap.innerHTML = '<div class="bg-white border border-slate-100 rounded-lg shadow-sm p-7 lg:p-10 text-center" data-reveal-up>' +
+            wrap.innerHTML = '<div class="border-t border-slate-300 pt-10 text-center" data-reveal-up>' +
                 '<div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-leaf-50 mb-5"><i data-lucide="check" class="w-7 h-7 text-leaf-600"></i></div>' +
                 '<div class="text-xl font-semibold text-slate-900 mb-2">' + T.contact.formOkTitle + '</div>' +
                 '<p class="text-sm text-slate-600 leading-relaxed max-w-md mx-auto">' + T.contact.formOkBody + '</p></div>';

@@ -212,8 +212,8 @@ function filterPanel() {
         (ROOFY.state.propertySearch ? '<button onclick="setPropertySearch(\'\')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1" aria-label="' + escapeAttr(T.properties.search.clear) + '">' +
             '<i data-lucide="x" class="w-4 h-4"></i></button>' : '') +
         '</div>' +
-        /* faceted filter rows */
-        '<div class="rounded-lg border border-slate-200 bg-white px-4 lg:px-6">' +
+        /* faceted filter rows — hairline band, no boxed panel */
+        '<div class="border-y border-slate-200">' +
         facetRow(T.properties.transaction.label, transactionOptions, ROOFY.state.propertyTransaction, 'setPropertyTransaction') +
         facetRow(T.properties.typeLabel, typeOptions, ROOFY.state.propertyFilter, 'setFilter') +
         facetRow(T.properties.regionLabel, regionOptions, ROOFY.state.propertyRegion, 'setPropertyRegion') +
@@ -246,7 +246,7 @@ function listRow(p, T) {
     }).join('');
 
     return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
-        'class="group flex flex-col sm:flex-row gap-0 sm:gap-5 bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-slate-300 transition-all">' +
+        'class="group flex flex-col sm:flex-row gap-4 sm:gap-6 border-b border-slate-200 pb-8">' +
         /* image */
         '<div class="img-zoom relative w-full sm:w-64 lg:w-72 shrink-0 aspect-[16/10] sm:aspect-auto overflow-hidden bg-slate-100">' +
         '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" class="w-full h-full object-cover" />' +
@@ -256,7 +256,7 @@ function listRow(p, T) {
         (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/70 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + T.featured.sample + '</span>' : '') +
         '</div></div>' +
         /* info + price */
-        '<div class="flex-1 flex flex-col sm:flex-row sm:items-center gap-4 p-5">' +
+        '<div class="flex-1 flex flex-col sm:flex-row sm:items-center gap-4">' +
         '<div class="flex-1 min-w-0">' +
         '<h3 class="text-lg font-semibold text-slate-900 mb-2 leading-snug group-hover:text-amber-600 transition-colors">' + title + '</h3>' +
         '<div class="flex items-center gap-1.5 text-sm text-slate-500 mb-3">' +
@@ -300,7 +300,7 @@ function listingRows() {
     const rows = applySort(list).map(function (p) { return listRow(p, T); }).join('');
     return '<section class="py-10 lg:py-14 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
-        '<div class="flex flex-col gap-4">' + rows + '</div>' +
+        '<div class="flex flex-col gap-8">' + rows + '</div>' +
         '</div></section>';
 }
 
@@ -308,13 +308,12 @@ function propertiesCta() {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
     return '<section class="relative py-20 lg:py-28 bg-slate-900 text-white overflow-hidden">' +
-        '<div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>' +
         '<div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 text-center">' +
         '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-5" data-reveal-up>Off-market</div>' +
         '<h2 class="text-2xl md:text-4xl font-semibold text-white max-w-3xl mx-auto mb-10 leading-tight" data-reveal-up>' +
         (lang === 'zh' ? '没找到合适的？我们手上还有未公开房源。' : 'Didn\'t find what you need? We also represent off-market opportunities.') +
         '</h2>' +
-        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-gold-gradient hover:brightness-105 text-slate-900 font-semibold text-sm px-7 h-12 rounded-sm transition-all shadow-lg shadow-amber-500/25" data-reveal-up>' +
+        '<a href="/contact.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold text-sm px-7 h-12 transition-colors" data-reveal-up>' +
         T.cta.contact + '<i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
         '</div></section>';
 }
