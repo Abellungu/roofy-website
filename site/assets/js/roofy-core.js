@@ -173,6 +173,7 @@
         root.innerHTML = window.renderPage();
         if (typeof window.PARTIALS !== 'undefined' && typeof window.PARTIALS.applyWhatsapp === 'function') window.PARTIALS.applyWhatsapp();
         if (typeof window.PARTIALS !== 'undefined' && typeof window.PARTIALS.applyCookieBanner === 'function') window.PARTIALS.applyCookieBanner();
+        document.body.classList.toggle('menu-open', state.mobileMenuOpen);
         initPage();
         /* Optional per-page post-render hook (e.g. (re)initialising a Swiper
          * carousel after #root is rebuilt). Defined by the page module if needed. */
@@ -196,6 +197,9 @@
         old.outerHTML = window.PARTIALS.navHtml().trim();
         if (typeof lucide !== 'undefined') lucide.createIcons();
         initNavMode();
+        /* Floating UI (WhatsApp FAB, cookie banner) yields while the menu is
+         * open — it otherwise overlaps the menu's own bottom CTA bar. */
+        document.body.classList.toggle('menu-open', state.mobileMenuOpen);
     }
     window.toggleMobile = function () { state.mobileMenuOpen = !state.mobileMenuOpen; renderNavOnly(); };
     window.closeMobileMenu = function () { if (!state.mobileMenuOpen) return; state.mobileMenuOpen = false; renderNavOnly(); };

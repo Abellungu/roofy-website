@@ -110,6 +110,9 @@ p { line-height: 1.7; }
 }
 #site-nav.menu-open .nav-wordmark { color: #FFFFFF !important; }
 #site-nav.menu-open .nav-mobile-toggle { color: #FFFFFF !important; }
+#whatsapp-fab { transition: opacity .25s ease, visibility .25s ease; }
+body.menu-open #whatsapp-fab,
+body.menu-open #cookie-banner { opacity: 0; visibility: hidden; pointer-events: none; }
 
 /* ── Eyebrow: minimal plain-text label (gold, uppercase, tracked). The old
  *    square anchor + "/ 01" section numbering was decorative clutter — removed. ── */
