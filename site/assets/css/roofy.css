@@ -197,11 +197,13 @@ p { line-height: 1.7; }
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 .home-hero-btn-primary {
-    background: linear-gradient(135deg, rgba(4, 94, 82, 0.92), rgba(2, 55, 57, 0.94));
-    color: #FFF7E8;
+    /* Champagne gold, matching the sitewide amber CTA family (was an
+     * off-palette dark teal). Navy text for contrast on gold. */
+    background: linear-gradient(135deg, #D0AE66, #B08D45);
+    color: #0C1630;
 }
 .home-hero-btn-primary:hover {
-    background: linear-gradient(135deg, rgba(5, 112, 98, 0.96), rgba(3, 69, 70, 0.98));
+    background: linear-gradient(135deg, #DDBE7C, #C8A45A);
     border-color: #F0CF8A;
 }
 .home-hero-btn-secondary {
