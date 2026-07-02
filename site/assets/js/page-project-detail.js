@@ -140,6 +140,92 @@ function projectBody(p) {
         '</div></div></section>';
 }
 
+/* ── Installment calculator (structured priceList) ──
+ * Pure client-side: three selects recompute down payment / monthly / total.
+ * Defaults (first unit · 12 months · 15%) are baked into the render string so
+ * the prerendered HTML already shows a sensible initial state. */
+function crownCalcCompute(u, dpPct, plan) {
+    if (plan === 'lump') return { total: u.lumpSum, dp: null, monthly: null, months: 0 };
+    const months = plan === 'm12' ? 12 : plan === 'm18' ? 18 : 24;
+    const dp = Math.round(u.benchmark * dpPct / 100);
+    return { total: u[plan], dp: dp, monthly: Math.round((u[plan] - dp) / months), months: months };
+}
+function calcFmtK(n) { return (n == null) ? '—' : 'K ' + Number(n).toLocaleString('en-US'); }
+
+function calcPanel(pl, L) {
+    const C = L.calc;
+    if (!C || !pl.units.length) return '';
+    const r = crownCalcCompute(pl.units[0], 15, 'm12');
+    const unitOpts = pl.units.map(function (u, i) {
+        return '<option value="' + u.type + '"' + (i === 0 ? ' selected' : '') + '>' + u.type + ' · ' + u.size + ' ㎡</option>';
+    }).join('');
+    const planOpts = ['m12', 'm18', 'm24', 'lump'].map(function (k, i) {
+        return '<option value="' + k + '"' + (i === 0 ? ' selected' : '') + '>' + C.plans[k] + '</option>';
+    }).join('');
+    const dpOpts = [15, 20, 30].map(function (n, i) {
+        return '<option value="' + n + '"' + (i === 0 ? ' selected' : '') + '>' + n + '%</option>';
+    }).join('');
+
+    function sel(id, label, opts) {
+        return '<label class="block">' +
+            '<span class="block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-2">' + label + '</span>' +
+            '<span class="relative block">' +
+            '<select id="' + id + '" onchange="crownCalcUpdate()" class="w-full appearance-none bg-transparent border-0 border-b border-white/30 text-white text-lg py-2 pr-8 focus:outline-none focus:border-amber-400">' + opts + '</select>' +
+            '<i data-lucide="chevron-down" class="w-4 h-4 text-amber-400 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none"></i>' +
+            '</span></label>';
+    }
+    function stat(label, id, val, highlight, sub) {
+        return '<div>' +
+            '<div class="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-2">' + label + '</div>' +
+            '<div id="' + id + '" class="font-display font-medium whitespace-nowrap ' + (highlight ? 'text-amber-400 text-3xl lg:text-4xl' : 'text-white text-2xl lg:text-3xl') + '">' + val + '</div>' +
+            (sub != null ? '<div id="' + id + '-sub" class="text-xs text-white/40 mt-1.5">' + sub + '</div>' : '') +
+            '</div>';
+    }
+
+    return '<div class="mt-16 lg:mt-20 bg-slate-900 p-8 lg:p-12" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-8 lg:mb-10">' + C.title + '</div>' +
+        '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">' +
+        '<div class="lg:col-span-5 space-y-7">' +
+        sel('calc-unit', C.unit, unitOpts) +
+        sel('calc-plan', C.plan, planOpts) +
+        sel('calc-dp', C.dp, dpOpts) +
+        '</div>' +
+        '<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:pt-7">' +
+        stat(C.outDp, 'calc-out-dp', calcFmtK(r.dp)) +
+        stat(C.outMonthly, 'calc-out-monthly', calcFmtK(r.monthly), true, '× ' + r.months + C.monthsSuffix) +
+        stat(C.outTotal, 'calc-out-total', calcFmtK(r.total)) +
+        '</div></div>' +
+        '<p id="calc-hint" class="hidden text-xs text-amber-400 mt-8"></p>' +
+        '<p class="text-xs text-white/40 mt-3">' + C.disclaimer + '</p>' +
+        '</div>';
+}
+
+window.crownCalcUpdate = function () {
+    const p = currentProject();
+    const T = ROOFY.tr();
+    const C = T.projects.priceList && T.projects.priceList.calc;
+    if (!p || !p.priceList || !C) return;
+    const uSel = document.getElementById('calc-unit');
+    const planSel = document.getElementById('calc-plan');
+    const dpSel = document.getElementById('calc-dp');
+    if (!uSel || !planSel || !dpSel) return;
+    const u = p.priceList.units.filter(function (x) { return x.type === uSel.value; })[0] || p.priceList.units[0];
+    const plan = planSel.value;
+    const dpPct = parseInt(dpSel.value, 10) || 15;
+    const r = crownCalcCompute(u, dpPct, plan);
+    function put(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
+    put('calc-out-total', calcFmtK(r.total));
+    put('calc-out-dp', calcFmtK(r.dp));
+    put('calc-out-monthly', calcFmtK(r.monthly));
+    put('calc-out-monthly-sub', plan === 'lump' ? C.lumpNote : '× ' + r.months + C.monthsSuffix);
+    const hint = document.getElementById('calc-hint');
+    if (hint) {
+        const show = (plan === 'm24' && dpPct < 30);
+        hint.classList.toggle('hidden', !show);
+        hint.textContent = show ? C.hint24 : '';
+    }
+};
+
 function priceTableSection(p) {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
@@ -207,6 +293,7 @@ function priceTableSection(p) {
         '<ul class="space-y-3.5">' + notesHtml + '</ul>' +
         '</div>' +
         '</div>' +
+        calcPanel(pl, L) +
         '</div></section>';
 }
 

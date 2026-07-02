@@ -256,6 +256,7 @@ window.I18N = {
             typeLabel: '类型',
             bedsLabel: '房型',
             beds: { all: '不限', '1': '1–2 室', '3': '3 室', '4': '4 室', '5': '5 室及以上' },
+            sort: { label: '排序', default: '默认', asc: '价格从低到高', desc: '价格从高到低' },
             search: {
                 placeholder: '搜索区域、房型或关键词…',
                 clear: '清除',
@@ -380,7 +381,17 @@ window.I18N = {
                 type: '房型', qty: '套数', beds: '卧室', size: '户型', plot: '地块',
                 benchmark: '基准价', lumpSum: '一次性', m12: '12 期', m18: '18 期', m24: '24 期',
                 downPaymentTitle: '首付金额', notesTitle: '重要说明',
-                currencyNote: '单位为赞比亚克瓦查 ZMW。分期各列是对应付款方式的总房款,月供 =(总房款 − 首付)÷ 期数。'
+                currencyNote: '单位为赞比亚克瓦查 ZMW。分期各列是对应付款方式的总房款,月供 =(总房款 − 首付)÷ 期数。',
+                calc: {
+                    title: '分期计算器',
+                    unit: '房型', plan: '付款方式', dp: '首付比例',
+                    plans: { lump: '一次性', m12: '12 期', m18: '18 期', m24: '24 期' },
+                    outTotal: '总房款', outDp: '首付金额', outMonthly: '每月月供',
+                    monthsSuffix: ' 个月',
+                    lumpNote: '一次性付款,无分期月供。',
+                    hint24: '24 期方案建议首付不低于 30%,以减轻月供压力。',
+                    disclaimer: '计算结果仅供参考,最终以正式购房合同为准。'
+                }
             },
             gallery: '项目画册',
             inquire: '咨询此项目',
@@ -669,6 +680,7 @@ window.I18N = {
             typeLabel: 'Type',
             bedsLabel: 'Layout',
             beds: { all: 'Any', '1': '1–2 bed', '3': '3 bed', '4': '4 bed', '5': '5 bed+' },
+            sort: { label: 'Sort', default: 'Featured', asc: 'Price: low to high', desc: 'Price: high to low' },
             search: {
                 placeholder: 'Search by region, room count or keyword…',
                 clear: 'Clear',
@@ -793,7 +805,17 @@ window.I18N = {
                 type: 'Type', qty: 'Units', beds: 'Beds', size: 'Size', plot: 'Plot',
                 benchmark: 'Benchmark', lumpSum: 'Lump-sum', m12: '12 mo.', m18: '18 mo.', m24: '24 mo.',
                 downPaymentTitle: 'Down payment', notesTitle: 'Important notes',
-                currencyNote: 'All figures in Zambian Kwacha (ZMW). Installment columns show the total under each plan; monthly = (total − down payment) ÷ term.'
+                currencyNote: 'All figures in Zambian Kwacha (ZMW). Installment columns show the total under each plan; monthly = (total − down payment) ÷ term.',
+                calc: {
+                    title: 'Installment Calculator',
+                    unit: 'Unit type', plan: 'Payment plan', dp: 'Down payment',
+                    plans: { lump: 'Lump-sum', m12: '12 months', m18: '18 months', m24: '24 months' },
+                    outTotal: 'Total price', outDp: 'Down payment', outMonthly: 'Monthly instalment',
+                    monthsSuffix: ' months',
+                    lumpNote: 'Lump-sum payment — no monthly instalments.',
+                    hint24: 'A down payment of at least 30% is recommended for the 24-month plan.',
+                    disclaimer: 'Indicative figures only — the signed sale agreement prevails.'
+                }
             },
             gallery: 'Gallery',
             inquire: 'Enquire about this project',

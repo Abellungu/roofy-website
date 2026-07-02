@@ -44,6 +44,32 @@ function applyFilters(all) {
     });
 }
 
+/* Price ordering across a mixed inventory (K sale / US$ sale / US$ month /
+ * K night). The FX rate is an internal approximation used ONLY to make the
+ * sort sensible — it is never displayed. Per-night rents are compared at a
+ * 30-night month; "Price on request" always sinks to the end. */
+const SORT_FX_ZMW_PER_USD = 27;
+function priceSortValue(p) {
+    const s = String(p.price || '');
+    const m = s.replace(/,/g, '').match(/(\d+(?:\.\d+)?)/);
+    if (!m) return null;
+    let v = parseFloat(m[1]);
+    if (/US\$|USD|\$/i.test(s)) v *= SORT_FX_ZMW_PER_USD;
+    if (/night|晚/i.test(s)) v *= 30;
+    return v;
+}
+function applySort(list) {
+    const sort = ROOFY.state.propertySort || 'default';
+    if (sort !== 'asc' && sort !== 'desc') return list;
+    return list.slice().sort(function (a, b) {
+        const va = priceSortValue(a), vb = priceSortValue(b);
+        if (va == null && vb == null) return 0;
+        if (va == null) return 1;
+        if (vb == null) return -1;
+        return sort === 'asc' ? va - vb : vb - va;
+    });
+}
+
 function propertiesHero() {
     const T = ROOFY.tr();
     const heroImg = '/assets/img/projects/estate-gate.jpg';
@@ -163,9 +189,13 @@ function filterPanel() {
     const bedsOptions = ['all', '1', '3', '4', '5'].map(function (k) {
         return { value: k, label: T.properties.beds[k] };
     });
+    const sortOptions = ['default', 'asc', 'desc'].map(function (k) {
+        return { value: k, label: T.properties.sort[k] };
+    });
 
     const isFiltered = ROOFY.state.propertyFilter !== 'all' || ROOFY.state.propertyRegion !== 'all'
         || ROOFY.state.propertyTransaction !== 'all' || ROOFY.state.propertyBeds !== 'all'
+        || (ROOFY.state.propertySort || 'default') !== 'default'
         || (ROOFY.state.propertySearch || '').length > 0;
 
     return '<section id="browse" class="py-8 lg:py-10 bg-white border-b border-slate-200 scroll-mt-20">' +
@@ -188,6 +218,7 @@ function filterPanel() {
         facetRow(T.properties.typeLabel, typeOptions, ROOFY.state.propertyFilter, 'setFilter') +
         facetRow(T.properties.regionLabel, regionOptions, ROOFY.state.propertyRegion, 'setPropertyRegion') +
         facetRow(T.properties.bedsLabel, bedsOptions, ROOFY.state.propertyBeds, 'setPropertyBeds') +
+        facetRow(T.properties.sort.label, sortOptions, ROOFY.state.propertySort || 'default', 'setPropertySort') +
         '</div>' +
         /* result count + reset */
         '<div class="flex items-center justify-between gap-3 mt-5">' +
@@ -266,7 +297,7 @@ function listingRows() {
             '</div></div></section>';
     }
 
-    const rows = list.map(function (p) { return listRow(p, T); }).join('');
+    const rows = applySort(list).map(function (p) { return listRow(p, T); }).join('');
     return '<section class="py-10 lg:py-14 bg-slate-50">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
         '<div class="flex flex-col gap-4">' + rows + '</div>' +
@@ -320,6 +351,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const tx = qs.get('txn'); if (tx && ['all', 'sale', 'rent'].indexOf(tx) >= 0) ROOFY.state.propertyTransaction = tx;
         const b = qs.get('beds'); if (b && ['all', '1', '3', '4', '5'].indexOf(b) >= 0) ROOFY.state.propertyBeds = b;
         const q = qs.get('q'); if (q) ROOFY.state.propertySearch = q;
+        const so = qs.get('sort'); if (so && ['asc', 'desc'].indexOf(so) >= 0) ROOFY.state.propertySort = so;
         fromSearch = !!(qs.get('txn') || qs.get('type') || qs.get('region') || qs.get('beds') || qs.get('q'));
     } catch (_) { }
     loadAllData().then(function () {

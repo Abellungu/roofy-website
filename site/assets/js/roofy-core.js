@@ -19,12 +19,16 @@
     })();
 
     const state = {
-        lang: (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_LANG)) || 'en',
+        /* First visit: follow the browser language (zh → 中文, anything else →
+         * English). A manual toggle persists to localStorage and always wins. */
+        lang: (typeof localStorage !== 'undefined' && localStorage.getItem(STORAGE_LANG)) ||
+            (/^zh/i.test((typeof navigator !== 'undefined' && navigator.language) || '') ? 'zh' : 'en'),
         mobileMenuOpen: false,
         propertyFilter: 'all',
         propertyRegion: 'all',
         propertyTransaction: 'all',
         propertyBeds: 'all',
+        propertySort: 'default',
         propertySearch: '',
         newsCategory: 'all',
         page: 'home',
@@ -200,11 +204,13 @@
     window.setPropertyRegion = function (r) { state.propertyRegion = r; render(); };
     window.setPropertyTransaction = function (t) { state.propertyTransaction = t; render(); };
     window.setPropertyBeds = function (b) { state.propertyBeds = b; render(); };
+    window.setPropertySort = function (s) { state.propertySort = s; render(); };
     window.resetPropertyFilters = function () {
         state.propertyFilter = 'all';
         state.propertyRegion = 'all';
         state.propertyTransaction = 'all';
         state.propertyBeds = 'all';
+        state.propertySort = 'default';
         state.propertySearch = '';
         render();
     };
