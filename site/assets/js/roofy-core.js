@@ -66,6 +66,22 @@
         else el.classList.add('is-revealed');
     }
 
+    /* All elements that crossed the trigger line in ONE scan tick animate as a
+     * single compressed GSAP wave (stagger.amount, not per-element delays) —
+     * the fixed 70ms-per-item CSS queue read as lag. Without GSAP, the
+     * .is-revealed class from revealEl() shows them instantly. */
+    function animateBatch(els) {
+        const batch = els.filter(function (el) { return !el.hasAttribute('data-counter'); });
+        if (!batch.length || typeof gsap === 'undefined') return;
+        gsap.fromTo(batch,
+            { y: 26, autoAlpha: 0 },
+            {
+                y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
+                stagger: { amount: Math.min(0.24, batch.length * 0.06) },
+                overwrite: 'auto'
+            });
+    }
+
     function initReveals() {
         const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -93,27 +109,19 @@
             return;
         }
 
-        /* Per-section stagger: the nth reveal element in a section waits n·70ms,
-         * so each section animates as one intentional wave, not dozens of pops. */
-        const counts = new Map();
-        document.querySelectorAll('[data-reveal-up]').forEach(function (el) {
-            const sec = el.closest('section') || el.parentElement;
-            const n = counts.get(sec) || 0;
-            el.style.setProperty('--reveal-delay', (n * 70) + 'ms');
-            counts.set(sec, n + 1);
-        });
-
         let ticking = false;
         function scan() {
             ticking = false;
             const vh = window.innerHeight || document.documentElement.clientHeight;
+            const newly = [];
             targets = targets.filter(function (el) {
                 /* Reveal once the element's top has crossed the trigger line —
                  * NOT gated on still being in view, so a fast scroll/fling that
                  * skips a section past the top still reveals it (no stuck gaps). */
-                if (el.getBoundingClientRect().top < vh * 0.9) { revealEl(el); return false; }
+                if (el.getBoundingClientRect().top < vh * 0.9) { revealEl(el); newly.push(el); return false; }
                 return true;
             });
+            animateBatch(newly);
             if (!targets.length) cleanup();
         }
         function onScroll() {
