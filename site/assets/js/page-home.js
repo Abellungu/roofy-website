@@ -52,7 +52,7 @@ function heroSection() {
     const heroImg = '/assets/img/home/home-hero-city-night.jpg';
 
     return '<section id="top" class="home-hero hero-cinematic relative min-h-[100svh] min-h-[100dvh] flex" style="background-image:url(\'' + heroImg + '\')" data-hero-reveal>' +
-        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center pt-28 pb-12 lg:pt-32 lg:pb-16">' +
+        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 flex items-end md:items-center pt-28 pb-16 md:pb-12 lg:pt-32 lg:pb-16">' +
         '<div class="max-w-[820px]">' +
         '<div class="home-hero-kicker reveal-mask mb-8">' +
         '<div class="reveal-line text-xs sm:text-sm font-semibold text-amber-400 uppercase">' + T.hero.bannerKicker + '</div>' +

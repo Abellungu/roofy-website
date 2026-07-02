@@ -58,21 +58,27 @@
             dLink('news', '/news/index.html', T.nav.news) +
             dLink('about', '/about.html', T.nav.about);
 
+        /* Mobile menu: full-screen navy editorial panel — numbered Cormorant
+         * rows staggering in (see .mobile-menu / .mm-item in roofy.css). */
+        let mmIdx = 0;
         function mLink(href, label, indent) {
-            return '<a href="' + href + '" onclick="closeMobileMenu()" class="flex items-center justify-between py-4 ' + (indent ? 'pl-10 pr-6' : 'px-6') + ' border-b border-slate-200 text-slate-800 text-lg">' +
-                '<span>' + label + '</span>' +
-                '<i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-900"></i></a>';
+            mmIdx += 1;
+            return '<a href="' + href + '" onclick="closeMobileMenu()" class="mm-item flex items-center justify-between py-5 px-6 border-b border-white/10" style="animation-delay:' + (mmIdx * 45) + 'ms">' +
+                '<span class="flex items-baseline gap-4' + (indent ? ' pl-6' : '') + '">' +
+                '<span class="text-[10px] font-semibold tracking-widest text-amber-500/80">' + String(mmIdx).padStart(2, '0') + '</span>' +
+                '<span class="font-display text-3xl font-medium text-white leading-none">' + label + '</span></span>' +
+                '<i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-500/70 shrink-0"></i></a>';
         }
         const mobile =
             mLink('/', T.nav.home, false) +
-            '<div class="px-6 pt-5 pb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">' + T.nav.realEstate + '</div>' +
+            '<div class="mm-item px-6 pt-7 pb-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-amber-500/70" style="animation-delay:' + ((mmIdx + 1) * 45) + 'ms">' + T.nav.realEstate + '</div>' +
             reItems.map(function (l) { return mLink(l[1], l[2], true); }).join('') +
             mLink('/services/advertising.html', T.nav.media, false) +
             mLink('/services/branding.html', T.nav.branding, false) +
             mLink('/news/index.html', T.nav.news, false) +
             mLink('/about.html', T.nav.about, false);
 
-        return '\n        <header id="site-nav" data-mode="' + initialMode + '" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">' +
+        return '\n        <header id="site-nav" data-mode="' + initialMode + '" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300' + (state.mobileMenuOpen ? ' menu-open' : '') + '">' +
             '<div class="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">' +
             '<a href="/" class="nav-wordmark text-2xl font-semibold tracking-tight">Roofy<span class="text-amber-500">.</span></a>' +
             '<nav class="hidden lg:flex items-center gap-7">' + desktop + '</nav>' +
@@ -87,11 +93,11 @@
             '<i data-lucide="' + (state.mobileMenuOpen ? 'x' : 'menu') + '" class="w-6 h-6"></i></button>' +
             '</div></div>' +
             (state.mobileMenuOpen ?
-                '<div class="lg:hidden bg-white fixed top-16 left-0 right-0 bottom-0 overflow-y-auto flex flex-col">' +
-                '<div class="border-t border-slate-200">' + mobile + '</div>' +
-                '<div class="p-6 flex items-center gap-3 mt-auto border-t border-slate-200">' +
-                '<button onclick="toggleLang()" class="flex-1 py-3 border border-slate-200 text-slate-800 font-medium">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
-                '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 text-center py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold">' + T.cta.contact + '</a>' +
+                '<div class="mobile-menu lg:hidden fixed top-16 left-0 right-0 bottom-0 overflow-y-auto flex flex-col">' +
+                '<div>' + mobile + '</div>' +
+                '<div class="mm-item p-6 pb-9 flex items-center gap-3 mt-auto border-t border-white/10" style="animation-delay:' + ((mmIdx + 2) * 45) + 'ms">' +
+                '<button onclick="toggleLang()" class="flex-1 h-12 border border-white/25 text-white/90 font-medium text-sm tracking-wide">' + (window.ROOFY.state.lang === 'zh' ? 'English' : '中文') + '</button>' +
+                '<a href="/contact.html" onclick="closeMobileMenu()" class="flex-1 h-12 inline-flex items-center justify-center bg-amber-500 text-slate-900 font-semibold text-sm">' + T.cta.contact + '</a>' +
                 '</div></div>' : '') +
             '</header>';
     }

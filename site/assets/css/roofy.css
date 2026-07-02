@@ -88,6 +88,29 @@ p { line-height: 1.7; }
 #site-nav[data-mode="solid"] .nav-lang:hover { color: var(--gold-dark); background: rgba(12, 22, 48, 0.05); }
 #site-nav[data-mode="solid"] .nav-mobile-toggle { color: var(--navy); }
 
+/* ── Mobile menu: full-screen navy editorial panel ──
+ * Numbered Cormorant rows stagger in; while it is open the bar itself is
+ * forced navy regardless of data-mode (the frosted off-white solid bar would
+ * otherwise leave an ugly seam above the panel). */
+.mobile-menu { background: linear-gradient(180deg, #0C1630 0%, #080C20 100%); }
+.mobile-menu .mm-item,
+.mm-item { opacity: 0; animation: mmIn .45s cubic-bezier(.22, .61, .36, 1) forwards; }
+@keyframes mmIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .mm-item { animation: none; opacity: 1; }
+}
+#site-nav.menu-open {
+    background: #0C1630 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+#site-nav.menu-open .nav-wordmark { color: #FFFFFF !important; }
+#site-nav.menu-open .nav-mobile-toggle { color: #FFFFFF !important; }
+
 /* ── Eyebrow: minimal plain-text label (gold, uppercase, tracked). The old
  *    square anchor + "/ 01" section numbering was decorative clutter — removed. ── */
 .eyebrow, .roofy-eyebrow {
