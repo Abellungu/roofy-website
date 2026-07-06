@@ -17,7 +17,7 @@
         return '<a href="/properties/detail.html?id=' + encodeURIComponent(p.id) + '" ' +
             'class="group block" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[4/3] overflow-hidden bg-slate-100">' +
-            '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '<div class="absolute top-4 left-4 flex items-center gap-1.5 flex-wrap">' +
             '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5">' + tag + '</span>' +
             (txnLabel ? '<span class="text-[10px] font-semibold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900') + ' px-2 py-0.5">' + txnLabel + '</span>' : '') +

@@ -107,7 +107,7 @@ function featuredProjectsBand() {
         return '<a href="/projects/' + encodeURIComponent(p.id) + '.html" ' +
             'class="group flex flex-col h-full" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
-            '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '<div class="absolute top-4 left-4 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
             (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1 rounded-sm">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
@@ -249,7 +249,7 @@ function listRow(p, T) {
         'class="group flex flex-col sm:flex-row gap-4 sm:gap-6 border-b border-slate-200 pb-8">' +
         /* image */
         '<div class="img-zoom relative w-full sm:w-64 lg:w-72 shrink-0 aspect-[16/10] sm:aspect-auto overflow-hidden bg-slate-100">' +
-        '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" class="w-full h-full object-cover" />' +
+        '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(title) + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
         '<div class="absolute top-3 left-3 flex items-center gap-1.5 flex-wrap">' +
         '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + tag + '</span>' +
         (txnLabel ? '<span class="text-[10px] font-semibold uppercase tracking-wider ' + (txn === 'rent' ? 'bg-slate-900 text-white' : 'bg-white text-slate-900 border border-slate-200') + ' px-2 py-0.5 rounded-sm">' + txnLabel + '</span>' : '') +

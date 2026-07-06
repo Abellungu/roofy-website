@@ -97,7 +97,7 @@ function relatedSection(a) {
         return '<a href="/news/article.html?id=' + encodeURIComponent(r.id) + '" ' +
             'class="group block">' +
             '<div class="img-zoom aspect-[16/10] overflow-hidden bg-slate-100">' +
-            '<img src="' + r.coverImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + rTitle + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + r.coverImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + rTitle + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '</div>' +
             '<div class="pt-4">' +
             '<div class="text-xs text-slate-500 mb-1.5">' + formatDate(r.publishedAt, lang) + '</div>' +

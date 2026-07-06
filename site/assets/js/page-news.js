@@ -43,7 +43,7 @@ function articleCard(a, T) {
     return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" ' +
         'class="group block" data-reveal-up>' +
         '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
-        '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" class="w-full h-full object-cover" />' +
+        '<img src="' + a.coverImg + '" data-placeholder="' + (a.placeholder ? 'true' : 'false') + '" alt="' + title + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
         '<div class="absolute top-4 left-4 flex items-center gap-2">' +
         '<span class="text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2.5 py-1">' + catLabel + '</span>' +
         (a.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1">' + T.news.sample + '</span>' : '') +

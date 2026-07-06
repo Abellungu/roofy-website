@@ -304,7 +304,7 @@ function gallerySection(p) {
     const items = gallery.map(function (src, i) {
         const aspect = i % 3 === 0 ? 'aspect-[16/10]' : 'aspect-[4/3]';
         return '<div class="img-zoom overflow-hidden rounded-lg ' + aspect + ' bg-slate-100" data-reveal-up>' +
-            '<img src="' + src + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + (p.nameEn || p.nameZh) + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + src + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + (p.nameEn || p.nameZh) + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '</div>';
     }).join('');
     return '<section class="py-16 lg:py-24 bg-slate-50">' +
@@ -342,7 +342,7 @@ function relatedProjects(p) {
         return '<a href="/projects/' + encodeURIComponent(r.id) + '.html" ' +
             'class="group block" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
-            '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + r.heroImg + '" data-placeholder="' + (r.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '<div class="absolute top-4 left-4">' + badge(r.status) + '</div>' +
             '</div>' +
             '<div class="pt-4">' +

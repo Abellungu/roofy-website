@@ -119,7 +119,7 @@ body.menu-open #cookie-banner { opacity: 0; visibility: hidden; pointer-events: 
 /* ── Scroll reveals — hidden ONLY when JS is present (.html.js), so prerendered
  *    content stays fully visible to crawlers / no-JS. Per-element delay waves. ── */
 .reveal-mask { overflow: hidden; }
-.reveal-line { display: inline-block; will-change: transform, opacity; }
+.reveal-line { display: inline-block; }
 .js [data-hero-reveal] .reveal-line {
     opacity: 0; transform: translateY(24px);
     transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1);
@@ -131,15 +131,18 @@ body.menu-open #cookie-banner { opacity: 0; visibility: hidden; pointer-events: 
 /* Motion runs on GSAP (animateBatch in roofy-core): one compressed wave per
  * scan tick. CSS keeps only the hidden initial state + the no-GSAP fallback
  * final state — no transition here, or it would double-animate the tween. */
+/* No permanent will-change here: animateBatch (roofy-core) sets it inline only
+ * for the ~0.9s each element is tweening and clears it (with the tween's
+ * transform/opacity) on complete, so idle reveal targets don't pin GPU layers. */
 .js [data-reveal-up] {
     opacity: 0; transform: translateY(26px);
-    will-change: opacity, transform;
 }
 .js [data-reveal-up].is-revealed { opacity: 1; transform: none; }
 
 /* ── Image zoom on hover: long, soft glide (luxury register) ── */
-.img-zoom > img { transition: transform 1.1s cubic-bezier(.16, 1, .3, 1); will-change: transform; }
-.img-zoom:hover > img { transform: scale(1.045); }
+/* will-change only while hovered — not permanently on every card image. */
+.img-zoom > img { transition: transform 1.1s cubic-bezier(.16, 1, .3, 1); }
+.img-zoom:hover > img { transform: scale(1.045); will-change: transform; }
 .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; }
 
 /* ── Glassmorphism property search (sits over the cinematic hero) ── */

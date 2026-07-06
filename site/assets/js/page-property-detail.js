@@ -110,7 +110,7 @@ function locationSection(p) {
         '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>' +
         '</div>' +
         '<div class="aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm" data-reveal-up>' +
-        '<iframe title="' + p.loc + ' map" src="https://maps.google.com/maps?q=' + query + '&z=14&output=embed" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+        '<iframe title="' + p.loc + ' map" src="https://maps.google.com/maps?q=' + query + '&z=14&output=embed" class="w-full h-full" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
         '</div></div></section>';
 }
 

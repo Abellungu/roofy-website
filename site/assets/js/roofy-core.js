@@ -78,7 +78,13 @@
             {
                 y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out',
                 stagger: { amount: Math.min(0.24, batch.length * 0.06) },
-                overwrite: 'auto'
+                overwrite: 'auto',
+                /* Promote to a compositor layer only while animating, then drop
+                 * every inline style GSAP added (transform/opacity/visibility +
+                 * the hint) — the .is-revealed class keeps the element visible,
+                 * so idle reveal targets don't hold GPU memory on mobile. */
+                onStart: function () { batch.forEach(function (el) { el.style.willChange = 'transform, opacity'; }); },
+                clearProps: 'transform,opacity,visibility,willChange'
             });
     }
 

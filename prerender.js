@@ -36,7 +36,7 @@ const PAGES = [
 
 /* Vendor / browser-only scripts we skip during replay — the render functions
  * are guarded by typeof checks, so absence is harmless. */
-const SKIP_SRC = /(lucide|gsap|ScrollTrigger|swiper|analytics)/i;
+const SKIP_SRC = /(lucide|roofy-icons|gsap|ScrollTrigger|swiper|analytics)/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 

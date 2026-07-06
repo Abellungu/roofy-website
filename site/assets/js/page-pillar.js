@@ -182,7 +182,7 @@ function ledProductsBlock(T) {
         const mode = (ti.modeLabels && ti.modeLabels[p.mode]) || '';
         return '<div data-reveal-up class="group flex flex-col">' +
             '<div class="relative aspect-[16/10] bg-slate-100 flex items-center justify-center overflow-hidden">' +
-            '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + p.model + ' ' + name + '" loading="lazy" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105" />' +
+            '<img src="' + p.img + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + p.model + ' ' + name + '" loading="lazy" decoding="async" class="w-full h-full object-contain p-5 transition-transform duration-500 group-hover:scale-105" />' +
             (p.series ? '<span class="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-wider bg-slate-900/85 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + p.series + '</span>' : '') +
             '<span class="absolute top-3 right-3 text-[10px] font-semibold uppercase tracking-wider bg-amber-500 text-slate-900 px-2 py-0.5 rounded-sm">' + usage + '</span>' +
             '</div>' +
@@ -250,7 +250,7 @@ function ledBillboardsBlock(T) {
         const addr = lang === 'zh' ? b.addressZh : b.addressEn;
         return '<div data-reveal-up class="group">' +
             '<div class="img-zoom relative aspect-[16/10] overflow-hidden bg-slate-100">' +
-            '<img src="' + b.img + '" data-placeholder="' + (b.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + b.img + '" data-placeholder="' + (b.placeholder ? 'true' : 'false') + '" alt="' + name + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '<div class="absolute top-3 left-3 flex items-center gap-2">' +
             '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2 py-0.5 rounded-sm">' + b.code + '</span>' +
             availBadge(b.availability) + '</div></div>' +

@@ -169,7 +169,7 @@ function projectsBandSection() {
         return '<a href="/projects/' + encodeURIComponent(p.id) + '.html" ' +
             'class="group flex flex-col h-full" data-reveal-up>' +
             '<div class="img-zoom relative aspect-[5/4] overflow-hidden bg-slate-100 shrink-0">' +
-            '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" class="w-full h-full object-cover" />' +
+            '<img src="' + p.heroImg + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" alt="' + escapeAttr(name) + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
             '<div class="absolute top-4 left-4 flex flex-col items-start gap-1.5">' + statusBadge(p.status) +
             (p.placeholder ? '<span class="text-[10px] font-semibold uppercase tracking-wider bg-slate-900/80 backdrop-blur text-white px-2.5 py-1">' + T.projects.sample + '</span>' : '') +
             '</div></div>' +
@@ -205,14 +205,14 @@ function newsSection() {
     }
     const a0 = list[0];
     const lead = '<a href="/news/article.html?id=' + encodeURIComponent(a0.id) + '" class="group block lg:col-span-7" data-reveal-up>' +
-        '<div class="img-zoom overflow-hidden mb-5"><img src="' + a0.coverImg + '" alt="' + (lang === 'zh' ? a0.titleZh : a0.titleEn) + '" loading="lazy" class="w-full aspect-[16/9] object-cover" /></div>' +
+        '<div class="img-zoom overflow-hidden mb-5"><img src="' + a0.coverImg + '" alt="' + (lang === 'zh' ? a0.titleZh : a0.titleEn) + '" loading="lazy" decoding="async" class="w-full aspect-[16/9] object-cover" /></div>' +
         '<div class="flex items-center gap-2 text-xs mb-3 text-slate-500">' + meta(a0) + '</div>' +
         '<h3 class="font-display text-2xl lg:text-3xl font-semibold text-slate-900 leading-snug group-hover:text-amber-700 transition-colors max-w-xl">' + (lang === 'zh' ? a0.titleZh : a0.titleEn) + '</h3>' +
         '<p class="text-sm text-slate-600 leading-relaxed mt-3 max-w-xl">' + (lang === 'zh' ? (a0.excerptZh || '') : (a0.excerptEn || '')) + '</p>' +
         '</a>';
     const side = list.slice(1, 3).map(function (a, i) {
         return '<a href="/news/article.html?id=' + encodeURIComponent(a.id) + '" class="group flex gap-5 items-start' + (i > 0 ? ' border-t border-slate-200 pt-7' : '') + '" data-reveal-up>' +
-            '<div class="img-zoom overflow-hidden w-32 sm:w-40 shrink-0"><img src="' + a.coverImg + '" alt="" loading="lazy" class="w-full aspect-[4/3] object-cover" /></div>' +
+            '<div class="img-zoom overflow-hidden w-32 sm:w-40 shrink-0"><img src="' + a.coverImg + '" alt="" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover" /></div>' +
             '<div class="min-w-0">' +
             '<div class="flex items-center gap-2 text-xs mb-2 text-slate-500">' + meta(a) + '</div>' +
             '<h3 class="font-display text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-700 transition-colors">' + (lang === 'zh' ? a.titleZh : a.titleEn) + '</h3>' +

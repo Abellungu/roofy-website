@@ -103,7 +103,7 @@ function officeGallery() {
     ];
     const cells = imgs.map(function (im) {
         return '<div data-reveal-up class="img-zoom overflow-hidden aspect-[4/3] bg-slate-200">' +
-            '<img src="' + im[0] + '" alt="' + im[1] + '" loading="lazy" class="w-full h-full object-cover" /></div>';
+            '<img src="' + im[0] + '" alt="' + im[1] + '" loading="lazy" decoding="async" class="w-full h-full object-cover" /></div>';
     }).join('');
     return '<section class="py-16 md:py-28 lg:py-40 bg-white">' +
         '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
@@ -124,7 +124,7 @@ function teamSection() {
             const name = lang === 'zh' && m.nameZh ? m.nameZh : m.name;
             const role = lang === 'zh' ? m.roleZh : m.role;
             const photo = m.photo
-                ? '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy" class="w-full h-full object-cover" />'
+                ? '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />'
                 : '<div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400 font-display text-3xl">' + (m.initials || '·') + '</div>';
             return '<div data-reveal-up class="group">' +
                 '<div class="aspect-[4/5] overflow-hidden bg-slate-100 mb-4">' + photo + '</div>' +

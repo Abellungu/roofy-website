@@ -162,7 +162,7 @@ function mapSection() {
         (lang === 'zh' ? '在 Google 地图打开' : 'Open in Google Maps') +
         '<i data-lucide="arrow-up-right" class="w-4 h-4"></i></a></div>' +
         '<div class="aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm" data-reveal-up>' +
-        '<iframe title="ROOFY Lusaka office map" src="https://maps.google.com/maps?q=Ibex%20Hill%20Lusaka%20Zambia&z=14&output=embed" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+        '<iframe title="ROOFY Lusaka office map" src="https://maps.google.com/maps?q=Ibex%20Hill%20Lusaka%20Zambia&z=14&output=embed" class="w-full h-full" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
         '</div></div></section>';
 }
 
