@@ -1,5 +1,6 @@
 {
     "_note": "Real Roofy Investments listings scraped from roofyinvestments.com (placeholder:false) + 4 demonstration entries (placeholder:true) added 2026-05-29 to populate region and transactionType for the multi-filter UI. Replace placeholder items via Sanity Studio before production launch.",
+    "_hiddenNote": "hiddenItems: resale (二手) + land (土地) listings pulled from display per client request 2026-07-11. The site only reads `items`, so anything here is invisible on every page (listing, home, pillar, detail). To restore a listing, move its object back into `items`. The admin panel preserves this key on save.",
     "items": [
         {
             "id": "kalundu-luxury-house",
@@ -17,23 +18,6 @@
             "baths": 6,
             "descZh": "Kalundu（Off Great East Road）位于 2,100㎡ 地块上的六室开放式豪宅，450㎡ 居住空间。主卧带男女独立卫浴、步入式衣帽间、电热毛巾架；主厨厨房配花岗岩台面、中岛与早餐区；大开间客厅与餐厅全屋空调；私家泳池与户外娱乐区。临近 LICS、Manda Hill、East Park Mall 与 Arcades，安静且安保完善。适合行政自住或高端投资。",
             "descEn": "A premium 6-bedroom open-plan residence on a 2,100 sqm plot with 450 sqm of living space in Kalundu, off Great East Road. Master suite with his & hers bathrooms, walk-in closet and heated towel rail; chef's kitchen with granite countertops, island and breakfast nook; fully air-conditioned open-plan living and dining; private swimming pool and entertainment area. In a quiet, secure neighbourhood close to LICS, Manda Hill, East Park Mall and Arcades. Ideal for executive living or a premium investment."
-        },
-        {
-            "id": "lusaka-west-land",
-            "type": "land",
-            "transactionType": "sale",
-            "region": "lusaka-west",
-            "placeholder": false,
-            "img": "/assets/img/properties/land1.jpg",
-            "titleZh": "Lusaka West 4.5 公顷开发用地",
-            "titleEn": "Land for Sale — Lusaka West",
-            "loc": "Lusaka West",
-            "price": "K 1,500,000 · Negotiable",
-            "area": "4.5 hectares",
-            "beds": 0,
-            "baths": 0,
-            "descZh": "距 Mungwi/Lumumba 路口 29 公里，位于 Lusaka West 的优质土地，适合住宅或投资开发。地势平整、可即时动工，地区安全且快速发展，产权清晰。",
-            "descEn": "Prime land located 29 km from the Mungwi/Lumumba junction in Lusaka West. Ideal for residential or investment development. Secure, fast-developing area. Clean title, flat and ready to build. Plot size: 4.5 hectares."
         },
         {
             "id": "kingsland-5-bed",
@@ -102,6 +86,25 @@
             "baths": 3,
             "descZh": "Ibex Hill Second Street 上的四室双层别墅，位置毗邻 ROOFY 总部。",
             "descEn": "A 4-bedroom double-storey home on Second Street, Ibex Hill — neighbouring the Roofy headquarters."
+        }
+    ],
+    "hiddenItems": [
+        {
+            "id": "lusaka-west-land",
+            "type": "land",
+            "transactionType": "sale",
+            "region": "lusaka-west",
+            "placeholder": false,
+            "img": "/assets/img/properties/land1.jpg",
+            "titleZh": "Lusaka West 4.5 公顷开发用地",
+            "titleEn": "Land for Sale — Lusaka West",
+            "loc": "Lusaka West",
+            "price": "K 1,500,000 · Negotiable",
+            "area": "4.5 hectares",
+            "beds": 0,
+            "baths": 0,
+            "descZh": "距 Mungwi/Lumumba 路口 29 公里，位于 Lusaka West 的优质土地，适合住宅或投资开发。地势平整、可即时动工，地区安全且快速发展，产权清晰。",
+            "descEn": "Prime land located 29 km from the Mungwi/Lumumba junction in Lusaka West. Ideal for residential or investment development. Secure, fast-developing area. Clean title, flat and ready to build. Plot size: 4.5 hectares."
         },
         {
             "id": "kabulonga-villa-resale",
