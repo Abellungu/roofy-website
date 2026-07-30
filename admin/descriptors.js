@@ -44,7 +44,8 @@ const T = {
             { name: 'area', type: 'text', zh: '面积', en: 'Area', half: true },
             { name: 'beds', type: 'number', zh: '卧室数', en: 'Beds', half: true },
             { name: 'baths', type: 'number', zh: '卫浴数', en: 'Baths', half: true },
-            { name: 'img', type: 'image', zh: '封面图', en: 'Cover image', required: true }
+            { name: 'img', type: 'image', zh: '封面图', en: 'Cover image', required: true },
+            { name: 'gallery', type: 'images', zh: '房源图集', en: 'Property gallery' }
         ]
     },
 

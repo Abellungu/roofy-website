@@ -96,6 +96,32 @@ function descriptionSection(p) {
         '</div></div></section>';
 }
 
+function gallerySection(p) {
+    const T = ROOFY.tr();
+    const lang = ROOFY.state.lang;
+    const title = lang === 'zh' ? p.titleZh : p.titleEn;
+    const gallery = Array.isArray(p.gallery) ? p.gallery.filter(Boolean) : [];
+    if (!gallery.length) return '';
+    const items = gallery.map(function (src, i) {
+        const span = i === 0
+            ? 'md:col-span-2 lg:col-span-2 aspect-[16/9]'
+            : (i % 6 === 5 ? 'lg:col-span-2 aspect-[16/9]' : 'aspect-[4/3]');
+        return '<a href="' + src + '" target="_blank" rel="noopener" ' +
+            'class="img-zoom block overflow-hidden bg-slate-100 ' + span + '" data-reveal-up>' +
+            '<img src="' + src + '" data-placeholder="' + (p.placeholder ? 'true' : 'false') + '" ' +
+            'alt="' + title + ' · ' + (i + 1) + '" loading="lazy" decoding="async" class="w-full h-full object-cover" />' +
+            '</a>';
+    }).join('');
+    return '<section class="py-16 lg:py-24 bg-slate-50">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="max-w-2xl mb-10" data-reveal-up>' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-600 uppercase tracking-wider mb-3">' + T.properties.detail.gallery + '</div>' +
+        '<h2 class="text-2xl md:text-3xl font-semibold text-slate-900">' + title + ' · ' + T.properties.detail.galleryTitle + '</h2>' +
+        '</div>' +
+        '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">' + items + '</div>' +
+        '</div></section>';
+}
+
 function locationSection(p) {
     const T = ROOFY.tr();
     const lang = ROOFY.state.lang;
@@ -215,6 +241,7 @@ window.renderPage = function () {
         detailHero(p) +
         specsStrip(p) +
         descriptionSection(p) +
+        gallerySection(p) +
         locationSection(p) +
         inquireSection(p) +
         similarListings(p) +

@@ -1,7 +1,42 @@
 {
-    "_note": "Real Roofy Investments listings scraped from roofyinvestments.com (placeholder:false) + 4 demonstration entries (placeholder:true) added 2026-05-29 to populate region and transactionType for the multi-filter UI. Replace placeholder items via Sanity Studio before production launch.",
+    "_note": "Real Roofy Investments listings sourced from roofyinvestments.com and current client submissions. Demonstration entries remain under hiddenItems only and are not shown on the public site.",
     "_hiddenNote": "hiddenItems: resale (二手) + land (土地) listings pulled from display per client request 2026-07-11. The site only reads `items`, so anything here is invisible on every page (listing, home, pillar, detail). To restore a listing, move its object back into `items`. The admin panel preserves this key on save.",
     "items": [
+        {
+            "id": "oasis-miracle-4-bedroom",
+            "type": "new",
+            "transactionType": "sale",
+            "region": "ibex-hill",
+            "placeholder": false,
+            "img": "/assets/img/properties/oasis-miracle/01-front-exterior.jpg",
+            "titleZh": "Oasis Miracle 四室双层住宅",
+            "titleEn": "Oasis Miracle 4-Bedroom Double-Storey Home",
+            "loc": "Oasis Miracle, 2nd Street, Ibex Hill, Lusaka",
+            "price": "K 3,500,000",
+            "area": "—",
+            "beds": 4,
+            "baths": 2,
+            "descZh": "Oasis Miracle 社区内的四室双层住宅，售价 K 3,500,000。四间卧室中，两间为带独立卫浴的套房，一间位于楼上，一间位于楼下，兼顾家庭成员与访客使用。\n\n开放式厨房与客厅相连，并配有阳台和储藏室。社区提供 24 小时安保、游泳池和商业配套，房屋另配太阳能板。",
+            "descEn": "A four-bedroom double-storey home in the Oasis Miracle community, offered at K 3,500,000. Two bedrooms are self-contained ensuites, with one upstairs and one downstairs, providing a practical arrangement for family members and guests.\n\nThe home features an open-plan kitchen and living area, a balcony and a pantry. Community amenities include 24/7 security, a swimming pool and a commercial building. A solar panel is also included.",
+            "gallery": [
+                "/assets/img/properties/oasis-miracle/01-front-exterior.jpg",
+                "/assets/img/properties/oasis-miracle/02-rear-exterior.jpg",
+                "/assets/img/properties/oasis-miracle/03-kitchen-wide.jpg",
+                "/assets/img/properties/oasis-miracle/04-kitchen.jpg",
+                "/assets/img/properties/oasis-miracle/05-living-room.jpg",
+                "/assets/img/properties/oasis-miracle/06-staircase.jpg",
+                "/assets/img/properties/oasis-miracle/07-balcony.jpg",
+                "/assets/img/properties/oasis-miracle/08-bedroom-wardrobe-wide.jpg",
+                "/assets/img/properties/oasis-miracle/09-bedroom-wardrobe.jpg",
+                "/assets/img/properties/oasis-miracle/10-bedroom-wardrobe-second.jpg",
+                "/assets/img/properties/oasis-miracle/11-bedroom.jpg",
+                "/assets/img/properties/oasis-miracle/12-bedroom-second.jpg",
+                "/assets/img/properties/oasis-miracle/13-bedroom-third.jpg",
+                "/assets/img/properties/oasis-miracle/14-bathroom-wide.jpg",
+                "/assets/img/properties/oasis-miracle/15-bathroom-shower.jpg",
+                "/assets/img/properties/oasis-miracle/16-bathroom-vanity.jpg"
+            ]
+        },
         {
             "id": "kalundu-luxury-house",
             "type": "new",
