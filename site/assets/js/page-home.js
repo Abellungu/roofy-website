@@ -92,6 +92,55 @@ function threePillarsSection() {
         '</div></section>';
 }
 
+window.playServicesVideo = function (button) {
+    var frame = button && button.closest ? button.closest('.home-services-video-frame') : null;
+    var video = frame ? frame.querySelector('video') : null;
+    if (!video) return;
+
+    button.hidden = true;
+    frame.classList.add('is-playing');
+    var playback = video.play();
+    if (playback && typeof playback.catch === 'function') {
+        playback.catch(function () {
+            button.hidden = false;
+            frame.classList.remove('is-playing');
+        });
+    }
+};
+
+/* Click-to-play brand film. It follows the three-practice overview and uses
+ * preload=none so the 72-second asset never competes with the page's critical
+ * images or scripts. Native controls remain available for accessibility. */
+function servicesVideoSection() {
+    const T = ROOFY.tr();
+    const V = T.servicesVideo;
+    if (!V) return '';
+
+    return '<section class="home-services-video-section py-16 md:py-24 lg:py-32">' +
+        '<div class="max-w-[1280px] mx-auto px-6 lg:px-10">' +
+        '<div class="home-services-video-layout">' +
+        '<div class="home-services-video-copy">' +
+        '<div class="roofy-eyebrow text-sm font-semibold text-amber-400 uppercase tracking-wider mb-4" data-reveal-up>' + V.eyebrow + '</div>' +
+        '<h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight" data-reveal-up>' + V.title + '</h2>' +
+        '<p class="mt-6 text-base md:text-lg text-white/70 leading-relaxed" data-reveal-up>' + V.desc + '</p>' +
+        '<div class="home-services-video-meta mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-amber-300" data-reveal-up>' +
+        '<span aria-hidden="true"></span>' + V.duration + '</div>' +
+        '</div>' +
+        '<div data-reveal-up>' +
+        '<div class="home-services-video-frame">' +
+        '<video controls playsinline preload="none" poster="/assets/img/home/roofy-services-video-poster.webp" aria-label="' + escapeAttr(V.play) + '">' +
+        '<source src="/assets/video/roofy-services.mp4" type="video/mp4" />' +
+        '</video>' +
+        '<button type="button" class="home-services-video-play" onclick="playServicesVideo(this)" aria-label="' + escapeAttr(V.play) + '">' +
+        '<span class="home-services-video-play-icon" aria-hidden="true"><i data-lucide="play" class="w-6 h-6"></i></span>' +
+        '<span class="home-services-video-play-label">' + V.play + '</span>' +
+        '</button>' +
+        '</div>' +
+        '<p class="mt-4 text-xs text-white/60 leading-relaxed">' + V.note + '</p>' +
+        '</div>' +
+        '</div></div></section>';
+}
+
 /* Featured listings — Swiper carousel of real-photo property cards. */
 function featuredPropertiesSection() {
     const T = ROOFY.tr();
@@ -248,24 +297,12 @@ function ctaBannerSection() {
         '</div></section>';
 }
 
-/* Full-bleed cinematic break — a single oversized line over an estate image,
- * giving the long scroll a filmic pause between the businesses and the listings. */
-function cinematicBreak() {
-    const lang = ROOFY.state.lang;
-    const img = '/assets/img/projects/estate-gate.jpg';
-    const line = lang === 'zh' ? '在卢萨卡的每一条街道，都有 ROOFY。' : 'On every street in Lusaka, you will find ROOFY.';
-    return '<section class="hero-cinematic relative min-h-[72vh] min-h-[72dvh] flex items-end" style="background-image:url(\'' + img + '\')">' +
-        '<div class="relative w-full max-w-[1280px] mx-auto px-6 lg:px-10 pb-16 lg:pb-24">' +
-        '<h2 class="font-display font-medium text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl max-w-3xl leading-[1.05]" data-reveal-up>' + line + '</h2>' +
-        '</div></section>';
-}
-
 window.renderPage = function () {
     return PARTIALS.navHtml() +
         '<main>' +
         heroSection() +
         threePillarsSection() +
-        cinematicBreak() +
+        servicesVideoSection() +
         featuredPropertiesSection() +
         projectsBandSection() +
         newsSection() +

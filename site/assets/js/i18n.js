@@ -103,6 +103,14 @@ window.I18N = {
                 { tag: '03', icon: 'sparkles', title: '品牌与营销', desc: '从品牌定位到营销落地，让品牌被清晰记住。', href: 'services/branding.html', cta: '了解品牌业务' }
             ]
         },
+        servicesVideo: {
+            eyebrow: '品牌影像',
+            title: '一分钟，认识 ROOFY 的三大业务。',
+            desc: '从房地产到 LED 传媒，再到品牌营销，了解 ROOFY 如何连接城市空间、商业可见度与品牌成长。',
+            play: '播放品牌片',
+            duration: '01:12 · 含声音',
+            note: '片中部分 LED 画面为服务概念展示，不代表已落地广告点位。'
+        },
         featured: {
             eyebrow: '精选房源',
             title: '在赞比亚，发现下一个家。',
@@ -528,6 +536,14 @@ window.I18N = {
                 { tag: '02', icon: 'tv-minimal-play', title: 'LED Billboard Advertising', desc: 'Digital outdoor advertising on modern LED billboards, putting brands on Zambia\'s most visible streets.', href: 'services/advertising.html', cta: 'Advertising' },
                 { tag: '03', icon: 'sparkles', title: 'Branding & Marketing', desc: 'Strategic brand positioning and marketing execution that gives brands a clear, credible, memorable seat in the market.', href: 'services/branding.html', cta: 'Branding' }
             ]
+        },
+        servicesVideo: {
+            eyebrow: 'Brand film',
+            title: 'Meet ROOFY’s three practices in one minute.',
+            desc: 'From real estate to LED media and brand marketing, discover how ROOFY connects urban space, commercial visibility and brand growth.',
+            play: 'Play brand film',
+            duration: '01:12 · Sound on',
+            note: 'Some LED scenes are service concept visuals and do not represent completed advertising locations.'
         },
         featured: {
             eyebrow: 'Featured Properties',

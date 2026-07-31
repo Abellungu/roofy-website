@@ -81,7 +81,9 @@ async function prerenderPage(rel, urlOverride) {
         if (type && type !== 'text/javascript' && type !== 'application/javascript') continue; // skip ld+json, module
         try {
             if (el.src) {
-                const p = el.src.replace(/^https?:\/\/[^/]+/, '');
+                /* Cache-busting query strings belong to the browser URL, not
+                 * the local filename replayed by the build. */
+                const p = el.src.replace(/^https?:\/\/[^/]+/, '').split(/[?#]/)[0];
                 if (SKIP_SRC.test(p)) continue;
                 window.eval(fs.readFileSync(path.join(SITE, p.replace(/^\//, '')), 'utf8'));
             } else if (el.textContent.trim()) {
@@ -119,9 +121,14 @@ function inject(rel, content) {
     /* Idempotent: replace whatever is inside #root (empty or a prior prerender).
      * Anchored on the whatsapp-fab div that always follows root (with or without
      * the optional "Floating UI" comment between them). */
-    const re = /<div id="root">[\s\S]*?<\/div>(\s*(?:<!--[\s\S]*?-->\s*)?<div id="whatsapp-fab")/;
+    /* Greedy root matching also repairs pages produced by older builds where
+     * replacement-string dollar expansion truncated content before the real
+     * floating-UI boundary. */
+    const re = /<div id="root">[\s\S]*<\/div>(\s*(?:<!--[\s\S]*?-->\s*)?<div id="whatsapp-fab")/;
     if (!re.test(html)) throw new Error('could not locate #root block in ' + rel);
-    html = html.replace(re, '<div id="root">' + content + '</div>$1');
+    html = html.replace(re, function (_match, floatingUiStart) {
+        return '<div id="root">' + content + '</div>' + floatingUiStart;
+    });
     fs.writeFileSync(file, html);
 }
 
@@ -135,7 +142,7 @@ async function generateProjectPages() {
     const data = JSON.parse(fs.readFileSync(path.join(SITE, 'assets/data/projects.json'), 'utf8'));
     const projects = (data.projects || []).filter((p) => !p.placeholder);
     const tpl = fs.readFileSync(path.join(SITE, 'projects/detail.html'), 'utf8');
-    const reRoot = /<div id="root">[\s\S]*?<\/div>(\s*(?:<!--[\s\S]*?-->\s*)?<div id="whatsapp-fab")/;
+    const reRoot = /<div id="root">[\s\S]*<\/div>(\s*(?:<!--[\s\S]*?-->\s*)?<div id="whatsapp-fab")/;
     const slugs = [];
     for (const p of projects) {
         const slug = p.id;
@@ -157,7 +164,9 @@ async function generateProjectPages() {
             .replace('content="https://www.roofyinvestments.com/assets/img/logo.jpg"', 'content="' + ogImg + '"');
 
         if (!reRoot.test(out)) throw new Error('could not locate #root block in project ' + slug);
-        out = out.replace(reRoot, '<div id="root">' + content + '</div>$1');
+        out = out.replace(reRoot, function (_match, floatingUiStart) {
+            return '<div id="root">' + content + '</div>' + floatingUiStart;
+        });
         fs.writeFileSync(path.join(SITE, 'projects/' + slug + '.html'), out);
         console.log('  ✓ projects/' + slug + '.html  (' + content.length.toLocaleString() + ' chars)');
         slugs.push(slug);
