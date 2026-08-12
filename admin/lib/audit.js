@@ -23,6 +23,7 @@ function audit(user, action, detail) {
     try {
         fs.mkdirSync(path.dirname(LOG), { recursive: true });
         fs.appendFileSync(LOG, line, { mode: 0o600 });
+        fs.chmodSync(LOG, 0o600);
     } catch (e) { console.error('[audit]', e.message); }
 }
 
