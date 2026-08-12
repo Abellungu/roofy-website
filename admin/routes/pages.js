@@ -41,8 +41,8 @@ router.get('/', async function (req, res) {
         title: '概览', titleEn: 'Dashboard',
         body: `
         <div class="hintbox">${H.L(
-            '品牌红线:公司 2024 年成立,不编造数字与评价;LED 业务只展示真实点位与真实产品;「物业开发」一律写「代建」;保存即上线,改错可在「发布历史」回滚。',
-            'Brand rules: founded 2024 — no fabricated stats or testimonials; LED shows real sites and products only; always 代建 / Turnkey Development; saves go live immediately and can be rolled back under History.')}</div>
+            '内容要真实。LED 只放真实点位，「物业开发」统一写成「代建」。保存后会立即上线，改错了可以去发布历史恢复。',
+            'Keep content accurate. Use real LED locations only, and write “Turnkey Development” for 代建. Saves go live immediately and can be restored under History.')}</div>
         <div class="cards">${cards}</div>
         <div class="panel"><h2>${H.L('最近发布', 'Recent publishes')} <span class="mono dim">HEAD ${H.esc(head.sha)} · 待推送 unpushed: ${H.esc(head.ahead)}</span></h2>
             <div class="tablewrap"><table class="ltable"><thead><tr><th>commit</th><th>${H.L('内容', 'Subject')}</th><th>${H.L('操作人', 'By')}</th><th>${H.L('时间', 'When')}</th></tr></thead>
@@ -136,8 +136,8 @@ router.get('/audit', function (req, res) {
         title: '操作日志', titleEn: 'Audit log',
         actions: `<a class="btn-primary" href="${req.baseUrl}/audit/export.csv${exportQuery ? '?' + H.esc(exportQuery) : ''}"><i data-lucide="download"></i>${H.L('导出 CSV', 'Export CSV')}</a>`,
         body: `<div class="hintbox">${H.L(
-            '记录时间按赞比亚时间显示。日志只追加、不提供删除入口，可用于追踪登录、内容发布、账号和安全操作。',
-            'Times are shown in Zambia time. Logs are append-only with no delete control, covering sign-ins, publishing, account and security actions.')}</div>
+            '在这里查看谁在什么时候做了什么。时间按赞比亚时间显示，日志不能删除。',
+            'See who did what and when. Times use Zambia time, and log entries cannot be deleted.')}</div>
         <div class="audit-stats" aria-label="Audit log summary">
             <div class="audit-stat"><span>${H.L('匹配记录', 'Matching entries')}</span><strong>${H.esc(result.total)}</strong></div>
             <div class="audit-stat"><span>${H.L('涉及用户', 'Users')}</span><strong>${H.esc(result.stats.users)}</strong></div>
@@ -202,7 +202,7 @@ router.get('/media', function (req, res) {
         base: req.baseUrl, active: 'media', user: req.adminUser,
         title: '图片库', titleEn: 'Media library',
         actions: `<label class="btn-primary upl"><input type="file" id="media-upload" accept="image/*" multiple hidden data-folder="${H.esc(folder || 'misc')}">+ ${H.L('上传图片', 'Upload')}</label>`,
-        body: `<div class="hintbox">${H.L('上传自动压缩为最长边 1600px 的 JPG。被内容引用的图片无法删除。当前上传目录:' + (folder || 'misc'), 'Uploads are recompressed to ≤1600px JPG. Images referenced by content cannot be deleted. Current upload folder: ' + (folder || 'misc'))}</div>
+        body: `<div class="hintbox">${H.L('图片会自动压缩为 JPG。正在使用的图片不能删除。当前目录：' + (folder || 'misc'), 'Images are compressed to JPG automatically. Images in use cannot be deleted. Current folder: ' + (folder || 'misc'))}</div>
         <div class="tabs">${tabs}</div>
         <div class="mgrid" id="media-grid">${grid || '<div class="empty">空 empty</div>'}</div>`
     }));
@@ -234,8 +234,8 @@ router.get('/history', async function (req, res) {
     res.send(H.layout({
         base: req.baseUrl, active: 'history', user: req.adminUser,
         title: '发布历史', titleEn: 'Publish history',
-        body: `<div class="hintbox">${H.L('每次保存都是一个版本。点击 ⟲ 可把单个数据文件恢复到那个版本的内容(恢复本身也会成为一条新记录,不会丢失任何历史)。',
-            'Every save is a version. Click ⟲ to restore a single data file to that commit — the restore is itself a new commit, so nothing is ever lost.')}</div>
+        body: `<div class="hintbox">${H.L('每次保存都会留下一个版本。点 ⟲ 可以恢复单个文件，恢复操作也会留在历史里。',
+            'Every save creates a version. Use ⟲ to restore one file; the restore is also kept in history.')}</div>
         <div class="tablewrap"><table class="ltable" id="history-table"><thead>
         <tr><th>commit</th><th>${H.L('内容', 'Subject')}</th><th>${H.L('操作人', 'By')}</th><th>${H.L('时间', 'When')}</th><th>${H.L('恢复文件', 'Restore file')}</th></tr>
         </thead><tbody>${rows || '<tr><td colspan="5">—</td></tr>'}</tbody></table></div>`
@@ -252,8 +252,8 @@ router.get('/settings', function (req, res) {
     res.send(H.layout({
         base: req.baseUrl, active: 'settings', user: req.adminUser,
         title: '站点设置', titleEn: 'Site settings',
-        body: `<div class="hintbox">${H.L('这些设置保存后写入 settings.js 并立即对全站生效:WhatsApp 悬浮按钮号码、统计代码、页脚社媒图标(留空的图标不显示)。',
-            'Saved values are written to settings.js and apply sitewide immediately: WhatsApp FAB number, analytics IDs, footer social icons (empty = hidden).')}</div>
+        body: `<div class="hintbox">${H.L('这里的修改保存后会立即生效。社交媒体链接留空时，对应图标不会显示。',
+            'Changes here take effect immediately. Leave a social link empty to hide its icon.')}</div>
         <form id="settings-form" class="cform" data-base-sha="${H.esc(sha)}">
         <div class="fgrid">
         ${inp('whatsapp', 'WhatsApp 号码', 'WhatsApp number', s.whatsapp, '含国家码纯数字,如 260964813736 — digits only, with country code')}
@@ -352,8 +352,8 @@ router.get('/leads', function (req, res) {
         base: req.baseUrl, active: 'leads', user: req.adminUser,
         title: '咨询线索', titleEn: 'Leads',
         body: `<div class="hintbox">${H.L(
-            '网站联系表单的提交都会进入这里。这些数据只保存在服务器本地,不进 git、不公开。点邮箱直接回复,或用 WhatsApp 跟进。',
-            'Contact-form submissions land here. They are stored only on the server — never committed to git, never public. Click an email to reply, or follow up on WhatsApp.')}</div>
+            '网站上的咨询都会出现在这里。点邮箱直接回复，也可以用 WhatsApp 联系。',
+            'Website enquiries appear here. Reply by email or follow up on WhatsApp.')}</div>
         <div class="tablewrap"><table class="ltable" id="leads-table">
         <thead><tr><th>${H.L('时间', 'When')}</th><th>${H.L('姓名', 'Name')}</th><th>${H.L('联系方式', 'Contact')}</th><th>${H.L('意向', 'Interest')}</th><th>${H.L('留言', 'Message')}</th><th class="ops-col">${H.L('操作', 'Actions')}</th></tr></thead>
         <tbody>${rows || `<tr><td colspan="6"><div class="empty">${H.L('暂无线索', 'No leads yet')}</div></td></tr>`}</tbody>

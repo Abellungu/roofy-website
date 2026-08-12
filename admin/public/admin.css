@@ -42,11 +42,13 @@ button { font: inherit; cursor: pointer; }
 .le { margin-left: 6px; font-size: 11px; color: var(--mut); font-weight: 400; }
 
 /* ── boxes ── */
-.hintbox { background: #fffbeb; border: 1px solid #fde68a; color: #78350f; border-radius: 10px; padding: 12px 16px; margin-bottom: 18px; line-height: 1.7; font-size: 13px; }
-.hintbox .le { color: #a16207; display: block; margin: 2px 0 0; }
+.hintbox { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--amber); color: var(--ink-3); border-radius: 8px; padding: 10px 13px; margin-bottom: 16px; line-height: 1.65; font-size: 13px; }
+.hintbox .le { color: var(--mut); display: block; margin: 1px 0 0; }
 .notice { margin: 16px 28px 0; }
 .errbox { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 8px; padding: 10px 14px; margin: 10px 0; line-height: 1.7; font-size: 13px; }
 .warnbox { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 8px 12px; margin-top: 8px; line-height: 1.6; font-size: 12.5px; }
+.system-status { margin: 0 0 16px; }
+.system-status > div + div { margin-top: 4px; }
 .okmsg { color: var(--ok); font-weight: 600; }
 .empty { text-align: center; color: var(--mut); padding: 40px 0; }
 

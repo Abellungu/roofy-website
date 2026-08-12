@@ -33,15 +33,25 @@ router.get('/news-drafts', function (req, res) {
     const aiOn = summarizer.enabled();
     const bakeOn = prerender.available();
 
+    const setupIssues = [];
+    if (!fetchOn) setupIssues.push(L(
+        '新闻抓取暂不可用，请联系管理员检查新闻服务。',
+        'News fetching is unavailable. Ask an administrator to check the news service.'
+    ));
+    if (!aiOn) setupIssues.push(L(
+        '双语摘要暂不可用，请联系管理员检查摘要服务。',
+        'Bilingual summaries are unavailable. Ask an administrator to check the summary service.'
+    ));
+    if (!bakeOn) setupIssues.push(L(
+        '发布后页面暂时不会自动更新，请联系管理员检查发布服务。',
+        'Pages will not refresh automatically after publishing. Ask an administrator to check the publishing service.'
+    ));
     const status =
-        `<div class="hintbox">` +
-        L('自动抓取的新闻先进入这里,审核通过后才会发布到网站。我们只做<strong>原创双语摘要 + 标注来源 + 跳转原文</strong>,绝不照搬原文与配图。',
-          'Auto-fetched news lands here first; nothing goes live until you approve it. We publish an <strong>original bilingual summary + source attribution + link-out</strong> only — never the source\'s text or images.') +
-        `<div style="margin-top:8px;font-size:12px;opacity:.85">` +
-        L('新闻源', 'News source') + ': ' + (fetchOn ? '✅ ' + esc(fetcher.PROVIDER) : '⚠️ ' + L('未配置 NEWS_API_KEY', 'NEWS_API_KEY not set')) + ' · ' +
-        L('AI 改写', 'AI summary') + ': ' + (aiOn ? '✅ ' + esc(summarizer.MODEL) : '⚠️ ' + L('未配置 ANTHROPIC_API_KEY', 'ANTHROPIC_API_KEY not set')) + ' · ' +
-        L('发布后自动重建静态页', 'Auto re-bake on publish') + ': ' + (bakeOn ? '✅' : '⚠️ ' + L('repo 根目录需 npm install (jsdom)', 'needs npm install at repo root')) +
-        `</div></div>`;
+        `<div class="hintbox">${L(
+            '新抓到的新闻会先放在这里。先看一遍，按需要修改，确认没问题再发布。',
+            'New stories wait here for review. Read them through, make any edits, then publish when they are ready.'
+        )}</div>` +
+        (setupIssues.length ? `<div class="warnbox system-status">${setupIssues.map(function (item) { return `<div>${item}</div>`; }).join('')}</div>` : '');
 
     const notice = req.query.msg ? `<div class="notice">${esc(req.query.msg)}</div>` : '';
 
