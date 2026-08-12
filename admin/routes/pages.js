@@ -6,7 +6,7 @@ const gitops = require('../lib/gitops');
 const uploads = require('../lib/uploads');
 const auth = require('../lib/auth');
 const leads = require('../lib/leads');
-const { audit, tail } = require('../lib/audit');
+const { audit, tail, query: queryAudit, formatLocal } = require('../lib/audit');
 const H = require('../lib/html');
 
 const router = express.Router();
@@ -33,7 +33,7 @@ router.get('/', async function (req, res) {
     }).join('');
 
     const audits = tail(6).map(function (a) {
-        return `<tr><td>${H.esc(a.at.replace('T', ' ').slice(0, 16))}</td><td>${H.esc(a.user)}</td><td>${H.esc(a.action)}</td><td>${H.esc(a.detail)}</td></tr>`;
+        return `<tr><td>${H.esc(formatLocal(a.at).slice(0, 16))}</td><td>${H.esc(a.user)}</td><td>${H.esc(a.action)}</td><td>${H.esc(a.detail)}</td></tr>`;
     }).join('');
 
     res.send(H.layout({
@@ -47,10 +47,137 @@ router.get('/', async function (req, res) {
         <div class="panel"><h2>${H.L('最近发布', 'Recent publishes')} <span class="mono dim">HEAD ${H.esc(head.sha)} · 待推送 unpushed: ${H.esc(head.ahead)}</span></h2>
             <div class="tablewrap"><table class="ltable"><thead><tr><th>commit</th><th>${H.L('内容', 'Subject')}</th><th>${H.L('操作人', 'By')}</th><th>${H.L('时间', 'When')}</th></tr></thead>
             <tbody>${commitRows || '<tr><td colspan="4">—</td></tr>'}</tbody></table></div></div>
-        <div class="panel"><h2>${H.L('操作日志', 'Audit log')}</h2>
+        <div class="panel"><h2>${H.L('操作日志', 'Audit log')} <a class="btn-sm" href="${req.baseUrl}/audit">${H.L('查看全部', 'View all')}</a></h2>
             <div class="tablewrap"><table class="ltable"><thead><tr><th>${H.L('时间', 'When')}</th><th>${H.L('用户', 'User')}</th><th>${H.L('动作', 'Action')}</th><th>${H.L('详情', 'Detail')}</th></tr></thead>
             <tbody>${audits || '<tr><td colspan="4">—</td></tr>'}</tbody></table></div></div>`
     }));
+});
+
+/* ── audit log ── */
+const AUDIT_LABELS = {
+    login: ['登录成功', 'Signed in'],
+    'login-fail': ['登录失败', 'Sign-in failed'],
+    'login-locked': ['登录锁定', 'Sign-in locked'],
+    logout: ['退出登录', 'Signed out'],
+    save: ['保存内容', 'Content saved'],
+    delete: ['删除内容', 'Content deleted'],
+    reorder: ['调整排序', 'Content reordered'],
+    upload: ['上传图片', 'Image uploaded'],
+    'media-delete': ['删除图片', 'Image deleted'],
+    restore: ['恢复版本', 'Version restored'],
+    settings: ['更新设置', 'Settings updated'],
+    'username-change': ['修改用户名', 'Username changed'],
+    'username-change-fail': ['用户名修改失败', 'Username change failed'],
+    'password-change': ['修改密码', 'Password changed'],
+    'password-change-fail': ['密码修改失败', 'Password change failed'],
+    'user-create': ['创建账号', 'User created'],
+    'lead-delete': ['删除线索', 'Lead deleted'],
+    lead: ['收到线索', 'Lead received'],
+    'news-draft-save': ['保存新闻草稿', 'News draft saved'],
+    'news-draft-reject': ['拒绝新闻草稿', 'News draft rejected'],
+    'news-draft-publish': ['发布新闻草稿', 'News draft published'],
+    'news-fetch': ['抓取新闻', 'News fetched'],
+    'audit-export': ['导出日志', 'Audit log exported']
+};
+
+function auditLabel(action) {
+    const labels = AUDIT_LABELS[action];
+    return labels ? H.L(labels[0], labels[1]) : H.esc(action);
+}
+
+function auditTone(action) {
+    if (/fail|locked|delete|reject/.test(action)) return ' danger';
+    if (/login$|save|upload|restore|publish|create|change$/.test(action)) return ' success';
+    return '';
+}
+
+function auditParams(filters, page) {
+    const params = new URLSearchParams();
+    ['user', 'action', 'q', 'from', 'to'].forEach(function (key) {
+        if (filters[key]) params.set(key, filters[key]);
+    });
+    if (page && page > 1) params.set('page', String(page));
+    return params.toString();
+}
+
+function auditOption(value, current, label) {
+    return `<option value="${H.esc(value)}"${value === current ? ' selected' : ''}>${H.esc(label || value)}</option>`;
+}
+
+router.get('/audit', function (req, res) {
+    const result = queryAudit(req.query, { perPage: 50 });
+    const f = result.filters;
+    const userOptions = result.users.map(function (user) { return auditOption(user, f.user); }).join('');
+    const actionOptions = result.actions.map(function (action) {
+        const labels = AUDIT_LABELS[action];
+        return auditOption(action, f.action, labels ? `${labels[0]} / ${labels[1]}` : action);
+    }).join('');
+    const rows = result.entries.map(function (row) {
+        return `<tr>
+            <td data-label="时间 When"><time class="mono nowrap audit-time" datetime="${H.esc(row.at)}">${H.esc(formatLocal(row.at))}</time></td>
+            <td data-label="用户 User"><span class="audit-user">${H.esc(row.user)}</span></td>
+            <td data-label="动作 Action"><span class="audit-action${auditTone(row.action)}">${auditLabel(row.action)}</span></td>
+            <td data-label="详情 Detail" class="audit-detail">${H.esc(row.detail) || '<span class="dim">—</span>'}</td>
+        </tr>`;
+    }).join('');
+    const exportQuery = auditParams(f);
+    const pageHref = function (page) {
+        const q = auditParams(f, page);
+        return `${req.baseUrl}/audit${q ? '?' + q : ''}`;
+    };
+    const pager = result.pages > 1 ? `<nav class="pager" aria-label="Audit log pagination">
+        ${result.page > 1 ? `<a class="btn-ghost" href="${H.esc(pageHref(result.page - 1))}">${H.L('上一页', 'Previous')}</a>` : '<span></span>'}
+        <span class="pager-status">${H.esc(result.page)} / ${H.esc(result.pages)}</span>
+        ${result.page < result.pages ? `<a class="btn-ghost" href="${H.esc(pageHref(result.page + 1))}">${H.L('下一页', 'Next')}</a>` : '<span></span>'}
+    </nav>` : '';
+
+    res.send(H.layout({
+        base: req.baseUrl, active: 'audit', user: req.adminUser,
+        title: '操作日志', titleEn: 'Audit log',
+        actions: `<a class="btn-primary" href="${req.baseUrl}/audit/export.csv${exportQuery ? '?' + H.esc(exportQuery) : ''}"><i data-lucide="download"></i>${H.L('导出 CSV', 'Export CSV')}</a>`,
+        body: `<div class="hintbox">${H.L(
+            '记录时间按赞比亚时间显示。日志只追加、不提供删除入口，可用于追踪登录、内容发布、账号和安全操作。',
+            'Times are shown in Zambia time. Logs are append-only with no delete control, covering sign-ins, publishing, account and security actions.')}</div>
+        <div class="audit-stats" aria-label="Audit log summary">
+            <div class="audit-stat"><span>${H.L('匹配记录', 'Matching entries')}</span><strong>${H.esc(result.total)}</strong></div>
+            <div class="audit-stat"><span>${H.L('涉及用户', 'Users')}</span><strong>${H.esc(result.stats.users)}</strong></div>
+            <div class="audit-stat"><span>${H.L('今日记录', 'Today')}</span><strong>${H.esc(result.stats.today)}</strong></div>
+            <div class="audit-stat"><span>${H.L('安全告警', 'Security alerts')}</span><strong>${H.esc(result.stats.security)}</strong></div>
+        </div>
+        <form class="audit-filter" method="get" action="${req.baseUrl}/audit">
+            <div class="field"><label class="flabel" for="audit-user">${H.L('用户', 'User')}</label><select class="inp" id="audit-user" name="user"><option value="">全部 All</option>${userOptions}</select></div>
+            <div class="field"><label class="flabel" for="audit-action">${H.L('动作', 'Action')}</label><select class="inp" id="audit-action" name="action"><option value="">全部 All</option>${actionOptions}</select></div>
+            <div class="field audit-query"><label class="flabel" for="audit-q">${H.L('关键词', 'Keyword')}</label><input class="inp" id="audit-q" name="q" value="${H.esc(f.q)}" maxlength="120" placeholder="用户、动作或详情 User, action or detail"></div>
+            <div class="field"><label class="flabel" for="audit-from">${H.L('开始日期', 'From')}</label><input class="inp" id="audit-from" type="date" name="from" value="${H.esc(f.from)}"></div>
+            <div class="field"><label class="flabel" for="audit-to">${H.L('结束日期', 'To')}</label><input class="inp" id="audit-to" type="date" name="to" value="${H.esc(f.to)}"></div>
+            <div class="audit-filter-actions"><button class="btn-primary" type="submit"><i data-lucide="search"></i>${H.L('筛选', 'Filter')}</button><a class="btn-ghost" href="${req.baseUrl}/audit">${H.L('重置', 'Reset')}</a></div>
+        </form>
+        <div class="audit-result-head"><span>${H.L('共 ' + result.total + ' 条', result.total + ' entries')}</span><span>${H.L('每页 50 条', '50 per page')}</span></div>
+        <div class="tablewrap"><table class="ltable audit-table"><thead><tr>
+            <th>${H.L('时间', 'When')}</th><th>${H.L('用户', 'User')}</th><th>${H.L('动作', 'Action')}</th><th>${H.L('详情', 'Detail')}</th>
+        </tr></thead><tbody>${rows || `<tr><td class="audit-empty" colspan="4"><div class="empty">${H.L('没有符合条件的日志，请调整筛选条件。', 'No matching logs. Try changing the filters.')}</div></td></tr>`}</tbody></table></div>
+        ${pager}`
+    }));
+});
+
+function csvCell(value) {
+    let text = String(value == null ? '' : value).replace(/[\r\n]+/g, ' ');
+    if (/^[=+\-@]/.test(text)) text = "'" + text;
+    return '"' + text.replace(/"/g, '""') + '"';
+}
+
+router.get('/audit/export.csv', function (req, res) {
+    const result = queryAudit(req.query, { all: true, limit: 10000 });
+    const lines = [['Time Zambia', 'User', 'Action', 'Detail'].map(csvCell).join(',')].concat(result.entries.map(function (row) {
+        return [formatLocal(row.at), row.user, row.action, row.detail].map(csvCell).join(',');
+    }));
+    audit(req.adminUser.username, 'audit-export', `rows=${result.entries.length}${result.truncated ? ' limited' : ''}`);
+    res.set({
+        'Content-Type': 'text/csv; charset=utf-8',
+        'Content-Disposition': `attachment; filename="roofy-audit-${new Date().toISOString().slice(0, 10)}.csv"`,
+        'Cache-Control': 'no-store'
+    });
+    res.send('\uFEFF' + lines.join('\r\n') + '\r\n');
 });
 
 /* ── media library ── */
@@ -167,6 +294,7 @@ router.post('/api/account/username', function (req, res) {
     const oldUsername = req.adminUser.username;
     const result = auth.changeUsername(oldUsername, req.body && req.body.newUsername, String((req.body && req.body.password) || ''));
     if (!result.ok) {
+        audit(oldUsername, 'username-change-fail', `${result.error} ${req.ip}`);
         const errors = {
             invalid: '用户名格式不正确 — use 2–24 lowercase letters, numbers, underscores or hyphens',
             password: '当前密码不正确 — current password incorrect',
@@ -180,10 +308,20 @@ router.post('/api/account/username', function (req, res) {
 
 router.post('/api/account/password', function (req, res) {
     const { oldPw, newPw, newPw2 } = req.body || {};
-    if (!newPw || newPw !== newPw2) return res.json({ ok: false, errors: ['两次输入的新密码不一致 — new passwords do not match'] });
-    if (String(newPw).length < 10) return res.json({ ok: false, errors: ['新密码至少 10 位 — at least 10 characters'] });
+    if (!newPw || newPw !== newPw2) {
+        audit(req.adminUser.username, 'password-change-fail', `mismatch ${req.ip}`);
+        return res.json({ ok: false, errors: ['两次输入的新密码不一致 — new passwords do not match'] });
+    }
+    if (String(newPw).length < 10) {
+        audit(req.adminUser.username, 'password-change-fail', `too-short ${req.ip}`);
+        return res.json({ ok: false, errors: ['新密码至少 10 位 — at least 10 characters'] });
+    }
     const ok = auth.changePassword(req.adminUser.username, String(oldPw || ''), String(newPw));
-    if (!ok) return res.json({ ok: false, errors: ['当前密码不正确 — current password incorrect'] });
+    if (!ok) {
+        audit(req.adminUser.username, 'password-change-fail', `current-password ${req.ip}`);
+        return res.json({ ok: false, errors: ['当前密码不正确 — current password incorrect'] });
+    }
+    audit(req.adminUser.username, 'password-change', req.ip);
     res.json({ ok: true });
 });
 

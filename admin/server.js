@@ -83,9 +83,15 @@ ${req.query.e === 'bad' ? '<div class="errbox">用户名或密码错误 — wron
 router.post('/login', function (req, res) {
     const ip = req.ip;
     const { username, password } = req.body || {};
-    if (auth.isLocked(ip, username)) return res.redirect(BASE + '/login?e=locked');
+    if (auth.isLocked(ip, username)) {
+        audit(username, 'login-locked', ip);
+        return res.redirect(BASE + '/login?e=locked');
+    }
     const r = auth.attemptLogin(ip, String(username || ''), String(password || ''));
-    if (r.locked) return res.redirect(BASE + '/login?e=locked');
+    if (r.locked) {
+        audit(username, 'login-locked', ip);
+        return res.redirect(BASE + '/login?e=locked');
+    }
     if (!r.ok) { audit(username, 'login-fail', ip); return res.redirect(BASE + '/login?e=bad'); }
     audit(username, 'login', ip);
     res.cookie(auth.COOKIE, r.token, {
@@ -96,6 +102,7 @@ router.post('/login', function (req, res) {
 
 router.post('/logout', auth.requireAuth, function (req, res) {
     const token = auth.parseCookies(req)[auth.COOKIE];
+    audit(req.adminUser.username, 'logout', req.ip);
     if (token) require('./lib/auth').destroySession(token);
     res.clearCookie(auth.COOKIE, { path: BASE });
     res.redirect(BASE + '/login');

@@ -30,6 +30,7 @@ Sign in with your own account. Change your username and password under "账号 A
 | 业务文案 Pillars | 三大业务板块的对外文案 Public copy for the three pillars |
 | 法律文本 Legal | 隐私 / Cookie / 条款,改动前建议咨询律师 Edit with care; lawyer review recommended |
 | 图片库 Media | 全站图片。上传自动压缩;被引用的图片删不掉 Uploads auto-compress; referenced images cannot be deleted |
+| 操作日志 Audit log | 查询登录、发布、删除、账号和安全操作，可按用户、动作、关键词和日期筛选并导出 CSV Search sign-ins, publishing, deletion, account and security actions; filter and export CSV |
 | 站点设置 Settings | WhatsApp 号码、GA4 / Pixel 统计 ID、页脚社媒链接 WhatsApp number, analytics IDs, footer social links |
 
 ## 品牌红线 · Brand rules

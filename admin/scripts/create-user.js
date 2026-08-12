@@ -3,6 +3,7 @@
  * Prints a generated strong password once. */
 const crypto = require('crypto');
 const auth = require('../lib/auth');
+const { audit } = require('../lib/audit');
 
 const [, , username, ...nameParts] = process.argv;
 if (!username || !/^[a-z0-9_-]{2,24}$/.test(username)) {
@@ -15,6 +16,7 @@ let password = '';
 for (const b of crypto.randomBytes(16)) password += alphabet[b % alphabet.length];
 
 auth.upsertUser(username, password, display);
+audit(process.env.ROOFY_ADMIN_ACTOR || 'system', 'user-create', username);
 console.log('user    :', username);
 console.log('name    :', display);
 console.log('password:', password);

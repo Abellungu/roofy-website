@@ -37,6 +37,7 @@ function layout(opts) {
         ['c/legal', '法律文本', 'Legal', 'scale'],
         ['media', '图片库', 'Media', 'image'],
         ['history', '发布历史', 'History', 'history'],
+        ['audit', '操作日志', 'Audit log', 'scroll-text'],
         ['settings', '站点设置', 'Settings', 'settings'],
         ['account', '账号', 'Account', 'key-round']
     ];
