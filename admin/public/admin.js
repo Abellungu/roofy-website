@@ -426,6 +426,21 @@
             });
         });
     }
+    function initUsernameForm(form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var data = {};
+            form.querySelectorAll('input[name]').forEach(function (i) { data[i.name] = i.value; });
+            var msg = document.getElementById('username-savemsg');
+            post('/api/account/username', data).then(function (d) {
+                if (d.ok) {
+                    toast(d.unchanged ? '用户名未改变 username unchanged' : '用户名已更新 username updated');
+                    form.querySelector('input[name=password]').value = '';
+                    msg.innerHTML = '<span class="okmsg">✓ ' + esc(d.username) + '</span>';
+                } else showResult(d, msg);
+            });
+        });
+    }
     function initMediaPage() {
         var up = document.getElementById('media-upload');
         if (up) up.addEventListener('change', function () {
@@ -495,6 +510,8 @@
         if (sf) initSettingsForm(sf);
         var pf = document.getElementById('password-form');
         if (pf) initPasswordForm(pf);
+        var uf = document.getElementById('username-form');
+        if (uf) initUsernameForm(uf);
         initMediaPage();
         initHistoryPage();
         initLeadsPage();

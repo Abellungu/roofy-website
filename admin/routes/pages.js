@@ -147,14 +147,35 @@ router.get('/account', function (req, res) {
     res.send(H.layout({
         base: req.baseUrl, active: 'account', user: req.adminUser,
         title: '账号', titleEn: 'Account',
-        body: `<div class="panel"><h2>${H.L('修改密码', 'Change password')}</h2>
+        body: `<div class="panel"><h2>${H.L('修改用户名', 'Change username')}</h2>
+        <form id="username-form" class="cform narrow">
+        <div class="field full"><label class="flabel" for="account-username">${H.L('新用户名', 'New username')}</label><input id="account-username" class="inp" name="newUsername" value="${H.esc(req.adminUser.username)}" autocomplete="username" pattern="[a-z0-9_-]{2,24}" minlength="2" maxlength="24" required><div class="fieldhelp">${H.L('使用 2 至 24 位小写英文字母、数字、下划线或连字符。', 'Use 2–24 lowercase letters, numbers, underscores or hyphens.')}</div></div>
+        <div class="field full"><label class="flabel" for="username-password">${H.L('当前密码', 'Current password')}</label><input id="username-password" class="inp" type="password" name="password" autocomplete="current-password" required></div>
+        <div class="formbar"><button type="submit" class="btn-primary">${H.L('更新用户名', 'Update username')}</button><span class="savemsg" id="username-savemsg" role="status" aria-live="polite"></span></div>
+        </form></div>
+        <div class="panel"><h2>${H.L('修改密码', 'Change password')}</h2>
         <form id="password-form" class="cform narrow">
-        <div class="field full"><label class="flabel">${H.L('当前密码', 'Current password')}</label><input class="inp" type="password" name="oldPw" autocomplete="current-password"></div>
-        <div class="field full"><label class="flabel">${H.L('新密码(至少 10 位)', 'New password (min 10 chars)')}</label><input class="inp" type="password" name="newPw" autocomplete="new-password"></div>
-        <div class="field full"><label class="flabel">${H.L('重复新密码', 'Repeat new password')}</label><input class="inp" type="password" name="newPw2" autocomplete="new-password"></div>
-        <div class="formbar"><button type="submit" class="btn-primary">${H.L('更新密码', 'Update password')}</button><span class="savemsg" id="savemsg"></span></div>
+        <div class="field full"><label class="flabel" for="current-password">${H.L('当前密码', 'Current password')}</label><input id="current-password" class="inp" type="password" name="oldPw" autocomplete="current-password" required></div>
+        <div class="field full"><label class="flabel" for="new-password">${H.L('新密码(至少 10 位)', 'New password (min 10 chars)')}</label><input id="new-password" class="inp" type="password" name="newPw" autocomplete="new-password" minlength="10" required></div>
+        <div class="field full"><label class="flabel" for="repeat-password">${H.L('重复新密码', 'Repeat new password')}</label><input id="repeat-password" class="inp" type="password" name="newPw2" autocomplete="new-password" minlength="10" required></div>
+        <div class="formbar"><button type="submit" class="btn-primary">${H.L('更新密码', 'Update password')}</button><span class="savemsg" id="savemsg" role="status" aria-live="polite"></span></div>
         </form></div>`
     }));
+});
+
+router.post('/api/account/username', function (req, res) {
+    const oldUsername = req.adminUser.username;
+    const result = auth.changeUsername(oldUsername, req.body && req.body.newUsername, String((req.body && req.body.password) || ''));
+    if (!result.ok) {
+        const errors = {
+            invalid: '用户名格式不正确 — use 2–24 lowercase letters, numbers, underscores or hyphens',
+            password: '当前密码不正确 — current password incorrect',
+            taken: '该用户名已被使用 — username already taken'
+        };
+        return res.json({ ok: false, errors: [errors[result.error] || '更新失败 — update failed'] });
+    }
+    if (!result.unchanged) audit(result.username, 'username-change', oldUsername + ' -> ' + result.username);
+    res.json({ ok: true, username: result.username, unchanged: !!result.unchanged });
 });
 
 router.post('/api/account/password', function (req, res) {

@@ -2,8 +2,8 @@
 
 后台地址 Admin URL: **https://roofyinvestments.com/admin/**
 
-用自己的账号登录。首次登录后请立刻在「账号 Account」页修改密码。
-Sign in with your own account. Change your password under "账号 Account" right after the first login.
+用自己的账号登录。首次登录后请立刻在「账号 Account」页修改用户名和密码。
+Sign in with your own account. Change your username and password under "账号 Account" right after the first login.
 
 ---
 

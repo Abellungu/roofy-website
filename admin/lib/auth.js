@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const DATA = path.join(__dirname, '..', 'data');
+const DATA = process.env.ROOFY_ADMIN_DATA_DIR || path.join(__dirname, '..', 'data');
 const USERS = path.join(DATA, 'users.json');
 const SESSIONS = path.join(DATA, 'sessions.json');
 
@@ -117,6 +117,35 @@ function changePassword(username, oldPw, newPw) {
     return true;
 }
 
+function changeUsername(username, newUsername, password) {
+    const next = String(newUsername || '').trim().toLowerCase();
+    if (!/^[a-z0-9_-]{2,24}$/.test(next)) return { ok: false, error: 'invalid' };
+
+    const users = getUsers();
+    const rec = users[username];
+    if (!rec || !verifyPassword(password, rec)) return { ok: false, error: 'password' };
+    if (next === username) return { ok: true, username: next, unchanged: true };
+    if (users[next]) return { ok: false, error: 'taken' };
+
+    users[next] = Object.assign({}, rec, { updatedAt: new Date().toISOString() });
+    delete users[username];
+    writeJson(USERS, users);
+
+    /* Keep every active session usable after the rename. This also prevents
+     * stale sessions from resolving to a deleted username. */
+    const sessions = loadSessions();
+    let changed = false;
+    Object.keys(sessions).forEach(function (token) {
+        if (sessions[token].user === username) {
+            sessions[token].user = next;
+            changed = true;
+        }
+    });
+    if (changed) saveSessions(sessions);
+
+    return { ok: true, username: next };
+}
+
 /* ── express middleware ── */
 const COOKIE = 'roofy_admin';
 
@@ -143,5 +172,5 @@ function requireAuth(req, res, next) {
 
 module.exports = {
     COOKIE, hashPassword, upsertUser, getUsers, attemptLogin, destroySession,
-    changePassword, requireAuth, parseCookies, isLocked
+    changePassword, changeUsername, requireAuth, parseCookies, isLocked
 };
